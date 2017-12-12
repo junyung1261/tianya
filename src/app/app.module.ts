@@ -15,6 +15,15 @@ import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 
+
+//***********  Angularfire2 v4 **************/
+
+import { AngularFireModule } from 'angularfire2';
+// New imports to update based on AngularFire2 version 4
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -36,6 +45,17 @@ export function provideSettings(storage: Storage) {
   });
 }
 
+//********** firebase configuration  ************ */
+export const config = { 
+     apiKey: "AIzaSyAh0d1N0lsLt0avjs7T0Qe8LTzzDqf5NWo",
+    authDomain: "tianya-c6a7e.firebaseapp.com",
+    databaseURL: "https://tianya-c6a7e.firebaseio.com",
+    projectId: "tianya-c6a7e",
+    storageBucket: "tianya-c6a7e.appspot.com",
+    messagingSenderId: "117613190951"
+  
+};
+
 @NgModule({
   declarations: [
     MyApp
@@ -51,7 +71,10 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -66,7 +89,8 @@ export function provideSettings(storage: Storage) {
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    AngularFireDatabase
   ]
 })
 export class AppModule { }

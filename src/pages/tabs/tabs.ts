@@ -32,7 +32,7 @@ export class TabsPage {
       this.tab2Title = values['TAB2_TITLE'];
       this.tab3Title = values['TAB3_TITLE'];
       this.tab4Title = values['TAB4_TITLE'];
-      this.tab4Title = values['TAB5_TITLE'];
+      this.tab5Title = values['TAB5_TITLE'];
     });
   }
 }

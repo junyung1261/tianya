@@ -1,3 +1,127 @@
 page-myinfo {
 
+
+  
+    .content{
+        background-color: #eee;
+   }
+
+   .content .profile-info {
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    height: 180px;
+    width: 100%;
+    
+    display: flex;
+    display: -webkit-flex;
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+  
+    margin-bottom: 20px;
+    -webkit-box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.75);
+  }
+   .content .header-image {
+    border-style: none;
+    background-color: white;
+    height: 180px;
+}
+ 
+.content .main-content {
+    width: 100%;
+    padding: 0px;
+    background-color: white;
+}
+
+
+   .scroll-content{
+    margin-top:px !important;
+    padding-top: 0px;
+  }
+ion-navbar{
+ height: 0;
+}
+ion-toolbar{
+ height:0px;
+}
+scroll-content {
+   padding-top: $toolbar-ios-height + 20px; // extra padding for the ios statusbar
+   padding-bottom: $toolbar-ios-height; // Padding for the Tabbbar (only needed if tabbar is used)
+ }
+
+ .toolbar-title {
+     color:#FFFFFF;
+ }
+
+
+ ion-navbar{
+   transition: all .5s;
+   .back-button,.bar-button{
+     //text-shadow: 0 0 5px #000000;
+     color: #fff;
+   }
+ }
+ .header-md::after{
+   background-image: none;
+ }
+
+
+
+ .show-background{
+   border-style: none;
+   background : color($colors, lightblue)
+ }
+
+ .transition{
+   transition: background-size 0.3s ease-in;
+ }
+
+   
+   .padding-title{
+   padding-left: 10px;
+   }
+   .info{
+
+       padding: 10px 20px 20px 10px;
+   }
+
+   .follow-button {
+    background: #fff; 
+    border: 1px solid color($colors, blue2); 
+    color:  color($colors, blue2);
+    font-size: 13px; 
+    border-radius: 3px;
+    padding: 5px;
+    font-weight: bold;
+    width: 90%;
+    margin-right: 30px;
+  }
+    .follow-button-active {
+    background:color($colors, blue2); 
+    border: 1px solid color($colors, blue2); 
+    color:  color($colors, white);
+    font-size: 13px; 
+    border-radius: 3px;
+    padding: 5px;
+    font-weight: bold;
+    width: 90%;
+    margin-right: 30px;
+  }
+
+  .avatar {
+    border-radius: 100%;
+    position: absolute;
+  }
+  ion-avatar {      
+    color:#fff;
+  }
+  ion-avatar img {
+    max-width: 70px;
+    max-height: 70px;
+    border-radius: 50%;
+    // border: 1px solid #ccc;
+  }   
+
+  
+
 }

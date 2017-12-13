@@ -24,6 +24,7 @@ export class SocialPage {
 
   
   this.feedsRef = afDB.list('/feed');
+  
   this.feeds = this.feedsRef.snapshotChanges().map(changes => {
     return changes.map(change => ({
       key: change.payload.key, 

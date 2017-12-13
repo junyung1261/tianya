@@ -1,0 +1,48 @@
+.android-example .top {
+  background-color: #fff;
+}
+
+.android-example .button-balanced,
+.android-example .android-example-header {
+  background-color: rgb(104, 159, 56);
+}
+
+.android-example .button-balanced.button-outline,
+.android-example .button-balanced {
+  border-color: rgb(104, 159, 56);
+}
+
+.android-example .button-balanced.button-outline {
+  color: rgb(104, 159, 56);
+}
+
+.android-example .cover-img {
+  background-repeat: no-repeat;
+  background-size: cover !important;
+  height: 180px;
+  width: 100%;
+}
+
+.android-example .logo-img {
+  height: 80px;
+  width: 80px;
+}
+
+.android-example p.tagline {
+  width: 100%;
+  text-align: center;
+  color: #333;
+}
+
+.android-example p.whatsnew {
+  background-color: rgba(104, 159, 56, 0.2);
+  color: rgba(104, 159, 56, 1);
+  padding: 10px 14px;
+  font-size: 12px;
+}
+
+.android-example p.description {
+  padding: 10px;
+  font-size: 12px;
+  color: #333;
+}

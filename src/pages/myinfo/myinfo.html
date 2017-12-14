@@ -7,9 +7,11 @@
 <ion-header ion-cover-header="180">
 
     <ion-navbar>
-        <button ion-button menuToggle >
-          <ion-icon name="menu"></ion-icon>
-        </button>
+        <ion-buttons end>
+            <button ion-button icon-only>
+              <ion-icon name="cog"></ion-icon>
+            </button>
+        </ion-buttons>
          <ion-title color="black">Fading</ion-title>
     
     </ion-navbar>
@@ -21,12 +23,12 @@
 
 </ion-header>
 
-
-<ion-content  class="content" elastic-header>
+<!--parallax-header-->
+<ion-content  class="content" >
    
   
-  <div class="background-image" >
-    <ion-row padding style="padding-top: 40px">
+  <div class="background-image">
+    <ion-row padding style="padding-top: 40px"> 
       <ion-col col-3>
         <!--<img src="{{(profile | async)?.imgProfile}}" class="avatar" alt="">-->
            <ion-avatar class="avatar">

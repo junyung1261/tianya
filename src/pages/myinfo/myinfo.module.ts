@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { MyinfoPage } from './myinfo';
-import { ElasticHeaderModule } from '../../components/elastic-header/elastic-header.module';
+import { ParallaxHeaderModule } from '../../components/parallax-header/parallax-header.module';
 import { IonCoverHeaderModule } from '../../components/ion-cover-header/ion-cover-header.module';
 
 
@@ -11,8 +11,8 @@ import { IonCoverHeaderModule } from '../../components/ion-cover-header/ion-cove
   ],
   imports: [
     IonicPageModule.forChild(MyinfoPage),
-    ElasticHeaderModule,
-    IonCoverHeaderModule,
+    ParallaxHeaderModule,
+    IonCoverHeaderModule
     
   ],
 })

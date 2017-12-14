@@ -1,7 +1,16 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content"  type="overlay">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Pages</ion-title>
+          
+        
+
+        <ion-buttons left>
+            <button ion-button  icon-only menuClose>
+              <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+
+        <ion-searchbar placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar>
       </ion-toolbar>
     </ion-header>
 

@@ -9,6 +9,7 @@ import { NavController,ViewController } from 'ionic-angular';
 })
 export class ShrinkHeader {
     @Input() headerToHide:string;   
+   
   
     header: any;
     headerStart:any;

@@ -10,137 +10,376 @@
         <button ion-button menuToggle >
           <ion-icon name="menu"></ion-icon>
         </button>
-         <ion-title color="light">Fading</ion-title>
+         <ion-title color="black">Fading</ion-title>
     
     </ion-navbar>
 
-    <shrink-segment-header [scrollArea]="myContent" headerHeight="180">
-        <ion-row padding>
-            <ion-col col-3>
-              <!--<img src="{{(profile | async)?.imgProfile}}" class="avatar" alt="">-->
-                 <ion-avatar class="avatar">
-                      <img src="{{(profile | async)?.imgProfile}}" class="avatar"/>  
-                  </ion-avatar>    
-            </ion-col>
-            <ion-col col-3 text-center>
-              <h5>21</h5>
-              <p no-padding no-margin>posts</p>
-            </ion-col>
-            <ion-col col-3 text-center>
-              <h5>114</h5>
-              <p no-paddin no-margin>followers</p>
-            </ion-col>
-            <ion-col col-3 text-center>
-              <h5>119</h5>
-              <p no-paddin no-margin>following</p>
-            </ion-col>
-          </ion-row>
-        
-          <ion-row no-padding no-margin>
-            <ion-col no-padding no-margin col-4></ion-col>
-            <ion-col no-padding no-margin text-center col-8>
-              <!--<button class="follow-button" icon-left (click)="goEditProfile()">Follow</button>-->
-              <button ion-button class="follow-button" *ngIf="!following"  block  (click)="follow()">Follow</button>
-              <button ion-button class="follow-button-active" icon-left *ngIf="following"  block  (click)="follow()">
-                <ion-icon name="checkmark"></ion-icon>
-                Following
-              </button>
-            </ion-col>
-            <ion-col col-3></ion-col>
-          </ion-row>
-    </shrink-segment-header>
-
+    
   
-    <!--***********  Segement tab ***********-->
-    <ion-toolbar color="light" mode="md">
-        <ion-segment mode="md" [(ngModel)]="segmentView" color="dark">
-            <ion-segment-button value="one">
-              <ion-icon name="ios-apps"></ion-icon>
-            </ion-segment-button>
-            <ion-segment-button value="two">
-              <ion-icon name="md-list" md="md-glasses"></ion-icon>
-            </ion-segment-button>
-            <ion-segment-button value="three">
-              <ion-icon name="ios-bookmark" md="md-at"></ion-icon>
-            </ion-segment-button>
-          </ion-segment>
-    </ion-toolbar>
+   
    
 
 </ion-header>
 
 
-<ion-content fullscreen class="content" #myContent>
+<ion-content  class="content" elastic-header>
    
   
-    <div class="header-image">
-      
-    </div>
+  <div class="background-image" >
+    <ion-row padding style="padding-top: 40px">
+      <ion-col col-3>
+        <!--<img src="{{(profile | async)?.imgProfile}}" class="avatar" alt="">-->
+           <ion-avatar class="avatar">
+                <img src="{{(profile | async)?.imgProfile}}" class="avatar"/>  
+            </ion-avatar>    
+      </ion-col>
+      <ion-col col-3 text-center>
+        <h5>21</h5>
+        <p no-padding no-margin>posts</p>
+      </ion-col>
+      <ion-col col-3 text-center>
+        <h5>114</h5>
+        <p no-paddin no-margin>followers</p>
+      </ion-col>
+      <ion-col col-3 text-center>
+        <h5>119</h5>
+        <p no-paddin no-margin>following</p>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row no-padding no-margin>
+      <ion-col no-padding no-margin col-4></ion-col>
+      <ion-col no-padding no-margin text-center col-8>
+        <!--<button class="follow-button" icon-left (click)="goEditProfile()">Follow</button>-->
+        <button ion-button class="follow-button" *ngIf="!following"  block  (click)="follow()">Follow</button>
+        <button ion-button class="follow-button-active" icon-left *ngIf="following"  block  (click)="follow()">
+          <ion-icon name="checkmark"></ion-icon>
+          Following
+        </button>
+      </ion-col>
+      <ion-col col-3></ion-col>
+    </ion-row>
+  </div>
  
         
     
       <div class="main-content">
       
      
+         <!--***********  Segement tab ***********-->
+    <ion-toolbar color="light" mode="md">
+      <ion-segment mode="md" [(ngModel)]="segmentView" color="dark">
+          <ion-segment-button value="one">
+            <ion-icon name="ios-apps"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="two">
+            <ion-icon name="md-list" md="md-glasses"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="three">
+            <ion-icon name="ios-bookmark" md="md-at"></ion-icon>
+          </ion-segment-button>
+        </ion-segment>
+  </ion-toolbar>
     
 
   <!--***********  Segement one ***********-->
   <div [ngSwitch]="segmentView">
-  <ion-grid  *ngSwitchCase="'one'">
-    <ion-row wrap color="gray">
-      <ion-col col-4 *ngFor="let image of imgGalleryArray  ,let i = index  ">
-        <img src={{image.url}} />
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  
+    <ion-card  *ngSwitchCase="'one'">
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="assets/img/facebook_profile_picture.jpg">
+        </ion-avatar>
+        <h2>Rosie Ochoa</h2>
+        <p>August 25, 2016</p>
+      </ion-item>
+      <img src="http://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png">
+      <ion-card-content>
+        <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button primary clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button primary clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            11h ago
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-card *ngSwitchCase="'one'">
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="assets/img/facebook_profile_picture.jpg">
+        </ion-avatar>
+        <h2>Rosie Ochoa</h2>
+        <p>August 25, 2016</p>
+      </ion-item>
+      <img src="http://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png">
+      <ion-card-content>
+        <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button primary clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button primary clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            11h ago
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-card *ngSwitchCase="'one'">
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="assets/img/facebook_profile_picture.jpg">
+        </ion-avatar>
+        <h2>Rosie Ochoa</h2>
+        <p>August 25, 2016</p>
+      </ion-item>
+      <img src="http://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png">
+      <ion-card-content>
+        <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>
+      </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button primary clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button primary clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            11h ago
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
 
   <!--***********    Segement two  ***********-->
   
-    <ion-list no-lines  *ngSwitchCase="'two'">
-      <ion-list-header>
-        <h2>Friend</h2>
-      </ion-list-header>
-      <ion-item *ngFor="let friend of friends | async" >
-        <ion-avatar item-left>
-          <img [src]="friend.profileImg">
-        </ion-avatar>
-        <h2>{{friend.name}}</h2>
-      </ion-item>
-    </ion-list>
+  <ion-card  *ngSwitchCase="'two'">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/facebook_profile_picture.jpg">
+      </ion-avatar>
+      <h2>Rosie Ochoa</h2>
+      <p>August 25, 2016</p>
+    </ion-item>
+    <img src="http://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png">
+    <ion-card-content>
+      <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button primary clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button primary clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card *ngSwitchCase="'two'">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/facebook_profile_picture.jpg">
+      </ion-avatar>
+      <h2>Rosie Ochoa</h2>
+      <p>August 25, 2016</p>
+    </ion-item>
+    <img src="http://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png">
+    <ion-card-content>
+      <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button primary clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button primary clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card *ngSwitchCase="'two'">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/facebook_profile_picture.jpg">
+      </ion-avatar>
+      <h2>Rosie Ochoa</h2>
+      <p>August 25, 2016</p>
+    </ion-item>
+    <img src="http://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png">
+    <ion-card-content>
+      <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button primary clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button primary clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
   
 
   <!--***********  Segment three  ***********-->
   
-    <ion-list no-lines  *ngSwitchCase="'three'">
-      <ion-list-header>
-        <h2>Contact</h2>
-      </ion-list-header>
-      <ion-item>
-        <ion-icon name="ios-mail" item-left></ion-icon>
-        <h2>ceo@cemo.com</h2>
-        <p>work email</p>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="ios-call" item-left></ion-icon>
-        <h2>009923124322</h2>
-        <p>mobile phone</p>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="logo-linkedin" item-left></ion-icon>
-        <h2>linkedin.com/cemo</h2>
-        <p>linked in </p>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="logo-facebook" item-left></ion-icon>
-        <h2>facebook.com/cemo</h2>
-        <p>facebook</p>
-      </ion-item>
-      <ion-item>
-        <ion-icon name="logo-skype" item-left></ion-icon>
-        <h2>cemo@outlook.com</h2>
-        <p>skype</p>
-      </ion-item>
-    </ion-list>
+  <ion-card  *ngSwitchCase="'three'">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/facebook_profile_picture.jpg">
+      </ion-avatar>
+      <h2>Rosie Ochoa</h2>
+      <p>August 25, 2016</p>
+    </ion-item>
+    <img src="http://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png">
+    <ion-card-content>
+      <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button primary clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button primary clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card *ngSwitchCase="'three'">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/facebook_profile_picture.jpg">
+      </ion-avatar>
+      <h2>Rosie Ochoa</h2>
+      <p>August 25, 2016</p>
+    </ion-item>
+    <img src="http://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png">
+    <ion-card-content>
+      <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button primary clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button primary clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card *ngSwitchCase="'three'">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="assets/img/facebook_profile_picture.jpg">
+      </ion-avatar>
+      <h2>Rosie Ochoa</h2>
+      <p>August 25, 2016</p>
+    </ion-item>
+    <img src="http://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png">
+    <ion-card-content>
+      <p>I face the unknown future, with a sense of hope. Because if a machine, a Terminator, can learn the value of human life, maybe we can too.</p>
+    </ion-card-content>
+    <ion-row>
+      <ion-col>
+        <button ion-button primary clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>12 Likes</div>
+      </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button primary clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>4 Comments</div>
+      </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          11h ago
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
  
 </div>
 </div>

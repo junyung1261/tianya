@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { MyinfoPage } from './myinfo';
-import { ParallaxHeaderModule } from '../../components/parallax-header/parallax-header.module';
+import { ElasticHeaderModule } from '../../components/elastic-header/elastic-header.module';
 import { IonCoverHeaderModule } from '../../components/ion-cover-header/ion-cover-header.module';
-import { ShrinkSegmentHeaderModule } from '../../components/shrink-segment-header/shrink-segment-header.module';
+
 
 @NgModule({
   declarations: [
@@ -11,9 +11,9 @@ import { ShrinkSegmentHeaderModule } from '../../components/shrink-segment-heade
   ],
   imports: [
     IonicPageModule.forChild(MyinfoPage),
-    ParallaxHeaderModule,
+    ElasticHeaderModule,
     IonCoverHeaderModule,
-    ShrinkSegmentHeaderModule
+    
   ],
 })
 export class MyinfoPageModule {}

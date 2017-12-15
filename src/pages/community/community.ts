@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AngularFireDatabase} from 'angularfire2/database';
 
 /**
  * Generated class for the CommunityPage page.
@@ -17,7 +18,7 @@ export class CommunityPage {
 
   category: any[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public afDB: AngularFireDatabase) {
 
     this.category = [{
       "description" : "#실시간이슈 #할인 #맛집",

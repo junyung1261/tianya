@@ -9,7 +9,8 @@ page-social {
       background-size: cover !important;
       background-position: center !important;
     }
-  
+    
+   
     .content{
       background-color: #ddd;
     }
@@ -22,8 +23,11 @@ page-social {
       background: color($colors, primary);
     }
     ion-card{
+      
       margin: 0px 0px 15px 0px !important;
       width: 100% !important;
+
+     
     }
     .fit-screen{
       max-width:100%;

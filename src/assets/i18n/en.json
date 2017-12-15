@@ -68,5 +68,26 @@
   "SEARCH_TITLE": "Search",
   "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\"",
 
-  "COMMUNITY_TITLE": "Communtiy"
+  "COMMUNITY_TITLE": "Communtiy",
+
+
+  "CATEGORY_INFO": "Info",
+  "CATEGORY_TRAVEL": "Travel",
+  "CATEGORY_LIFE": "Life",
+  "CATEGORY_TRADE": "Trade",
+
+  "INFO_ISSUE": "Issue",
+  "INFO_COUPON": "Coupon",
+  "INFO_FOOD": "Food",
+  "LIFE_STUDY": "Study",
+  "LIFE_CONSULTING": "Consulting",
+  "LIFE_USED": "Used",
+  "LIFE_JOB": "Job",
+  "LIFE_ESTATE": "Estate",
+  "TRADE_FRIENDS": "Friends",
+  "TRADE_PET": "Pet",
+  "TRADE_CLUB": "Club",
+  "TRAVEL_STORY": "Story",
+  "TRAVEL_BEAUTY": "Beauty"
+
 }

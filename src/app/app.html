@@ -1,4 +1,4 @@
-<ion-menu [content]="content"  type="overlay">
+<ion-menu [content]="content" [swipeEnabled]="false" >
     <ion-header>
       <ion-toolbar>
           
@@ -9,17 +9,35 @@
               <ion-icon name="arrow-back"></ion-icon>
             </button>
         </ion-buttons>
+        
 
-        <ion-searchbar placeholder="Filter Items" (ionInput)="filterItems($event)"></ion-searchbar>
+        <ion-searchbar placeholder="Filter Items" (ionInput)="getItems($event)"></ion-searchbar>
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
+      
+       
       <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
-        </button>
+        
+                  
+        <ion-item-group *ngFor="let c of typeList">
+          
+          <ion-item-divider  color="light">{{ c | translate }} </ion-item-divider>
+            <ion-row >
+              <ion-col menuClose col-6 ion-item *ngFor=" let p of pages " [hidden]="p.type != c"  (click)="openPage(p.name)">
+                  <!--<ion-icon name="leaf" item-start></ion-icon>-->
+                {{p.name | translate}}
+              </ion-col>
+            </ion-row>
+        </ion-item-group>
+     
+      
+
       </ion-list>
+
+      
+      
     </ion-content>
 
   </ion-menu>

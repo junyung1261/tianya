@@ -10,16 +10,20 @@
         <ion-icon name="menu"></ion-icon>
       </button>
       <ion-title>{{ 'COMMUNITY_TITLE' | translate }}</ion-title>
-      
+      <ion-buttons end>
+          <button ion-button icon-only>
+              <ion-icon name="notifications"></ion-icon>
+            </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content>
 
-<ion-card tappable class="card-list fadein-down" *ngFor="let category of category" (click)="openList(category.$key)">
+<ion-card tappable class="card-list fadein-down" *ngFor="let category of category" (click)="openPromotion(category.name)">
       <div class="card-list-bg" [ngStyle]="{'background-image': 'url(' + category.imgBg+ ')'}">
-        <h2 class="card-list-title"> {{category.name}}</h2> 
+        <h2 class="card-list-title"> {{ category.name  | translate }}</h2> 
         <p class="card-list-description"> {{category.description}}</p>            
       </div>
 </ion-card>

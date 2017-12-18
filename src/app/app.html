@@ -26,7 +26,7 @@
           <ion-item-divider  color="light">{{ c | translate }} </ion-item-divider>
             <ion-row >
               <ion-col menuClose col-6 ion-item *ngFor=" let p of pages " [hidden]="p.type != c"  (click)="openPage(p.name)">
-                  <!--<ion-icon name="leaf" item-start></ion-icon>-->
+                <ion-icon name="leaf" item-start ></ion-icon>
                 {{p.name | translate}}
               </ion-col>
             </ion-row>

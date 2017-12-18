@@ -21,4 +21,19 @@
 //hide scrollbar
 ::-webkit-scrollbar{ display:none; }
 
-
+.toolbar {
+    &.toolbar-md { //material design only
+        &.home-nav {
+            position: relative;
+            .title-md { //material design only
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                text-align: center;
+                z-index: -1;
+            }
+        }
+    }
+}

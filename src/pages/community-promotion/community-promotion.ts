@@ -26,9 +26,13 @@ export class CommunityPromotionPage {
               public afDB: AngularFireDatabase) {
     
     
-     this.categoryName =  this.navParams.get('categoryName');
+    this.categoryName =  this.navParams.get('categoryName');
      
-    
+    this.afDB.list('/category', ref => ref.orderByChild('type').equalTo(this.categoryName)).valueChanges().subscribe(categoryItems => {
+      this.categories = categoryItems;
+      
+      
+  });
       
   }
 
@@ -37,7 +41,13 @@ export class CommunityPromotionPage {
     console.log('ionViewDidLoad CommunityPromotionPage');
   }
 
-  test(){
-    console.log("tt");
+  openList(categoryName) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    console.log(categoryName);
+    this.navCtrl.push('CommunityListPage',{'categoryName': categoryName}); 
+    
   }
+
+  
 }

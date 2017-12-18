@@ -44,7 +44,6 @@ export class MyApp {
     this.afDB.list('/category', ref => ref.orderByChild('type')).valueChanges().subscribe(categoryItems => {
       this.pages = categoryItems;
       this.loadedCommunityList = categoryItems;
-      console.log(this.pages);
       
   });
   
@@ -62,9 +61,9 @@ export class MyApp {
       this.translate.use('en'); // Set your language here
     }
 
-    this.translate.get(['BACK_BUTTON_TEXT']).subscribe(values => {
-      this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
-    });
+    
+      this.config.set('ios', 'backButtonText', '');
+    
   }
 
   openPage(categoryName) {

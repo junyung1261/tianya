@@ -39,33 +39,35 @@
       </ion-slides>
 
       <ion-list >
-          
-                    
+                     
           <ion-item-group >
-            
-            <ion-item-divider  color="light">{{ 'test' | translate }} </ion-item-divider>
-              <ion-row >
-                <ion-col col-12 menuClose ion-item   (click)="openPage(p.name)">
-                  <ion-icon name="leaf" item-start ></ion-icon>
-                  {{ 'ttt' | translate}}
-                </ion-col>
-                <ion-col col-12 menuClose ion-item   (click)="openPage(p.name)">
+              
+              <ion-item-divider  color="light">popular</ion-item-divider>
+                <ion-row >
+                  <ion-col class="board-list" col-12 ion-item   >
                     <ion-icon name="leaf" item-start ></ion-icon>
-                    {{ 'ttt' | translate}}
+                    
                   </ion-col>
+                </ion-row>
+            </ion-item-group>
+                    
+
+                    
+          <ion-item-group *ngFor="let category of categories">
+            
+            <ion-item-divider  color="light" (click)="openList(category.name)">{{ category.name | translate }}</ion-item-divider>
+              <ion-row >
+                <ion-col class="board-list" col-12 ion-item   >
+                  <ion-icon name="leaf" item-start ></ion-icon>
                   
-                  <ion-col col-12 menuClose ion-item   (click)="openPage(p.name)">
-                      <ion-icon name="leaf" item-start ></ion-icon>
-                      {{ 'ttt' | translate}}
-                    </ion-col>
-                    <ion-col col-12 menuClose ion-item   (click)="openPage(p.name)">
-                        <ion-icon name="leaf" item-start ></ion-icon>
-                        {{ 'ttt' | translate}}
-                      </ion-col>
+                </ion-col>
               </ion-row>
           </ion-item-group>
-       
-        
+           
+            
+      
+      
+          
   
         </ion-list>
   

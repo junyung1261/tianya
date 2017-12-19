@@ -9,5 +9,5 @@ export const MainPage = 'TabsPage';
 export const Tab1Root = 'HomePage';
 export const Tab2Root = 'CommunityPage';
 export const Tab3Root = 'SocialPage';
-export const Tab4Root = 'ChatPage';
+export const Tab4Root = 'ChatTabsPage';
 export const Tab5Root = 'MyinfoPage';

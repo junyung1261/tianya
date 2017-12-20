@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, MenuController } from 'ionic-angular';
 import { AngularFireDatabase} from 'angularfire2/database';
 
 /**
@@ -18,14 +18,15 @@ export class CommunityPage {
 
   category: any[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public afDB: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public afDB: AngularFireDatabase, public menu: MenuController) {
 
 
 
     this.afDB.list('/category_big', ref => ref).valueChanges().subscribe(categoryItems => {
       this.category = categoryItems;
     });
-    
+    menu.enable(true);
+
       
   }
 
@@ -36,7 +37,19 @@ export class CommunityPage {
   openPromotion(categoryName){
     console.log(categoryName);
     this.navCtrl.push('CommunityPromotionPage',{categoryName: categoryName}); 
-}
+  }
+
+  presentNoticeModal() {
+    let createModal = this.modalCtrl.create('NoticePage', { userId: 8675309 }, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out'
+    });
+    createModal.onDidDismiss(data => {
+      console.log(data);
+    });
+    createModal.present();
+  }
+
 }
 
 

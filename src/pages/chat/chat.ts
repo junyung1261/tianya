@@ -1,5 +1,5 @@
 import { Component, ViewChild  } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, ModalController  } from 'ionic-angular';
 
 
 /**
@@ -18,7 +18,7 @@ export class ChatPage {
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     
   }
 

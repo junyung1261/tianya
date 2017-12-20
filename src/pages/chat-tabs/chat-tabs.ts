@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 import { SuperTabsController} from 'ionic2-super-tabs';
 
@@ -19,13 +19,14 @@ import { SuperTabsController} from 'ionic2-super-tabs';
 export class ChatTabsPage {
 
 
-  page1: any = 'ChatPage';
-  page2: any = 'HomePage';
-  page3: any = 'HomePage';
+  pageIndex: any = 0;
+  page1: any = 'ChatMatchingPage';
+  page2: any = 'ChatFriendsPage';
+  page3: any = 'ChatListPage';
   page4: any = 'HomePage';
   page5: any = 'HomePage';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public superTabsCtrl: SuperTabsController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public superTabsCtrl: SuperTabsController, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -43,6 +44,20 @@ export class ChatTabsPage {
 
   
   onTabSelect(tab: { index: number; id: string; }) {
-    console.log(`Selected tab: `, tab);
+    this.pageIndex = tab.index;
+    
+  }
+
+  
+
+  presentModal(modalName) {
+    let createModal = this.modalCtrl.create(modalName, { userId: 8675309 }, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out'
+    });
+    createModal.onDidDismiss(data => {
+      //console.log(data);
+    });
+    createModal.present();
   }
 }

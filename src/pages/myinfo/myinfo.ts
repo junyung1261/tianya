@@ -1,5 +1,5 @@
-import { Component, ChangeDetectorRef, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { Component, ChangeDetectorRef } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList, AngularFireObject} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
@@ -36,8 +36,8 @@ export class MyinfoPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef,
-              public afDB: AngularFireDatabase, public toastCtrl: ToastController,
-              private el: ElementRef) {
+              public afDB: AngularFireDatabase, public toastCtrl: ToastController, public modalCtrl: ModalController
+             ) {
 
                 this.profile = afDB.object('/profile/1').valueChanges();
                 this.friends = afDB.list('/profile/1/friends').valueChanges();
@@ -67,6 +67,17 @@ export class MyinfoPage {
       duration: 1000
     });
     toast.present();
+  }
+
+  presentSettingModal() {
+    let createModal = this.modalCtrl.create('SettingPage', { userId: 8675309 }, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out'
+    });
+    createModal.onDidDismiss(data => {
+      //console.log(data);
+    });
+    createModal.present();
   }
 
   

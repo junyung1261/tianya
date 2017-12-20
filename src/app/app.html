@@ -1,9 +1,7 @@
-<ion-menu [content]="content" [swipeEnabled]="false" >
+<ion-menu [content]="content" [swipeEnabled]="false" side="left" id="menu1" >
     <ion-header>
       <ion-toolbar>
           
-        
-
         <ion-buttons left>
             <button ion-button  icon-only menuClose>
               <ion-icon name="arrow-back"></ion-icon>
@@ -41,5 +39,6 @@
     </ion-content>
 
   </ion-menu>
+
   
   <ion-nav #content [root]="rootPage"></ion-nav>

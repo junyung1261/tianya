@@ -28,8 +28,8 @@
       </ion-item>
       
           <ion-slides  pager zoom> 
-            <ion-slide *ngFor="let images of  feed.images | async " [ngStyle]="{'background' : 'url(' + images.url + ')'}">
-              
+            <ion-slide *ngFor="let images of  feed.images | async " >
+                <div class="swiper-zoom-container"><img src = "{{images.url}}"></div>
             </ion-slide>
             
           </ion-slides>

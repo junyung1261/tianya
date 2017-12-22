@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Config, Nav, Platform } from 'ionic-angular';
+import { Config, Nav, Platform, ModalController } from 'ionic-angular';
 
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
@@ -30,7 +30,7 @@ export class MyApp {
 
  
   constructor(private translate: TranslateService, platform: Platform, settings: Settings,
-              private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen,
+              private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private modalCtrl: ModalController,
               private afDB: AngularFireDatabase) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -66,11 +66,22 @@ export class MyApp {
     
   }
 
+
+  presentListModal(categoryName) {
+    let createModal = this.modalCtrl.create('CommunityListPage', {'categoryName': categoryName}, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out'
+    });
+    createModal.onDidDismiss(data => {
+      console.log(data);
+    });
+    createModal.present();
+  }
   openPage(categoryName) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     console.log(categoryName);
-    this.nav.push('CommunityListPage',{'categoryName': categoryName}); 
+    this.nav.setRoot('CommunityListPage',{'categoryName': categoryName}); 
     
   }
 

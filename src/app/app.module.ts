@@ -22,7 +22,7 @@ import { AngularFireModule } from 'angularfire2';
 // New imports to update based on AngularFire2 version 4
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
+import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -79,7 +79,8 @@ export const config = {
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    IonicImageViewerModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

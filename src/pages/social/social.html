@@ -27,9 +27,9 @@
         <p>November 5, 1955</p>
       </ion-item>
       
-          <ion-slides  pager zoom> 
+          <ion-slides  pager > 
             <ion-slide *ngFor="let images of  feed.images | async " >
-                <div class="swiper-zoom-container"><img src = "{{images.url}}"></div>
+              <img src ="{{images.url}}"   imageViewer="{{feed.images}}">
             </ion-slide>
             
           </ion-slides>

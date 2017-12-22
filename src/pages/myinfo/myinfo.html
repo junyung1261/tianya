@@ -53,8 +53,8 @@
       <ion-col no-padding no-margin col-4></ion-col>
       <ion-col no-padding no-margin text-center col-8>
         <!--<button class="follow-button" icon-left (click)="goEditProfile()">Follow</button>-->
-        <button ion-button class="follow-button" *ngIf="!following"  block  (click)="follow()">Follow</button>
-        <button ion-button class="follow-button-active" icon-left *ngIf="following"  block  (click)="follow()">
+        <button ion-button class="follow-button" *ngIf="!following"  block  (click)="presentModifyModal()">Follow</button>
+        <button ion-button class="follow-button-active" icon-left *ngIf="following"  block  (click)="presentModifyModal()">
           <ion-icon name="checkmark"></ion-icon>
           Following
         </button>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { AngularFireDatabase} from 'angularfire2/database';
 
 /**
@@ -18,14 +18,14 @@ export class CommunityPage {
 
   category: any[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public afDB: AngularFireDatabase, public menu: MenuController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public afDB: AngularFireDatabase) {
 
 
 
     this.afDB.list('/category_big', ref => ref).valueChanges().subscribe(categoryItems => {
       this.category = categoryItems;
     });
-    menu.enable(true);
+   
 
       
   }

@@ -20,20 +20,21 @@
   
     <ion-card  *ngFor="let feed of feeds  | async">
       <ion-item sticky>
-        <ion-avatar item-left>
+        <ion-avatar item-left  (click)="presentProfileModal()">
           <img [src]="feed.imgProfile">
         </ion-avatar>
         <h2>{{feed.name}}</h2>
         <p>November 5, 1955</p>
       </ion-item>
       
-          <ion-slides  pager>
+          <ion-slides  pager zoom> 
             <ion-slide *ngFor="let images of  feed.images | async " [ngStyle]="{'background' : 'url(' + images.url + ')'}">
+              
             </ion-slide>
             
           </ion-slides>
         
-      <ion-card-content>
+      <ion-card-content  (click)="presentDetailModal()">
         <ion-card-title>
           {{feed.title}}
         </ion-card-title>

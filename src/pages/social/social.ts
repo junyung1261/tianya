@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { IonicImageViewerModule } from 'ionic-img-viewer';
+
 /**
  * Generated class for the SocialPage page.
  *
@@ -18,6 +20,7 @@ export class SocialPage {
 
   feedsRef: AngularFireList<any>;
   feeds: Observable<any[]>;
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,
               public afDB: AngularFireDatabase) {
@@ -69,6 +72,17 @@ export class SocialPage {
 
   presentCreateModal() {
     let createModal = this.modalCtrl.create('SocialCreatePage', { userId: 8675309 }, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out'
+    });
+    createModal.onDidDismiss(data => {
+      console.log(data);
+    });
+    createModal.present();
+  }
+
+  presentDetailModal(categoryName) {
+    let createModal = this.modalCtrl.create('SocialDetailPage', {'categoryName': categoryName}, {
       enterAnimation: 'modal-slide-in',
       leaveAnimation: 'modal-slide-out'
     });

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar class="home-nav">
-    <ion-title (click)="test()">{{ categoryName | translate }}</ion-title>
+    <ion-title >{{ categoryName | translate }}</ion-title>
 
     <ion-buttons end>
         <button ion-button icon-only>
@@ -52,7 +52,7 @@
                     
           <ion-item-group *ngFor="let category of categories">
             
-            <ion-item-divider  color="light" (click)="openList(category.name)">{{ category.name | translate }}</ion-item-divider>
+            <ion-item-divider  color="light" (click)="presentListModal(category.name)">{{ category.name | translate }}</ion-item-divider>
               <ion-row >
                 <ion-col class="board-list" col-12 ion-item   >
                   <ion-icon name="leaf" item-start ></ion-icon>

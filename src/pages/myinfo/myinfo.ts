@@ -80,6 +80,17 @@ export class MyinfoPage {
     createModal.present();
   }
 
+  presentModifyModal() {
+    let createModal = this.modalCtrl.create('MyinfoModifyPage', { userId: 8675309 }, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out'
+    });
+    createModal.onDidDismiss(data => {
+      //console.log(data);
+    });
+    createModal.present();
+  }
+
   
 
 

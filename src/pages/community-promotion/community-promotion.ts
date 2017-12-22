@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, ModalController } from 'ionic-angular';
 import { AngularFireDatabase} from 'angularfire2/database';
 
 /**
@@ -22,7 +22,7 @@ export class CommunityPromotionPage {
   categoryName: any;
   categories: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,
               public afDB: AngularFireDatabase) {
     
     
@@ -47,6 +47,17 @@ export class CommunityPromotionPage {
     console.log(categoryName);
     this.navCtrl.push('CommunityListPage',{'categoryName': categoryName}); 
     
+  }
+
+  presentListModal(categoryName) {
+    let createModal = this.modalCtrl.create('CommunityListPage', {'categoryName': categoryName}, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out'
+    });
+    createModal.onDidDismiss(data => {
+      console.log(data);
+    });
+    createModal.present();
   }
 
   

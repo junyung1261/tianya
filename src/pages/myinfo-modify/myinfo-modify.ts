@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the CommunityWritePage page.
+ * Generated class for the MyinfoModifyPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-community-write',
-  templateUrl: 'community-write.html',
+  selector: 'page-myinfo-modify',
+  templateUrl: 'myinfo-modify.html',
 })
-export class CommunityWritePage {
+export class MyinfoModifyPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CommunityWritePage');
+    console.log('ionViewDidLoad MyinfoModifyPage');
   }
 
 }

@@ -2,6 +2,8 @@
 // http://ionicframework.com/docs/v2/theming/
 $font-path: "../assets/fonts";
 
+
+
 @import "ionic.globals";
 
 
@@ -213,3 +215,8 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Oxygen|Monoton);
+$font-family-base: "Oxygen"  !default;

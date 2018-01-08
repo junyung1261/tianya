@@ -87,4 +87,7 @@
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
+    <plugin name="cordova-plugin-ghyeok-kakaotalk" spec="^1.0.4">
+        <variable name="KAKAO_APP_KEY" value="c55fa15cdeea4f4fd566333d35ec08be" />
+    </plugin>
 </widget>

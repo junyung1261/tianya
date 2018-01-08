@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { MapOptions } from 'angular2-baidu-map';
 import { Geolocation } from '@ionic-native/geolocation';
-
+declare var KakaoTalk: any;
 /**
  * Generated class for the HomePage page.
  *
@@ -21,6 +21,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public geolocation: Geolocation) {
 
+
+    
     this.options = {
       centerAndZoom: {
         lat: 0,
@@ -55,7 +57,24 @@ export class HomePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
   }
+  
 
+  logins() {
+    if (typeof KakaoTalk !== 'undefined') {
+
+      KakaoTalk.login(
+        function (result) {
+          console.log('Successful login!');
+          console.log(result);
+        },
+        function (message) {
+          console.log('Error logging in');
+          console.log(message);
+        }
+      );
+    }
+
+  }
   initializeMap() {
  
     let locationOptions = {timeout: 10000, enableHighAccuracy: true};

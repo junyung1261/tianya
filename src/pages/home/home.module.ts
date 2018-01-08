@@ -12,6 +12,7 @@ import { BaiduMapModule } from 'angular2-baidu-map';
   imports: [
     IonicPageModule.forChild(HomePage),
     BaiduMapModule.forRoot({ak: 'your ak'})
-  ],
+  ]
+
 })
 export class HomePageModule {}

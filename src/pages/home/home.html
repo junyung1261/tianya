@@ -19,7 +19,11 @@
 
 
 <ion-content >
+
   <baidu-map [options]="options" style="display: block; width: 100%; height: 350px;">
     <marker *ngFor="let marker of markers" [point]="marker.point" [options]="marker.options" (clicked)="showWindow($event)"></marker>
   </baidu-map>
+  <button ion-button color="light" (click)="logins()">KAKAO LOGIN</button>
+
+
 </ion-content>

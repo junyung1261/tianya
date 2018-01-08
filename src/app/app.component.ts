@@ -8,13 +8,14 @@ import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
 import { AngularFireDatabase} from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage = FirstRunPage;
+  rootPage :any;
   loadedCommunityList:  any=[]; 
   typeList = ["CATEGORY_INFO",
     "CATEGORY_TRAVEL",
@@ -31,7 +32,7 @@ export class MyApp {
  
   constructor(private translate: TranslateService, platform: Platform, settings: Settings,
               private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private modalCtrl: ModalController,
-              private afDB: AngularFireDatabase) {
+              private afDB: AngularFireDatabase, private afAuth: AngularFireAuth) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -39,6 +40,35 @@ export class MyApp {
       this.splashScreen.hide();
     });
     this.initTranslate();
+
+    this.afAuth.authState.subscribe(user => {
+      if (!user) {
+        // you can modify here the page for non. auth users
+        this.nav.setRoot('LoginPage');
+      }
+      // page for auth. users
+      else {
+        if (true) {
+          if (user["emailVerified"]) {
+            //Goto Home Page.
+            
+              this.nav.setRoot('TabsPage', { animate: false });
+            
+            //Since we're using a TabsPage an NgZone is required.
+          } else {
+            //Goto Verification Page.
+            this.nav.setRoot('VerificationPage', { animate: false });
+          }
+        } else {
+          //Goto Home Page.
+          
+            this.nav.setRoot('TabsPage', { animate: false });
+          
+          //Since we're using a TabsPage an NgZone is required.
+        }
+      }
+      
+    });
     
 
     this.afDB.list('/category', ref => ref.orderByChild('type')).valueChanges().subscribe(categoryItems => {

@@ -1,39 +1,66 @@
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>{{ 'LOGIN_TITLE' | translate }}</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content>
-  <form (submit)="doLogin()">
-    <ion-list>
-
-      <ion-item>
-        <ion-label fixed>{{ 'EMAIL' | translate }}</ion-label>
-        <ion-input type="email" [(ngModel)]="account.email" name="email"></ion-input>
-      </ion-item>
-
-      <!--
-      Want to use a Username instead of an Email? Here you go:
-
-      <ion-item>
-        <ion-label floating>{{ 'USERNAME' | translate }}</ion-label>
-        <ion-input type="text" [(ngModel)]="account.username" name="username"></ion-input>
-      </ion-item>
-      -->
-
-      <ion-item>
-        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
-      </ion-item>
-
-      <div padding>
-        <button ion-button color="primary" block>{{ 'LOGIN_BUTTON' | translate }}</button>
+<ion-content class="no-scroll">
+    <div class="top">
+      <img src="assets/images/logo.png" />
+    </div>
+    <!-- Social Login Buttons -->
+    <div class="bottom">
+      <div class="buttons" *ngIf="mode == 'main'">
+        <div>
+         
+          <button ion-button icon-left class="dark" tappable (click)="clearForms(); mode = 'register'"><ion-icon name="md-mail-open"></ion-icon>Signup with Email</button>
+          <p tappable (click)="clearForms(); mode = 'login'">Have an account? <b>Log in</b></p>
+        </div>
       </div>
-
-    </ion-list>
-  </form>
-</ion-content>
+      <!-- Login Form -->
+      <div class="form" *ngIf="mode == 'login'">
+        <button class="clear" ion-button icon-only tappable (click)="mode = 'main'"><ion-icon name="md-close"></ion-icon></button>
+        <form [formGroup]="emailPasswordForm">
+          <ion-list>
+            <ion-item no-lines>
+              <ion-label>Email</ion-label>
+              <ion-input type="email" formControlName="email" placeholder="Your Email Address"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+              <ion-label>Password</ion-label>
+              <ion-input type="password" formControlName="password" placeholder="Your Password"></ion-input>
+            </ion-item>
+          </ion-list>
+          <button ion-button icon-left class="dark" tappable (click)="login()" [disabled]="!emailPasswordForm.valid"><ion-icon name="md-key"></ion-icon>Log in to FireLine</button>
+        </form>
+        <p tappable (click)="clearForms(); mode = 'forgotPassword'">Forgot your Password?</p>
+      </div>
+      <!-- Registration Form -->
+      <div class="form" *ngIf="mode == 'register'">
+        <button class="clear" ion-button icon-only tappable (click)="mode = 'main'"><ion-icon name="md-close"></ion-icon></button>
+        <form [formGroup]="emailPasswordForm">
+          <ion-list>
+            <ion-item no-lines>
+              <ion-label>Email</ion-label>
+              <ion-input type="email" formControlName="email" placeholder="Your Email Address"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+              <ion-label>Password</ion-label>
+              <ion-input type="password" formControlName="password" placeholder="Create Password"></ion-input>
+            </ion-item>
+          </ion-list>
+          <button ion-button icon-left class="dark" tappable (click)="register()" [disabled]="!emailPasswordForm.valid"><ion-icon name="md-log-in"></ion-icon>Join FireLine</button>
+        </form>
+        <p>By joining you agree to our <b>Terms</b> &amp; <b>Privacy Policy.</b></p>
+      </div>
+      <!-- Forgot Password Form -->
+      <div class="form" *ngIf="mode == 'forgotPassword'">
+        <button class="clear" ion-button icon-only tappable (click)="clearForms(); mode = 'login'"><ion-icon name="md-close"></ion-icon></button>
+        <form [formGroup]="emailForm">
+          <ion-list>
+            <ion-item no-lines>
+              <ion-label>Email</ion-label>
+              <ion-input type="email" formControlName="email" placeholder="Your Email Address"></ion-input>
+            </ion-item>
+          </ion-list>
+          <button ion-button icon-left class="dark" tappable (click)="forgotPassword()" [disabled]="!emailForm.valid"><ion-icon name="md-unlock"></ion-icon>Reset Password</button>
+        </form>
+        <p tappable (click)="clearForms(); mode = 'login'">Password found? <b>Log in</b></p>
+      </div>
+    </div>
+  </ion-content>
+  

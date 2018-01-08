@@ -1,8 +1,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ModalController, AlertController, App } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList, AngularFireObject} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
-
 /**
  * Generated class for the MyinfoPage page.
  *
@@ -36,7 +35,8 @@ export class MyinfoPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public ref: ChangeDetectorRef,
-              public afDB: AngularFireDatabase, public toastCtrl: ToastController, public modalCtrl: ModalController
+              public afDB: AngularFireDatabase, public toastCtrl: ToastController, public modalCtrl: ModalController, 
+              public alertCtrl: AlertController          
              ) {
 
                 this.profile = afDB.object('/profile/1').valueChanges();
@@ -53,6 +53,7 @@ export class MyinfoPage {
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyinfoPage');
+   
   }
 
   follow() {
@@ -92,6 +93,5 @@ export class MyinfoPage {
   }
 
   
-
 
 }

@@ -18,7 +18,7 @@ declare var KakaoTalk: any;
 export class HomePage {
   options: MapOptions;
   markers: Array<{ point: any; options?: any }>
-
+  test: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public geolocation: Geolocation) {
 
 
@@ -65,6 +65,7 @@ export class HomePage {
       KakaoTalk.login(
         function (result) {
           console.log('Successful login!');
+          this.test = result;
           console.log(result);
         },
         function (message) {

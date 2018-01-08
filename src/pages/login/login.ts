@@ -63,8 +63,9 @@ export class LoginPage {
           console.log(message);
         }
       );
+      this.text = 'sex';
     }
-    this.text = 'sex';
+    
 
     
   }

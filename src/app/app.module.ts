@@ -26,7 +26,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 
 import { Geolocation } from '@ionic-native/geolocation';
-import {KakaoTalk} from 'ionic-plugin-kakaotalk';
+
 
 import { LoadingProvider } from '../providers/loading/loading';
 import { LoginProvider } from '../providers/auth/login';
@@ -108,7 +108,7 @@ export const config = {
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AngularFireDatabase,
-    KakaoTalk,
+   
 
     LoadingProvider,
     LoginProvider,

@@ -28,6 +28,11 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { Geolocation } from '@ionic-native/geolocation';
 import {KakaoTalk} from 'ionic-plugin-kakaotalk';
 
+import { LoadingProvider } from '../providers/loading/loading';
+import { LoginProvider } from '../providers/auth/login';
+import { LogoutProvider } from '../providers/auth/logout';
+import { AlertProvider } from '../providers/alert/alert';
+
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -103,8 +108,12 @@ export const config = {
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AngularFireDatabase,
-    KakaoTalk
-    
+    KakaoTalk,
+
+    LoadingProvider,
+    LoginProvider,
+    LogoutProvider,
+    AlertProvider
   ]
 })
 export class AppModule { }

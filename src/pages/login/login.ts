@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoginProvider } from '../../providers/auth/login';
 import { Validator } from '../../validator';
 
+declare var KakaoTalk: any; 
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -21,6 +23,7 @@ export class LoginPage {
   private mode: string;
   private emailPasswordForm: FormGroup;
   private emailForm: FormGroup;
+  public text: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loginProvider: LoginProvider,
               public formBuilder: FormBuilder) {
@@ -43,6 +46,24 @@ export class LoginPage {
 
   login() {
     this.loginProvider.emailLogin(this.emailPasswordForm.value["email"], this.emailPasswordForm.value["password"]);
+  }
+
+  loginKakao(){
+    if (typeof KakaoTalk !== 'undefined') {
+
+      KakaoTalk.login(
+        function (result) {
+          //this.loginProvider.kakaoLogin(result);
+          console.log('Successful login!');
+          this.text = result;
+          console.log(result);
+        },
+        function (message) {
+          console.log('Error logging in');
+          console.log(message);
+        }
+      );
+    }
   }
 
   // Call loginProvider and register the user with email and password.

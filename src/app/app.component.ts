@@ -59,13 +59,7 @@ export class MyApp {
             //Goto Verification Page.
             this.nav.setRoot('VerificationPage', { animate: false });
           }
-        } else {
-          //Goto Home Page.
-          
-            this.nav.setRoot('TabsPage', { animate: false });
-          
-          //Since we're using a TabsPage an NgZone is required.
-        }
+        } 
       }
       
     });

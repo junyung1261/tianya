@@ -72,7 +72,7 @@
         "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
       },
       "cordova-plugin-ghyeok-kakaotalk": {
-        "KAKAO_APP_KEY": "c55fa15cdeea4f4fd566333d35ec08be"
+        "KAKAO_APP_KEY": "396232a1a16fe6db064b323e8b68868c"
       }
     },
     "platforms": [

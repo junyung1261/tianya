@@ -24,6 +24,9 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 
+
+import { Geolocation } from '@ionic-native/geolocation';
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -93,10 +96,12 @@ export const config = {
     Camera,
     SplashScreen,
     StatusBar,
+    Geolocation,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    AngularFireDatabase
+    AngularFireDatabase,
+    
   ]
 })
 export class AppModule { }

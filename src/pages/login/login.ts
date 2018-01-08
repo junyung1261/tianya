@@ -64,6 +64,9 @@ export class LoginPage {
         }
       );
     }
+    this.text = 'sex';
+
+    
   }
 
   // Call loginProvider and register the user with email and password.

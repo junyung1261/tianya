@@ -50,6 +50,10 @@ export class LoginProvider {
       });
   }
 
+  kakaoLogin(result){
+    
+  }
+
   // Register user on Firebase given the email and password.
   register(email, password) {
     this.loadingProvider.show();

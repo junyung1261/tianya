@@ -26,7 +26,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 
 import { Geolocation } from '@ionic-native/geolocation';
-import {KakaoTalk} from 'ionic-plugin-kakaotalk';
+import { KakaoTalk } from 'ionic-plugin-kakaotalk';
 
 import { LoadingProvider } from '../providers/loading/loading';
 import { LoginProvider } from '../providers/auth/login';

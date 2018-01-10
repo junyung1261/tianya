@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams  } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoginProvider } from '../../providers/auth/login';
 import { Validator } from '../../validator';
 
-declare var KakaoTalk: any; 
 
 /**
  * Generated class for the LoginPage page.
@@ -48,29 +47,8 @@ export class LoginPage {
     this.loginProvider.emailLogin(this.emailPasswordForm.value["email"], this.emailPasswordForm.value["password"]);
   }
 
-  loginKakao(){
-    KakaoTalk.login(
-      function (result) {
-        console.log('Successful login!');
-        console.log(result);
-      },
-      function (message) {
-        console.log('Error logging in');
-        console.log(message);
-      }
-  );
-    
-  }
 
-  logoutKakao(){
-    KakaoTalk.logout(
-      function() {
-          console.log('Successful logout!');
-      }, function() {
-          console.log('Error logging out');
-      }
-  );
-  }
+
   // Call loginProvider and register the user with email and password.
   register() {
     this.loginProvider.register(this.emailPasswordForm.value["email"], this.emailPasswordForm.value["password"]);

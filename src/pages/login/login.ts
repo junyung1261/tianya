@@ -62,6 +62,15 @@ export class LoginPage {
     
   }
 
+  logoutKakao(){
+    KakaoTalk.logout(
+      function() {
+          console.log('Successful logout!');
+      }, function() {
+          console.log('Error logging out');
+      }
+  );
+  }
   // Call loginProvider and register the user with email and password.
   register() {
     this.loginProvider.register(this.emailPasswordForm.value["email"], this.emailPasswordForm.value["password"]);

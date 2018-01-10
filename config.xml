@@ -87,7 +87,11 @@
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
+<<<<<<< HEAD
     <plugin name="cordova-plugin-natura-kakaotalk" spec="^1.0.1">
         <variable name="KAKAO_APP_KEY" value="396232a1a16fe6db064b323e8b68868c" />
     </plugin>
+=======
+    <engine name="android" spec="~6.3.0" />
+>>>>>>> 83f5a33da1f68aa9f85578587bd3f03e74bad3bb
 </widget>

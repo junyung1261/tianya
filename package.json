@@ -38,14 +38,12 @@
     "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-inappbrowser": "^1.7.2",
     "cordova-plugin-ionic-webview": "^1.1.16",
-    "cordova-plugin-natura-kakaotalk": "^1.0.1",
     "cordova-plugin-splashscreen": "^4.0.3",
     "cordova-plugin-whitelist": "^1.3.1",
     "firebase": "^4.8.0",
     "ionic-angular": "3.9.2",
     "ionic-img-viewer": "^2.9.0",
     "ionic-plugin-keyboard": "^2.2.1",
-    "ionic-plugin-natura-kakaotalk": "^1.0.1",
     "ionic2-super-tabs": "4.1.4",
     "ionicons": "3.0.0",
     "promise-polyfill": "^6.1.0",
@@ -70,9 +68,6 @@
       "cordova-plugin-app-preferences": {},
       "cordova-plugin-geolocation": {
         "GEOLOCATION_USAGE_DESCRIPTION": "To locate you"
-      },
-      "cordova-plugin-natura-kakaotalk": {
-        "KAKAO_APP_KEY": "396232a1a16fe6db064b323e8b68868c"
       }
     },
     "platforms": [

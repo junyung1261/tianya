@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoginProvider } from '../../providers/auth/login';
 import { Validator } from '../../validator';
+import { RestProvider } from '../../providers/rest/rest';
 
 declare var KakaoTalk: any; 
 
@@ -25,7 +26,7 @@ export class LoginPage {
   private emailForm: FormGroup;
   public text: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loginProvider: LoginProvider,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loginProvider: LoginProvider, 
               public formBuilder: FormBuilder) {
 
     this.loginProvider.setNavController(this.navCtrl);
@@ -50,6 +51,7 @@ export class LoginPage {
 
   loginKakao(){
     KakaoTalk.login(
+      console.log('진입'),
       function (result) {
         console.log('Successful login!');
         console.log(result);

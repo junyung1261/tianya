@@ -35,6 +35,8 @@ import { AlertProvider } from '../providers/alert/alert';
 
 
 
+
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -91,7 +93,8 @@ export const config = {
     AngularFireModule.initializeApp(config),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    IonicImageViewerModule
+    IonicImageViewerModule,
+ 
   ],
   bootstrap: [IonicApp],
   entryComponents: [

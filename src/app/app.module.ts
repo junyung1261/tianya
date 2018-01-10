@@ -27,7 +27,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 
 import { Geolocation } from '@ionic-native/geolocation';
-import {KakaoTalk} from 'ionic-plugin-natura-kakaotalk';
+
 
 import { LoadingProvider } from '../providers/loading/loading';
 import { LoginProvider } from '../providers/auth/login';
@@ -95,11 +95,7 @@ export const config = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     IonicImageViewerModule,
-<<<<<<< HEAD
- 
-=======
-    HttpModule
->>>>>>> 83f5a33da1f68aa9f85578587bd3f03e74bad3bb
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -123,7 +119,7 @@ export const config = {
     LoginProvider,
     LogoutProvider,
     AlertProvider,
-    KakaoTalk
+ 
   ]
 })
 export class AppModule { }

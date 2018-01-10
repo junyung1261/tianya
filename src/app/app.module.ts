@@ -26,12 +26,13 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 
 import { Geolocation } from '@ionic-native/geolocation';
-import {KakaoTalk} from 'ionic-plugin-kakaotalk';
+import {KakaoTalk} from 'ionic-plugin-natura-kakaotalk';
 
 import { LoadingProvider } from '../providers/loading/loading';
 import { LoginProvider } from '../providers/auth/login';
 import { LogoutProvider } from '../providers/auth/logout';
 import { AlertProvider } from '../providers/alert/alert';
+
 
 
 // The translate loader needs to know where to load i18n files
@@ -113,7 +114,8 @@ export const config = {
     LoadingProvider,
     LoginProvider,
     LogoutProvider,
-    AlertProvider
+    AlertProvider,
+    KakaoTalk
   ]
 })
 export class AppModule { }

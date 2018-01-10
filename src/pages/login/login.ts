@@ -49,23 +49,16 @@ export class LoginPage {
   }
 
   loginKakao(){
-    if (typeof KakaoTalk !== 'undefined') {
-
-      KakaoTalk.login(
-        function (result) {
-          //this.loginProvider.kakaoLogin(result);
-          console.log('Successful login!');
-          this.text = result;
-          console.log(result);
-        },
-        function (message) {
-          console.log('Error logging in');
-          console.log(message);
-        }
-      );
-    }
-    this.text = 'sex';
-
+    KakaoTalk.login(
+      function (result) {
+        console.log('Successful login!');
+        console.log(result);
+      },
+      function (message) {
+        console.log('Error logging in');
+        console.log(message);
+      }
+  );
     
   }
 

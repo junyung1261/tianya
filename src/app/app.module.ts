@@ -109,7 +109,7 @@ export const config = {
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AngularFireDatabase,
-    KakaoTalk,
+   
 
     LoadingProvider,
     LoginProvider,

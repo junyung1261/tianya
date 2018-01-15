@@ -1,0 +1,48 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="white">
+    <ion-title>register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    
+        
+        <form [formGroup]="emailPasswordForm">
+          <ion-list>
+            <ion-item no-lines >
+              <ion-label>Email</ion-label>
+              <ion-input type="email" formControlName="email" placeholder="Your Email Address"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+              <ion-label>Password</ion-label>
+              <ion-input type="password" formControlName="password" placeholder="Create Password"></ion-input>
+            </ion-item>
+          </ion-list>
+          <button ion-button icon-left class="dark" tappable (click)="register()" [disabled]="!emailPasswordForm.valid"><ion-icon name="md-log-in"></ion-icon>Join FireLine</button>
+        </form>
+       
+      
+        <ion-item no-lines >
+            <ion-label><span class="red">이용약관</span>에 동의합니다.</ion-label>
+            <ion-checkbox color="backbutton" [(ngModel)]="dfdf"></ion-checkbox>
+           
+          </ion-item>
+          <ion-item no-lines>
+              <ion-label><span class="red">개인정보 취급방침</span>에 동의합니다.</ion-label>
+              <ion-checkbox color="backbutton" [(ngModel)]="pepperoni"></ion-checkbox>
+          </ion-item>
+         
+
+        <button ion-button round color="backbutton" class="register"style="color: white">동의하고 가입하기</button>
+
+</ion-content>

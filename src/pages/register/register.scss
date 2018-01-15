@@ -1,0 +1,49 @@
+page-register {
+
+    ion-label{
+        margin: 0;
+        font-size: 12px;
+        .red{
+            color: #ff5b57;
+        }
+        color: #151515;
+    }
+
+   
+    .label {
+        margin: 0;
+     }
+     
+     .item-inner {
+        padding-right: 0px!important;
+     }
+
+    .checkbox-md{
+        @extend.checkbox-ios;
+      }
+
+      .checkbox-icon {
+        background-image: url('../assets/img/check.jpg');
+        background-color: transparent;
+        background-size: cover;
+        border: none;
+        &.checkbox-checked {
+              background-image:url('../assets/img/checked.jpg'); 
+            }
+        .checkbox-inner {
+            border: none;
+
+        }
+  }
+    text-align: center;
+          
+    button.register {
+        
+        width: 88%;
+        text-shadow:none !important;
+        border:none !important;
+        box-shadow:none !important;
+       
+        
+      }
+}

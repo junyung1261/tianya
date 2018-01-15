@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams  } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoginProvider } from '../../providers/auth/login';
 import { Validator } from '../../validator';
-import { RestProvider } from '../../providers/rest/rest';
+
 
 
 /**
@@ -48,28 +48,11 @@ export class LoginPage {
     this.loginProvider.emailLogin(this.emailPasswordForm.value["email"], this.emailPasswordForm.value["password"]);
   }
 
-<<<<<<< HEAD
-  loginKakao(){
-    KakaoTalk.login(
-      console.log('진입'),
-      function (result) {
-        console.log('Successful login!');
-        console.log(result);
-      },
-      function (message) {
-        console.log('Error logging in');
-        console.log(message);
-      }
-  );
-    
-  }
-=======
->>>>>>> 83f5a33da1f68aa9f85578587bd3f03e74bad3bb
 
 
   // Call loginProvider and register the user with email and password.
   register() {
-    this.loginProvider.register(this.emailPasswordForm.value["email"], this.emailPasswordForm.value["password"]);
+    this.navCtrl.push('RegisterPage');
   }
 
   // Call loginProvider and send a password reset email.

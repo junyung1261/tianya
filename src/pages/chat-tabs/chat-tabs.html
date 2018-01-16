@@ -4,35 +4,6 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header no-shadow no-border>
-
-    <ion-navbar  class="home-nav">
-        <ion-title> chat</ion-title>
-    
-        <ion-buttons left>
-            <button ion-button icon-only (click)="presentModal('ChatProfilePage')" >
-              <ion-icon name="contact"></ion-icon>
-            </button>
-            
-        </ion-buttons>
-    
-        <ion-buttons end [ngSwitch]="pageIndex">
-            <button ion-button icon-only *ngSwitchCase="0" (click)="presentModal('ChatSettingPage')">
-              <ion-icon name="options"></ion-icon>
-            </button>
-
-            <button ion-button icon-only *ngSwitchCase="1">
-              <ion-icon name="trash"></ion-icon>
-            </button>
-
-            <button ion-button icon-only *ngSwitchCase="2">
-              <ion-icon name="trash"></ion-icon>
-            </button>
-            
-        </ion-buttons>
-      </ion-navbar>
-
-</ion-header>
 
 
 <ion-content  no-bounce >
@@ -45,8 +16,8 @@
     badgeColor="yellow" 
     (tabSelect)="onTabSelect($event)">
       
-        <super-tab [root]="page1" icon="search"></super-tab>
-        <super-tab [root]="page2" icon="people"></super-tab>
-        <super-tab [root]="page3" icon="chatbubbles"></super-tab>
+        <super-tab [root]="page1" icon="people"></super-tab>
+        <super-tab [root]="page2" icon="chatbubbles"></super-tab>
+        
       </super-tabs>
 </ion-content>

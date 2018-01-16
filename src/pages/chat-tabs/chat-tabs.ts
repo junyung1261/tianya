@@ -20,11 +20,9 @@ export class ChatTabsPage {
 
 
   pageIndex: any = 0;
-  page1: any = 'ChatMatchingPage';
-  page2: any = 'ChatFriendsPage';
-  page3: any = 'ChatListPage';
-  page4: any = 'HomePage';
-  page5: any = 'HomePage';
+  page1: any = 'ChatFriendsPage';
+  page2: any = 'ChatListPage';
+ 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public superTabsCtrl: SuperTabsController, public modalCtrl: ModalController) {
   }
@@ -50,14 +48,5 @@ export class ChatTabsPage {
 
   
 
-  presentModal(modalName) {
-    let createModal = this.modalCtrl.create(modalName, { userId: 8675309 }, {
-      enterAnimation: 'modal-slide-in',
-      leaveAnimation: 'modal-slide-out'
-    });
-    createModal.onDidDismiss(data => {
-      //console.log(data);
-    });
-    createModal.present();
-  }
+  
 }

@@ -91,6 +91,17 @@ export class MyApp {
   }
 
 
+  presentModal(modalName) {
+    let createModal = this.modalCtrl.create(modalName, { userId: 8675309 }, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out'
+    });
+    createModal.onDidDismiss(data => {
+      //console.log(data);
+    });
+    createModal.present();
+  }
+
   presentListModal(categoryName) {
     let createModal = this.modalCtrl.create('CommunityListPage', {'categoryName': categoryName}, {
       enterAnimation: 'modal-slide-in',

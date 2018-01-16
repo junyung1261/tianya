@@ -5,6 +5,7 @@ import { LoginProvider } from '../../providers/auth/login';
 import { Validator } from '../../validator';
 
 
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -24,7 +25,7 @@ export class LoginPage {
   private emailForm: FormGroup;
   public text: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loginProvider: LoginProvider,
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loginProvider: LoginProvider, 
               public formBuilder: FormBuilder) {
 
     this.loginProvider.setNavController(this.navCtrl);
@@ -51,7 +52,7 @@ export class LoginPage {
 
   // Call loginProvider and register the user with email and password.
   register() {
-    this.loginProvider.register(this.emailPasswordForm.value["email"], this.emailPasswordForm.value["password"]);
+    this.navCtrl.push('RegisterPage');
   }
 
   // Call loginProvider and send a password reset email.

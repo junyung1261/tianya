@@ -21,9 +21,22 @@
 //hide scrollbar
 ::-webkit-scrollbar{ display:none; }
 
+.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+    color: map-get($colors, backbutton) !important;
+  }
+  
+  .bar-button-default-md, .bar-button-default.bar-button-md-default, .bar-button-clear-md-default {
+    color: map-get($colors, backbutton) !important;
+  }
+
+
 .toolbar {
     &.toolbar-md { //material design only
+<<<<<<< HEAD
         
+=======
+            
+>>>>>>> 897e34d0ac5777f1adc7f385aa958889ba1b24ae
             position: relative;
             .title-md { //material design only
                 position: absolute;
@@ -34,7 +47,10 @@
                 text-align: center;
                 z-index: -1;
             }
+<<<<<<< HEAD
         
+=======
+>>>>>>> 897e34d0ac5777f1adc7f385aa958889ba1b24ae
     }
 }
 

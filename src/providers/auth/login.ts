@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 //import { OauthCordova } from 'ng2-cordova-oauth/platform/cordova';
 
 //import { Login } from '../login';
-import { NavController } from 'ionic-angular';
+import { NavController, App } from 'ionic-angular';
 import { LoadingProvider } from '../loading/loading';
 import { AlertProvider } from '../alert/alert';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -21,7 +21,7 @@ export class LoginProvider {
   private navCtrl: NavController;
   
 
-  constructor(public loadingProvider: LoadingProvider, public alertProvider: AlertProvider, public afAuth: AngularFireAuth) {
+  constructor(public loadingProvider: LoadingProvider, public alertProvider: AlertProvider, public afAuth: AngularFireAuth, public appCtrl: App) {
     console.log("Initializing Login Provider");
     
     // Detect changes on the Firebase user and redirects the view depending on the user's status.
@@ -41,7 +41,9 @@ export class LoginProvider {
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((success) => {
         this.loadingProvider.hide();
-        this.navCtrl.setRoot('TabsPage');
+        this.navCtrl.first().dismiss();
+       
+
       })
       .catch((error) => {
         this.loadingProvider.hide();

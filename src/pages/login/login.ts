@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController  } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { LoginProvider } from '../../providers/auth/login';
 import { Validator } from '../../validator';
@@ -26,9 +26,9 @@ export class LoginPage {
   public text: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loginProvider: LoginProvider, 
-              public formBuilder: FormBuilder) {
+              public formBuilder: FormBuilder, public modalCtrl: ModalController) {
 
-    this.loginProvider.setNavController(this.navCtrl);
+    
     // Create our forms and their validators based on validators set on validator.ts.
     this.emailPasswordForm = formBuilder.group({
       email: Validator.emailValidator,
@@ -45,14 +45,34 @@ export class LoginPage {
   }
 
   login() {
-    this.loginProvider.emailLogin(this.emailPasswordForm.value["email"], this.emailPasswordForm.value["password"]);
+    
+    let createModal = this.modalCtrl.create('RegisterPage', { mode: 'login' }, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out',
+      cssClass: "login"
+    });
+    createModal.onDidDismiss(data => {
+      console.log('dddd');
+    });
+    createModal.present();
+    
+  
   }
 
-
+  
 
   // Call loginProvider and register the user with email and password.
   register() {
-    this.navCtrl.push('RegisterPage');
+    let createModal = this.modalCtrl.create('RegisterPage', { mode: 'register' }, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out',
+      cssClass: "register"
+    });
+    createModal.onDidDismiss(data => {
+      console.log(data);
+    });
+    createModal.present();
+    
   }
 
   // Call loginProvider and send a password reset email.
@@ -66,5 +86,7 @@ export class LoginPage {
     this.emailPasswordForm.reset();
     this.emailForm.reset();
   }
+
+
 
 }

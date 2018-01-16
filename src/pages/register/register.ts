@@ -19,10 +19,13 @@ import { Validator } from '../../validator';
 export class RegisterPage {
   private emailPasswordForm: FormGroup;
   private emailForm: FormGroup;
+  private mode: String;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loginProvider: LoginProvider, 
     public formBuilder: FormBuilder) {
-
+      this.loginProvider.setNavController(this.navCtrl);
+      this.mode = this.navParams.get('mode');
+      
       this.emailPasswordForm = formBuilder.group({
         email: Validator.emailValidator,
         password: Validator.passwordValidator
@@ -35,9 +38,10 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
-  
+
   login() {
     this.loginProvider.emailLogin(this.emailPasswordForm.value["email"], this.emailPasswordForm.value["password"]);
+    
   }
 
   register() {

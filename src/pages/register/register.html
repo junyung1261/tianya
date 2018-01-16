@@ -16,7 +16,7 @@
 <ion-content padding>
 
     
-        
+      <div *ngIf="mode == 'register'">
         <form [formGroup]="emailPasswordForm">
           <ion-list>
             <ion-item no-lines >
@@ -44,5 +44,27 @@
          
 
         <button ion-button round color="backbutton" class="register"style="color: white">동의하고 가입하기</button>
+      </div>
+
+      <div  *ngIf="mode == 'login'">
+          <button class="clear" ion-button icon-only tappable (click)="mode = 'main'"><ion-icon name="md-close"></ion-icon></button>
+          <form [formGroup]="emailPasswordForm">
+            <ion-list>
+              <ion-item no-lines>
+                <ion-label>Email</ion-label>
+                <ion-input type="email" formControlName="email" placeholder="Your Email Address"></ion-input>
+              </ion-item>
+              <ion-item no-lines>
+                <ion-label>Password</ion-label>
+                <ion-input type="password" formControlName="password" placeholder="Your Password"></ion-input>
+              </ion-item>
+            </ion-list>
+            <button ion-button icon-left class="dark" tappable (click)="login()" [disabled]="!emailPasswordForm.valid"><ion-icon name="md-key"></ion-icon>Log in to FireLine</button>
+          </form>
+          <p tappable (click)="clearForms(); mode = 'forgotPassword'">Forgot your Password?</p>
+        </div>
+
+
+
 
 </ion-content>

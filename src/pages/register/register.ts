@@ -35,6 +35,10 @@ export class RegisterPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad RegisterPage');
   }
+  
+  login() {
+    this.loginProvider.emailLogin(this.emailPasswordForm.value["email"], this.emailPasswordForm.value["password"]);
+  }
 
   register() {
     this.loginProvider.register(this.emailPasswordForm.value["email"], this.emailPasswordForm.value["password"]);

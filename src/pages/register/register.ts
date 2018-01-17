@@ -28,7 +28,8 @@ export class RegisterPage {
       
       this.emailPasswordForm = formBuilder.group({
         email: Validator.emailValidator,
-        password: Validator.passwordValidator
+        password: Validator.passwordValidator,
+        nickname: Validator.nicknameValidator
       });
       this.emailForm = formBuilder.group({
         email: Validator.emailValidator

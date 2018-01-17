@@ -17,6 +17,11 @@ export namespace Validator {
     Validators.required,
     Validators.pattern('^[a-zA-Z0-9!@#$%^&*()_+-=]*$')]
   ];
+  export const nicknameValidator = ['', [
+    Validators.minLength(5),
+    Validators.required,
+    Validators.pattern('^[a-zA-Z0-9]')]
+  ];
   // Set your prompt input validators here, don't forget to import and use them on the AlertController prompt.
   // In this example they are used by home.ts where the user are allowed to change their profile.
   // errorMessages are used by the AlertProvider class and is imported inside AlertProvider.errorMessages which is used by showErrorMessage().

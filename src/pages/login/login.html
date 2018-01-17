@@ -1,51 +1,48 @@
-<ion-content class="no-scroll">
-
-
-  <div class="top">
-    <img src="assets/img/logo.png" />
+<ion-content>  
+  <div class="row_logo">
+    <img src="assets/img/logo.png"/>
   </div>
-
-  <!-- Social Login Buttons -->
-
-  <div class="bottom">
-    <div class="buttons">
-      <div>
-
-        <button ion-button icon-left color="light_alpha" class="register" tappable (click)="clearForms(); mode = 'register'">
-          <img src="assets/img/login_kakao.png">카카오톡으로 로그인하기</button>
-        <button ion-button icon-left color="light_alpha" class="register" tappable (click)="clearForms(); mode = 'register'">
-          <img src="assets/img/login_wechat.png">위챗으로 로그인하기</button>
-        <button ion-button icon-left color="light_alpha" class="register" tappable (click)="clearForms(); mode = 'register'">
-          <img src="assets/img/login_qq.png">QQ로 로그인하기</button>
-        <button ion-button icon-left color="light_alpha" class="register" tappable (click)="login()">
-          <img src="assets/img/login_email.png">이메일로 로그인하기</button>
-
-        <p tappable (click)="register()">Have an account?
-          <b>Log in</b>
-        </p>
-      </div>
-    </div>
-    <!-- Login Form -->
-
-
-
+  <div class="row_menu">
+    <ion-grid>
+      <ion-row class="row_btn">
+        <ion-col>
+          <button ion-button icon-left tappable (click)="clearForms(); mode = 'register'">
+            <img src="assets/img/login_kakao.png">SNS로 로그인하기 1
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row_btn">
+        <ion-col>
+          <button ion-button icon-left tappable (click)="clearForms(); mode = 'register'">
+            <img src="assets/img/login_wechat.png" >SNS로 로그인하기 2
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row_btn">
+        <ion-col>
+          <button ion-button icon-left tappable (click)="clearForms(); mode = 'register'">
+            <img src="assets/img/login_qq.png" >SNS로 로그인하기 3
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row_btn">
+        <ion-col>
+          <button ion-button icon-left tappable (click)="login();">
+            <img src="assets/img/login_email.png" >SNS로 로그인하기 4
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row_join">
+        <ion-col>
+          <p tappable (click)="register()">회원가입</p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row_space"></ion-row>
+    </ion-grid>
   </div>
-
-  <ion-slides style="position: relative; z-index:1; height: 100vh;">
-
-    <ion-slide style="background-image: url(../assets/img/login.jpg)">
-        
-    </ion-slide>
-    <ion-slide style="background-image: url(../assets/img/login.jpg)">
-
-    </ion-slide>
-    <ion-slide style="background-image: url(../assets/img/login.jpg)">
-
-    </ion-slide>
-
+  <ion-slides>
+    <ion-slide></ion-slide>
+    <ion-slide></ion-slide>
+    <ion-slide></ion-slide>
   </ion-slides>
-
-
-
-
 </ion-content>

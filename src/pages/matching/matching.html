@@ -4,33 +4,32 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>친구찾기</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="presentModal('ChatSettingPage')">
-        <ion-icon name="options"></ion-icon>
+<ion-header no-border>
+    <ion-navbar color="top-background">
+      <button ion-button menuToggle>
+        <ion-icon name="xh-arrows_hamburger2" color="top-text"></ion-icon>
       </button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <div class="content">
-    <div class="card_frame">
-      <div class="card_photo"></div>
-      <div class="card_nickname">아이유</div>
-      <div class="card_profile">26세, 서울, 동덕여고</div>
-      <div class="card_star">
-        <img src="assets/img/star_on.jpg">
-        <img src="assets/img/star_on.jpg">
-        <img src="assets/img/star_on.jpg">
-        <img src="assets/img/star_off.jpg">
-        <img src="assets/img/star_off.jpg">
+      <ion-title color="top-text">친구찾기</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="presentModal('ChatSettingPage')">
+          <ion-icon name="xh-basic_mixer2"  color="top-text"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <div class="content">
+      <div class="card_frame">
+        <div><img src="assets/img/user_001.jpg" class="card_photo"></div>
+        <div class="card_nickname">아이유</div>
+        <div class="card_profile">26세, 서울, 동덕여고</div>
+        <div class="card_star">
+          <ion-icon name="xhtab-basic_star" color="matching-star"></ion-icon>
+          <img src="assets/img/star_on.jpg">
+          <img src="assets/img/star_off.jpg">
+          <img src="assets/img/star_off.jpg">
+        </div>
       </div>
     </div>
-  </div>
-</ion-content>
+  </ion-content>

@@ -17,6 +17,193 @@
 
 
 @import '../theme/animations';
+// ICON - LINEAR //
+
+
+
+ion-icon {
+  &[class*="xh-"] {
+      // Instead of using the font-based icons
+      // We're applying SVG masks
+      mask-size: contain;
+      mask-position: 50% 50%;
+      mask-repeat: no-repeat;
+      background: currentColor;
+      width: 0.8em;
+      height: 0.8em;
+  }
+
+  &[class*="xhtab-"] {
+    // Instead of using the font-based icons
+    // We're applying SVG masks
+    background-repeat:no-repeat;
+    background-position:center;
+    height:23px;
+    width:23px;
+    background-size:contain;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+  }
+  // custom icons
+  &[class*="xhtab-basic_home"] {
+    background-image: url(../assets/svg/basic_home.svg);
+  }
+  &[class*="xhtab-basic_heart"] {
+    background-image: url(../assets/svg/basic_heart.svg);
+  }
+  &[class*="xhtab-basic_elaboration_message_heart"] {
+    background-image: url(../assets/svg/basic_elaboration_message_heart.svg);
+  }
+  &[class*="xhtab-basic_message_multiple"] {
+    background-image: url(../assets/svg/basic_message_multiple.svg);
+  }
+  &[class*="xhtab-basic_share"] {
+    background-image: url(../assets/svg/basic_share.svg);
+  }
+  &[class*="xhtab-arrows_hamburger2"] {
+    background-image: url(../assets/svg/arrows_hamburger2.svg);
+  }
+  &[class*="xhtab-basic_star"] {
+    background-image: url(../assets/svg/basic_star.svg);
+  }
+
+
+  &[class*="xh-arrows_circle_plus"] {
+    mask-image: url(../assets/svg/arrows_circle_plus.svg);
+  }
+  &[class*="xh-arrows_circle_remove"] {
+      mask-image: url(../assets/svg/arrows_circle_remove.svg);
+  }
+  &[class*="xh-arrows_hamburger2"] {
+    mask-image: url(../assets/svg/arrows_hamburger2.svg);
+  }
+  &[class*="xh-music_bell"] {
+    mask-image: url(../assets/svg/music_bell.svg);
+  }
+  &[class*="xh-arrows_left"] {
+      mask-image: url(../assets/svg/arrows_left.svg);
+  }
+  &[class*="xh-arrows_left_double-32"] {
+      mask-image: url(../assets/svg/arrows_left_double-32.svg);
+  }
+  &[class*="xh-arrows_plus"] {
+      mask-image: url(../assets/svg/arrows_plus.svg);
+  }
+  &[class*="xh-arrows_remove"] {
+      mask-image: url(../assets/svg/arrows_remove.svg);
+  }
+  &[class*="xh-arrows_right"] {
+      mask-image: url(../assets/svg/arrows_right.svg);
+  }
+  &[class*="xh-arrows_right_double-31"] {
+      mask-image: url(../assets/svg/arrows_right_double-31.svg);
+  }
+  &[class*="xh-arrows_slim_down"] {
+      mask-image: url(../assets/svg/arrows_slim_down.svg);
+  }
+  &[class*="xh-arrows_slim_left"] {
+      mask-image: url(../assets/svg/arrows_slim_left.svg);
+  }
+  &[class*="xh-arrows_slim_right"] {
+      mask-image: url(../assets/svg/arrows_slim_right.svg);
+  }
+  &[class*="xh-arrows_slim_up"] {
+      mask-image: url(../assets/svg/arrows_slim_up.svg);
+  }
+  &[class*="xh-arrows_square_plus"] {
+      mask-image: url(../assets/svg/arrows_square_plus.svg);
+  }
+  &[class*="xh-arrows_square_remove"] {
+      mask-image: url(../assets/svg/arrows_square_remove.svg);
+  }
+  &[class*="xh-basic_calendar"] {
+      mask-image: url(../assets/svg/basic_calendar.svg);
+  }
+  &[class*="xh-basic_gear"] {
+      mask-image: url(../assets/svg/basic_gear.svg);
+  }
+  &[class*="xh-basic_geolocalize-05"] {
+      mask-image: url(../assets/svg/basic_geolocalize-05.svg);
+  }
+  
+  &[class*="xh-basic_heart_broken"] {
+      mask-image: url(../assets/svg/basic_heart_broken.svg);
+  }
+  
+  &[class*="xh-basic_key"] {
+      mask-image: url(../assets/svg/basic_key.svg);
+  }
+  &[class*="xh-basic_link"] {
+      mask-image: url(../assets/svg/basic_link.svg);
+  }
+  &[class*="xh-basic_lock"] {
+      mask-image: url(../assets/svg/basic_lock.svg);
+  }
+  &[class*="xh-basic_lock_open"] {
+      mask-image: url(../assets/svg/basic_lock_open.svg);
+  }
+  &[class*="xh-basic_magnifier"] {
+      mask-image: url(../assets/svg/basic_magnifier.svg);
+  }
+  &[class*="xh-basic_magnifier_minus"] {
+      mask-image: url(../assets/svg/basic_magnifier_minus.svg);
+  }
+  &[class*="xh-basic_magnifier_plus"] {
+      mask-image: url(../assets/svg/basic_magnifier_plus.svg);
+  }
+  &[class*="xh-basic_mail"] {
+      mask-image: url(../assets/svg/basic_mail.svg);
+  }
+  &[class*="xh-basic_mail_multiple"] {
+      mask-image: url(../assets/svg/basic_mail_multiple.svg);
+  }
+  &[class*="xh-basic_mail_open"] {
+      mask-image: url(../assets/svg/basic_mail_open.svg);
+  }
+  &[class*="xh-basic_map"] {
+      mask-image: url(../assets/svg/basic_map.svg);
+  }
+  &[class*="xh-basic_message"] {
+      mask-image: url(../assets/svg/basic_message.svg);
+  }
+  
+  &[class*="xh-basic_message_txt"] {
+      mask-image: url(../assets/svg/basic_message_txt.svg);
+  }
+  &[class*="xh-basic_mixer2"] {
+      mask-image: url(../assets/svg/basic_mixer2.svg);
+  }
+  &[class*="xh-basic_postcard"] {
+      mask-image: url(../assets/svg/basic_postcard.svg);
+  }
+  
+  
+  &[class*="xh-basic_star"] {
+      mask-image: url(../assets/svg/basic_star.svg);
+  }
+  &[class*="xh-basic_trashcan"] {
+      mask-image: url(../assets/svg/basic_trashcan.svg);
+  }
+  &[class*="xh-basic_world"] {
+      mask-image: url(../assets/svg/basic_world.svg);
+  }
+  &[class*="xh-music_mixer"] {
+      mask-image: url(../assets/svg/music_mixer.svg);
+  }
+  &[class*="xh-software_eyedropper"] {
+      mask-image: url(../assets/svg/software_eyedropper.svg);
+  }
+  &[class*="xh-software_pencil"] {
+      mask-image: url(../assets/svg/software_pencil.svg);
+  }
+  &[class*="xh-software_pen_add"] {
+      mask-image: url(../assets/svg/software_pen_add.svg);
+  }
+
+
+}
+
 
 //hide scrollbar
 ::-webkit-scrollbar{ display:none; }
@@ -177,7 +364,7 @@
           visibility: visible !important;
         }
         .modal-wrapper {
-          border-radius: 5px 5px 5px 5px;
+          border-radius: 5px;
           overflow: hidden;
           top: 20%;
           left: 5%;
@@ -191,7 +378,7 @@
           visibility: visible !important;
         }
         .modal-wrapper {
-          border-radius: 5px 5px 5px 5px;
+          border-radius: 5px;
           overflow: hidden;
           top: 15%;
           left: 5%;

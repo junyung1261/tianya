@@ -33,6 +33,9 @@ import { LoadingProvider } from '../providers/loading/loading';
 import { LoginProvider } from '../providers/auth/login';
 import { LogoutProvider } from '../providers/auth/logout';
 import { AlertProvider } from '../providers/alert/alert';
+import { DataProvider } from '../providers/data/data';
+import { ImageProvider } from '../providers/data/image';
+import { RequestProvider } from '../providers/data/request';
 
 
 
@@ -119,6 +122,10 @@ export const config = {
     LoginProvider,
     LogoutProvider,
     AlertProvider,
+    DataProvider,
+    ImageProvider,
+    RequestProvider
+
  
   ]
 })

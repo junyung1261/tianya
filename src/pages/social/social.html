@@ -10,8 +10,8 @@
             <ion-icon name="menu"></ion-icon>
           </button>
         <ion-buttons right>
-            <button ion-button  icon-only (click)="presentCreateModal()">
-              <ion-icon name="create"></ion-icon>
+            <button ion-button icon-only (click)="presentNoticeModal()">
+              <ion-icon name="notifications"></ion-icon>
             </button>
         </ion-buttons>
     <ion-title>Social Feed</ion-title>
@@ -19,65 +19,73 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content fullscreen=""  no-paddding shrink-header  [headerToHide]="'feed-header'">
-  
-    <ion-card  *ngFor="let feed of feeds  | async">
-      <ion-item sticky>
-        <ion-avatar item-left  (click)="presentProfileModal()">
-          <img [src]="feed.imgProfile">
-        </ion-avatar>
-        <h2>{{feed.name}}</h2>
-        <p>November 5, 1955</p>
-      </ion-item>
-      
-          <ion-slides  pager > 
-            <ion-slide *ngFor="let images of  feed.images | async " >
-              <img src ="{{images.url}}"   imageViewer="{{feed.images}}">
-            </ion-slide>
+<ion-content fullscreen=""  no-paddding shrink-header  [headerToHide]="'feed-header'" hide-fab>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content>
             
-          </ion-slides>
-        
-      <ion-card-content  (click)="presentDetailModal()">
-        <ion-card-title>
-          {{feed.title}}
-        </ion-card-title>
-        <p>
-          {{feed.description}}
-        </p>
-      </ion-card-content>
-      
-      <ion-row>
-          <ion-col>
-            <button ion-button icon-left clear color="gray">
-              <ion-icon name="md-heart"></ion-icon>
-              <div>{{feed.like}}</div>
-            </button>
-          </ion-col>
+        </ion-refresher-content>
+      </ion-refresher>
+  
+    
+      <ion-card  *ngFor="let feed of feeds ">
+          <ion-item sticky>
+            <ion-avatar item-left  (click)="presentProfileModal()">
+              <img [src]="feed.imgProfile">
+            </ion-avatar>
+            <h2>{{feed.name}}</h2>
+            <p>{{feed.date | DateFormat}}</p>
+          </ion-item>
+            
+              <ion-slides  pager *ngIf="(feed.images|async)?.length > 0"> 
+                <ion-slide *ngFor="let images of  feed.images | async  " >
+                  
+                  <img src ="{{images.url}}"   imageViewer="{{feed.images}}">
+                </ion-slide>
+                
+              </ion-slides>
+            
+          <ion-card-content  (click)="presentDetailModal()">
+            <ion-card-title>
+              {{feed.title}}
+            </ion-card-title>
+            <p>
+              {{feed.description}}
+            </p>
+          </ion-card-content>
           
-          <ion-col>
-            <button ion-button icon-left clear color="gray">
-              <ion-icon name="md-chatboxes"></ion-icon>
-              <div>{{feed.comment}}</div>
-            </button>
-          </ion-col>
-  
-          <ion-col center text-center> 
-            <button ion-button icon-left clear color="pink">     
-              <div>REPLY</div>
-            </button>
-          </ion-col>
-      </ion-row>
-  
-    </ion-card>
-  
+          <ion-row>
+              <ion-col>
+                <button ion-button icon-left clear color="gray">
+                  <ion-icon name="md-heart"></ion-icon>
+                  <div>{{feed.like}}</div>
+                </button>
+              </ion-col>
+              
+              <ion-col>
+                <button ion-button icon-left clear color="gray">
+                  <ion-icon name="md-chatboxes"></ion-icon>
+                  <div>{{feed.comment}}</div>
+                </button>
+              </ion-col>
+      
+              <ion-col center text-center> 
+                <button ion-button icon-left clear color="pink">     
+                  <div>REPLY</div>
+                </button>
+              </ion-col>
+          </ion-row>
+      
+        </ion-card>
+
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+          </ion-infinite-scroll>
+
     <ion-fab right bottom>
-        <button ion-fab color="amber"><ion-icon name="md-share"></ion-icon></button>
-        <ion-fab-list side="top">
-          <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-          <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-          <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-          <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-        </ion-fab-list>
+        <button ion-fab color="amber" (click)="presentCreateModal()"><ion-icon name="add"></ion-icon></button>
+        
     </ion-fab>
-   
+
+  
   </ion-content>

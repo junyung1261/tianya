@@ -31,6 +31,7 @@
     "@ngx-translate/core": "8.0.0",
     "@ngx-translate/http-loader": "^2.0.0",
     "angular2-baidu-map": "^4.1.0",
+    "angular2-moment": "^1.7.1",
     "angularfire2": "^5.0.0-rc.4",
     "cordova-android": "^6.3.0",
     "cordova-plugin-app-preferences": "^0.99.3",

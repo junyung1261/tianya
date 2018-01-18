@@ -8,8 +8,17 @@
 
 
 <ion-content no-bounce>
-  <super-tabs id="mainTabs" selectedTabIndex="0" toolbarColor="dark"  toolbarBackground="light"  indicatorColor="yellow" badgeColor="yellow" (tabSelect)="onTabSelect($event)">
-    <super-tab [root]="page1" title="카드목록"></super-tab>
-    <super-tab [root]="page2" title="대화함"></super-tab>
-  </super-tabs>
-</ion-content>
+    <super-tabs
+      id="mainTabs" 
+      selectedTabIndex="0" 
+      toolbarColor="chat-tab-text"  
+      toolbarBackground="chat-tab-background" 
+      indicatorColor="chat-tab-indicator" 
+      badgeColor="chat-tab-badge" 
+      (tabSelect)="onTabSelect($event)"
+      no-shadow>
+  
+      <super-tab [root]="page1" title="카드목록"></super-tab>
+      <super-tab [root]="page2" title="대화함"></super-tab>
+    </super-tabs>
+  </ion-content>

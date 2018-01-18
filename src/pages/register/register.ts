@@ -17,6 +17,7 @@ import { Validator } from '../../validator';
   templateUrl: 'register.html',
 })
 export class RegisterPage {
+  private emailPasswordNicknameForm: FormGroup;
   private emailPasswordForm: FormGroup;
   private emailForm: FormGroup;
   private mode: String;
@@ -26,10 +27,14 @@ export class RegisterPage {
       this.loginProvider.setNavController(this.navCtrl);
       this.mode = this.navParams.get('mode');
       
-      this.emailPasswordForm = formBuilder.group({
+      this.emailPasswordNicknameForm = formBuilder.group({
         email: Validator.emailValidator,
         password: Validator.passwordValidator,
         nickname: Validator.nicknameValidator
+      });
+      this.emailPasswordForm = formBuilder.group({
+        email: Validator.emailValidator,
+        password: Validator.passwordValidator
       });
       this.emailForm = formBuilder.group({
         email: Validator.emailValidator

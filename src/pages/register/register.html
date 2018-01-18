@@ -6,13 +6,13 @@
 -->
 <ion-header>
   <ion-navbar color="white">
-    <ion-title>회원가입</ion-title>
+    <ion-title>{{mode}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <div *ngIf="mode == 'register'">
-    <form [formGroup]="emailPasswordForm">
+    <form [formGroup]="emailPasswordNicknameForm">
       <ion-list class="reglist">
         <ion-item no-lines>
           <ion-label><img src="assets/img/btn_email.jpg"></ion-label>
@@ -42,4 +42,24 @@
       -->
     </form>
   </div>
+
+  <div *ngIf="mode == 'login'">
+    <form [formGroup]="emailPasswordForm">
+      <ion-list>
+        <ion-item no-lines>
+          <ion-label>Email</ion-label>
+          <ion-input type="email" formControlName="email" placeholder="Your Email Address"></ion-input>
+        </ion-item>
+        <ion-item no-lines>
+          <ion-label>Password</ion-label>
+          <ion-input type="password" formControlName="password" placeholder="Your Password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <button ion-button icon-left class="dark" tappable (click)="login()" [disabled]="!emailPasswordForm.valid"><ion-icon name="md-key"></ion-icon>Log in to FireLine</button>
+    </form>
+    <p tappable (click)="clearForms(); mode = 'forgotPassword'">Forgot your Password?</p>
+  </div>
+
+
+
 </ion-content>

@@ -73,8 +73,8 @@ export class DataProvider {
 
   getFeeds(batch, lastKey?) {
     
-    if(lastKey) console.log("tt");
+    if(lastKey) console.log('tt');
      
-    return this.angularfireDatabase.list('/feed', ref => ref.orderByKey().limitToLast(batch));
+    return this.angularfireDatabase.list('/feed', ref => lastKey?  ref.orderByKey().limitToLast(batch).endAt(lastKey) : ref.orderByKey().limitToLast(batch));
   }
 }

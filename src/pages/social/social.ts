@@ -31,31 +31,6 @@ export class SocialPage {
   
   this.feedsRef = afDB.list('/feed');
   
-  this.dataProvider.getFeeds(this.count,'').snapshotChanges().take(1).subscribe(snapshots => {
-    let feeds = [];
-    snapshots.forEach(snap => {
-      feeds.unshift({
-        key: snap.payload.key, 
-        name: snap.payload.val().name,
-        image: snap.payload.val().image, 
-        description: snap.payload.val().description, 
-        imgProfile: snap.payload.val().imgProfile, 
-        like: snap.payload.val().like, 
-        date: snap.payload.val().date, 
-        startTime: snap.payload.val().startTime, 
-        title: snap.payload.val().title, 
-        images: this.afDB.list('/feed/'+snap.key+'/images').valueChanges().take(1),
-      })
-      
-    })
-    
-    this.feeds = feeds;
-    this.lastKey = feeds[feeds.length-1].key;
-    
-  })
-  
-  
-  
   
   }
 
@@ -64,6 +39,29 @@ export class SocialPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SocialPage');
+
+    this.dataProvider.getFeeds(this.count,'').snapshotChanges().take(1).subscribe(snapshots => {
+      let feeds = [];
+      snapshots.forEach(snap => {
+        feeds.unshift({
+          key: snap.payload.key, 
+          name: snap.payload.val().name,
+          image: snap.payload.val().image, 
+          description: snap.payload.val().description, 
+          imgProfile: snap.payload.val().imgProfile, 
+          like: snap.payload.val().like, 
+          date: snap.payload.val().date, 
+          startTime: snap.payload.val().startTime, 
+          title: snap.payload.val().title, 
+          images: this.afDB.list('/feed/'+snap.key+'/images').valueChanges().take(1),
+        })
+        
+      })
+      
+      this.feeds = feeds;
+      this.lastKey = feeds[feeds.length-1].key;
+      
+    })
   }
 
 
@@ -76,7 +74,10 @@ export class SocialPage {
       leaveAnimation: 'modal-slide-out'
     });
     createModal.onDidDismiss(data => {
-      console.log(data);
+      if(data){
+        this.ionViewDidLoad();
+      }
+      
     });
     createModal.present();
   }
@@ -112,36 +113,43 @@ export class SocialPage {
 
     setTimeout(() => {
       console.log('Async operation has ended');
+      this.ionViewDidLoad();
       refresher.complete();
     }, 2000);
   }
 
   doInfinite(infiniteScroll) {
-    console.log(this.lastKey);
-    console.log('Begin async operation');
     
+    console.log('Begin async operation');
+    console.log(this.lastKey);
     setTimeout(() => {
     this.count+=1;
-     this.dataProvider.getFeeds(this.count,this.lastKey).snapshotChanges().take(1).subscribe(snapshots => {
+     this.dataProvider.getFeeds(6,this.lastKey).snapshotChanges().take(1).subscribe(snapshots => {
     let feeds = [];
-    snapshots.forEach(snap => {
+
+    for(let i = 0 ; i < snapshots.length-1; i++){
       feeds.unshift({
-        key: snap.payload.key, 
-        name: snap.payload.val().name,
-        image: snap.payload.val().image, 
-        description: snap.payload.val().description, 
-        imgProfile: snap.payload.val().imgProfile, 
-        like: snap.payload.val().like, 
-        date: snap.payload.val().date, 
-        startTime: snap.payload.val().startTime, 
-        title: snap.payload.val().title, 
-        images: this.afDB.list('/feed/'+snap.key+'/images').valueChanges().take(1),
+        key: snapshots[i].payload.key, 
+        name: snapshots[i].payload.val().name,
+        image: snapshots[i].payload.val().image, 
+        description: snapshots[i].payload.val().description, 
+        imgProfile: snapshots[i].payload.val().imgProfile, 
+        like: snapshots[i].payload.val().like, 
+        date: snapshots[i].payload.val().date, 
+        startTime: snapshots[i].payload.val().startTime, 
+        title: snapshots[i].payload.val().title, 
+        images: this.afDB.list('/feed/'+snapshots[i].key+'/images').valueChanges().take(1),
       })
-      
-    })
+    }
     
-    this.feeds = feeds;
-    this.lastKey = feeds[feeds.length-1].key;
+   
+    for(let i = 0; i<feeds.length; i++){
+      this.feeds.push(feeds[i]);
+    }
+    console.log(feeds);
+   
+    this.lastKey = this.feeds[this.feeds.length-1].key;
+    console.log(this.lastKey);
     
   })
   

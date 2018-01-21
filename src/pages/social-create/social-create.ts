@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
 @Component({
-  selector: 'page-social-create',
+  selector: 'page-soc9ial-create',
   templateUrl: 'social-create.html',
 })
 export class SocialCreatePage {
@@ -36,7 +36,13 @@ export class SocialCreatePage {
         description: text,
         writer: firebase.auth().currentUser.uid,
         date: firebase.database['ServerValue'].TIMESTAMP
-      });
+      }).then((success) => {
+        this.viewCtrl.dismiss({data: true});
+      })
+      
+
+      
+     
   }
   updateItem(key: string, newText: string) {
     this.feedsRef.update(key, { text: newText });

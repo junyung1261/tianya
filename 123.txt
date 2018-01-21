@@ -1,0 +1,16 @@
+this.feeds = this.dataProvider.getFeeds(this.count, '').snapshotChanges().take(1).map(changes => {
+    return changes.map(change => ({
+      key: change.payload.key, 
+      name: change.payload.val().name,
+      image: change.payload.val().image, 
+      description: change.payload.val().description, 
+      imgProfile: change.payload.val().imgProfile, 
+      like: change.payload.val().like, 
+      date: change.payload.val().date, 
+      startTime: change.payload.val().startTime, 
+      title: change.payload.val().title, 
+      images: this.afDB.list('/feed/'+change.key+'/images').valueChanges().take(1),
+      
+    }))
+  });
+  

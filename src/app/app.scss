@@ -20,6 +20,9 @@
 // ICON - LINEAR //
 
 
+ion-menu[side=left] .menu-inner {
+    width: 100%;
+}
 
 ion-icon {
   &[class*="xh-"] {

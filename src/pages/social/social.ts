@@ -148,7 +148,7 @@ export class SocialPage {
     }
     console.log(feeds);
    
-    this.lastKey = this.feeds[this.feeds.length-1].key;
+    this.lastKey = feeds[feeds.length-1].key;
     console.log(this.lastKey);
     
   })

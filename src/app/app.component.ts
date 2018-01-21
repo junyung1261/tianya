@@ -3,7 +3,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform, ModalController } from 'ionic-angular';
-
+import { Network } from '@ionic-native/network';
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
@@ -32,7 +32,7 @@ export class MyApp {
  
   constructor(private translate: TranslateService, platform: Platform, settings: Settings,
               private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private modalCtrl: ModalController,
-              private afDB: AngularFireDatabase, private afAuth: AngularFireAuth) {
+              private afDB: AngularFireDatabase, private afAuth: AngularFireAuth, private network: Network) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -69,6 +69,10 @@ export class MyApp {
       this.pages = categoryItems;
       this.loadedCommunityList = categoryItems;
       
+  });
+
+  let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
+    console.log('network was disconnected :-(');
   });
   
     

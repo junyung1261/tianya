@@ -15,7 +15,7 @@ import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
-
+import { Network } from '@ionic-native/network';
 
 //***********  Angularfire2 v4 **************/
 
@@ -111,6 +111,7 @@ export const config = {
     Camera,
     SplashScreen,
     StatusBar,
+    Network,
     Geolocation,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development

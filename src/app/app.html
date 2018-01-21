@@ -1,39 +1,42 @@
-<ion-menu [content]="content"  side="left" id="menu1" >
-    
-    <ion-content>
-      
-        <div id="menu-material">
-            <ion-header class="menu-header" menuClose (click)="presentModal('MyinfoPage')">      
-                <img class="user-avatar round" src =  "https://lh3.googleusercontent.com/-RANFhqmTx0g/Uzp8NPP_olI/AAAAAAAAArM/EqdE5Amp7Rc_00bnQKLJdgCcbPSafy_QQCEw/w140-h139-p/War-jet-li-7834576-811-1200.jpg"/>
-                <p class="name">user</p>
-                <p class="email">let me introduce sibal</p>
 
-                
-              </ion-header>
-              <div class="list-box">
-      <ion-list>
-        
-                  
-        <ion-item-group *ngFor="let c of typeList">
-          
-          <ion-item-divider  color="light">{{ c | translate }} </ion-item-divider>
-            <ion-row >
-              <ion-col  col-6 ion-item *ngFor=" let p of pages " [hidden]="p.type != c"  (click)="presentListModal(p.name)">
-                <!--<ion-icon name="leaf" item-start ></ion-icon>-->
-                {{p.name | translate}}
-              </ion-col>
-            </ion-row>
-        </ion-item-group>
-     
-      
+<ion-menu [content]="content" side="left">
+  <ion-header no-shadow>
+    <ion-navbar color="nav-content">
+      <!-- LEFT BUTTON -->
+      <ion-buttons left>
+        <button ion-button icon-only><ion-icon name="xhb-alarm" color="nav-text"></ion-icon></button>
+      </ion-buttons>
+      <!-- TITLE -->
+      <ion-title><span>나의 메뉴</span></ion-title>
+      <!-- RIGHT BUTTON -->
+      <ion-buttons end>
+        <button ion-button icon-only menuClose><ion-icon name="xhb-left" color="nav-text"></ion-icon></button>
+      </ion-buttons>
+    </ion-navbar> 
+  </ion-header>
+  <ion-content>
+    <div class="profile">
+      <div class="avatar"><img src="assets/img/user_000.jpg" class="avatar_img"></div>
+      <div class="nickname">물뜨는미어캣</div>
+      <div class="email">stilllove64@naver.com</div>
+    </div>
+    <div class="usermenu">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>A</ion-col>
+          <ion-col col-3>B</ion-col>
+          <ion-col col-3>C</ion-col>
+          <ion-col col-3>D</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>E</ion-col>
+          <ion-col col-3>F</ion-col>
+          <ion-col col-3>G</ion-col>
+          <ion-col col-3>H</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
 
-      </ion-list>
-      </div>
-
-    </div>  
-      
-    </ion-content>
-  
-  </ion-menu>
-
-  <ion-nav #content [root]="rootPage"></ion-nav>
+  </ion-content>
+</ion-menu>
+<ion-nav #content [root]="rootPage"></ion-nav>

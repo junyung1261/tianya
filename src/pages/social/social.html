@@ -5,17 +5,16 @@
   Ionic pages and navigation.
 -->
 <ion-header no-border  class="feed-header" >
-    <ion-navbar color="white" style="background: none; border-bottom: none" >
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-          </button>
-        <ion-buttons right>
-            <button ion-button icon-only (click)="presentNoticeModal()">
-              <ion-icon name="notifications"></ion-icon>
-            </button>
-        </ion-buttons>
+  <ion-navbar color="top-background">
+    <button ion-button menuToggle>
+      <ion-icon name="xhb-menu" color="top-text"></ion-icon>
+    </button>
     <ion-title>Social Feed</ion-title>
-    
+    <ion-buttons end>
+        <button ion-button icon-only (click)="presentNoticeModal()">
+          <ion-icon name="xhb-alarm" color="top-text"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 

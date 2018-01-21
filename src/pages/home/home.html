@@ -1,32 +1,19 @@
- <!--
-  Generated template for the HomePage page.
+ <!--Generated template for the Home MENU page.-->
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header no-shadow>
-
   <ion-navbar color="top-background">
-      <button ion-button menuToggle>
-          <ion-icon name="xh-arrows_hamburger2" color="top-text"></ion-icon>
-        </button>
+    <!-- LEFT BUTTON -->
+    <button ion-button menuToggle><ion-icon name="xhb-menu" color="top-text"></ion-icon></button>
+    <!-- TITLE -->
     <ion-title><span>Xiǎng Hánguó</span></ion-title>
+    <!-- RIGHT BUTTON -->
     <ion-buttons end>
-      <button ion-button icon-only (click)="presentNoticeModal()">
-          <ion-icon name="xh-music_bell" color="top-text"></ion-icon> 
-        </button>
-  </ion-buttons>
+      <button ion-button icon-only (click)="presentNoticeModal()"><ion-icon name="xhb-alarm" color="top-text"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar> 
-
 </ion-header>
 
 
 <ion-content >
-
-  <!-- <baidu-map [options]="options" style="display: block; width: 100%; height: 350px;">
-    <marker *ngFor="let marker of markers" [point]="marker.point" [options]="marker.options" (clicked)="showWindow($event)"></marker>
-  </baidu-map> -->
   <button ion-button color="light" (click)="logins()">KAKAO LOGIN</button>
-
-
 </ion-content>

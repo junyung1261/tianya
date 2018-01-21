@@ -4,16 +4,27 @@ page-chat-friends {
         height:100%;
         border:none;
         background-color:#fafafa;
+        
+    }
+
+    .card_msg {
+        width:100%;
+        font-size:12px;
+        margin-top:10px;
+        padding:0 5px;
     }
     .card_from, .card_to {
         width:100%;
-        height:50%;
+        margin-bottom:10%;        
     }
 
     .card_from_lb, .card_to_lb {
         font-size:14px;
-        color:#3c3c3c;
+        color:#FFFFFF;
         margin:10px 0;
+        text-align:center;
+        padding:10px 10px;
+        background-color: #FF006C;
     }
 
     .card_from_list, .card_to_list {

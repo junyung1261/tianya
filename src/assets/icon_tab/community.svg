@@ -4,12 +4,9 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="64px" height="64px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
 <g>
-	<path d="M55,19H0v36h55V19z M53,53H2V21h51V53z"/>
-	<polygon points="11,12 62,12 62,44 57,44 57,46 64,46 64,10 9,10 9,17 11,17 	"/>
-	<path d="M50,24h-9v10h9V24z M48,32h-5v-6h5V32z"/>
-	<rect x="32" y="24" width="2" height="26"/>
-	<rect x="5" y="26" width="24" height="2"/>
-	<rect x="5" y="31" width="21" height="2"/>
-	<rect x="5" y="36" width="22" height="2"/>
+	<path d="M58,28c0,13.851-12.149,26-26,26c-9.265,0-12.178-3.573-12.2-3.6l-1.6,1.2c0.13,0.174,3.223,4.11,12.8,4.375V62h-9v2h9h2h9
+		v-2h-9v-6.027C47.495,55.404,60,42.581,60,28C60,13.084,46.916,0,32,0v2C45.851,2,58,14.149,58,28z"/>
+	<path d="M32,49c11.58,0,21-9.42,21-21S43.58,7,32,7s-21,9.42-21,21S20.42,49,32,49z M32,9c10.477,0,19,8.523,19,19s-8.523,19-19,19
+		s-19-8.523-19-19S21.523,9,32,9z"/>
 </g>
 </svg>

@@ -17,348 +17,76 @@
 
 
 @import '../theme/animations';
-// ICON - LINEAR //
 
 
 ion-menu[side=left] .menu-inner {
     width: 100%;
 }
 
+// 앱 내 아이콘 전체 정의 - LINEA //
 ion-icon {
-  &[class*="xh-"] {
-      // Instead of using the font-based icons
-      // We're applying SVG masks
-      mask-size: contain;
-      mask-position: 50% 50%;
-      mask-repeat: no-repeat;
-      background: currentColor;
-      width: 0.8em;
-      height: 0.8em;
-  }
+    
+    /* TAB ICON XH */
+    &[class*="xh-"] { mask-size: contain; mask-position: 50% 50%; mask-repeat: no-repeat; background: currentColor; width: 1em; height: 1em; border:none;}
+    
+    &[class*="xh-home"] { mask-image: url(../assets/icon_tab/home.svg);}            //TAB01 - HOME
+    &[class*="xh-matching"] { mask-image: url(../assets/icon_tab/matching.svg);}    //TAB02 - MATCHING
+    &[class*="xh-chatting"] { mask-image: url(../assets/icon_tab/chatting.svg);}    //TAB03 - CHATTING
+    &[class*="xh-social"] { mask-image: url(../assets/icon_tab/social.svg);}        //TAB04 - SOCIAL
+    &[class*="xh-community"] { mask-image: url(../assets/icon_tab/community.svg);}  //TAB05 - COMMUNITY
+   
+    /* BASIC ICON XH */
+    &[class*="xhb-"] { mask-size: contain; mask-position: 50% 50%; mask-repeat: no-repeat; background: currentColor; width: 0.8em; height: 0.8em;}
 
-  &[class*="xhtab-"] {
-    // Instead of using the font-based icons
-    // We're applying SVG masks
-    background-repeat:no-repeat;
-    background-position:center;
-    height:23px;
-    width:23px;
-    background-size:contain;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-  }
-  // custom icons
-  &[class*="xhtab-basic_home"] {
-    background-image: url(../assets/svg/basic_home.svg);
-  }
-  &[class*="xhtab-basic_heart"] {
-    background-image: url(../assets/svg/basic_heart.svg);
-  }
-  &[class*="xhtab-basic_elaboration_message_heart"] {
-    background-image: url(../assets/svg/basic_elaboration_message_heart.svg);
-  }
-  &[class*="xhtab-basic_message_multiple"] {
-    background-image: url(../assets/svg/basic_message_multiple.svg);
-  }
-  &[class*="xhtab-basic_share"] {
-    background-image: url(../assets/svg/basic_share.svg);
-  }
-  &[class*="xhtab-arrows_hamburger2"] {
-    background-image: url(../assets/svg/arrows_hamburger2.svg);
-  }
-  &[class*="xhtab-basic_star"] {
-    background-image: url(../assets/svg/basic_star.svg);
-  }
+    &[class*="xhb-menu"] { mask-image: url(../assets/icon_basic/menu.svg);}         //MENU
+    &[class*="xhb-alarm"] { mask-image: url(../assets/icon_basic/alarm.svg);}       //ALARM
+    &[class*="xhb-filter"] { mask-image: url(../assets/icon_basic/filter.svg);}     //FILTER
 
-
-  &[class*="xh-arrows_circle_plus"] {
-    mask-image: url(../assets/svg/arrows_circle_plus.svg);
-  }
-  &[class*="xh-arrows_circle_remove"] {
-      mask-image: url(../assets/svg/arrows_circle_remove.svg);
-  }
-  &[class*="xh-arrows_hamburger2"] {
-    mask-image: url(../assets/svg/arrows_hamburger2.svg);
-  }
-  &[class*="xh-music_bell"] {
-    mask-image: url(../assets/svg/music_bell.svg);
-  }
-  &[class*="xh-arrows_left"] {
-      mask-image: url(../assets/svg/arrows_left.svg);
-  }
-  &[class*="xh-arrows_left_double-32"] {
-      mask-image: url(../assets/svg/arrows_left_double-32.svg);
-  }
-  &[class*="xh-arrows_plus"] {
-      mask-image: url(../assets/svg/arrows_plus.svg);
-  }
-  &[class*="xh-arrows_remove"] {
-      mask-image: url(../assets/svg/arrows_remove.svg);
-  }
-  &[class*="xh-arrows_right"] {
-      mask-image: url(../assets/svg/arrows_right.svg);
-  }
-  &[class*="xh-arrows_right_double-31"] {
-      mask-image: url(../assets/svg/arrows_right_double-31.svg);
-  }
-  &[class*="xh-arrows_slim_down"] {
-      mask-image: url(../assets/svg/arrows_slim_down.svg);
-  }
-  &[class*="xh-arrows_slim_left"] {
-      mask-image: url(../assets/svg/arrows_slim_left.svg);
-  }
-  &[class*="xh-arrows_slim_right"] {
-      mask-image: url(../assets/svg/arrows_slim_right.svg);
-  }
-  &[class*="xh-arrows_slim_up"] {
-      mask-image: url(../assets/svg/arrows_slim_up.svg);
-  }
-  &[class*="xh-arrows_square_plus"] {
-      mask-image: url(../assets/svg/arrows_square_plus.svg);
-  }
-  &[class*="xh-arrows_square_remove"] {
-      mask-image: url(../assets/svg/arrows_square_remove.svg);
-  }
-  &[class*="xh-basic_calendar"] {
-      mask-image: url(../assets/svg/basic_calendar.svg);
-  }
-  &[class*="xh-basic_gear"] {
-      mask-image: url(../assets/svg/basic_gear.svg);
-  }
-  &[class*="xh-basic_geolocalize-05"] {
-      mask-image: url(../assets/svg/basic_geolocalize-05.svg);
-  }
-  
-  &[class*="xh-basic_heart_broken"] {
-      mask-image: url(../assets/svg/basic_heart_broken.svg);
-  }
-  
-  &[class*="xh-basic_key"] {
-      mask-image: url(../assets/svg/basic_key.svg);
-  }
-  &[class*="xh-basic_link"] {
-      mask-image: url(../assets/svg/basic_link.svg);
-  }
-  &[class*="xh-basic_lock"] {
-      mask-image: url(../assets/svg/basic_lock.svg);
-  }
-  &[class*="xh-basic_lock_open"] {
-      mask-image: url(../assets/svg/basic_lock_open.svg);
-  }
-  &[class*="xh-basic_magnifier"] {
-      mask-image: url(../assets/svg/basic_magnifier.svg);
-  }
-  &[class*="xh-basic_magnifier_minus"] {
-      mask-image: url(../assets/svg/basic_magnifier_minus.svg);
-  }
-  &[class*="xh-basic_magnifier_plus"] {
-      mask-image: url(../assets/svg/basic_magnifier_plus.svg);
-  }
-  &[class*="xh-basic_mail"] {
-      mask-image: url(../assets/svg/basic_mail.svg);
-  }
-  &[class*="xh-basic_mail_multiple"] {
-      mask-image: url(../assets/svg/basic_mail_multiple.svg);
-  }
-  &[class*="xh-basic_mail_open"] {
-      mask-image: url(../assets/svg/basic_mail_open.svg);
-  }
-  &[class*="xh-basic_map"] {
-      mask-image: url(../assets/svg/basic_map.svg);
-  }
-  &[class*="xh-basic_message"] {
-      mask-image: url(../assets/svg/basic_message.svg);
-  }
-  
-  &[class*="xh-basic_message_txt"] {
-      mask-image: url(../assets/svg/basic_message_txt.svg);
-  }
-  &[class*="xh-basic_mixer2"] {
-      mask-image: url(../assets/svg/basic_mixer2.svg);
-  }
-  &[class*="xh-basic_postcard"] {
-      mask-image: url(../assets/svg/basic_postcard.svg);
-  }
-  
-  
-  &[class*="xh-basic_star"] {
-      mask-image: url(../assets/svg/basic_star.svg);
-  }
-  &[class*="xh-basic_trashcan"] {
-      mask-image: url(../assets/svg/basic_trashcan.svg);
-  }
-  &[class*="xh-basic_world"] {
-      mask-image: url(../assets/svg/basic_world.svg);
-  }
-  &[class*="xh-music_mixer"] {
-      mask-image: url(../assets/svg/music_mixer.svg);
-  }
-  &[class*="xh-software_eyedropper"] {
-      mask-image: url(../assets/svg/software_eyedropper.svg);
-  }
-  &[class*="xh-software_pencil"] {
-      mask-image: url(../assets/svg/software_pencil.svg);
-  }
-  &[class*="xh-software_pen_add"] {
-      mask-image: url(../assets/svg/software_pen_add.svg);
-  }
-
+    &[class*="xhb-up"] { mask-image: url(../assets/icon_basic/up.svg);}             //ARROWS
+    &[class*="xhb-up-double"] { mask-image: url(../assets/icon_basic/up-double.svg);}
+    &[class*="xhb-down"] { mask-image: url(../assets/icon_basic/down.svg);}
+    &[class*="xhb-down-double"] { mask-image: url(../assets/icon_basic/down-double.svg);}
+    &[class*="xhb-left"] { mask-image: url(../assets/icon_basic/left.svg);}
+    &[class*="xhb-left-double"] { mask-image: url(../assets/icon_basic/left-double.svg);}
+    &[class*="xhb-right"] { mask-image: url(../assets/icon_basic/right.svg);}
+    &[class*="xhb-right-double"] { mask-image: url(../assets/icon_basic/right-double.svg);}
 
 }
 
+ion-menu[side=left] .menu-inner {
+  width:100%;
+  border-bottom:none;
+}
 
+.profile {
+  background-color :#FFF;
+  border-bottom : 1px solid #ececec;
+  height : 30vh;
+}
+
+.avatar {
+  text-align: center;
+}
+
+.avatar_img {
+  width:20vw;
+  margin-top:5vw;
+  border-radius:50%;
+}
+.nickname {
+  text-align: center;
+}
+
+.email {
+  text-align: center;
+}
 //hide scrollbar
 ::-webkit-scrollbar{ display:none; }
 
-.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
-    color: map-get($colors, backbutton) !important;
-  }
-  
-  .bar-button-default-md, .bar-button-default.bar-button-md-default, .bar-button-clear-md-default {
-    color: map-get($colors, backbutton) !important;
-  }
 
 
-.toolbar {
-    &.toolbar-md { //material design only
-            
-            position: relative;
-            .title-md { //material design only
-                position: absolute;
-                left: 0;
-                top: 0;
-                height: 100%;
-                width: 100%;
-                text-align: center;
-                z-index: -1;
-            }
-    }
-}
+.md{ ion-buttons button[icon-only].my-style-for-modal { margin: 0 6px; min-width: 36px; }}
 
-.md{
-
-    ion-buttons button[icon-only].my-style-for-modal {
-        margin: 0 6px;
-        min-width: 36px;
-        }
-    
-}
-
-#menu-material {
-    .list-box{
-      margin-top:150px;
-    }
-    .menu-header {
-      padding: 5px 15px;
-      background-image: url('../assets/img/login.jpg');
-      background-size: cover;
-      background-color: color($colors, blue2);
-      color: white;
-      .name {
-        font-weight: 400;
-        font-size:18px;
-        margin-top: 10px;
-        margin-bottom: 3px;
-      }
-      .email {
-        margin-top: 0;
-        margin-bottom: 5px;
-      }
-      .user-avatar {
-        padding: .5em;
-        height: 12vh;
-        margin-top: 15px;
-        // border: 3px solid #fff;
-      }
-    }
-    h3,
-    .label,
-    {
-      color: #616161;
-      font-weight: 400;
-    }
-    ion-icon {
-      color: #616161;
-    }
-  }
-  #menu-ios{
-    .menu-header {
-      text-align: center;
-      margin: auto;
-      // width: 50%;
-      // margin-top: 10px;
-      margin-bottom: 20px;
-      padding: 5px 15px;
-      background-color: #fff;
-      color:#000;
-      .name {
-        margin-top:8px;
-        font-weight: 500;
-        font-size:16px;
-        margin-bottom: 3px;
-      }
-      .email {
-        margin-top: 0;
-        margin-bottom: 5px;
-      }
-      .user-avatar {
-        padding: .5em;
-        height: 15vh;
-        margin-top: 15px;
-        // border: 3px solid #fff;
-      }
-    }
-  }
-  
-  #menu-pwa {
-    .list-box{
-      margin-top:10px;
-    }
-    .menu-header {
-      text-align: center;
-      margin: auto;
-      // width: 50%;
-      // margin-top: 10px;
-      margin-bottom: 20px;
-      padding: 5px 15px;
-      background-size: cover;
-      background-color: color($colors, ios-gray);
-      color: #ffffff;
-      .name {
-        margin-top:8px;
-        font-weight: 500;
-        font-size:16px;
-        margin-bottom: 3px;
-      }
-      .email {
-        margin-top: 0;
-        margin-bottom: 5px;
-      }
-      .user-avatar {
-        padding: .5em;
-        height: 15vh;
-        margin-top: 15px;
-        // border: 3px solid #fff;
-      }
-    }
-  
-    h3,
-    .label,
-    {
-      color: #616161;
-      font-weight: 400;
-    }
-    ion-icon {
-      color: #616161;
-    }
-  }
-  .sub-menu .item-inner{
-    padding-left: 56px;
-  }
-  .round {
-    border-radius: 50%;
-  }
 
   @include media-breakpoint-down(sm) {
     .login {

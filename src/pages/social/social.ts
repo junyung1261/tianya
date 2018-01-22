@@ -104,6 +104,17 @@ export class SocialPage {
     createModal.present();
   }
 
+  presentProfileModal() {
+    let createModal = this.modalCtrl.create('ProfilePage', { userId: 8675309 }, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out'
+    });
+    createModal.onDidDismiss(data => {
+      console.log(data);
+    });
+    createModal.present();
+  }
+
 
 
   

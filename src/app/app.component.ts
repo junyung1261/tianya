@@ -11,18 +11,6 @@ import { AngularFireDatabase} from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 
-export interface PageInterface {
-  title: string;
-  name: string;
-  component: any;
-  icon: string;
-  logsOut?: boolean;
-  index?: number;
-  tabName?: string;
-  tabComponent?: any;
-}
-
-
 
 @Component({
   templateUrl: 'app.html'
@@ -30,17 +18,12 @@ export interface PageInterface {
 export class MyApp {
   rootPage :any;
   loadedCommunityList:  any=[]; 
-  typeList = ["CATEGORY_INFO",
-    "CATEGORY_TRAVEL",
-    "CATEGORY_LIFE",
-    "CATEGORY_TRADE"]
-  ;
-
+ 
   @ViewChild(Nav) nav: Nav;
   
   
   pages: any[];
-
+  category: any[];
  
   constructor(private translate: TranslateService, platform: Platform, settings: Settings,
               private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private modalCtrl: ModalController,
@@ -76,6 +59,10 @@ export class MyApp {
       
     });
     
+    this.afDB.list('/category_big', ref => ref).valueChanges().subscribe(categoryItems => {
+      this.category = categoryItems;
+    });
+   
 
     this.afDB.list('/category', ref => ref.orderByChild('type')).valueChanges().subscribe(categoryItems => {
       this.pages = categoryItems;
@@ -119,7 +106,7 @@ export class MyApp {
   }
 
   presentListModal(categoryName) {
-    let createModal = this.modalCtrl.create('CommunityListPage', {'categoryName': categoryName}, {
+    let createModal = this.modalCtrl.create('CommunityPage', {'categoryName': categoryName}, {
       enterAnimation: 'modal-slide-in',
       leaveAnimation: 'modal-slide-out'
     });
@@ -128,9 +115,9 @@ export class MyApp {
     });
     createModal.present();
   }
-  openPage(page: PageInterface) {
+  openPage() {
    
-    this.nav.getActiveChildNavs()[0].getActiveChildNavs()[0].push('CommunityListPage');
+    this.nav.getActiveChildNavs()[0].getActiveChildNavs()[0].push('CommunityPage');
   }
 
   initializeItems(){

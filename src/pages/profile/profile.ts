@@ -17,7 +17,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class ProfilePage {
   somethings: any = new Array(20);
- 
+  section: string = 'two';
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
 

@@ -1,64 +1,56 @@
-<!--
-  Generated template for the ProfilePage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
-
-    <ion-header no-border>
-        <ion-navbar color="nav-content">
-
-
-          <!-- LEFT BUTTON -->
-         <ion-buttons left>
+<ion-header no-border>
+  <ion-navbar color="nav-content">
+    <!-- LEFT BUTTON -->
+    <ion-buttons left>
       <button ion-button icon-only (click)="viewCtrl.dismiss()" class="my-style-for-modal">
-          <ion-icon name="arrow-back"></ion-icon>
+        <ion-icon name="xhb-down"></ion-icon>
       </button>
     </ion-buttons>
-          <!-- TITLE -->
-          <ion-title>프로필</ion-title>
-          <!-- RIGHT BUTTON -->
-         
-        </ion-navbar> 
-
-        <shrink-segment-header [scrollArea]="myContent" headerHeight="150"  (click)="test()">
-
+    <!-- TITLE -->
+    <ion-title>프로필</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()" class="my-style-for-modal"><ion-icon name="xhb-close" color="nav-text"></ion-icon></button>
+    </ion-buttons>
     
-            <div style="height: 150px;">        
-                  <div class="avatar" (click)="test2()"><img src="assets/img/user_000.jpg" class="avatar_img"></div>
-                  <div class="nickname">물뜨는미어캣
-                      
-                  </div>
-                  <div class="email">stilllove64@naver.com</div>
-                </div>  
-                
-        </shrink-segment-header>
-     
+    <!-- RIGHT BUTTON -->
+  </ion-navbar>
+  
+  <shrink-segment-header [scrollArea]="myContent" headerHeight="150"  (click)="test()">
+    <div class="profile_user">   
+      <div class="avatar_user" (click)="test2()"><img src="assets/img/user_000.jpg" class="avatar_img_user"></div>
+      <div class="nickname_user">물뜨는미어캣</div>
+    </div>  
+  </shrink-segment-header>
+  
+  <ion-toolbar color="profile-user-tab" mode="md" no-padding class="profile_toolbar">
+    <ion-segment color="profile-user-indicator" mode="md" [(ngModel)]="section" no-padding>
+      <ion-segment-button value="one"><span class="profile-user-txt">프로필</span>
+      </ion-segment-button>
+      <ion-segment-button value="two"><span class="profile-user-txt">이상형</span>
+      </ion-segment-button>
+      <ion-segment-button value="three"><span class="profile-user-txt">사용자피드</span>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
 
-      
-        <ion-toolbar color="light" mode="md">
-            <ion-segment color="dark" mode="md" [(ngModel)]="section">
-              <ion-segment-button value="one">
-                <ion-icon name="home"></ion-icon>
-              </ion-segment-button>
-              <ion-segment-button value="two">
-                <ion-icon name="cog"></ion-icon>
-              </ion-segment-button>
-              <ion-segment-button value="three">
-                <ion-icon name="chatbubbles"></ion-icon>
-              </ion-segment-button>
-            </ion-segment>
-          </ion-toolbar>
-      
-          
-      </ion-header>
+<ion-content fullscreen #myContent >
+  <div [ngSwitch]="section">
+    <ion-list *ngSwitchCase="'one'">
+      <ion-item *ngFor="let something of somethings" class="profile-user-item">
+        <div class="profile-tag">인사말</div>
+        <div class="profile-value">안녕하세요? 저는 물뜨는 미어캣입니다.</div>       
+      </ion-item>
+    </ion-list>
+    
+    <ion-list *ngSwitchCase="'two'">
+      <ion-item *ngFor="let something of somethings">
+          <ion-icon name="xhb-alarm"></ion-icon>
+        <h2>Something2</h2>
+      </ion-item>
+    </ion-list>
 
-
-     
-
-  <ion-content fullscreen #myContent >
-
+<<<<<<< HEAD
     <div [ngSwitch]="section">
  
       <ion-list *ngSwitchCase="'one'">
@@ -92,3 +84,16 @@
       
     
   </ion-content>
+=======
+    <ion-list *ngSwitchCase="'three'">
+      <ion-item *ngFor="let something of somethings">
+        <ion-thumbnail item-left>
+          <img src="https://avatars.io/instagram/unknown">
+        </ion-thumbnail>
+        <h2>Something3</h2>
+      </ion-item>
+    </ion-list>
+
+  </div>
+</ion-content>
+>>>>>>> 7fb40f442d21fa63d945261aa5c3867b451ad21e

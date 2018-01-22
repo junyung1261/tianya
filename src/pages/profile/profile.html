@@ -59,12 +59,36 @@
 
   <ion-content fullscreen #myContent >
 
-      <ion-item *ngFor="let something of somethings">
+    <div [ngSwitch]="section">
+ 
+      <ion-list *ngSwitchCase="'one'">
+        <ion-item *ngFor="let something of somethings">
           <ion-thumbnail item-left>
             <img src="https://avatars.io/instagram/unknown">
           </ion-thumbnail>
           <h2>Something</h2>
         </ion-item>
+      </ion-list>
+ 
+      <ion-list *ngSwitchCase="'two'">
+        <ion-item *ngFor="let something of somethings">
+          <ion-thumbnail item-left>
+            <img src="https://avatars.io/instagram/unknown">
+          </ion-thumbnail>
+          <h2>Something</h2>
+        </ion-item>
+      </ion-list>
+ 
+      <ion-list *ngSwitchCase="'three'">
+        <ion-item *ngFor="let something of somethings">
+          <ion-thumbnail item-left>
+            <img src="https://avatars.io/instagram/unknown">
+          </ion-thumbnail>
+          <h2>Something</h2>
+        </ion-item>
+      </ion-list>
+ 
+    </div>
       
     
   </ion-content>

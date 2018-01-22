@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Config, Nav, Platform, ModalController } from 'ionic-angular';
+import { Config, Nav, Platform, ModalController, App } from 'ionic-angular';
 import { Network } from '@ionic-native/network';
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
@@ -24,7 +24,7 @@ export class MyApp {
   ;
 
   @ViewChild(Nav) nav: Nav;
-
+  
 
 
   pages: any[];
@@ -32,7 +32,7 @@ export class MyApp {
  
   constructor(private translate: TranslateService, platform: Platform, settings: Settings,
               private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private modalCtrl: ModalController,
-              private afDB: AngularFireDatabase, private afAuth: AngularFireAuth, private network: Network) {
+              private afDB: AngularFireDatabase, private afAuth: AngularFireAuth, private network: Network, private app: App) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -124,7 +124,9 @@ export class MyApp {
     
   }
 
-  
+  test() {
+    this.nav.setRoot('CommunityListPage', {'categoryName': 'info'});
+}
 
   initializeItems(){
     this.pages = this.loadedCommunityList;

@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-
-/**
- * Generated class for the NoticePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map'
 
 @IonicPage()
 @Component({
@@ -14,12 +9,21 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'notice.html',
 })
 export class NoticePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  information: any[];
+ 
+  constructor(public navCtrl: NavController, private http: Http, public viewCtrl: ViewController) {
+    let localData = http.get('assets/json/information.json').map(res => res.json().items);
+    localData.subscribe(data => {
+      this.information = data;
+    })
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NoticePage');
+ 
+  toggleSection(i) {
+    this.information[i].open = !this.information[i].open;
+  }
+ 
+  toggleItem(i, j) {
+    this.information[i].children[j].open = !this.information[i].children[j].open;
   }
 
 }

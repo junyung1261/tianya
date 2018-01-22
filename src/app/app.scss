@@ -42,6 +42,16 @@ ion-icon {
     &[class*="xhb-alarm"] { mask-image: url(../assets/icon_basic/alarm.svg);}       //ALARM
     &[class*="xhb-filter"] { mask-image: url(../assets/icon_basic/filter.svg);}     //FILTER
 
+    &[class*="xhb-info"] { mask-image: url(../assets/icon_basic/info.svg);}         //정보
+    &[class*="xhb-life"] { mask-image: url(../assets/icon_basic/life.svg);}         //생활
+    &[class*="xhb-trade"] { mask-image: url(../assets/icon_basic/trade.svg);}       //교류
+    &[class*="xhb-trip"] { mask-image: url(../assets/icon_basic/trip.svg);}         //여행
+
+    &[class*="xhb-notice"] { mask-image: url(../assets/icon_basic/notice.svg);}     //공지사항
+    &[class*="xhb-cscenter"] { mask-image: url(../assets/icon_basic/cscenter.svg);} //고객센터
+    &[class*="xhb-setting"] { mask-image: url(../assets/icon_basic/setting.svg);}   //환경설정
+    &[class*="xhb-heart"] { mask-image: url(../assets/icon_basic/heart.svg);}       //하트충전
+
     &[class*="xhb-up"] { mask-image: url(../assets/icon_basic/up.svg);}             //ARROWS
     &[class*="xhb-up-double"] { mask-image: url(../assets/icon_basic/up-double.svg);}
     &[class*="xhb-down"] { mask-image: url(../assets/icon_basic/down.svg);}
@@ -50,6 +60,7 @@ ion-icon {
     &[class*="xhb-left-double"] { mask-image: url(../assets/icon_basic/left-double.svg);}
     &[class*="xhb-right"] { mask-image: url(../assets/icon_basic/right.svg);}
     &[class*="xhb-right-double"] { mask-image: url(../assets/icon_basic/right-double.svg);}
+    &[class*="xhb-close"] { mask-image: url(../assets/icon_basic/close.svg);}
 
 }
 
@@ -57,29 +68,81 @@ ion-menu[side=left] .menu-inner {
   width:100%;
   border-bottom:none;
 }
+ion-title, ion-col {
+  text-align:center;
+}
 
+.nav_container {
+  width:100vw;
+  height:100vh;
+  background-color :#ececec;
+}
 .profile {
   background-color :#FFF;
   border-bottom : 1px solid #ececec;
-  height : 30vh;
+  margin-bottom : 2vh;
 }
 
 .avatar {
+  margin-top:2vh;
+  margin-bottom:1vh;
   text-align: center;
 }
 
 .avatar_img {
-  width:20vw;
-  margin-top:5vw;
+  width:15vh;
   border-radius:50%;
 }
 .nickname {
   text-align: center;
+  font-weight: bold;
+  font-size:16px;
+  margin-bottom:1vh;
 }
 
 .email {
   text-align: center;
+  font-size:12px;
+  margin-bottom:2vh;
 }
+
+.submenu {
+  font-size:14px;
+  ion-grid{
+    height:6vh;
+    
+  }
+}
+.usermenu {
+  display: table;
+  border-collapse:collapse
+  .row {
+    display:table-row;
+  }
+  .cell {
+      display: table-cell;
+      border: 1px solid #ececec;
+      background-color : #fff;
+      width: 25vw;
+      height: 25vw;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;     
+      text-align:center;
+      padding-top:5vw;
+  }
+  .btn {
+    height:10vw;
+    margin-bottom:1vw;
+    font-size:10vw;
+  }
+  .btn_text {
+    height:5vw;
+    font-size:12px;
+  }
+
+}
+
 //hide scrollbar
 ::-webkit-scrollbar{ display:none; }
 

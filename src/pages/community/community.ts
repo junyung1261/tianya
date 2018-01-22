@@ -20,15 +20,23 @@ export class CommunityPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public afDB: AngularFireDatabase) {
 
-
-
     this.afDB.list('/category_big', ref => ref).valueChanges().subscribe(categoryItems => {
       this.category = categoryItems;
     });
-   
-
       
   }
+
+  modalBase(categoryName) {
+    let createModal = this.modalCtrl.create('CommunityPromotionPage', {categoryName: categoryName,
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out'
+    });
+    createModal.onDidDismiss(data => {
+      console.log(data);
+    });
+    createModal.present();
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CommunityPage');

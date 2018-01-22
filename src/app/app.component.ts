@@ -11,6 +11,19 @@ import { AngularFireDatabase} from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 
+export interface PageInterface {
+  title: string;
+  name: string;
+  component: any;
+  icon: string;
+  logsOut?: boolean;
+  index?: number;
+  tabName?: string;
+  tabComponent?: any;
+}
+
+
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -25,8 +38,7 @@ export class MyApp {
 
   @ViewChild(Nav) nav: Nav;
   
-
-
+  
   pages: any[];
 
  
@@ -116,17 +128,10 @@ export class MyApp {
     });
     createModal.present();
   }
-  openPage(categoryName) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    console.log(categoryName);
-    this.nav.setRoot('CommunityListPage',{'categoryName': categoryName}); 
-    
+  openPage(page: PageInterface) {
+   
+    this.nav.getActiveChildNavs()[0].getActiveChildNavs()[0].push('CommunityListPage');
   }
-
-  test() {
-    this.nav.setRoot('CommunityListPage', {'categoryName': 'info'});
-}
 
   initializeItems(){
     this.pages = this.loadedCommunityList;

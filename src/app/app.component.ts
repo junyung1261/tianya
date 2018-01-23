@@ -45,7 +45,7 @@ export class MyApp {
         alert('message received')
 
         if (data.wasTapped) {
-          console.info("Received in background");
+          console.info("Received in backgroundasdasd");
         } else {
           console.info("Received in foreground");
         };

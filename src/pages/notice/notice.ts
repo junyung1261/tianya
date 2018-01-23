@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { Http } from '@angular/http';
+import { AngularFireDatabase } from 'angularfire2/database';
 import 'rxjs/add/operator/map'
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @IonicPage()
 @Component({
@@ -10,20 +11,24 @@ import 'rxjs/add/operator/map'
 })
 export class NoticePage {
   information: any[];
+
  
-  constructor(public navCtrl: NavController, private http: Http, public viewCtrl: ViewController) {
-    let localData = http.get('assets/json/information.json').map(res => res.json().items);
-    localData.subscribe(data => {
-      this.information = data;
-    })
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController, private afDB: AngularFireDatabase, private localNotifications: LocalNotifications) {
+
+    this.afDB.list('/NOTICE', ref => ref.orderByChild('name')).valueChanges().subscribe(Items => {
+      this.information = Items;
+
+    });
+
+    this.localNotifications.schedule({
+      id: 1,
+      title: 'Local Notification',
+      text: 'This is test notification. It will pop up when you enter the NOITCE page.'
+    });
+
   }
  
   toggleSection(i) {
     this.information[i].open = !this.information[i].open;
   }
- 
-  toggleItem(i, j) {
-    this.information[i].children[j].open = !this.information[i].children[j].open;
-  }
-
 }

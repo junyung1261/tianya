@@ -11,7 +11,7 @@
         <ion-icon name="xhb-menu" color="top-text"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title color="top-text">커뮤니티</ion-title>
+    <ion-title color="top-text">{{ "COMMUNITY_TITLE" | translate }}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only>
         <ion-icon name="xhb-search" color="top-text"></ion-icon>
@@ -22,98 +22,39 @@
 
 <ion-content> 
   <div class="content">
-    <div class="info">
-      <table class="info_table">
-        <tr>
-          <td colspan="4" class="info_title">정보</td>
-        </tr>
-        <tr class="info_row">
-          <td class="info_img" (click)="modalBase('CATEGORY_INFO')"><div class="info_btn btn_semired"><ion-icon name="xhb-info"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">실시간 이슈</div><div class="cnt">今日 : 145</div></td>
-          <td class="info_img"><div class="info_btn btn_yellow"><ion-icon name="xhb-discount"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">할인 행사</div><div class="cnt">今日 : 145</div></td>
-        </tr>
-        <tr class="info_row">
-          <td class="info_img"><div class="info_btn btn_green"><ion-icon name="xhb-food"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">맛집정보</div><div class="cnt">今日 : 145</div></td>
-          <td class="info_img"><div class="info_btn btn_blue"><ion-icon name="xhb-beauty"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">미용정보</div><div class="cnt">今日 : 145</div></td>
-        </tr>
-      </table>
-    </div>
+
+    <div *ngFor="let category of categories;" > 
+      <div class="info" >
+        <table class="info_table" *ngIf="category.name != 'CATEGORY_TRADE'">
+          <tr>
+            <td colspan="4" class="info_title">{{category.name | translate}}</td>
+          </tr>
+            <tr class="info_row"  *ngFor = "let category_inner of category.category_inner; let i = index" [hidden]="i % 2 != 0">
+                  <td class="info_img" (click)="modalBase(category.category_inner[i].name)"><div class={{category.category_inner[i].color}}><ion-icon name={{category.category_inner[i].icon}}></ion-icon></div></td>
+                  <td class="info_txt" (click)="modalBase(category.category_inner[i].name)"><div class="title">{{category.category_inner[i].name | translate }}</div><div class="cnt">今日 : 145</div></td>
+                  <td class="info_img" *ngIf="category.category_inner[i+1]" (click)="modalBase(category.category_inner[i+1].name)"><div class={{category.category_inner[i+1].color}}><ion-icon name={{category.category_inner[i+1].icon}}></ion-icon></div></td>
+                  <td class="info_txt" *ngIf="category.category_inner[i+1]" (click)="modalBase(category.category_inner[i+1].name)"><div class="title">{{category.category_inner[i+1].name | translate }}</div><div class="cnt">今日 : 145</div></td>
+            </tr>
+        </table>
+      </div>
+
+          
+      <div class="trade" >
+        <table class="trade_table" *ngIf="category.name == 'CATEGORY_TRADE'">
+          <tr>
+            <td colspan="3" class="trade_title">{{category.name | translate }}</td>
+          </tr>
+          <tr class="trade_row">
+            <td class="trade_img" *ngFor="let category_inner of category.category_inner">
+              <div class={{category_inner.color}}><ion-icon name={{category_inner.icon}}></ion-icon></div>
+              <div class="title">{{category_inner.name | translate }}</div>
+            </td>
+          </tr>
+        </table>
+      </div>
     
-    <div class="info">
-      <table class="info_table">
-        <tr>
-          <td colspan="4" class="info_title">생활</td>
-        </tr>
-        <tr class="info_row">
-          <td class="info_img"><div class="info_btn btn_red"><ion-icon name="xhb-job"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">취업활동</div><div class="cnt">今日 : 145</div></td>
-          <td class="info_img"><div class="info_btn btn_semired"><ion-icon name="xhb-home"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">주거정보</div><div class="cnt">今日 : 145</div></td>
-        </tr>
-        <tr class="info_row">
-          <td class="info_img"><div class="info_btn btn_yellow"><ion-icon name="xhb-used"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">벼룩시장</div><div class="cnt">今日 : 145</div></td>
-          <td class="info_img"><div class="info_btn btn_green"><ion-icon name="xhb-phone"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">휴대전화</div><div class="cnt">今日 : 145</div></td>
-        </tr>
-        <tr class="info_row">
-          <td class="info_img"><div class="info_btn btn_blue"><ion-icon name="xhb-car"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">자동차/운전</div><div class="cnt">今日 : 145</div></td>
-          <td class="info_img"><div class="info_btn btn_purple"><ion-icon name="xhb-consult"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">고민상담</div><div class="cnt">今日 : 145</div></td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="trade">
-      <table class="trade_table">
-        <tr>
-          <td colspan="3" class="trade_title">교류</td>
-        </tr>
-        <tr class="trade_row">
-          <td class="trade_img">
-            <div class="btn btn_semired"><ion-icon name="xhb-pencil"></ion-icon></div>
-            <div class="title">유학이야기</div>
-          </td>
-          <td class="trade_img">
-            <div class="btn btn_yellow"><ion-icon name="xhb-hobby"></ion-icon></div>
-            <div class="title">취미이야기</div>
-          </td>
-          <td class="trade_img">
-            <div class="btn btn_blue"><ion-icon name="xhb-club"></ion-icon></div>
-            <div class="title">동아리</div>
-          </td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="info">
-      <table class="info_table">
-        <tr>
-          <td colspan="4" class="info_title">여행</td>
-        </tr>
-        <tr class="info_row">
-          <td class="info_img"><div class="info_btn btn_semired"><ion-icon name="xhb-guide"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">여행 가이드</div><div class="cnt">今日 : 145</div></td>
-          <td class="info_img"><div class="info_btn btn_yellow"><ion-icon name="xhb-tripcomment"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">여행 후기</div><div class="cnt">今日 : 145</div></td>
-        </tr>
-        <tr class="info_row">
-          <td class="info_img"><div class="info_btn btn_green"><ion-icon name="xhb-reservation"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">호텔/팬션</div><div class="cnt">今日 : 145</div></td>
-          <td class="info_img"><div class="info_btn btn_blue"><ion-icon name="xhb-promotion"></ion-icon></div></td>
-          <td class="info_txt"><div class="title">프로모션</div><div class="cnt">今日 : 145</div></td>
-        </tr>
-      </table>
-    </div>
-
-
+      </div>
   </div>
-
-
 
 
 

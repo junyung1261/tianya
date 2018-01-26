@@ -42,6 +42,7 @@ ion-icon {
     &[class*="xhb-alarm"] { mask-image: url(../assets/icon_basic/alarm.svg);}       //ALARM
     &[class*="xhb-filter"] { mask-image: url(../assets/icon_basic/filter.svg);}     //FILTER
     &[class*="xhb-search"] { mask-image: url(../assets/icon_basic/search.svg);}     //SEARCH
+    &[class*="xhb-photo"] { mask-image: url(../assets/icon_basic/photo.svg);}         //MENU
 
     &[class*="xhb-info"] { mask-image: url(../assets/icon_basic/info.svg);}         //정보
     &[class*="xhb-discount"] { mask-image: url(../assets/icon_basic/discount.svg);} //할인정보

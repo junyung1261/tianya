@@ -66,8 +66,14 @@ export class SocialCreatePage {
   }
 
   getPictures(){ 
-    this.imagePicker.getPictures({
-    }).then( results =>{
+    let options = {
+      maximumImagesCount: 3,
+      width: 100,
+      heigth: 100,
+      quality: 75
+    }
+    this.imagePicker.getPictures(options
+    ).then( results =>{
       console.log(results);
       for(let i=0; i < results.length;i++){
         this.images.push(results[i]);

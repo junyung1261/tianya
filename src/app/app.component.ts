@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform, ModalController, App } from 'ionic-angular';
 import { Network } from '@ionic-native/network';
-import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
 
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -62,7 +61,7 @@ export class MyApp {
       if (!user) {
         // you can modify here the page for non. auth users
         // this.nav.setRoot('LoginPage');
-        this.nav.setRoot(FirstRunPage);
+        this.nav.setRoot('LoginPage');
       }
       // page for auth. users
       else {

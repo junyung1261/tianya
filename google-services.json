@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1045281213826",
+    "firebase_url": "https://test-1994test.firebaseio.com",
+    "project_id": "test-1994test",
+    "storage_bucket": "test-1994test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045281213826:android:764d2cb7da3280eb",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045281213826-42aasonbkr3aev7eejm2mgoufqf3vcqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJS7rKjKpf0bk8p_27JkdrM0kVC9kn-fU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

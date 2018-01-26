@@ -43,7 +43,7 @@ export class CommunityPage {
 
   
   modalBase(categoryName) {
-    let createModal = this.modalCtrl.create('CommunityPromotionPage', {categoryName: categoryName,
+    let createModal = this.modalCtrl.create('CommunityPromotionPage', {categoryName: categoryName} , {
       enterAnimation: 'modal-slide-in',
       leaveAnimation: 'modal-slide-out'
     });

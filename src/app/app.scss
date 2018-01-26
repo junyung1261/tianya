@@ -44,6 +44,8 @@ ion-icon {
     &[class*="xhb-search"] { mask-image: url(../assets/icon_basic/search.svg);}     //SEARCH
     &[class*="xhb-photo"] { mask-image: url(../assets/icon_basic/photo.svg);}         //MENU
 
+    &[class*="xhb-comment"] { mask-image: url(../assets/icon_basic/comment.svg);}         //소셜-댓글
+
     &[class*="xhb-info"] { mask-image: url(../assets/icon_basic/info.svg);}         //정보
     &[class*="xhb-discount"] { mask-image: url(../assets/icon_basic/discount.svg);} //할인정보
     &[class*="xhb-food"] { mask-image: url(../assets/icon_basic/food.svg);}         //맛집정보
@@ -137,13 +139,6 @@ ion-title {
   margin-bottom:2vh;
 }
 
-.submenu {
-  font-size:14px;
-  ion-grid{
-    height:6vh;
-    
-  }
-}
 .usermenu {
   display: table;
   border-collapse:collapse

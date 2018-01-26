@@ -16,6 +16,7 @@ import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { Network } from '@ionic-native/network';
+import { AppPreferences } from '@ionic-native/app-preferences';
 
 //***********  Angularfire2 v4 **************/
 
@@ -107,6 +108,7 @@ export const config = {
     MyApp
   ],
   providers: [
+    AppPreferences,
     LocalNotifications,
     FCM,
     Api,

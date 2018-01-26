@@ -7,11 +7,11 @@
 <ion-header>
 
   <ion-navbar>
-      <ion-buttons left>
-          <button ion-button  icon-only (click)="viewCtrl.dismiss()" class="my-style-for-modal">
-              <ion-icon name="arrow-back"></ion-icon>
-          </button>
-        </ion-buttons>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()" class="my-style-for-modal">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>chat-setting</ion-title>
   </ion-navbar>
 
@@ -26,9 +26,24 @@
       <ion-badge item-end>{{brightness}}</ion-badge>
     </ion-list-header>
     <ion-item>
-      <ion-range [(ngModel)]="brightness">
+      <ion-range [(ngModel)]="brightness" (ionChange)="onBrightnessChange(brightness)">
         <ion-icon range-left small name="sunny"></ion-icon>
         <ion-icon range-right name="sunny"></ion-icon>
+      </ion-range>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      Structure
+      <ion-badge item-end color="dark">{{structure.lower}}</ion-badge>
+      <ion-badge item-end color="dark">{{structure.upper}}</ion-badge>
+    </ion-list-header>
+    <ion-item>
+      <ion-range dualKnobs="true" pin="true" [(ngModel)]="structure" min="0" max="100" (ionChange)="onStructureChange(structure.lower, structure.upper)"
+        color="dark">
+        <ion-label range-left>-0</ion-label>
+        <ion-label range-right>100</ion-label>
       </ion-range>
     </ion-item>
   </ion-list>
@@ -39,7 +54,7 @@
       <ion-badge item-end color="secondary">{{saturation}}</ion-badge>
     </ion-list-header>
     <ion-item>
-      <ion-range min="-200" max="200" pin="true" [(ngModel)]="saturation" color="secondary">
+      <ion-range min="-200" max="200" pin="true" [(ngModel)]="saturation" (ionChange)="onSaturationChange(saturation)" color="secondary">
         <ion-label range-left>-200</ion-label>
         <ion-label range-right>200</ion-label>
       </ion-range>
@@ -52,23 +67,9 @@
       <ion-badge item-end color="danger">{{warmth}}</ion-badge>
     </ion-list-header>
     <ion-item>
-      <ion-range min="1000" max="2000" step="100" snaps="true" [(ngModel)]="warmth" color="danger">
+      <ion-range min="1000" max="2000" step="100" snaps="true" [(ngModel)]="warmth" (ionChange)="onWarmthChange(warmth)" color="danger">
         <ion-icon range-left small color="danger" name="thermometer"></ion-icon>
         <ion-icon range-right color="danger" name="thermometer"></ion-icon>
-      </ion-range>
-    </ion-item>
-  </ion-list>
-
-  <ion-list>
-    <ion-list-header>
-      Structure
-      <ion-badge item-end color="dark">{{structure.lower}}</ion-badge>
-      <ion-badge item-end color="dark">{{structure.upper}}</ion-badge>
-    </ion-list-header>
-    <ion-item>
-      <ion-range dualKnobs="true" pin="true" [(ngModel)]="structure" (ionChange)="onChange($event)" color="dark">
-        <ion-label range-left>-0</ion-label>
-        <ion-label range-right>100</ion-label>
       </ion-range>
     </ion-item>
   </ion-list>

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { SocialCreatePage } from './social-create';
 import { Elastic } from '../../directives/elastic-textArea/elastic-textArea'
-import { ImagePicker } from '@ionic-native/image-picker';
+import { PhotoLibrary } from '@ionic-native/photo-library';
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
     IonicPageModule.forChild(SocialCreatePage),
   ],
   providers:[
-    ImagePicker
+    PhotoLibrary
   ]
 })
 export class SocialCreatePageModule {}

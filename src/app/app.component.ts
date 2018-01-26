@@ -36,22 +36,22 @@ export class MyApp {
 
       // FCM push notification start--------------------
 
-      this.fcm.subscribeToTopic('all');
-      this.fcm.getToken().then(token => {
-        // backend.registerToken(token);
-      });
-      this.fcm.onNotification().subscribe(data => {
-        alert('message received')
+      // this.fcm.subscribeToTopic('all');
+      // this.fcm.getToken().then(token => {
+      //   // backend.registerToken(token);
+      // });
+      // this.fcm.onNotification().subscribe(data => {
+      //   alert('message received')
 
-        if (data.wasTapped) {
-          console.info("Received in backgroundasdasd");
-        } else {
-          console.info("Received in foreground");
-        };
-      });
-      this.fcm.onTokenRefresh().subscribe(token => {
-        // backend.registerToken(token);
-      });
+      //   if (data.wasTapped) {
+      //     console.info("Received in backgroundasdasd");
+      //   } else {
+      //     console.info("Received in foreground");
+      //   };
+      // });
+      // this.fcm.onTokenRefresh().subscribe(token => {
+      //   // backend.registerToken(token);
+      // });
 
       // FCM push notification end---------------------
     });

@@ -14,20 +14,36 @@ import { AngularFireDatabase} from 'angularfire2/database';
   selector: 'page-community',
   templateUrl: 'community.html',
 })
+
 export class CommunityPage {
 
-  category: any[] = [];
+  categories: any[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public afDB: AngularFireDatabase) {
 
-    this.afDB.list('/category_big', ref => ref).valueChanges().subscribe(categoryItems => {
-      this.category = categoryItems;
+    this.afDB.list('/category', ref => ref).valueChanges().take(1).subscribe(categoryItems => {
+      this.categories = categoryItems;
+     
     });
-      
+    
+   
   }
 
+  division(num: number, arr: any[]){
+    let array = arr;
+    let len = array.length;
+    let cnt = Math.floor(len / num);
+    let tmp = [];
+    for (let i = 0; i < cnt; i++){
+      tmp.push(array.splice(0,num));
+    }
+
+    return tmp;
+  }
+
+  
   modalBase(categoryName) {
-    let createModal = this.modalCtrl.create('CommunityPromotionPage', {categoryName: categoryName,
+    let createModal = this.modalCtrl.create('CommunityPromotionPage', {categoryName: categoryName} , {
       enterAnimation: 'modal-slide-in',
       leaveAnimation: 'modal-slide-out'
     });

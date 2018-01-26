@@ -16,6 +16,7 @@ import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { Network } from '@ionic-native/network';
+import { AppPreferences } from '@ionic-native/app-preferences';
 
 //***********  Angularfire2 v4 **************/
 
@@ -24,6 +25,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { FCM } from '@ionic-native/fcm';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 
 import { Geolocation } from '@ionic-native/geolocation';
@@ -62,14 +65,16 @@ export function provideSettings(storage: Storage) {
   });
 }
 
+
+
 //********** firebase configuration  ************ */
 export const config = { 
-     apiKey: "AIzaSyAh0d1N0lsLt0avjs7T0Qe8LTzzDqf5NWo",
-    authDomain: "tianya-c6a7e.firebaseapp.com",
-    databaseURL: "https://tianya-c6a7e.firebaseio.com",
-    projectId: "tianya-c6a7e",
-    storageBucket: "tianya-c6a7e.appspot.com",
-    messagingSenderId: "117613190951"
+  apiKey: "AIzaSyAh0d1N0lsLt0avjs7T0Qe8LTzzDqf5NWo",
+  authDomain: "tianya-c6a7e.firebaseapp.com",
+  databaseURL: "https://tianya-c6a7e.firebaseio.com",
+  projectId: "tianya-c6a7e",
+  storageBucket: "tianya-c6a7e.appspot.com",
+  messagingSenderId: "117613190951"
   
 };
 
@@ -105,6 +110,9 @@ export const config = {
     MyApp
   ],
   providers: [
+    AppPreferences,
+    LocalNotifications,
+    FCM,
     Api,
     Items,
     User,

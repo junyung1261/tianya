@@ -6,9 +6,11 @@
 -->
 <ion-header no-border  class="feed-header" >
   <ion-navbar color="top-background">
-    <button ion-button menuToggle>
-      <ion-icon name="xhb-menu" color="top-text"></ion-icon>
-    </button>
+    <ion-buttons left>
+        <button ion-button menuToggle>
+          <ion-icon name="xhb-menu" color="top-text"></ion-icon>
+        </button>
+      </ion-buttons>
     <ion-title>Social Feed</ion-title>
     <ion-buttons end>
         <button ion-button icon-only (click)="presentNoticeModal()">
@@ -27,8 +29,8 @@
       </ion-refresher>
   
     
-      <ion-card  *ngFor="let feed of feeds ">
-          <ion-item sticky>
+      <ion-card  *ngFor="let feed of feeds " >
+          <ion-item sticky >
             <ion-avatar item-left  (click)="presentProfileModal()">
               <img [src]="feed.imgProfile">
             </ion-avatar>
@@ -44,7 +46,7 @@
                 
               </ion-slides>
             
-          <ion-card-content  (click)="presentDetailModal()">
+          <ion-card-content (click)="presentDetailModal()" >
             <ion-card-title>
               {{feed.title}}
             </ion-card-title>

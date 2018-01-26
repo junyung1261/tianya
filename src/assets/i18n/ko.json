@@ -68,27 +68,31 @@
     "SEARCH_TITLE": "Search",
     "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\"",
   
-    "COMMUNITY_TITLE": "Communtiy",
+    "COMMUNITY_TITLE": "커뮤니티",
   
   
-    "CATEGORY_INFO": "Info",
-    "CATEGORY_TRAVEL": "Travel",
-    "CATEGORY_LIFE": "Life",
-    "CATEGORY_TRADE": "Trade",
+    "CATEGORY_INFO": "정보",
+    "CATEGORY_TRAVEL": "여행",
+    "CATEGORY_LIFE": "생활",
+    "CATEGORY_TRADE": "교류",
   
-    "INFO_ISSUE": "Issue",
-    "INFO_COUPON": "Coupon",
-    "INFO_FOOD": "Food",
-    "LIFE_STUDY": "Study",
-    "LIFE_CONSULTING": "Consulting",
-    "LIFE_USED": "Used",
-    "LIFE_JOB": "Job",
-    "LIFE_ESTATE": "Estate",
-    "TRADE_FRIENDS": "Friends",
-    "TRADE_PET": "Pet",
-    "TRADE_CLUB": "Club",
-    "TRAVEL_STORY": "Story",
-    "TRAVEL_BEAUTY": "Beauty"
+    "INFO_ISSUE": "실시간이슈",
+    "INFO_DISCOUNT": "할인/쿠폰",
+    "INFO_FOOD": "맛집",
+    "INFO_BEUATY": "미용/화장품",
+    "LIFE_CONSULT": "고민상담",
+    "LIFE_USED": "중고시장",
+    "LIFE_JOB": "취업정보",
+    "LIFE_HOME": "주거정보",
+    "LIFE_PHONE": "휴대폰",
+    "LIFE_CAR": "자동차",
+    "TRADE_STUDY": "유학",
+    "TRADE_HOBBY": "취미",
+    "TRADE_CLUB": "동아리",
+    "TRAVEL_GUIDE": "여행가이드",
+    "TRAVEL_TRIP": "여행후기",
+    "TRAVEL_RESERVATION": "호텔/펜션",
+    "TRAVEL_PROMOTION": "이벤트"
   
     
   

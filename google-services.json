@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "117613190951",
+    "firebase_url": "https://tianya-c6a7e.firebaseio.com",
+    "project_id": "tianya-c6a7e",
+    "storage_bucket": "tianya-c6a7e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117613190951:android:764d2cb7da3280eb",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "117613190951-3o53lhf0s2d61nfcj4rdmlu92ndam0o9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9MZrtA9UxB5FCVPnD1xyxXvP0G706-2s"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

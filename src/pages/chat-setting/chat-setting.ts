@@ -29,8 +29,18 @@ export class ChatSettingPage {
    
     // this.appPreferences.fetch('structureLower', 'lowerStructureKey').then((res) => { console.log("lowerStructure fetch type :", typeof res, "value :", res); this.structure.lower = res;});
     // this.appPreferences.fetch('structureUpper', 'upperStructureKey').then((res) => { console.log("upperStructure fetch type :", typeof res, "value :", res); this.structure.upper = res;});
-    this.appPreferences.fetch('structureLower', 'lowerStructureKey').then((res) => { console.log("lowerStructure fetch type :", typeof res, "value :", res); this.structure = {lower :res, upper:this.structure.upper};});
-    this.appPreferences.fetch('structureUpper', 'upperStructureKey').then((res) => { console.log("upperStructure fetch type :", typeof res, "value :", res); this.structure = {lower : this.structure.lower, upper : res};});
+    this.appPreferences.fetch('structureLower', 'lowerStructureKey').then((res) => 
+    { 
+      console.log("lowerStructure fetch type :", typeof res, "value :", res); 
+      if(res>0) {this.structure = {lower :res, upper:this.structure.upper};}
+      else{this.structure = {lower :0, upper:100};};
+    });
+    this.appPreferences.fetch('structureUpper', 'upperStructureKey').then((res) => 
+    { 
+      console.log("upperStructure fetch type :", typeof res, "value :", res); 
+      if(res>0) {this.structure = {lower : this.structure.lower, upper : res};}
+      else{this.structure = {lower :0, upper:100};};
+    });
   }
 
   ionViewDidLoad() {

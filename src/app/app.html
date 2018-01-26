@@ -1,33 +1,40 @@
-
 <ion-menu [content]="content" side="left">
   <ion-header no-border>
     <ion-navbar color="nav-content">
       <!-- LEFT BUTTON -->
       <ion-buttons left>
-        <button ion-button icon-only [navPush]="pushPage"><ion-icon name="xhb-alarm" color="nav-text"></ion-icon></button>
+        <button ion-button icon-only [navPush]="pushPage">
+          <ion-icon name="xhb-alarm" color="nav-text"></ion-icon>
+        </button>
       </ion-buttons>
       <!-- TITLE -->
       <ion-title>나의 메뉴</ion-title>
       <!-- RIGHT BUTTON -->
       <ion-buttons end>
-        <button ion-button icon-only menuClose><ion-icon name="xhb-left" color="nav-text"></ion-icon></button>
+        <button ion-button icon-only menuClose>
+          <ion-icon name="xhb-left" color="nav-text"></ion-icon>
+        </button>
       </ion-buttons>
-    </ion-navbar> 
+    </ion-navbar>
   </ion-header>
   <ion-content>
     <div class="nav_container">
       <div class="profile">
-        <div class="avatar"><img src="assets/img/user_000.jpg" class="avatar_img"></div>
+        <div class="avatar">
+          <img src="assets/img/user_000.jpg" class="avatar_img">
+        </div>
         <div class="nickname">물뜨는미어캣
-            
+
         </div>
         <div class="email">stilllove64@naver.com</div>
         <div class="submenu">
           <ion-grid>
             <ion-row>
-              <ion-col col-4>나의피드</ion-col>
+              <ion-col col-4>
+                <span (click)="presentModal('ProfileModifyPage')">프로필수정</span>
+              </ion-col>
               <ion-col col-4>이상형설정</ion-col>
-              <ion-col col-4>프로필수정</ion-col>
+              <ion-col col-4>나의피드</ion-col>
             </ion-row>
           </ion-grid>
         </div>
@@ -35,43 +42,59 @@
       <div class="usermenu">
         <div class="row">
           <div class="cell">
-            <div class="btn" (click)="openPage()" menuClose><ion-icon name="xhb-info" color="nav-text"></ion-icon></div>
+            <div class="btn" (click)="openPage()" menuClose>
+              <ion-icon name="xhb-info" color="nav-text"></ion-icon>
+            </div>
             <div class="btn_text">정보</div>
           </div>
           <div class="cell">
-            <div class="btn"><ion-icon name="xhb-life" color="nav-text"></ion-icon></div>
+            <div class="btn">
+              <ion-icon name="xhb-life" color="nav-text"></ion-icon>
+            </div>
             <div class="btn_text">생활</div>
           </div>
           <div class="cell">
-            <div class="btn"><ion-icon name="xhb-trade" color="nav-text"></ion-icon></div>
+            <div class="btn">
+              <ion-icon name="xhb-trade" color="nav-text"></ion-icon>
+            </div>
             <div class="btn_text">교류</div>
           </div>
           <div class="cell">
-            <div class="btn"><ion-icon name="xhb-trip" color="nav-text"></ion-icon></div>
+            <div class="btn">
+              <ion-icon name="xhb-trip" color="nav-text"></ion-icon>
+            </div>
             <div class="btn_text">여행</div>
           </div>
         </div>
         <div class="row">
           <div class="cell">
-            <div class="btn"><ion-icon name="xhb-notice" color="nav-text" (click)="presentModal('NoticePage')"></ion-icon></div>
+            <div class="btn">
+              <ion-icon name="xhb-notice" color="nav-text" (click)="presentModal('NoticePage')"></ion-icon>
+            </div>
             <div class="btn_text">공지사항</div>
           </div>
           <div class="cell">
-            <div class="btn"><ion-icon name="xhb-cscenter" color="nav-text"></ion-icon></div>
+            <div class="btn" (click)="locateCustomerServiceEmail()" menuclose>
+              <ion-icon name="xhb-cscenter" color="nav-text"></ion-icon>
+            </div>
             <div class="btn_text">고객센터</div>
           </div>
           <div class="cell">
-            <div class="btn"><ion-icon name="xhb-setting" color="nav-text"></ion-icon></div>
+            <div class="btn">
+              <ion-icon name="xhb-setting" color="nav-text"></ion-icon>
+            </div>
             <div class="btn_text">환경설정</div>
           </div>
           <div class="cell">
-            <div class="btn"><ion-icon name="xhb-heart" color="nav-text"></ion-icon></div>
+            <div class="btn">
+              <ion-icon name="xhb-heart" color="nav-text"></ion-icon>
+            </div>
             <div class="btn_text">하트충전</div>
           </div>
         </div>
       </div>
-    </div>  
-    
+    </div>
+
   </ion-content>
 </ion-menu>
 <ion-nav #content [root]="rootPage"></ion-nav>

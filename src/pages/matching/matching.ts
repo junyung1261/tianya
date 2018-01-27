@@ -13,7 +13,15 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
   selector: 'page-matching',
   templateUrl: 'matching.html',
 })
+
+
 export class MatchingPage {
+
+  color1: string = 'matching-star-u';
+  color2: string = 'matching-star-u';
+  color3: string = 'matching-star-u';
+  color4: string = 'matching-star-u';
+  color5: string = 'matching-star-u';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
   }
@@ -31,6 +39,41 @@ export class MatchingPage {
       //console.log(data);
     });
     createModal.present();
+  }
+  sendServerOneStar(){
+    this.color1 = 'matching-star';
+    this.color2 = 'matching-star-u';
+    this.color3 = 'matching-star-u';
+    this.color4 = 'matching-star-u';
+    this.color5 = 'matching-star-u';
+  }
+  sendServerTwoStar(){
+    this.color1 = 'matching-star';
+    this.color2 = 'matching-star';
+    this.color3 = 'matching-star-u';
+    this.color4 = 'matching-star-u';
+    this.color5 = 'matching-star-u';
+  }
+  sendServerThreeStar(){
+    this.color1 = 'matching-star';
+    this.color2 = 'matching-star';
+    this.color3 = 'matching-star';
+    this.color4 = 'matching-star-u';
+    this.color5 = 'matching-star-u';
+  }
+  sendServerFourStar(){
+    this.color1 = 'matching-star';
+    this.color2 = 'matching-star';
+    this.color3 = 'matching-star';
+    this.color4 = 'matching-star';
+    this.color5 = 'matching-star-u';
+  }
+  sendServerFiveStar(){
+    this.color1 = 'matching-star';
+    this.color2 = 'matching-star';
+    this.color3 = 'matching-star';
+    this.color4 = 'matching-star';
+    this.color5 = 'matching-star';
   }
 
 }

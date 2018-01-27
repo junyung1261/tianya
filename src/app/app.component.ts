@@ -12,6 +12,7 @@ import { Observable } from 'rxjs/Observable';
 import { FCM } from '@ionic-native/fcm';
 
 
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -144,6 +145,12 @@ export class MyApp {
 
   initializeItems() {
     this.pages = this.loadedCommunityList;
+  }
+
+  locateCustomerServiceEmail(){ 
+    //this email(wangting5@naver.com) is for test.
+    //And test is done. So, Don't send any mail.
+    window.location.href = "mailto:wangting5@naver.com";
   }
 
   getItems(searchbar) {

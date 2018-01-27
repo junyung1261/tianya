@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs/Observable';
+import { ImagePicker } from '@ionic-native/image-picker';
+
 /**
  * Generated class for the SocialCreatePage page.
  *
@@ -20,8 +22,10 @@ export class SocialCreatePage {
   feedsRef: AngularFireList<any>;
   feeds: Observable<any[]>;
   text = '';
+  images = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public afDB: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, 
+              public afDB: AngularFireDatabase, public imagePicker: ImagePicker) {
 
     this.feedsRef = afDB.list('/feed');
   }
@@ -59,6 +63,22 @@ export class SocialCreatePage {
    
     else return false;
     
+  }
+
+  getPictures(){ 
+    let options = {
+      maximumImagesCount: 3,
+      width: 100,
+      heigth: 100,
+      quality: 75
+    }
+    this.imagePicker.getPictures(options
+    ).then( results =>{
+      console.log(results);
+      for(let i=0; i < results.length;i++){
+        this.images.push(results[i]);
+      };
+    });
   }
   
 }

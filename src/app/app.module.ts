@@ -69,12 +69,12 @@ export function provideSettings(storage: Storage) {
 
 //********** firebase configuration  ************ */
 export const config = { 
-  apiKey: "AIzaSyAh0d1N0lsLt0avjs7T0Qe8LTzzDqf5NWo",
-  authDomain: "tianya-c6a7e.firebaseapp.com",
-  databaseURL: "https://tianya-c6a7e.firebaseio.com",
-  projectId: "tianya-c6a7e",
-  storageBucket: "tianya-c6a7e.appspot.com",
-  messagingSenderId: "117613190951"
+  apiKey: "AIzaSyAN8sUSTomCycJu58cy10ctyuGoacxr4YQ",
+    authDomain: "tianya-563d5.firebaseapp.com",
+    databaseURL: "https://tianya-563d5.firebaseio.com",
+    projectId: "tianya-563d5",
+    storageBucket: "",
+    messagingSenderId: "1027078256166"
   
 };
 

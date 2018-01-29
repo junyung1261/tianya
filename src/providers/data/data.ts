@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
+import 'rxjs/add/operator/map'; // you might need to import this, or not depends on your setup
+import 'rxjs/add/operator/take'
 
 @Injectable()
 export class DataProvider {
@@ -72,9 +74,6 @@ export class DataProvider {
   }
 
   getFeeds(batch, lastKey?) {
-    
-    if(lastKey) console.log('tt');
-     
     return this.angularfireDatabase.list('/feed', ref => lastKey?  ref.orderByKey().limitToLast(batch).endAt(lastKey) : ref.orderByKey().limitToLast(batch));
   }
 }

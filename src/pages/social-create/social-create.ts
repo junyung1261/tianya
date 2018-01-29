@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs/Observable';
 import { ImagePicker } from '@ionic-native/image-picker';
+
+import { ImageUpload } from "../../components/image-upload/image-upload";
 
 /**
  * Generated class for the SocialCreatePage page.
@@ -18,7 +20,7 @@ import { ImagePicker } from '@ionic-native/image-picker';
   templateUrl: 'social-create.html',
 })
 export class SocialCreatePage {
-
+  @ViewChild(ImageUpload) ImageUpload: ImageUpload;
   feedsRef: AngularFireList<any>;
   feeds: Observable<any[]>;
   text = '';

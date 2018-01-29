@@ -251,4 +251,42 @@ export class ImageProvider {
       });
     });
   }
+
+  uploadFeedPhoto(feedId, imageData): Promise<any> {
+    return new Promise(resolve => {
+      //this.photoMessageOptions.sourceType = sourceType;
+      this.loadingProvider.show();
+      // Get picture from camera or gallery.
+     
+        // Process the returned imageURI.
+        let imgBlob = this.imgURItoBlob("data:image/jpeg;base64," + imageData);
+        let metadata = {
+          'contentType': imgBlob.type
+        };
+        // Generate filename and upload to Firebase Storage.
+        firebase.storage().ref().child('images/' + feedId + '/' + this.generateFilename()).put(imgBlob, metadata).then((snapshot) => {
+          // URL of the uploaded image!
+          let url = snapshot.metadata.downloadURLs[0];
+          this.loadingProvider.hide();
+          resolve(url);
+        }).catch((error) => {
+          this.loadingProvider.hide();
+          this.alertProvider.showErrorMessage('image/error-image-upload');
+        });
+      })
+    }
+
+    sendFeedPhoto(feedId, imageURL){
+      this.angularfireDatabase.object('/feed/' + feedId + '/images').update({
+        imageURL
+      }).then((success) => {
+        this.loadingProvider.hide();
+        this.alertProvider.showProfileUpdatedMessage();
+      }).catch((error) => {
+        this.loadingProvider.hide();
+        this.alertProvider.showErrorMessage('profile/error-change-photo');
+      });
+    }
+
+
 }

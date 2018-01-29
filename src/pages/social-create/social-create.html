@@ -30,9 +30,6 @@
   <ion-item>
     <ion-textarea elastic placeholder="내용 입력" [(ngModel)]="text" ></ion-textarea>
   </ion-item>
+  <image-upload></image-upload>
   
-  <button ion-button (click)="getPictures()">Get Pictures</button>
- <div *ngFor="let image of images">
- <img src="{{image}}"/>
- </div>
 </ion-content>

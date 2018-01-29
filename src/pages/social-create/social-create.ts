@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs/Observable';
-import { ImagePicker } from '@ionic-native/image-picker';
+import { DataProvider } from "../../providers/data/data"
 
 import { ImageUpload } from "../../components/image-upload/image-upload";
 
@@ -20,20 +20,25 @@ import { ImageUpload } from "../../components/image-upload/image-upload";
   templateUrl: 'social-create.html',
 })
 export class SocialCreatePage {
-  @ViewChild(ImageUpload) ImageUpload: ImageUpload;
+  @ViewChild(ImageUpload) imageUpload: ImageUpload;
   feedsRef: AngularFireList<any>;
   feeds: Observable<any[]>;
   text = '';
   images = [];
+  user;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, 
-              public afDB: AngularFireDatabase, public imagePicker: ImagePicker) {
+              public afDB: AngularFireDatabase, public dataProvider: DataProvider) {
 
     this.feedsRef = afDB.list('/feed');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SocialCreatePage');
+    this.dataProvider.getCurrentUser().valueChanges().subscribe((user) => {
+      
+      this.user = user;
+    });
   }
   
 
@@ -43,6 +48,10 @@ export class SocialCreatePage {
         writer: firebase.auth().currentUser.uid,
         date: firebase.database['ServerValue'].TIMESTAMP
       }).then((success) => {
+        if(this.imageUpload.images.length > 0){
+          this.imageUpload.key = success.key;
+          this.imageUpload.uploadImages();
+        }
         this.viewCtrl.dismiss({data: true});
       })
       
@@ -67,20 +76,6 @@ export class SocialCreatePage {
     
   }
 
-  getPictures(){ 
-    let options = {
-      maximumImagesCount: 3,
-      width: 100,
-      heigth: 100,
-      quality: 75
-    }
-    this.imagePicker.getPictures(options
-    ).then( results =>{
-      console.log(results);
-      for(let i=0; i < results.length;i++){
-        this.images.push(results[i]);
-      };
-    });
-  }
+  
   
 }

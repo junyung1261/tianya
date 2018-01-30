@@ -276,12 +276,12 @@ export class ImageProvider {
       })
     }
 
-    sendFeedPhoto(feedId, imageURL){
-      this.angularfireDatabase.object('/feed/' + feedId + '/images').update({
-        imageURL
+    sendFeedPhoto(feedId, imageURL) {
+
+      this.angularfireDatabase.object('/feed/' + feedId ).update({ images: imageURL
       }).then((success) => {
         this.loadingProvider.hide();
-        this.alertProvider.showProfileUpdatedMessage();
+        //this.alertProvider.showProfileUpdatedMessage();
       }).catch((error) => {
         this.loadingProvider.hide();
         this.alertProvider.showErrorMessage('profile/error-change-photo');

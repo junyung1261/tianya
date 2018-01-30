@@ -92,13 +92,13 @@ export class ImageUpload {
                         {
                             text: 'From photo library',
                             handler: () => {
-                                resolve(this.camera.PictureSourceType.PHOTOLIBRARY);
+                                this.camera.PictureSourceType.PHOTOLIBRARY;
                             }
                         },
                         {
                             text: 'From camera',
                             handler: () => {
-                                resolve(this.camera.PictureSourceType.CAMERA);
+                                this.camera.PictureSourceType.CAMERA;
                             }
                         },
                         {

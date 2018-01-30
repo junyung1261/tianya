@@ -37,7 +37,7 @@
     "angular2-baidu-map": "^4.1.0",
     "angular2-moment": "^1.7.1",
     "angularfire2": "^5.0.0-rc.4",
-    "cordova-android": "^6.3.0",
+    "cordova-android": "7.0.0",
     "cordova-plugin-app-preferences": "^0.99.3",
     "cordova-plugin-badge": "^0.8.6",
     "cordova-plugin-device": "^1.1.4",
@@ -81,13 +81,8 @@
       },
       "cordova-plugin-network-information": {},
       "cordova-plugin-fcm": {},
-      "cordova-plugin-local-notification": {},
-      "com.synconset.imagepicker": {
-        "PHOTO_LIBRARY_USAGE_DESCRIPTION": "App wants to access your gallery"
-      }
+      "cordova-plugin-local-notification": {}
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   }
 }

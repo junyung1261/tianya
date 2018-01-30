@@ -17,6 +17,8 @@ import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { Network } from '@ionic-native/network';
 import { AppPreferences } from '@ionic-native/app-preferences';
+import { HeaderColor } from '@ionic-native/header-color';
+
 
 //***********  Angularfire2 v4 **************/
 
@@ -134,6 +136,7 @@ export const config = {
     DataProvider,
     ImageProvider,
     RequestProvider,
+    HeaderColor
 
  
   ]

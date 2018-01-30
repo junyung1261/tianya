@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform, ModalController, App } from 'ionic-angular';
 import { Network } from '@ionic-native/network';
 import { Settings } from '../providers/providers';
-
+import { HeaderColor } from '@ionic-native/header-color';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
@@ -27,12 +27,17 @@ export class MyApp {
   category: any[];
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings,
-    private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, private modalCtrl: ModalController,
+    private config: Config, private statusBar: StatusBar, private headerColor: HeaderColor, private splashScreen: SplashScreen, private modalCtrl: ModalController,
     private afDB: AngularFireDatabase, private afAuth: AngularFireAuth, private network: Network, private app: App, private fcm: FCM) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
+        if (platform.is('android')) {
+          statusBar.overlaysWebView(false);
+          statusBar.backgroundColorByHexString('#262F34');
+          headerColor.tint('#262F34');
+      }
       this.splashScreen.hide();
 
       // FCM push notification start--------------------
@@ -57,7 +62,7 @@ export class MyApp {
       // FCM push notification end---------------------
     });
     this.initTranslate();
-
+    
     this.afAuth.authState.subscribe(user => {
       if (!user) {
         // you can modify here the page for non. auth users

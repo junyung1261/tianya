@@ -17,6 +17,8 @@ import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
 import { Network } from '@ionic-native/network';
 import { AppPreferences } from '@ionic-native/app-preferences';
+import { HeaderColor } from '@ionic-native/header-color';
+
 
 //***********  Angularfire2 v4 **************/
 
@@ -71,11 +73,11 @@ export function provideSettings(storage: Storage) {
 //********** firebase configuration  ************ */
 export const config = { 
   apiKey: "AIzaSyCj9s5Z1ZKrff_4BxF1ZSryzjY8KzTmbtI",
-    authDomain: "tianya-6d56d.firebaseapp.com",
-    databaseURL: "https://tianya-6d56d.firebaseio.com",
-    projectId: "tianya-6d56d",
-    storageBucket: "",
-    messagingSenderId: "286006030163"
+  authDomain: "tianya-6d56d.firebaseapp.com",
+  databaseURL: "https://tianya-6d56d.firebaseio.com",
+  projectId: "tianya-6d56d",
+  storageBucket: "tianya-6d56d.appspot.com",
+  messagingSenderId: "286006030163"
 };
 
 @NgModule({
@@ -134,6 +136,7 @@ export const config = {
     DataProvider,
     ImageProvider,
     RequestProvider,
+    HeaderColor
 
  
   ]

@@ -12,7 +12,7 @@ import { DataProvider } from "../../providers/data/data"
 })
 
 export class ImageUpload {
-    public serverUrl = "http://jquery-file-upload.appspot.com/";
+   
 
     public isUploading = false;
     public uploadingProgress = {};
@@ -32,12 +32,14 @@ export class ImageUpload {
 
 
     public uploadImages(): Promise<Array<any>> {
+        
         return new Promise((resolve, reject) => {
             this.isUploading = true;
             Promise.all(this.images.map(image => {
                 return this.uploadImage(image);
             }))
                 .then(resolve => {
+                    
                     this.imageProvider.sendFeedPhoto(this.key, this.imageURL);
                 })
                 .catch(reason => {
@@ -112,14 +114,15 @@ export class ImageUpload {
                 });
                 actionSheet.present();
             }).then(sourceType => {
+               
                 if (!window['cordova'])
                     return;
                 let options: CameraOptions = {
                     quality: 50,
                     sourceType: sourceType as number,
-                    saveToPhotoAlbum: false,
                     destinationType: this.camera.DestinationType.DATA_URL,
                     encodingType: this.camera.EncodingType.JPEG,
+                    saveToPhotoAlbum: false,
                     correctOrientation: true
                 };
                 this.camera.getPicture(options).then((imagePath) => {
@@ -137,30 +140,17 @@ export class ImageUpload {
             this.uploadingProgress[targetPath] = 0;
 
             if (window['cordova']) {
-                // let options = {
-                //     fileKey: "files[]",
-                //     fileName: targetPath,
-                //     chunkedMode: false,
-                //     mimeType: "multipart/form-data",
-                // };
-
-                // const fileTransfer = new TransferObject();
-                // this.uploadingHandler[targetPath] = fileTransfer;
-
-                // fileTransfer.upload(targetPath, this.serverUrl, options).then(data => {
-                //     resolve(JSON.parse(data.response));
-                // }).catch(() => {
-                //     askRetry();
-                // });
-
-                // fileTransfer.onProgress(event2 => {
-                //     this.uploadingProgress[targetPath] = event2.loaded * 100 / event2.total;
-                // });
-            } else { 
-                this.imageProvider.uploadFeedPhoto(this.key, targetPath).then((url)=>{
-                    this.imageURL.push(url);
-                })
-            }
+              console.log('cordova');
+              
+              this.imageProvider.uploadFeedPhoto(this.key, targetPath).then((url)=>{
+                  resolve(this.imageURL.push({url: url}));
+                  
+              }).catch(() => {
+                  askRetry();
+              });
+            }  
+                
+            
 
             let askRetry = () => {
                 // might have been aborted
@@ -233,7 +223,7 @@ export class ImageUpload {
                     val => {
                         return {
                             url: val,
-                            sanitized: _this.sanitization.bypassSecurityTrustStyle("url(" + val + ")")
+                            sanitized: _this.sanitization.bypassSecurityTrustStyle("url(" + "data:image/jpeg;base64," + val + ")")
                         }
                     }
                 );

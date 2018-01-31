@@ -49,6 +49,7 @@ export class SocialCreatePage {
         date: firebase.database['ServerValue'].TIMESTAMP
       }).then((success) => {
         if(this.imageUpload.images.length > 0){
+         
           this.imageUpload.key = success.key;
           this.imageUpload.uploadImages();
         }

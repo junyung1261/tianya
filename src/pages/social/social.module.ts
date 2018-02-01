@@ -8,6 +8,7 @@ import { DateFormatPipe } from '../../pipes/date';
 import { HideFabDirective } from "../../directives/hide-fab/hide-fab";
 
 
+
 @NgModule({
   declarations: [
     SocialPage,

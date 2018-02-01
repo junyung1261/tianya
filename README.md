@@ -1,96 +1,28 @@
-# The Ionic Super Starter 🎮
+# ES 2017 transpilation
 
-<img src="https://user-images.githubusercontent.com/236501/32385619-bddac0ac-c08c-11e7-9ee4-9c892197191f.png" width="400" />
+This sample shows how you can write your Cloud Functions code using the ES2017 syntax - which is not supported natively by Cloud Functions. This requires to run a preparation step where your code is transpiled to a supported version of JavaScript.
 
-The Ionic Super Starter is a batteries-included starter project for Ionic apps
-complete with pre-built pages, providers, and best practices for Ionic
-development.
 
-The goal of the Super Starter is to get you from zero to app store faster than
-before, with a set of opinions from the Ionic team around page layout,
-data/user management, and project structure.
+## Functions Code
 
-The way to use this starter is to pick and choose the various page types you
-want use, and remove the ones you don't. If you want a blank slate, this
-starter isn't for you (use the `blank` type instead).
+See file [functions/index.es7](functions/index.es7) for the code.
 
-One of the big advances in Ionic was moving from a rigid route-based navigation
-system to a flexible push/pop navigation system modeled off common native SDKs.
-We've embraced this pattern to provide a set of reusable pages that can be
-navigated to anywhere in the app. Take a look at the [Settings
-page](https://github.com/ionic-team/starters/blob/master/ionic-angular/official/super/src/pages/settings/settings.html)
-for a cool example of a page navigating to itself to provide a different UI
-without duplicating code.
+The function is a simple hello world sample that will write "Hello <Name>" as the value of any node created as `/hello/<name>` in the Firebase Realtime Database.
 
-## Table of Contents
+We're using some ES2017 syntax that is not supported natively by Cloud Functions such as async/await. The code will be transpiled to ES5 using the [BabelJS](https://babeljs.io/) CLI.
 
-1. [Getting Started](#getting-started)
-2. [Pages](#pages)
-3. [Providers](#providers)
-4. [i18n](#i18n) (adding languages)
+See the [functions/package.json](functions/package.json) file for the `prepare` script which runs the transpilation step.
 
-## <a name="getting-started"></a>Getting Started
 
-To test this starter out, install the latest version of the Ionic CLI and run:
+## Deploy and test
 
-```bash
-ionic start mySuperApp super
-```
+This sample comes with a Function and web-based UI for testing the function. To configure it:
 
-## Pages
-
-The Super Starter comes with a variety of ready-made pages. These pages help
-you assemble common building blocks for your app so you can focus on your
-unique features and branding.
-
-The app loads with the `FirstRunPage` set to `TutorialPage` as the default. If
-the user has already gone through this page once, it will be skipped the next
-time they load the app.
-
-If the tutorial is skipped but the user hasn't logged in yet, the Welcome page
-will be displayed which is a "splash" prompting the user to log in or create an
-account.
-
-Once the user is authenticated, the app will load with the `MainPage` which is
-set to be the `TabsPage` as the default.
-
-The entry and main pages can be configured easily by updating the corresponding
-variables in
-[src/pages/pages.ts](https://github.com/ionic-team/starters/blob/master/ionic-angular/official/super/src/pages/pages.ts).
-
-Please read the
-[Pages](https://github.com/ionic-team/starters/tree/master/ionic-angular/official/super/src/pages)
-readme, and the readme for each page in the source for more documentation on
-each.
-
-## Providers
-
-The Super Starter comes with some basic implementations of common providers.
-
-### User
-
-The `User` provider is used to authenticate users through its
-`login(accountInfo)` and `signup(accountInfo)` methods, which perform `POST`
-requests to an API endpoint that you will need to configure.
-
-### Api
-
-The `Api` provider is a simple CRUD frontend to an API. Simply put the root of
-your API url in the Api class and call get/post/put/patch/delete 
-
-## i18n
-
-Ionic Super Starter comes with internationalization (i18n) out of the box with
-[ngx-translate](https://github.com/ngx-translate/core). This makes it easy to
-change the text used in the app by modifying only one file. 
-
-### Adding Languages
-
-To add new languages, add new files to the `src/assets/i18n` directory,
-following the pattern of LANGCODE.json where LANGCODE is the language/locale
-code (ex: en/gb/de/es/etc.).
-
-### Changing the Language
-
-To change the language of the app, edit `src/app/app.component.ts` and modify
-`translate.use('en')` to use the LANGCODE from `src/assets/i18n/`
+ 1. Create a Firebase Project using the [Firebase Console](https://console.firebase.google.com).
+ 1. Clone or download this repo and open the `es2017-transpile` directory.
+ 1. You must have the Firebase CLI installed. If you don't have it install it with `npm install -g firebase-tools` and then configure it with `firebase login`.
+ 1. Configure the CLI locally by using `firebase use --add` and select your project in the list.
+ 1. Install dependencies locally by running: `cd functions; npm install; cd -`
+ 1. Transpile the code bu running: `cd functions; npm run prepare; cd -`
+ 1. Deploy your project using `firebase deploy`
+ 1. Open the Firebase console for your project and using the Realtime Database tab, create a node `/hello/Bob` with value `true`. Soon after the node has been created the Function will change the value to `Hello Bob`

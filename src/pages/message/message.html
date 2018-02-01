@@ -1,0 +1,28 @@
+<ion-header no-border>
+  <ion-navbar color="x-mint"  hideBackButton>
+    <ion-buttons left>
+      <button ion-button (click)="closeMessageList()">
+        <ion-icon name="flaticon-left-arrow" color="x-gray-light"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title color="top-text">쪽지함</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content no-bounce>
+    <super-tabs 
+    id="mainTabs" 
+    color="#111111"
+    selectedTabIndex="0"  
+    indicatorColor="x-mint"
+    badgeColor="x-pink" 
+    (tabSelect)="onTabSelect($event)"
+    no-shadow>
+
+    <super-tab [root]="page1" title="받은쪽지함"></super-tab>
+    <super-tab [root]="page2" title="보낸쪽지함"></super-tab>
+  </super-tabs>
+</ion-content>  

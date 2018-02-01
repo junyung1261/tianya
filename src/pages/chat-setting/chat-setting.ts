@@ -26,9 +26,7 @@ export class ChatSettingPage {
     this.appPreferences.fetch('brightness', 'brightnessKey').then((res) => { console.log("brightness fetch type :", typeof res, "value :", res); this.brightness = res;});
     this.appPreferences.fetch('saturation', 'saturationKey').then((res) => { console.log("saturation fetch type :", typeof res, "value :", res); this.saturation = res;});
     this.appPreferences.fetch('warmth', 'warmthKey').then((res) => { console.log("warmth fetch type :", typeof res, "value :", res); this.warmth = res;});
-   
-    // this.appPreferences.fetch('structureLower', 'lowerStructureKey').then((res) => { console.log("lowerStructure fetch type :", typeof res, "value :", res); this.structure.lower = res;});
-    // this.appPreferences.fetch('structureUpper', 'upperStructureKey').then((res) => { console.log("upperStructure fetch type :", typeof res, "value :", res); this.structure.upper = res;});
+    
     this.appPreferences.fetch('structureLower', 'lowerStructureKey').then((res) => 
     { 
       console.log("lowerStructure fetch type :", typeof res, "value :", res); 

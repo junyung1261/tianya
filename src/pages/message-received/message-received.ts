@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the ChatFriendsPage page.
+ * Generated class for the MessageReceivedPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-chat-friends',
-  templateUrl: 'chat-friends.html',
+  selector: 'page-message-received',
+  templateUrl: 'message-received.html',
 })
-export class ChatFriendsPage {
+export class MessageReceivedPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatFriendsPage');
+    console.log('ionViewDidLoad MessageReceivedPage');
   }
 
 }

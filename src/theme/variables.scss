@@ -2,22 +2,57 @@
 // http://ionicframework.com/docs/v2/theming/
 $font-path: "../assets/fonts";
 
-
-
 @import "ionic.globals";
+@import "Flaticon";
 
-// Shared Variables
-// --------------------------------------------------
-// To customize the look and feel of this app, you can override
-// the Sass variables found in Ionic's source scss files.
-// To view all the possible Ionic variables, see:
-// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+@include makeIcon(flaticon-home, '\f1c0');
+@include makeIcon(flaticon-chat, '\f1be');
+@include makeIcon(flaticon-like, '\f1bf');
+@include makeIcon(flaticon-share, '\f1bd');
+@include makeIcon(flaticon-internet, '\f1bc');
+
+@include makeIcon(flaticon-mark, '\f196');    //HAMBURGER
+@include makeIcon(flaticon-music, '\f199');   //ALARM
+@include makeIcon(flaticon-left-arrow, '\f132');  //LEFT
+@include makeIcon(flaticon-down-arrow, '\f131');  //DOWN
+@include makeIcon(flaticon-up-arrow, '\f130');  //UP
+
+
+@include makeIcon(flaticon-photo-camera, '\f1ae');   //카메라
+
+@include makeIcon(flaticon-profile-4, '\f159');  //USER-MAN-MAGN
+@include makeIcon(flaticon-profile-1, '\f15e');   //USER-MAN-HEART
+@include makeIcon(flaticon-file-1, '\f168');   //USER-FEED
+
+@include makeIcon(flaticon-exclamation, '\f197');   //공지사항
+@include makeIcon(flaticon-round, '\f1ab');   //고객센터
+@include makeIcon(flaticon-settings, '\f1b9');   //환경설정
+
+@include makeIcon(flaticon-map, '\f10c');   //대화방참여-지역설정
+@include makeIcon(flaticon-placeholder, '\f1b4');   //대화방-신고
+@include makeIcon(flaticon-interface-2, '\f185');   //대화방리스트-필터
+
+
+@include makeIcon(flaticon-note-1, '\f152');   //대화방리스트-쪽지전송
+@include makeIcon(flaticon-chat, '\f1be');     //대화방리스트-대화요청, 쪽지함-상대수락
+
+@include makeIcon(flaticon-arrow, '\f195');   //대화방-나가기, 사용자 로그아웃
+@include makeIcon(flaticon-signs-1, '\f17c');   //대화방-신고
+@include makeIcon(flaticon-envelope, '\f140');   //대화방-쪽지확인
+
+@include makeIcon(flaticon-interface, '\f1a5');   //쪽지함-삭제
+
+@include makeIcon(flaticon-clock, '\f1a6');   //쪽지함-응답대기
+@include makeIcon(flaticon-favorite, '\f15f');   //쪽지함-내가 수락
+@include makeIcon(flaticon-note, '\f153');   //쪽지함-상대가거절
+
 
 $text-color:        #000;
 $text-input-md-show-focus-highlight: false;
 $background-color:  #fff;
 
-
+$label-md-text-color-focused:#35babc;
+$label-ios-text-color-focused:#35babc;
 
 // Named Color Variables
 // --------------------------------------------------
@@ -27,7 +62,33 @@ $background-color:  #fff;
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
+
 $colors: (
+  x-mint:#35babc,
+  x-mint-light:#00ffe1,
+  x-white:#ffffff,
+  x-black:#000000,
+  x-gray-light:#e3e6e8,
+  x-gray-middle:#a0a0a0,
+  x-gray-dark:#454445,
+  x-navy-light:#39464c,
+  x-navy:#303a50,
+  x-pink:#ff8791,
+
+  
+  saltwater:#257985,
+  raspberry:#FF4447,
+  lagoon:#5EA8A7,
+  
+
+  slate:#262F34,
+  brownish:#615049,
+  crepe:#F1D3BC,
+  
+  graybg:#f3f2f1,
+  whitewash:#FFFFFF,
+
+
   nav-text:#0c0b34,
   nav-background:#000,
   nav-content:#ffffff,
@@ -47,7 +108,10 @@ $colors: (
   
   profile-user-tab:#0c0b34,
   profile-user-indicator:#fff,
-  
+ 
+  social-like:#ff6457,
+  social-comment:#488aff,
+
   primary:    #488aff,
   secondary:  #32db64,
   danger:     #f53d3d,

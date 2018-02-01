@@ -1,23 +1,19 @@
 <ion-header no-border>
-  <ion-navbar color="nav-content">
+  <ion-navbar color="slate">
     <!-- LEFT BUTTON -->
-    <ion-buttons left>
-      <button ion-button icon-only (click)="viewCtrl.dismiss()" class="my-style-for-modal">
-        <ion-icon name="xhb-down"></ion-icon>
-      </button>
-    </ion-buttons>
+    <ion-buttons left></ion-buttons>
     <!-- TITLE -->
-    <ion-title>프로필</ion-title>
+    <ion-title>프로필 수정</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="viewCtrl.dismiss()" class="my-style-for-modal"><ion-icon name="xhb-close" color="nav-text"></ion-icon></button>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()"><ion-icon name="flaticon-down-arrow" color="whitewash"></ion-icon></button>
     </ion-buttons>
     
     <!-- RIGHT BUTTON -->
   </ion-navbar>
   
-  <shrink-segment-header [scrollArea]="myContent" headerHeight="150"  (click)="test()">
+  <shrink-segment-header [scrollArea]="myContent" headerHeight="150" >
     <div class="profile_user">   
-      <div class="avatar_user" (click)="test2()"><img src="assets/img/user_000.jpg" class="avatar_img_user"></div>
+      <div class="avatar_user"><img src="assets/img/user_000.jpg" class="avatar_img_user"></div>
       <div class="nickname_user">물뜨는미어캣</div>
     </div>  
   </shrink-segment-header>

@@ -2,26 +2,24 @@ page-notice {
     .accordion-list {
         background: color($colors, light);
         height: 100%;
-        padding-top : 10px;
+        padding-top : 2vh;
     }
     .section {
-        background: #fff;
-        color: #000;
-        margin-bottom: 4px;
+        background: map-get($colors,x-white);
+        color: map-get($colors,x-navy);
     }
     .section-active {
-        background: #ffc400;
-        color: #fff;
+        background: map-get($colors,x-pink);
+        color: map-get($colors,x-white);
     }
 
     .child-item {
-        background: #f3f2f1;
+        background: map-get($colors,x-gray-light);
         padding: 10px;
     }
     .label {
         margin: 0px;
     }
     .list {
-        margin-bottom: 4px;
     }
 }

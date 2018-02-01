@@ -20,6 +20,7 @@ export class CommunityPromotionPage {
   @ViewChild(Slides) slides: Slides;
 
   categoryName: any;
+  bulletKey: any;
   categories: any[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,
@@ -27,6 +28,7 @@ export class CommunityPromotionPage {
     
     
     this.categoryName =  this.navParams.get('categoryName');
+    this.bulletKey = this.navParams.get('bulletKey');
      
     this.afDB.list('/category', ref => ref.orderByChild('type').equalTo(this.categoryName)).valueChanges().subscribe(categoryItems => {
       this.categories = categoryItems;

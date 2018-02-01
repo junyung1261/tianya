@@ -76,4 +76,7 @@ export class DataProvider {
   getFeeds(batch, lastKey?) {
     return this.angularfireDatabase.list('/feed', ref => lastKey?  ref.orderByKey().limitToLast(batch).endAt(lastKey) : ref.orderByKey().limitToLast(batch));
   }
+  getBullets(batch, location, lastKey?) {
+    return this.angularfireDatabase.list(location, ref => lastKey?  ref.orderByKey().limitToLast(batch).endAt(lastKey) : ref.orderByKey().limitToLast(batch));
+  }
 }

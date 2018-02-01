@@ -35,8 +35,8 @@ export class MyApp {
       this.statusBar.styleDefault();
         if (platform.is('android')) {
           statusBar.overlaysWebView(false);
-          statusBar.backgroundColorByHexString('#262F34');
-          headerColor.tint('#262F34');
+          statusBar.backgroundColorByHexString('#35babc');
+          headerColor.tint('#35babc');
       }
       this.splashScreen.hide();
 

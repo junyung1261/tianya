@@ -4,15 +4,36 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>chat-list</ion-title>
+<ion-header no-border>
+  <ion-navbar color="x-mint" hideBackButton>
+    <ion-buttons>
+      <button ion-button (click)="closeChatList()">
+        <ion-icon name="flaticon-left-arrow" color="x-gray-light"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title color="top-text">대화방 목록</ion-title>
+    <ion-buttons end></ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content no-padding>
+  <ion-grid no-padding>
+    <ion-row class="row">
+      <ion-col col-2><img src="assets/img/user_000.jpg" class="round"></ion-col>
+      <ion-col col-8>
+        <span class="nickname">NICKNAME</span>
+        <span class="distance">[122km]</span><br>
+        <span class="introduce">안녕하세요 물뜨는미어캣입니다.</span>
+      </ion-col>
+      <ion-col col-1>
+        <span class="memo"><ion-icon name="flaticon-note-1" color="x-pink" (click)="presentAlert(0)"></ion-icon></span></ion-col>
+      <ion-col col-1>
+        <!--상대가 대화중이 아닐 경우 icon color="x-mint" (click)="presentAlert()"-->
+        <!--상대가 이미 대화중일 경우 icon color="x-gray-light"-->
+        <span class="conversation"><ion-icon name="flaticon-chat" color="x-mint" (click)="presentAlert(1)"></ion-icon></span>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
 </ion-content>

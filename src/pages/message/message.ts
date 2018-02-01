@@ -1,52 +1,37 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-
 import { SuperTabsController} from 'ionic2-super-tabs';
-
-
-/**
- * Generated class for the ChatTabsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
-  selector: 'page-chat-tabs',
-  templateUrl: 'chat-tabs.html',
+  selector: 'page-message',
+  templateUrl: 'message.html',
 })
-export class ChatTabsPage {
+export class MessagePage {
 
 
   pageIndex: any = 0;
-  page1: any = 'ChatFriendsPage';
-  page2: any = 'ChatListPage';
+  page1: any = 'MessageReceivedPage';
+  page2: any = 'MessageSendPage';
  
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public superTabsCtrl: SuperTabsController, public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatTabsPage');
+    console.log('ionViewDidLoad MessagePage');
   }
 
 
   ngAfterViewInit() {
-    // this.superTabsCtrl.increaseBadge('page1', 10);
-    //this.superTabsCtrl.enableTabSwipe('page2', false);
     this.superTabsCtrl.enableTabsSwipe(true);
-
-    
   }
 
-  
+  closeMessageList(){
+    this.navCtrl.pop();
+  }
+
   onTabSelect(tab: { index: number; id: string; }) {
     this.pageIndex = tab.index;
-    
   }
-
-  
-
-  
 }

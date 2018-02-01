@@ -7,7 +7,7 @@ export const MainPage = 'TabsPage';
 
 // The initial root pages for our tabs (remove if not using tabs)
 export const Tab1Root = 'HomePage';
-export const Tab2Root = 'MatchingPage';
-export const Tab3Root = 'ChatTabsPage';
+export const Tab2Root = 'ChatPage';
+export const Tab3Root = 'MatchingSpecialPage';
 export const Tab4Root = 'SocialPage';
 export const Tab5Root = 'CommunityPage';

@@ -31,7 +31,7 @@ export class ImageUpload {
 
 
 
-    public uploadImages(): Promise<Array<any>> {
+    public uploadImages(location : string): Promise<Array<any>> {
         
         return new Promise((resolve, reject) => {
             this.isUploading = true;
@@ -39,8 +39,11 @@ export class ImageUpload {
                 return this.uploadImage(image);
             }))
                 .then(resolve => {
+                    if(location == 'feed')
+                        this.imageProvider.sendFeedPhoto(this.key, this.imageURL);
+                    else if(location.substring(0,9) == 'community') 
+                        this.imageProvider.sendCommunityPhoto(this.key, this.imageURL, location);
                     
-                    this.imageProvider.sendFeedPhoto(this.key, this.imageURL);
                 })
                 .catch(reason => {
                     this.isUploading = false;
@@ -142,7 +145,7 @@ export class ImageUpload {
             if (window['cordova']) {
               console.log('cordova');
               
-              this.imageProvider.uploadFeedPhoto(this.key, targetPath).then((url)=>{
+              this.imageProvider.uploadPhoto(this.key, targetPath).then((url)=>{
                   resolve(this.imageURL.push({url: url}));
                   
               }).catch(() => {

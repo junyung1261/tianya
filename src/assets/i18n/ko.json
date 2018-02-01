@@ -72,27 +72,22 @@
   
   
     "CATEGORY_INFO": "정보",
-    "CATEGORY_TRAVEL": "여행",
     "CATEGORY_LIFE": "생활",
-    "CATEGORY_TRADE": "교류",
+    "CATEGORY_TRADE": "거래",
   
-    "INFO_ISSUE": "실시간이슈",
-    "INFO_DISCOUNT": "할인/쿠폰",
+    "INFO_STUDY": "유학",
+    "INFO_KOREAN": "한국어",
     "INFO_FOOD": "맛집",
     "INFO_BEUATY": "미용/화장품",
-    "LIFE_CONSULT": "고민상담",
-    "LIFE_USED": "중고시장",
     "LIFE_JOB": "취업정보",
-    "LIFE_HOME": "주거정보",
-    "LIFE_PHONE": "휴대폰",
-    "LIFE_CAR": "자동차",
-    "TRADE_STUDY": "유학",
-    "TRADE_HOBBY": "취미",
-    "TRADE_CLUB": "동아리",
-    "TRAVEL_GUIDE": "여행가이드",
-    "TRAVEL_TRIP": "여행후기",
-    "TRAVEL_RESERVATION": "호텔/펜션",
-    "TRAVEL_PROMOTION": "이벤트"
+    "LIFE_PROBLEM": "생활문제",
+    "LIFE_TRAVEL": "여행",
+    "LIFE_CLUB": "동아리",
+    "LIFE_BOARD": "자유게시판",
+    "TRADE_USED": "중고거래",
+    "TRADE_OVERSEAS": "해외직구",
+    "TRADE_HOME": "주거매매"
+    
   
     
   

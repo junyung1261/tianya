@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ModalController, Nav } from 'ionic-angular';
 import { AngularFireDatabase} from 'angularfire2/database';
 
 /**
@@ -19,7 +19,8 @@ export class CommunityPage {
 
   categories: any[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public afDB: AngularFireDatabase) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public afDB: AngularFireDatabase, public nav : Nav) {
 
     this.afDB.list('/category', ref => ref).valueChanges().take(1).subscribe(categoryItems => {
       this.categories = categoryItems;
@@ -42,15 +43,20 @@ export class CommunityPage {
   }
 
   
-  modalBase(categoryName) {
-    let createModal = this.modalCtrl.create('CommunityPromotionPage', {categoryName: categoryName} , {
-      enterAnimation: 'modal-slide-in',
-      leaveAnimation: 'modal-slide-out'
-    });
-    createModal.onDidDismiss(data => {
-      console.log('asdasd');
-    });
-    createModal.present();
+  // modalBase(categoryName) {
+  //   let createModal = this.modalCtrl.create('CommunityPromotionPage', {categoryName: categoryName} , {
+  //     enterAnimation: 'modal-slide-in',
+  //     leaveAnimation: 'modal-slide-out'
+  //   });
+  //   createModal.onDidDismiss(data => {
+  //     console.log('asdasd');
+  //   });
+  //   createModal.present();
+  // }
+
+  openPage(categoryName) {
+
+    this.nav.getActiveChildNavs()[0].getActiveChildNavs()[0].push('CommunityListPage', {categoryName: categoryName});
   }
 
 

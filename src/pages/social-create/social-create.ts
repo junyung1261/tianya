@@ -51,7 +51,7 @@ export class SocialCreatePage {
         if(this.imageUpload.images.length > 0){
          
           this.imageUpload.key = success.key;
-          this.imageUpload.uploadImages();
+          this.imageUpload.uploadImages('feed');
         }
         this.viewCtrl.dismiss({data: true});
       })

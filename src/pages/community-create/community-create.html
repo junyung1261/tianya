@@ -8,16 +8,52 @@
 
   <ion-navbar class="home-nav">
     <ion-buttons left>
-        <button ion-button icon-only (click)="viewCtrl.dismiss()" class="my-style-for-modal">
-            <ion-icon name="arrow-back"></ion-icon>
-        </button>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()" class="my-style-for-modal">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
     </ion-buttons>
-    <ion-title>community-create</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only [disabled]="checkTrim(text, title)" (click)="addCommunity(title, text)">
+        완료
+      </button>
+    </ion-buttons>
+    <ion-title>social-create</ion-title>
   </ion-navbar>
+
+
+
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Pepperoni</ion-label>
+      <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Mushrooms</ion-label>
+      <ion-checkbox [(ngModel)]="mushrooms" disabled="true"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+
+  <ion-item class="categorySelectColor">
+    <ion-buttons>
+      <button ion-button round small>test1</button>
+      <button ion-button round small>test2</button>
+      <button ion-button round small>test3</button>
+    </ion-buttons>
+  </ion-item>
+  <ion-item>
+    <ion-textarea elastic placeholder="제목 입력" [(ngModel)]="title"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-textarea elastic placeholder="내용 입력" [(ngModel)]="text"></ion-textarea>
+  </ion-item>
+  <image-upload></image-upload>
 
 </ion-content>

@@ -105,6 +105,7 @@ export const config = {
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     IonicImageViewerModule,
+    HttpModule
 
   ],
   bootstrap: [IonicApp],

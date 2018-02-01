@@ -53,11 +53,14 @@
             <p>
               {{feed.description}}
             </p>
+            <p *ngIf="feed.translate">
+              {{feed.translated}}
+            </p>
           </ion-card-content>
           
           <ion-row>
               <ion-col>
-                <button ion-button icon-left clear color="gray">
+                <button ion-button icon-left clear color="gray" (click)="translate(feed)">
                   <ion-icon name="md-heart"></ion-icon>
                   <div>{{feed.like}}</div>
                 </button>

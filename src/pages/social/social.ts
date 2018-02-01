@@ -5,6 +5,9 @@ import { Observable } from 'rxjs/Observable';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { DataProvider } from '../../providers/data/data'
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { LoadingProvider } from '../../providers/loading/loading'
+import { Http } from '@angular/http';
+
 
 /**
  * Generated class for the SocialPage page.
@@ -24,9 +27,9 @@ export class SocialPage {
   feeds = [];
   count = 5;
   lastKey = '';
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,
-              public afDB: AngularFireDatabase, public dataProvider: DataProvider) {
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public http: Http,
+              public afDB: AngularFireDatabase, public dataProvider: DataProvider, public loadingProvider: LoadingProvider) {
 
   
   this.feedsRef = afDB.list('/feed');
@@ -54,6 +57,8 @@ export class SocialPage {
           startTime: snap.payload.val().startTime, 
           title: snap.payload.val().title, 
           images: this.afDB.list('/feed/'+snap.key+'/images').valueChanges().take(1),
+          translated: snap.payload.val().translated,
+          translate: false
         })
         
       })
@@ -65,7 +70,33 @@ export class SocialPage {
   }
 
 
-  
+  translate(feed){
+
+    if(feed.translated != undefined){
+        feed.translate = !feed.translate;
+
+
+    }
+    else {
+    let body = {
+      key: feed.key,
+      text: feed.description
+    };
+    this.loadingProvider.show();
+    this.http.post('https://us-central1-tianya-6d56d.cloudfunctions.net/translate', JSON.stringify(body))
+    .subscribe((data) => {
+      
+    
+      console.log('data', data);
+      feed.translated = data.json().data;
+      this.loadingProvider.hide();
+    })
+    
+
+    feed.translate = !feed.translate;
+    
+  }
+  }
 
 
   presentCreateModal() {
@@ -150,6 +181,8 @@ export class SocialPage {
         startTime: snapshots[i].payload.val().startTime, 
         title: snapshots[i].payload.val().title, 
         images: this.afDB.list('/feed/'+snapshots[i].key+'/images').valueChanges().take(1),
+        translated: snapshots[i].payload.val().translated,
+        translate: false
       })
     }
     

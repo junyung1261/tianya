@@ -8,12 +8,19 @@
   <ion-navbar>
     <ion-title>{{categoryName | translate}}</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="presentCreateModal()">
-        <ion-icon name="create"></ion-icon>
-      </button>
+        <ion-fab top right edge>
+            <button ion-fab mini><ion-icon name="add"></ion-icon></button>
+            <ion-fab-list side ="left">
+              <button ion-fab><ion-icon name="add"></ion-icon></button>
+              <button ion-fab><ion-icon name="add"></ion-icon></button>
+              <button ion-fab><ion-icon name="add"></ion-icon></button>
+              <button ion-fab><ion-icon name="add"></ion-icon></button>
+            </ion-fab-list>
+          </ion-fab>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
+
 
 
 <ion-content no-padding>
@@ -29,6 +36,8 @@
       <button ion-button round small>test1</button>
       <button ion-button round small>test2</button>
       <button ion-button round small>test3</button>
+      <button ion-button round small>test4</button>
+      <button ion-button round small>test5</button>
     </ion-buttons>
   </ion-item>
 

@@ -23,10 +23,12 @@ export class CommunityCreatePage {
 
   @ViewChild(ImageUpload) imageUpload: ImageUpload;
   communityRef: AngularFireList<any>;
-  communityName : any;
-  communityDBName : any;
-  specificName : AngularFireList<any>;
-  feeds: Observable<any[]>;
+  specificRef: AngularFireList<any>;
+  communityName: any;
+  specificName : string;
+  communityDBName: any;
+  specificDB: any[] = [];
+  checkList: any[];
   title = '';
   text = '';
   images = [];
@@ -34,12 +36,41 @@ export class CommunityCreatePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
     public afDB: AngularFireDatabase, public dataProvider: DataProvider) {
-      
+
     this.communityName = this.navParams.get('categoryName');
-    console.log(this.navParams.get('categoryName'));
     this.communityDBName = "/community-".concat(this.communityName);
     this.communityRef = afDB.list(this.communityDBName);
 
+    
+    if (this.communityName.substring(0, 4) == "INFO") {
+      this.checkInfoSpecific();
+    }
+    else if (this.communityName.substring(0, 4) == "LIFE") {
+      this.checkLifeSpecific();
+    }
+    else if (this.communityName.substring(0, 4) == "TRAV") {
+      this.checkTravelSpecific();
+    }
+    
+
+    // if (this.communityName.substring(0, 4) == "INFO") {
+    //   this.afDB.list('/category/0/category_inner', ref => ref).valueChanges().subscribe(Items => {
+    //     this.specificDB = Items;
+    //     console.log(this.specificDB)
+    //   });
+    // }
+    // else if (this.communityName.substring(0, 4) == "LIFE") {
+    //   this.afDB.list('/category/1/category_inner', ref => ref).valueChanges().subscribe(Items => {
+    //     this.specificDB = Items;
+    //   });
+    // }
+    // else if (this.communityName.substring(0, 4) == "TRAV") {
+    //   this.afDB.list('/category/2/category_inner', ref => ref).valueChanges().subscribe(Items => {
+    //     this.specificDB = Items;
+    //   });
+    // }
+
+    console.log("categoryName :", this.navParams.get('categoryName'));
     console.log("communityDBName :", this.communityDBName);
     console.log("communityRef :", this.communityRef);
   }
@@ -55,8 +86,9 @@ export class CommunityCreatePage {
 
   addCommunity(title: string, text: string) {
     this.communityRef.push({
-      title : title,
+      title: title,
       description: text,
+      type: this.specificName,
       writer: firebase.auth().currentUser.uid,
       date: firebase.database['ServerValue'].TIMESTAMP
     }).then((success) => {
@@ -67,9 +99,6 @@ export class CommunityCreatePage {
       }
       this.viewCtrl.dismiss({ data: true });
     })
-
-
-
 
   }
   updateItem(key: string, newText: string) {
@@ -83,10 +112,99 @@ export class CommunityCreatePage {
   }
 
   checkTrim() {
-    if ((this.text.trim() == "") || (this.text.trim() == null) || (this.title.trim() == null) || (this.title.trim() =="")) return true;
+    if ((this.text.trim() == "") || (this.text.trim() == null) || (this.title.trim() == null) || (this.title.trim() == "")) return true;
 
     else return false;
 
+  }
+
+  determineSpecificRef(checkName: string) {
+    console.log(checkName)
+    this.specificName = checkName;
+  }
+
+  checkInfoSpecific() {
+    // STUDY, KOREAN, FOOD, BEAUTY
+    if(this.communityName.substring(5, 7) == "ST") {
+      this.afDB.list('/category/0/category_inner/0/specific_inner', ref => ref).valueChanges().subscribe(Items => {
+        this.specificDB = Items;
+        this.checkList = this.specificDB;
+      });
+    }
+    else if(this.communityName.substring(5, 7) == "KO") {
+      this.afDB.list('/category/0/category_inner/1/specific_inner', ref => ref).valueChanges().subscribe(Items => {
+        this.specificDB = Items;
+        this.checkList = this.specificDB;
+      });
+    }
+    else if(this.communityName.substring(5, 7) == "FO") {
+      this.afDB.list('/category/0/category_inner/2/specific_inner', ref => ref).valueChanges().subscribe(Items => {
+        this.specificDB = Items;
+        this.checkList = this.specificDB;
+      });
+    }
+    else if(this.communityName.substring(5, 7) == "BE") {
+      this.afDB.list('/category/0/category_inner/3/specific_inner', ref => ref).valueChanges().subscribe(Items => {
+        this.specificDB = Items;
+        this.checkList = this.specificDB;
+      });
+    }
+  }
+  
+  checkLifeSpecific() {
+    // JOB, CLUB, TRAVEL, PROBLEM, BOARD
+    if(this.communityName.substring(5, 7) == "JO"){
+      this.afDB.list('/category/1/category_inner/0/specific_inner', ref => ref).valueChanges().subscribe(Items => {
+        this.specificDB = Items;
+        this.checkList = this.specificDB;
+      });
+    }
+    else if(this.communityName.substring(5, 7) == "CL"){
+      this.afDB.list('/category/1/category_inner/1/specific_inner', ref => ref).valueChanges().subscribe(Items => {
+        this.specificDB = Items;
+        this.checkList = this.specificDB;
+      });
+    }
+    else if(this.communityName.substring(5, 7) == "TR"){
+      this.afDB.list('/category/1/category_inner/2/specific_inner', ref => ref).valueChanges().subscribe(Items => {
+        this.specificDB = Items;
+        this.checkList = this.specificDB;
+      });
+    }
+    else if(this.communityName.substring(5, 7) == "PR"){
+      this.afDB.list('/category/1/category_inner/3/specific_inner', ref => ref).valueChanges().subscribe(Items => {
+        this.specificDB = Items;
+        this.checkList = this.specificDB;
+      });
+    }
+    else if(this.communityName.substring(5, 7) == "BO"){
+      this.afDB.list('/category/1/category_inner/4/specific_inner', ref => ref).valueChanges().subscribe(Items => {
+        this.specificDB = Items;
+        this.checkList = this.specificDB;
+      });
+    }
+  }
+
+  checkTravelSpecific() {
+    // USED, OVERSEAS, HOUSE
+    if(this.communityName.substring(5, 7) == "US"){
+      this.afDB.list('/category/2/category_inner/0/specific_inner', ref => ref).valueChanges().subscribe(Items => {
+        this.specificDB = Items;
+        this.checkList = this.specificDB;
+      });
+    }
+    else if(this.communityName.substring(5, 7) == "OV"){
+      this.afDB.list('/category/2/category_inner/1/specific_inner', ref => ref).valueChanges().subscribe(Items => {
+        this.specificDB = Items;
+        this.checkList = this.specificDB;
+      });
+    }
+    else if(this.communityName.substring(5, 7) == "HO"){
+      this.afDB.list('/category/2/category_inner/2/specific_inner', ref => ref).valueChanges().subscribe(Items => {
+        this.specificDB = Items;
+        this.checkList = this.specificDB;
+      });
+    }
   }
 
 

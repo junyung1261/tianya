@@ -28,10 +28,10 @@
 
 <ion-content>
 
-  <ion-list>
-    <ion-item>
-      <ion-label>Pepperoni</ion-label>
-      <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+  <ion-list >
+    <ion-item *ngFor="let specifics of specificDB; let i = index;" class="categorySelectColor">
+      <ion-label>{{specifics.name}}</ion-label>
+      <ion-checkbox [(ngModel)]="checkList[i].type" (ionChange)="determineSpecificRef(checkList[i].name)"></ion-checkbox>
     </ion-item>
 
     <ion-item>
@@ -41,13 +41,6 @@
   </ion-list>
 
 
-  <ion-item class="categorySelectColor">
-    <ion-buttons>
-      <button ion-button round small>test1</button>
-      <button ion-button round small>test2</button>
-      <button ion-button round small>test3</button>
-    </ion-buttons>
-  </ion-item>
   <ion-item>
     <ion-textarea elastic placeholder="제목 입력" [(ngModel)]="title"></ion-textarea>
   </ion-item>

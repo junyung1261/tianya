@@ -56,7 +56,7 @@ export class CommunityPage {
 
   openPage(categoryName) {
 
-    this.nav.getActiveChildNavs()[0].getActiveChildNavs()[0].push('CommunityListPage', {categoryName: categoryName});
+    this.nav.getActiveChildNavs()[0].getActiveChildNavs()[0].push('CommunityTemplatePage', {categoryName: categoryName});
   }
 
 

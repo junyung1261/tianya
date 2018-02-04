@@ -1,3 +1,40 @@
 page-matching-special {
-
+    .ms-round {
+        border-radius: 100%;
+        margin:1vh;
+        height:8vh;
+        width:8vh;
+        background-color:map-get($colors,x-pink);
+        color:map-get($colors,x-white);
+        text-align:center;
+        padding-top:1.5vh;
+        font-size:4vh;
+    }
+    .ms-title {
+        font-size:4vw;
+        color:map-get($colors,x-gray-dark);
+    }
+    .ms-subtitle {
+        font-size:3vw;
+        color:map-get($colors,x-gray-middle);
+    }
+    .memo {
+        font-size:3vh;
+    }
+    .conversation {
+        font-size:3vh;
+    }
+    ion-col{
+        text-align:left;
+    }
+    ion-row{
+        align-items:center;
+        width:100vw;
+        height:10vh;
+        background-color: map-get($colors,x-white);
+        border-bottom:1px solid map-get($colors,x-gray-light);
+    }
+    ion-content{
+        background-color: map-get($colors,x-gray-light) !important;
+    }
 }

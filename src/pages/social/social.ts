@@ -28,17 +28,16 @@ export class SocialPage {
   count = 5;
   lastKey = '';
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public http: Http,
-              public afDB: AngularFireDatabase, public dataProvider: DataProvider, public loadingProvider: LoadingProvider) {
-
-  
-  this.feedsRef = afDB.list('/feed');
-  
-  
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public modalCtrl: ModalController, 
+    public http: Http,
+    public afDB: AngularFireDatabase, 
+    public dataProvider: DataProvider, 
+    public loadingProvider: LoadingProvider) {
+      this.feedsRef = afDB.list('/feed');
   }
-
-
-  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SocialPage');
@@ -60,12 +59,9 @@ export class SocialPage {
           translated: snap.payload.val().translated,
           translate: false
         })
-        
       })
-      
       this.feeds = feeds;
       this.lastKey = feeds[feeds.length-1].key;
-      
     })
   }
 
@@ -73,45 +69,38 @@ export class SocialPage {
   translate(feed){
 
     if(feed.translated != undefined){
-        feed.translate = !feed.translate;
-
-
+      feed.translate = !feed.translate;
     }
     else {
-    let body = {
-      key: feed.key,
-      text: feed.description
-    };
-    this.loadingProvider.show();
-    this.http.post('https://us-central1-tianya-6d56d.cloudfunctions.net/translate', JSON.stringify(body))
-    .subscribe((data) => {
-      
-    
-      console.log('data', data);
-      feed.translated = data.json().data;
-      this.loadingProvider.hide();
-    })
-    
-
-    feed.translate = !feed.translate;
-    
-  }
+      let body = {
+        key: feed.key,
+        text: feed.description
+      };
+      this.loadingProvider.show();
+      this.http.post('https://us-central1-tianya-6d56d.cloudfunctions.net/translate', JSON.stringify(body))
+      .subscribe((data) => {
+        console.log('data', data);
+        feed.translated = data.json().data;
+        this.loadingProvider.hide();
+      })
+      feed.translate = !feed.translate;
+    }
   }
 
-
-  presentCreateModal() {
-    let createModal = this.modalCtrl.create('SocialCreatePage', { userId: 8675309 }, {
+  presentSocialCreate(){
+    let createSocial = this.modalCtrl.create('SocialCreatePage', { userId: 8675309 }, {
       enterAnimation: 'modal-slide-in',
       leaveAnimation: 'modal-slide-out'
     });
-    createModal.onDidDismiss(data => {
+    createSocial.onDidDismiss(data => {
       if(data){
         this.ionViewDidLoad();
       }
       
     });
-    createModal.present();
+    createSocial.present();
   }
+  
 
   presentNoticeModal() {
     let createModal = this.modalCtrl.create('NoticePage', { userId: 8675309 }, {
@@ -146,10 +135,6 @@ export class SocialPage {
     createModal.present();
   }
 
-
-
-  
-
   doRefresh(refresher) {
     console.log('Begin async operation', refresher);
 
@@ -165,42 +150,35 @@ export class SocialPage {
     console.log('Begin async operation');
     console.log(this.lastKey);
     setTimeout(() => {
-    this.count+=1;
-     this.dataProvider.getFeeds(6,this.lastKey).snapshotChanges().take(1).subscribe(snapshots => {
-    let feeds = [];
+      this.count+=1;
+      this.dataProvider.getFeeds(6,this.lastKey).snapshotChanges().take(1).subscribe(snapshots => {
+      let feeds = [];
 
-    for(let i = 0 ; i < snapshots.length-1; i++){
-      feeds.unshift({
-        key: snapshots[i].payload.key, 
-        name: snapshots[i].payload.val().name,
-        image: snapshots[i].payload.val().image, 
-        description: snapshots[i].payload.val().description, 
-        imgProfile: snapshots[i].payload.val().imgProfile, 
-        like: snapshots[i].payload.val().like, 
-        date: snapshots[i].payload.val().date, 
-        startTime: snapshots[i].payload.val().startTime, 
-        title: snapshots[i].payload.val().title, 
-        images: this.afDB.list('/feed/'+snapshots[i].key+'/images').valueChanges().take(1),
-        translated: snapshots[i].payload.val().translated,
-        translate: false
+      for(let i = 0 ; i < snapshots.length-1; i++){
+        feeds.unshift({
+            key: snapshots[i].payload.key, 
+            name: snapshots[i].payload.val().name,
+            image: snapshots[i].payload.val().image, 
+            description: snapshots[i].payload.val().description, 
+            imgProfile: snapshots[i].payload.val().imgProfile, 
+            like: snapshots[i].payload.val().like, 
+            date: snapshots[i].payload.val().date, 
+            startTime: snapshots[i].payload.val().startTime, 
+            title: snapshots[i].payload.val().title, 
+            images: this.afDB.list('/feed/'+snapshots[i].key+'/images').valueChanges().take(1),
+            translated: snapshots[i].payload.val().translated,
+            translate: false
+          })
+        }
+        for(let i = 0; i<feeds.length; i++){
+          this.feeds.push(feeds[i]);
+        }
+        console.log(feeds);
+        this.lastKey = feeds[feeds.length-1].key;
+        console.log(this.lastKey);
       })
-    }
-    
-   
-    for(let i = 0; i<feeds.length; i++){
-      this.feeds.push(feeds[i]);
-    }
-    console.log(feeds);
-   
-    this.lastKey = feeds[feeds.length-1].key;
-    console.log(this.lastKey);
-    
-  })
-  
-  
       console.log('Async operation has ended');
       infiniteScroll.complete();
     }, 500);
   }
-
 }

@@ -4,15 +4,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs/Observable';
 import { DataProvider } from "../../providers/data/data"
-
 import { ImageUpload } from "../../components/image-upload/image-upload";
-
-/**
- * Generated class for the CommunityCreatePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({

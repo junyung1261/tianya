@@ -14,9 +14,11 @@ $font-path: "../assets/fonts";
 @include makeIcon(flaticon-mark, '\f196');    //HAMBURGER
 @include makeIcon(flaticon-music, '\f199');   //ALARM
 @include makeIcon(flaticon-left-arrow, '\f132');  //LEFT
+@include makeIcon(flaticon-right-arrow, '\f133');  //RIGHT
 @include makeIcon(flaticon-down-arrow, '\f131');  //DOWN
 @include makeIcon(flaticon-up-arrow, '\f130');  //UP
 
+@include makeIcon(flaticon-search, '\f1ba');  //SEARCH
 
 @include makeIcon(flaticon-photo-camera, '\f1ae');   //카메라
 
@@ -45,6 +47,13 @@ $font-path: "../assets/fonts";
 @include makeIcon(flaticon-clock, '\f1a6');   //쪽지함-응답대기
 @include makeIcon(flaticon-favorite, '\f15f');   //쪽지함-내가 수락
 @include makeIcon(flaticon-note, '\f153');   //쪽지함-상대가거절
+
+@include makeIcon(flaticon-smartphone, '\f1b0');   //스페셜매칭 - 스마트폰흔들기
+
+@include makeIcon(flaticon-repeat, '\f12d');   //FEED - 번역
+@include makeIcon(flaticon-edit, '\f1b8');   //FEED - 작성
+
+@include makeIcon(flaticon-mortarboard, '\f13f');   //COMMUNITY - 한국어
 
 
 $text-color:        #000;

@@ -1,61 +1,72 @@
-<!--
-  Generated template for the CommunityListPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-  <ion-navbar>
-    <ion-title>{{categoryName | translate}}</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only (click)="presentCreateModal()">
-        <ion-icon name="create"></ion-icon>
+<ion-header no-border>
+  <ion-navbar color="x-mint" hideBackButton>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="closeCommunityList()">
+        <ion-icon name="flaticon-left-arrow" color="x-gray-light"></ion-icon>
       </button>
+    </ion-buttons>
+    <ion-title color="top-text">{{categoryName | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only></button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-
-<ion-content no-padding>
-
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content>
-
-    </ion-refresher-content>
-  </ion-refresher>
-
-  <ion-item class="categorySelectColor">
-    <ion-buttons>
-      <button ion-button round small>test1</button>
-      <button ion-button round small>test2</button>
-      <button ion-button round small>test3</button>
-    </ion-buttons>
-  </ion-item>
-
-
-  <ion-list>
-    <button ion-item *ngFor="let bullet of bullets" (click)="presentBoardModal(bullet)">
-      {{ bullet.title }}
-      <p item-end>
-        <!-- <ion-icon name="xhb-food"></ion-icon>
-        <span class="viewColor">
-          {{ bullet.view }}
-        </span> -->
-        {{ bullet.date }}
-        <!-- {{bullet.date | DateFormat}} -->
-      </p>
-    </button>
-  </ion-list>
-
-  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
-
-  <ion-fab right bottom>
-    <button ion-fab color="amber" (click)="presentCreateModal(categoryName)">
-      <ion-icon name="add"></ion-icon>
-    </button>
-
-  </ion-fab>
-
-</ion-content>
+    
+  
+  <ion-content no-padding>
+      <super-tabs 
+        id="mainTabs" 
+        color="#111111"
+        selectedTabIndex="0"  
+        indicatorColor="x-mint"
+        badgeColor="x-pink" 
+        (tabSelect)="onTabSelect($event)"
+        no-shadow>
+  
+      <super-tab title="받은쪽지함"></super-tab>
+      <super-tab title="보낸쪽지함"></super-tab>
+    </super-tabs>
+    
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content>
+  
+      </ion-refresher-content>
+    </ion-refresher>
+  
+    <ion-item class="categorySelectColor">
+      <ion-buttons>
+        <button ion-button round small>test1</button>
+        <button ion-button round small>test2</button>
+        <button ion-button round small>test3</button>
+        <button ion-button round small>test4</button>
+        <button ion-button round small>test5</button>
+      </ion-buttons>
+    </ion-item>
+  
+  
+    <ion-list>
+      <button ion-item *ngFor="let bullet of bullets" (click)="presentBoardModal(bullet)">
+        {{ bullet.title }}
+        <p item-end>
+          <!-- <ion-icon name="xhb-food"></ion-icon>
+          <span class="viewColor">
+            {{ bullet.view }}
+          </span> -->
+          {{ bullet.date }}
+          <!-- {{bullet.date | DateFormat}} -->
+        </p>
+      </button>
+    </ion-list>
+  
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  
+    <ion-fab right bottom>
+      <button ion-fab color="amber" (click)="presentCreateModal(categoryName)">
+        <ion-icon name="add"></ion-icon>
+      </button>
+  
+    </ion-fab>
+  
+  </ion-content>

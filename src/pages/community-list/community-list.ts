@@ -20,7 +20,6 @@ export class CommunityListPage {
   categoryId: any;
   categoryName: any;
   categoryDBName: any;
-  items: any[];
 
   categoryRef: AngularFireList<any>;
   bullets = [];
@@ -63,6 +62,9 @@ export class CommunityListPage {
     })
   }
 
+  
+
+
   presentBoardModal(bullet) {
     let createModal = this.modalCtrl.create('CommunityPromotionPage', 
     {
@@ -75,7 +77,6 @@ export class CommunityListPage {
       // bulletDate = bullet.date,
       // bulletLike = bullet.like,
       // bulletComment = bullet.comment
-
     } , {
       enterAnimation: 'modal-slide-in',
       leaveAnimation: 'modal-slide-out'

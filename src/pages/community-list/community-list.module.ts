@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { CommunityListPage } from './community-list';
 import { TranslateModule } from '@ngx-translate/core';
-// import { DateFormatPipe } from '../../pipes/date';
+import { DateFormatPipe } from '../../pipes/date';
 
 @NgModule({
   declarations: [
     CommunityListPage,
-    // DateFormatPipe
+    DateFormatPipe
   ],
   imports: [
     IonicPageModule.forChild(CommunityListPage),

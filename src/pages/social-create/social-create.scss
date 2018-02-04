@@ -1,13 +1,28 @@
 page-social-create {
-    
-}
-
-
-.md{
-    page-social-create  {
-        ion-buttons button[icon-only].my-style-for-modal {
-            margin: 0 6px;
-            min-width: 36px;
-         }
-    }	
+    ion-content {
+        background-color: map-get($colors,x-gray-light) !important;
+    }
+    ion-row {
+        align-items:center;
+        width:100vw;
+        background-color: map-get($colors,x-white);
+        padding : 2vw 2vw 0 2vw;
+    }
+    .sc-textarea {
+        width:96vw;
+        text-align:left;
+        resize: both;
+        border:1px solid map-get($colors,x-gray-light);
+    }
+    .sc-row-photo {
+        border-bottom:1px solid map-get($colors,x-gray-light);
+        padding-bottom:2vw;
+    }
+    .sc-row-submit {
+        border-bottom:1px solid map-get($colors,x-gray-light);
+        background-color:map-get($colors,x-navy);
+    }
+    .sc-submit-text {
+        color:map-get($colors,x-white) !important;
+    }
 }

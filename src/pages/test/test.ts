@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the MessageReceivedPage page.
+ * Generated class for the TestPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-message-received',
-  templateUrl: 'message-received.html',
+  selector: 'page-test',
+  templateUrl: 'test.html',
 })
-export class MessageReceivedPage {
+export class TestPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MessageReceivedPage');
+    console.log('ionViewDidLoad TestPage');
   }
 
 }

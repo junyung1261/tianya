@@ -1,24 +1,18 @@
-<!--
-  Generated template for the CommunityPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header no-border>
-  <ion-navbar color="x-mint">
-    <ion-buttons left>
-      <button ion-button menuToggle>
-        <ion-icon name="xhb-menu" color="x-gray-light"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-title color="top-text">{{ "COMMUNITY_TITLE" | translate }}</ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only>
-        <ion-icon name="xhb-search" color="x-gray-light"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
+    <ion-navbar color="x-mint" hideBackButton>
+      <ion-buttons left>
+        <button ion-button menuToggle>
+          <ion-icon name="flaticon-mark" color="x-gray-light"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title color="top-text">{{ "COMMUNITY_TITLE" | translate }}</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only>
+          <ion-icon name="flaticon-search" color="x-gray-light"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
 
 <ion-content> 
   <div class="content">
@@ -30,10 +24,10 @@
             <td colspan="4" class="info_title">{{category.name | translate}}</td>
           </tr>
             <tr class="info_row"  *ngFor = "let category_inner of category.category_inner; let i = index" [hidden]="i % 2 != 0">
-                  <td class="info_img" (click)="openPage(category.category_inner[i].name)"><div class={{category.category_inner[i].color}}><ion-icon name={{category.category_inner[i].icon}}></ion-icon></div></td>
-                  <td class="info_txt" (click)="openPage(category.category_inner[i].name)"><div class="title">{{category.category_inner[i].name | translate }}</div><div class="cnt">今日 : 145</div></td>
-                  <td class="info_img" *ngIf="category.category_inner[i+1]" (click)="openPage(category.category_inner[i+1].name)"><div class={{category.category_inner[i+1].color}}><ion-icon name={{category.category_inner[i+1].icon}}></ion-icon></div></td>
-                  <td class="info_txt" *ngIf="category.category_inner[i+1]" (click)="openPage(category.category_inner[i+1].name)"><div class="title">{{category.category_inner[i+1].name | translate }}</div><div class="cnt">今日 : 145</div></td>
+              <td class="info_img" (click)="openPage(category.category_inner[i].name)"><div class={{category.category_inner[i].color}}><ion-icon name={{category.category_inner[i].icon}}></ion-icon></div></td>
+              <td class="info_txt" (click)="openPage(category.category_inner[i].name)"><div class="title">{{category.category_inner[i].name | translate }}</div><div class="cnt">今日 : 145</div></td>
+              <td class="info_img" *ngIf="category.category_inner[i+1]" (click)="openPage(category.category_inner[i+1].name)"><div class={{category.category_inner[i+1].color}}><ion-icon name={{category.category_inner[i+1].icon}}></ion-icon></div></td>
+              <td class="info_txt" *ngIf="category.category_inner[i+1]" (click)="openPage(category.category_inner[i+1].name)"><div class="title">{{category.category_inner[i+1].name | translate }}</div><div class="cnt">今日 : 145</div></td>
             </tr>
         </table>
       </div>

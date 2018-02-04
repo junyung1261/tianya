@@ -12,17 +12,18 @@
   </ion-navbar>
 </ion-header>
   
-<ion-content no-bounce>
-    <super-tabs 
-    id="mainTabs" 
-    color="#111111"
-    selectedTabIndex="0"  
-    indicatorColor="x-mint"
-    badgeColor="x-pink" 
-    (tabSelect)="onTabSelect($event)"
-    no-shadow>
 
-    <super-tab [root]="page1" title="받은쪽지함"></super-tab>
-    <super-tab [root]="page2" title="보낸쪽지함"></super-tab>
-  </super-tabs>
-</ion-content>  
+<ion-content no-padding>
+  <ion-grid no-padding>
+  <ion-row class="row">
+    <ion-col col-2><img src="assets/img/user_000.jpg" class="round"></ion-col>
+    <ion-col col-9>
+      <span class="nickname">NICKNAME2</span><br>
+      <span class="message-text">안녕 나랑 쪽지하장 나는 뗵뜨마스떠야</span>
+    </ion-col>
+    <ion-col col-1>
+      <span class="memo"><ion-icon name="flaticon-interface" color="x-gray-light"></ion-icon></span>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

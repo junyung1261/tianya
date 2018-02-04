@@ -1,18 +1,86 @@
-<!--
-  Generated template for the CommunityDetailPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>community-detail</ion-title>
+<ion-header no-border  class="feed-header" >
+  <ion-navbar color="x-mint">
+    <ion-buttons left>
+        <button ion-button icon-only (click)="closeCommunityDetail()">
+          <ion-icon name="flaticon-left-arrow" color="x-gray-light"></ion-icon>
+        </button>
+      </ion-buttons>
+    <ion-title>내용보기</ion-title>
+    <ion-buttons end></ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content no-paddding>
+  <!-- 커뮤니티 게시글 내용 시작 -->
+  <ion-grid no-padding>
+    <!-- 게시글 상단 프로필 시작-->
+    <ion-row class="cd-row-profile">
+      <ion-col col-10>
+        <span class="cd-title">투머치토커 팬서비스 레전드</span><br>
+        <span class="cd-nickname">물뜨는미어캣</span> | 
+        <span class="cd-like-cnt">추천 122</span> | 
+        <span class="cd-comment-cnt">조회 15</span> | 
+        <span class="cd-time">2분 전</span>
+      </ion-col>  
+    </ion-row>
+    <!-- 게시글 상단 프로필 끝-->
+    <!-- 게시글 사용자 업로드 이미지 슬라이드 시작-->
+    <ion-row>
+      <ion-col col-12>
+        <ion-slides pager no-padding> 
+          <ion-slide></ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <!-- 게시글 사용자 업로드 이미지 슬라이드 끝-->
+    <!-- 게시글 사용자 작성 내용 시작-->
+    <ion-row class="cd-row-text" (click)="presentDetailModal()" >
+      <ion-col col-12>
+        <span class="cd-text"></span><br>
+        <span class="cd-text-translated"></span>
+      </ion-col>
+    </ion-row>
+    <!-- 게시글 사용자 작성 내용 끝-->
+    <!-- 게시글 버튼 시작-->
+    <ion-row class="cd-btns">
+      <ion-col center text-center col-4>
+        <button ion-button icon-left clear color="x-gray-middle">
+          <span class="cd-btn"><ion-icon name="flaticon-like"></ion-icon>추천하기</span>
+        </button>
+      </ion-col>
+      <ion-col center text-center col-4>
+        <button ion-button icon-left clear color="x-gray-middle">
+          <span class="cd-btn"><ion-icon name="flaticon-chat"></ion-icon>댓글작성</span>
+        </button>
+      </ion-col>
+      <ion-col center text-center col-4> 
+        <button ion-button icon-left clear color="x-pink"  (click)="translate(feed)">     
+          <span class="cd-btn"><ion-icon name="flaticon-repeat"></ion-icon>중한번역</span>
+        </button>
+      </ion-col>
+    </ion-row>
+    <!-- 게시글 버튼 끝-->
+  </ion-grid>
+  <!-- 커뮤니티 게시글 내용 끝 -->
 
-<ion-content padding>
+  <!-- 커뮤니티 게시글 댓글보기 시작 -->  
+  <ion-grid no-padding class="cd-cmt">
+    <!-- 게시글 댓글 내용 시작-->
+    <ion-row class="cd-row-cmt-profile">
+      <ion-col col-12>
+        <span class="cd-nickname">물뜨는미어캣 | </span>
+        <span class="cd-time">2분 전</span><br>
+        <span class="cd-title">이 글에 댓글 1빠 11111111111</span>
+      </ion-col>  
+    </ion-row>
+    <!-- 게시글 댓글 내용 끝-->
+    <ion-row class="cd-row-cmt-profile">
+      <ion-col col-12>
+        <span class="cd-nickname">물뜨는미어캣 | </span>
+        <span class="cd-time">2분 전</span><br>
+        <span class="cd-title">이 글에 댓글 2빠 22222222222222222222222</span>
+      </ion-col>  
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

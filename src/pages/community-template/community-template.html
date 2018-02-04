@@ -1,0 +1,25 @@
+<ion-header no-border>
+  <ion-navbar color="x-mint" hideBackButton>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="closeCommunityTemplate()">
+        <ion-icon name="flaticon-left-arrow" color="x-gray-light"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title color="top-text">{{categoryName | translate}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="flaticon-file-1" color="x-gray-light"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+    
+<ion-content no-padding>
+  <super-tabs id="mainTabs" toolbarBackground="x-white"  selectedTabIndex="0" indicatorColor="x-mint" badgeColor="x-pink" (tabSelect)="onTabSelect($event)" no-shadow>
+    <super-tab [root]="communityBoard" title="전체" [rootParams]="tabParams"></super-tab>
+    <super-tab [root]="communityBoard" title="입학정보" [rootParams]="tabParams"></super-tab>
+    <super-tab [root]="communityBoard" title="교재교환" [rootParams]="tabParams"></super-tab>
+    <super-tab [root]="communityBoard" title="강의후기" [rootParams]="tabParams"></super-tab>
+    <super-tab [root]="communityBoard" title="학교자랑" [rootParams]="tabParams"></super-tab>
+  </super-tabs>
+</ion-content>

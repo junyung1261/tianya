@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { CommunityCreatePage } from './community-create';
 // import { Elastic } from '../../directives/elastic-textArea/elastic-textArea'
 import { ImageUploadModule } from "../../components/image-upload/image-upload.module";
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { ImageUploadModule } from "../../components/image-upload/image-upload.mo
   ],
   imports: [
     IonicPageModule.forChild(CommunityCreatePage),
-    ImageUploadModule
+    ImageUploadModule,
+    TranslateModule.forChild()
   ],
 })
 export class CommunityCreatePageModule {}

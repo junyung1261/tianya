@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { DataProvider } from '../../providers/data/data'
@@ -18,9 +18,18 @@ export class CommunityDetailPage {
 
   feedsRef: AngularFireList<any>;
   feeds = [];
-  count = 5;
+
+  count = 1;
   lastKey = '';
-  
+  bulletKey : any;
+  bulletDBName : any;
+  communityName: any;
+  bullet : Observable<any>;
+  bulletImage : Observable<any>;
+  bulletRef : AngularFireList<any>;
+
+  likeCount : any;
+
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -29,7 +38,15 @@ export class CommunityDetailPage {
     public afDB: AngularFireDatabase, 
     public dataProvider: DataProvider, 
     public loadingProvider: LoadingProvider) {
-      this.feedsRef = afDB.list('/feed');
+
+      this.communityName = this.navParams.get('categoryName');
+      this.bulletKey = this.navParams.get('bulletKey');
+
+      this.bulletDBName = "community/" + this.communityName + "/" + this.bulletKey;
+
+      this.bullet = this.afDB.object(this.bulletDBName).valueChanges();
+      this.bulletImage = this.afDB.object(this.bulletDBName + "/images").valueChanges();
+
   }
 
   ionViewDidLoad() {
@@ -40,7 +57,16 @@ export class CommunityDetailPage {
     this.navCtrl.pop();
   }
 
-  translate(feed){
+  translate(bullet){
+
+  }
+
+  updateLike() {
+    // console.log("like : ", likeCount);
+    this.afDB.list("community/"+ this.communityName).update(this.bulletKey, {like : 50});
+  }
+  
+  createComment(){
 
   }
 

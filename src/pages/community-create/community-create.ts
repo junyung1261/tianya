@@ -20,7 +20,7 @@ export class CommunityCreatePage {
   specificName : string;
   communityDBName: any;
   specificDB: any[] = [];
-  checkList: any[];
+  checkList: any[] = ["false", "false", "false", "false", "false", "false"];
   title = '';
   text = '';
   images = [];
@@ -30,7 +30,7 @@ export class CommunityCreatePage {
     public afDB: AngularFireDatabase, public dataProvider: DataProvider) {
 
     this.communityName = this.navParams.get('categoryName');
-    this.communityDBName = "/community-".concat(this.communityName);
+    this.communityDBName = "/community/".concat(this.communityName);
     this.communityRef = afDB.list(this.communityDBName);
 
     
@@ -61,7 +61,6 @@ export class CommunityCreatePage {
     //     this.specificDB = Items;
     //   });
     // }
-
     console.log("categoryName :", this.navParams.get('categoryName'));
     console.log("communityDBName :", this.communityDBName);
     console.log("communityRef :", this.communityRef);
@@ -82,12 +81,13 @@ export class CommunityCreatePage {
       description: text,
       type: this.specificName,
       writer: firebase.auth().currentUser.uid,
-      date: firebase.database['ServerValue'].TIMESTAMP
+      date: firebase.database['ServerValue'].TIMESTAMP,
+      like: 0
     }).then((success) => {
       if (this.imageUpload.images.length > 0) {
 
         this.imageUpload.key = success.key;
-        this.imageUpload.uploadImages("community-" + this.communityName);
+        this.imageUpload.uploadImages("community/" + this.communityName);
       }
       this.viewCtrl.dismiss({ data: true });
     })
@@ -104,7 +104,7 @@ export class CommunityCreatePage {
   }
 
   checkTrim() {
-    if ((this.text.trim() == "") || (this.text.trim() == null) || (this.title.trim() == null) || (this.title.trim() == "")) return true;
+    if ((this.text.trim() == "") || (this.text.trim() == null) || (this.title.trim() == null) || (this.title.trim() == "") || this.checkList[1] != undefined) return true;
 
     else return false;
 
@@ -113,6 +113,8 @@ export class CommunityCreatePage {
   determineSpecificRef(checkName: string) {
     console.log(checkName)
     this.specificName = checkName;
+
+    this.checkList =[];
   }
 
   checkInfoSpecific() {
@@ -120,25 +122,21 @@ export class CommunityCreatePage {
     if(this.communityName.substring(5, 7) == "ST") {
       this.afDB.list('/category/0/category_inner/0/specific_inner', ref => ref).valueChanges().subscribe(Items => {
         this.specificDB = Items;
-        this.checkList = this.specificDB;
       });
     }
     else if(this.communityName.substring(5, 7) == "KO") {
       this.afDB.list('/category/0/category_inner/1/specific_inner', ref => ref).valueChanges().subscribe(Items => {
         this.specificDB = Items;
-        this.checkList = this.specificDB;
       });
     }
     else if(this.communityName.substring(5, 7) == "FO") {
       this.afDB.list('/category/0/category_inner/2/specific_inner', ref => ref).valueChanges().subscribe(Items => {
         this.specificDB = Items;
-        this.checkList = this.specificDB;
       });
     }
     else if(this.communityName.substring(5, 7) == "BE") {
       this.afDB.list('/category/0/category_inner/3/specific_inner', ref => ref).valueChanges().subscribe(Items => {
         this.specificDB = Items;
-        this.checkList = this.specificDB;
       });
     }
   }
@@ -148,31 +146,26 @@ export class CommunityCreatePage {
     if(this.communityName.substring(5, 7) == "JO"){
       this.afDB.list('/category/1/category_inner/0/specific_inner', ref => ref).valueChanges().subscribe(Items => {
         this.specificDB = Items;
-        this.checkList = this.specificDB;
       });
     }
     else if(this.communityName.substring(5, 7) == "CL"){
       this.afDB.list('/category/1/category_inner/1/specific_inner', ref => ref).valueChanges().subscribe(Items => {
         this.specificDB = Items;
-        this.checkList = this.specificDB;
       });
     }
     else if(this.communityName.substring(5, 7) == "TR"){
       this.afDB.list('/category/1/category_inner/2/specific_inner', ref => ref).valueChanges().subscribe(Items => {
         this.specificDB = Items;
-        this.checkList = this.specificDB;
       });
     }
     else if(this.communityName.substring(5, 7) == "PR"){
       this.afDB.list('/category/1/category_inner/3/specific_inner', ref => ref).valueChanges().subscribe(Items => {
         this.specificDB = Items;
-        this.checkList = this.specificDB;
       });
     }
     else if(this.communityName.substring(5, 7) == "BO"){
       this.afDB.list('/category/1/category_inner/4/specific_inner', ref => ref).valueChanges().subscribe(Items => {
         this.specificDB = Items;
-        this.checkList = this.specificDB;
       });
     }
   }
@@ -182,19 +175,16 @@ export class CommunityCreatePage {
     if(this.communityName.substring(5, 7) == "US"){
       this.afDB.list('/category/2/category_inner/0/specific_inner', ref => ref).valueChanges().subscribe(Items => {
         this.specificDB = Items;
-        this.checkList = this.specificDB;
       });
     }
     else if(this.communityName.substring(5, 7) == "OV"){
       this.afDB.list('/category/2/category_inner/1/specific_inner', ref => ref).valueChanges().subscribe(Items => {
         this.specificDB = Items;
-        this.checkList = this.specificDB;
       });
     }
     else if(this.communityName.substring(5, 7) == "HO"){
       this.afDB.list('/category/2/category_inner/2/specific_inner', ref => ref).valueChanges().subscribe(Items => {
         this.specificDB = Items;
-        this.checkList = this.specificDB;
       });
     }
   }

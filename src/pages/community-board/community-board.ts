@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { DataProvider } from '../../providers/data/data';
 
 @IonicPage()
@@ -8,7 +8,7 @@ import { DataProvider } from '../../providers/data/data';
   selector: 'page-community-board',
   templateUrl: 'community-board.html',
 })
-export class CommunityBoardPage { 
+export class CommunityBoardPage {
   categoryName: any;
   categoryDBName: any;
 
@@ -18,14 +18,16 @@ export class CommunityBoardPage {
   lastKey = '';
 
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
-    public afDB: AngularFireDatabase, 
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public afDB: AngularFireDatabase,
     public dataProvider: DataProvider,
-    public modalCtrl: ModalController){
-      this.categoryName = (this.navParams.get('categoryName'));
-      this.categoryDBName = '/community-' + this.categoryName;
-      this.categoryRef = afDB.list(this.categoryDBName);
+    public modalCtrl: ModalController) {
+
+    this.categoryName = (this.navParams.get('categoryName'));
+    this.categoryDBName = '/community/' + this.categoryName;
+    this.categoryRef = afDB.list(this.categoryDBName);
+
   }
 
   ionViewDidLoad() {
@@ -33,39 +35,41 @@ export class CommunityBoardPage {
       let bullets = [];
       snapshots.forEach(snap => {
         bullets.unshift({
-          key: snap.payload.key, 
+          key: snap.payload.key,
           name: snap.payload.val().name,
-          image: snap.payload.val().image, 
-          description: snap.payload.val().description, 
-          imgProfile: snap.payload.val().imgProfile, 
-          like: snap.payload.val().like, 
-          date: snap.payload.val().date, 
-          startTime: snap.payload.val().startTime, 
-          title: snap.payload.val().title, 
-          images: this.afDB.list(this.categoryDBName+ '/'+snap.key+'/images').valueChanges().take(1),
+          image: snap.payload.val().image,
+          description: snap.payload.val().description,
+          imgProfile: snap.payload.val().imgProfile,
+          like: snap.payload.val().like,
+          date: snap.payload.val().date,
+          startTime: snap.payload.val().startTime,
+          title: snap.payload.val().title,
+          images: this.afDB.list(this.categoryDBName + '/' + snap.key + '/images').valueChanges().take(1),
         })
       })
       this.bullets = bullets;
-      this.lastKey = bullets[bullets.length-1].key;
+      this.lastKey = bullets[bullets.length - 1].key;
     })
   }
 
   presentBoardModal(bullet) {
-    let createModal = this.modalCtrl.create('CommunityDetailPage', 
-    {
-      categoryName: this.categoryName,
-      bulletKey: bullet.key
-      
-      // give CommunityPromotionPage only key?  OR every data?
-      // bulletTitle: bullet.title,
-      // bulletDescription: bullet.description,
-      // bulletDate = bullet.date,
-      // bulletLike = bullet.like,
-      // bulletComment = bullet.comment
-    } , {
-      enterAnimation: 'modal-slide-in',
-      leaveAnimation: 'modal-slide-out'
-    });
+    console.log("bullet key : ", bullet.key)
+    let createModal = this.modalCtrl.create('CommunityDetailPage',
+      {
+        categoryName: this.categoryName,
+        bulletKey: bullet.key
+        
+
+        // give CommunityPromotionPage only key?  OR every data?
+        // bulletTitle: bullet.title,
+        // bulletDescription: bullet.description,
+        // bulletDate = bullet.date,
+        // bulletLike = bullet.like,
+        // bulletComment = bullet.comment
+      }, {
+        enterAnimation: 'modal-slide-in',
+        leaveAnimation: 'modal-slide-out'
+      });
     createModal.onDidDismiss(data => {
       console.log('asdasd');
     });
@@ -83,6 +87,6 @@ export class CommunityBoardPage {
     createModal.present();
   }
 
-  
+
 
 }

@@ -1,50 +1,32 @@
 <ion-header no-border>
   <ion-navbar color="x-mint">
     <ion-buttons left>
-        <button ion-button icon-only (click)="viewCtrl.dismiss()">
-          <ion-icon name="flaticon-left-arrow" color="x-gray-light"></ion-icon>
-        </button>
-      </ion-buttons>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()">
+        <ion-icon name="flaticon-left-arrow" color="x-gray-light"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>게시글 작성</ion-title>
     <ion-buttons end></ion-buttons>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content no-padding>
   <ion-grid no-padding>
     <ion-row>
-      <ion-col col-6>
+      <ion-col col-6 *ngFor="let specifics of specificDB; let i = index;">
         <ion-item>
-          <ion-label>입학정보</ion-label>
-          <ion-checkbox [(ngModel)]="subctg1"></ion-checkbox>
-        </ion-item>
-      </ion-col>
-      <ion-col col-6>
-        <ion-item>
-          <ion-label>교재교환</ion-label>
-          <ion-checkbox [(ngModel)]="subctg2" disabled="true"></ion-checkbox>
-        </ion-item>
-      </ion-col>
-      <ion-col col-6>
-        <ion-item>
-          <ion-label>강의후기</ion-label>
-          <ion-checkbox [(ngModel)]="subctg3" disabled="true"></ion-checkbox>
-        </ion-item>
-      </ion-col>
-      <ion-col col-6>
-        <ion-item>
-          <ion-label>학교이야기</ion-label>
-          <ion-checkbox [(ngModel)]="subctg4" disabled="true"></ion-checkbox>
+          <ion-label>{{specifics.name | translate}}</ion-label>
+          <ion-checkbox [(ngModel)]="specifics.type" (ionChange)="determineSpecificRef(specifics.name)" disabled = {{checkList[i]}}></ion-checkbox>
         </ion-item>
       </ion-col>
     </ion-row>
+
     <ion-row>
       <ion-col col-12>
         <ion-input elastic class="cc-title" placeholder="제목 입력" [(ngModel)]="title"></ion-input>
       </ion-col>
       <ion-col col-12>
-        <ion-textarea elastic class="cc-textarea" placeholder="내용 입력" [(ngModel)]="text" ></ion-textarea>    
+        <ion-textarea elastic class="cc-textarea" placeholder="내용 입력" [(ngModel)]="text"></ion-textarea>
       </ion-col>
     </ion-row>
     <ion-row class="cc-photo">
@@ -54,12 +36,11 @@
     </ion-row>
     <ion-row class="cc-submit">
       <ion-col col-12>
-        <button ion-button icon-left clear [disabled]="checkTrim(text, title)" (click)="addCommunity(title, text)">
-          <ion-icon name="flaticon-file-1"color="x-white"></ion-icon>
+        <button ion-button icon-left clear [disabled]="checkTrim(text, title, checkList)" (click)="addCommunity(title, text)">
+          <ion-icon name="flaticon-file-1" color="x-white"></ion-icon>
           <span class="cc-submit-text">작성완료</span>
         </button>
       </ion-col>
     </ion-row>
-  </ion-grid>  
+  </ion-grid>
 </ion-content>
-

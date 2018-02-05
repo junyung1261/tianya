@@ -81,7 +81,8 @@ export class CommunityCreatePage {
       description: text,
       type: this.specificName,
       writer: firebase.auth().currentUser.uid,
-      date: firebase.database['ServerValue'].TIMESTAMP
+      date: firebase.database['ServerValue'].TIMESTAMP,
+      like: 0
     }).then((success) => {
       if (this.imageUpload.images.length > 0) {
 

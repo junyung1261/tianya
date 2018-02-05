@@ -10,6 +10,9 @@ page-community-template {
         margin-bottom:4vw;
     }
     .ct-best-title {
+
+        font-weight:bold;
+
         font-size:4vw;
         padding-left:4vw !important;
     }
@@ -40,4 +43,6 @@ page-community-template {
     ion-content{
         background-color: map-get($colors,x-gray-light) !important;
     }
+
 }
+

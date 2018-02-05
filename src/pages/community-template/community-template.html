@@ -8,13 +8,74 @@
     <ion-title color="top-text">{{categoryName | translate}}</ion-title>
     <ion-buttons end>
       <button ion-button icon-only>
-        <ion-icon name="flaticon-file-1" color="x-gray-light"></ion-icon>
+        <ion-icon name="flaticon-search" color="x-gray-light"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
     
 <ion-content no-padding>
+  <ion-grid no-padding class="ct-grid-best">
+    <ion-row>
+      <ion-col col-12 class="ct-best-title" text-left>{{categoryName | translate}} 인기글</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 class="ct-rank" text-center>
+        <ion-icon name="flaticon-cup" color="x-gold"></ion-icon>
+      </ion-col>
+      <ion-col col-7 class="ct-text" text-left>
+        <span class="ct-title">유학 인기글 첫번째 항목</span>&nbsp;
+        <span class="ct-comment">(73)</span>
+      </ion-col>
+      <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 class="ct-rank" text-center>
+        <ion-icon name="flaticon-cup" color="x-silver"></ion-icon>
+      </ion-col>
+      <ion-col col-7 class="ct-text" text-left>
+        <span class="ct-title">유학 인기글 두번째 항목</span>&nbsp;
+        <span class="ct-comment">(73)</span>
+      </ion-col>
+      <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 class="ct-rank" text-center>
+        <ion-icon name="flaticon-cup" color="x-bronze"></ion-icon>
+      </ion-col>
+      <ion-col col-7 class="ct-text" text-left>
+        <span class="ct-title">유학 인기글 세번째 항목</span>&nbsp;
+        <span class="ct-comment">(73)</span>
+      </ion-col>
+      <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 class="ct-rank" text-center>
+        <ion-icon name="flaticon-cup" color="x-gold"></ion-icon>
+      </ion-col>
+      <ion-col col-7 class="ct-text" text-left>
+        <span class="ct-title">유학 인기글 네번째 항목</span>&nbsp;
+        <span class="ct-comment">(73)</span>
+      </ion-col>
+      <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 class="ct-rank" text-center>
+        <ion-icon name="flaticon-cup" color="x-gold"></ion-icon>
+      </ion-col>
+      <ion-col col-7 class="ct-text" text-left>
+        <span class="ct-title">유학 인기글 다섯번째 항목</span>&nbsp;
+        <span class="ct-comment">(73)</span>
+      </ion-col>
+      <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col col-12 class="ct-best-title" text-left>{{categoryName | translate}} 관련글</ion-col>
+    </ion-row>
+  </ion-grid>
   <super-tabs id="mainTabs" toolbarBackground="x-white"  selectedTabIndex="0" indicatorColor="x-mint" badgeColor="x-pink" (tabSelect)="onTabSelect($event)" no-shadow>
     <super-tab [root]="communityBoard" title="전체" [rootParams]="tabParams"></super-tab>
     <super-tab [root]="communityBoard" title="입학정보" [rootParams]="tabParams"></super-tab>

@@ -54,6 +54,10 @@ $font-path: "../assets/fonts";
 @include makeIcon(flaticon-edit, '\f1b8');   //FEED - 작성
 
 @include makeIcon(flaticon-mortarboard, '\f13f');   //COMMUNITY - 한국어
+@include makeIcon(flaticon-cup, '\f13c');   //COMMUNITY - 인기글순위
+@include makeIcon(flaticon-layers-1, '\f198');   //COMMUNITY - 정보
+@include makeIcon(flaticon-network, '\f1af');   //COMMUNITY - 생활
+@include makeIcon(flaticon-money-2, '\f169');   //COMMUNITY - 거래
 
 
 $text-color:        #000;
@@ -84,7 +88,19 @@ $colors: (
   x-navy:#303a50,
   x-pink:#ff8791,
 
-  
+  x-green:#8ec595,
+  x-red-light:#e8b1b7,
+  x-red-middle:#d85366,
+  x-yellow-light:#f3e24b,
+  x-skyblue:#94dce5,
+  x-skyblue-dark:#6395a0,
+  x-purple-light:#9994b4,
+  x-mint-dark:#4daebd,
+
+  x-gold:#ffd700,
+  x-silver:#c0c0c0,
+  x-bronze:#cd7f32,
+
   saltwater:#257985,
   raspberry:#FF4447,
   lagoon:#5EA8A7,

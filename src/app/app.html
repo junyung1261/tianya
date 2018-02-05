@@ -13,71 +13,85 @@
       </ion-buttons>
     </ion-navbar>
   </ion-header>
-  <ion-content>
-    <div class="nav_container">
-      <div class="profile">
-        <div class="space"></div>
-        <div class="avatar">
-          <img src="assets/img/user_000.jpg" class="avatar_img">
-        </div>
-        <div class="nickname">물뜨는미어캣</div>
-        <div class="email">stilllove64@naver.com</div>
-      </div>
-      <div class="usermenu">
-        <div class="row">
-          <div class="cell">
-            <div class="btn" (click)="presentModal('ProfileModifyPage')">
-              <ion-icon name="flaticon-profile-4" color="x-mint" ></ion-icon>
+
+  <ion-content no-padding class="um-content">
+    <ion-grid no-padding class="um-grid-profile">
+      <ion-row class="um-row-profile">
+        <ion-col col-12 text-center>
+          <div class="um-photo"><img src="assets/img/user_000.jpg" class="circle"/></div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 class="um-nickname" text-center>물뜨는미어캣</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 class="um-email" text-center>stilllove64@naver.com</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid no-padding class="um-grid-btn">
+      <ion-row>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" (click)="presentModal('ProfileModifyPage')" color="x-skyblue-dark">
+            <div><ion-icon name="flaticon-profile-4" color="x-white"></ion-icon><br>
+              <label class="um-btn-label">프로필</label>
             </div>
-            <div class="btn_text">프로필</div>
-          </div>
-          <div class="cell">
-            <div class="btn">
-              <ion-icon name="flaticon-file-1" color="x-mint"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" color="x-skyblue-dark">
+            <div><ion-icon name="flaticon-file-1" color="x-white"></ion-icon><br>
+              <label class="um-btn-label">나의피드</label>
             </div>
-            <div class="btn_text">나의피드</div>
-          </div>
-          <div class="cell">
-            <div class="btn" (click)="presentModal('AlarmPage')">
-              <ion-icon name="flaticon-music" color="x-mint"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" (click)="presentModal('AlarmPage')" color="x-skyblue-dark">
+            <div><ion-icon name="flaticon-music" color="x-white"></ion-icon><br>
+              <label class="um-btn-label">중요알림</label>
             </div>
-            <div class="btn_text">중요알림</div>
-          </div>
-          <div class="cell">
-            <div class="btn">
-              <ion-icon name="flaticon-like" color="x-pink" (click)="presentModal('HeartChargePage')"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" (click)="presentModal('HeartChargePage')"color="x-skyblue-dark">
+            <div><ion-icon name="flaticon-like" color="x-white"></ion-icon><br>
+              <label class="um-btn-label">하트충전</label>
             </div>
-            <div class="btn_text">하트충전</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="cell">
-            <div class="btn">
-              <ion-icon name="flaticon-exclamation" color="x-mint" (click)="presentModal('NoticePage')"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" (click)="presentModal('NoticePage')" color="x-skyblue-dark">
+            <div><ion-icon name="flaticon-exclamation" color="x-white"></ion-icon><br>
+              <label class="um-btn-label">공지사항</label>
             </div>
-            <div class="btn_text">공지사항</div>
-          </div>
-          <div class="cell">
-            <div class="btn" (click)="locateCustomerServiceEmail()" menuclose>
-              <ion-icon name="flaticon-round" color="x-mint"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" (click)="locateCustomerServiceEmail()"color="x-skyblue-dark" >
+            <div><ion-icon name="flaticon-round" color="x-white"></ion-icon><br>
+              <label class="um-btn-label">고객센터</label>
             </div>
-            <div class="btn_text">고객센터</div>
-          </div>
-          <div class="cell">
-            <div class="btn">
-              <ion-icon name="flaticon-settings" color="x-mint" (click)="presentModal('SettingsPage')"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" (click)="presentModal('SettingsPage')" color="x-skyblue-dark">
+            <div><ion-icon name="flaticon-settings" color="x-white"></ion-icon><br>
+              <label class="um-btn-label">환경설정</label>
             </div>
-            <div class="btn_text">환경설정</div>
-          </div>
-          <div class="cell">
-            <div class="btn">
-              <ion-icon name="flaticon-arrow" color="x-mint"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" color="x-gray-middle">
+            <div><ion-icon name="flaticon-arrow" color="x-white"></ion-icon><br>
+              <label class="um-btn-label">로그아웃</label>
             </div>
-            <div class="btn_text">로그아웃</div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
   </ion-content>
 </ion-menu>

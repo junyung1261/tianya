@@ -1,14 +1,14 @@
 page-matching-special {
-    .ms-round {
-        border-radius: 100%;
-        margin:1vh;
-        height:8vh;
-        width:8vh;
-        background-color:map-get($colors,x-pink);
-        color:map-get($colors,x-white);
-        text-align:center;
-        padding-top:1.5vh;
-        font-size:4vh;
+    .ms-btn {
+        border-radius:50% !important;
+        box-shadow:none !important;
+        width:8vh !important;
+        height:8vh !important;
+        margin:0 !important;
+        font-size:3.5vh !important;
+    }
+    .ms-col {
+        padding-left:2vw !important;
     }
     .ms-title {
         font-size:4vw;
@@ -18,14 +18,11 @@ page-matching-special {
         font-size:3vw;
         color:map-get($colors,x-gray-middle);
     }
-    .memo {
+    .ms-search {
         font-size:3vh;
     }
     .conversation {
         font-size:3vh;
-    }
-    ion-col{
-        text-align:left;
     }
     ion-row{
         align-items:center;

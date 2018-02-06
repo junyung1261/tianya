@@ -1,34 +1,36 @@
 <ion-header no-border>
-  <ion-navbar color="x-mint">
+  <ion-navbar color="x-mint" hideBackButton>
     <ion-buttons left>
-        <button ion-button icon-only (click)="viewCtrl.dismiss()">
-          <ion-icon name="flaticon-left-arrow" color="x-gray-light"></ion-icon>
-        </button>
-      </ion-buttons>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()" class="leftbtn">
+        <ion-icon name="flaticon-down-arrow" color="x-white"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>피드 작성</ion-title>
-    <ion-buttons end></ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only [disabled]="checkTrim(text)" (click)="addFeed(text)">
+        <ion-icon name="flaticon-file-1" color="x-white"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content no-padding>
   <ion-grid no-padding>
-    <ion-row>
+    <ion-row class="sc-row-title">
+      <ion-col col-12 class="sc-label">피드내용</ion-col></ion-row>
+    <ion-row class="sc-row-content">
       <ion-col col-12>
-        <ion-textarea elastic class="sc-textarea" placeholder="내용 입력" [(ngModel)]="text" ></ion-textarea>    
+        <ion-textarea elastic class="sc-textarea" [(ngModel)]="text" ></ion-textarea>    
       </ion-col>
     </ion-row>
+    <ion-row class="sc-row-title"><ion-col col-12 class="sc-label">해시태그</ion-col></ion-row>
+    <ion-row class="sc-row-content"><ion-col col-12><ion-textarea class="sc-tag" placeholder="#맛있는점심##한국맛집#"></ion-textarea></ion-col></ion-row>
+    <ion-row class="sc-row-title"><ion-col col-12 class="sc-label">사진 첨부</ion-col></ion-row>
     <ion-row class="sc-row-photo">
       <ion-col text-left left col-12>
         <image-upload></image-upload>
       </ion-col>
     </ion-row>
-    <ion-row class="sc-row-submit">
-      <ion-col col-12>
-        <button ion-button icon-left clear [disabled]="checkTrim(text)" (click)="addFeed(text)">
-          <ion-icon name="flaticon-file-1"color="x-white"></ion-icon>
-          <span class="sc-submit-text">작성완료</span>
-        </button>
-      </ion-col>
-    </ion-row>
+    
   </ion-grid>  
 </ion-content>

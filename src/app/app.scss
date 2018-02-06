@@ -70,10 +70,11 @@ ion-title { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-in
   height:22.5vw !important;
   margin:0 !important;
   font-size:8vw !important;
+  border:1px solid map-get($colors,x-gray-light) !important;
 }
 .um-btn-label {
   font-size:3vw !important;
-  color:map-get($colors,x-white);
+  color:map-get($colors,x-mint);
 }
 
 
@@ -102,4 +103,10 @@ ion-title { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-in
       height: 65%;
     }
   }
+
+  .leftbtn {
+    margin:0 6px !important;
+  }
+
 }
+

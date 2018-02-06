@@ -25,7 +25,7 @@ $font-path: "../assets/fonts";
 @include makeIcon(flaticon-profile-4, '\f159');  //USER-MAN-MAGN
 @include makeIcon(flaticon-profile-1, '\f15e');   //USER-MAN-HEART
 @include makeIcon(flaticon-file-1, '\f168');   //USER-FEED
-
+@include makeIcon(flaticon-notepad, '\f167');   //하트충전내역
 @include makeIcon(flaticon-exclamation, '\f197');   //공지사항
 @include makeIcon(flaticon-round, '\f1ab');   //고객센터
 @include makeIcon(flaticon-settings, '\f1b9');   //환경설정

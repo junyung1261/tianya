@@ -1,0 +1,13 @@
+page-heart-history {
+    ion-content {
+        background-color:map-get($colors,x-white);
+    }
+    ion-row{
+        align-items:center;
+        width:100vw;
+        height:6vh;
+        background-color: map-get($colors,x-white);
+        border-bottom:1px solid map-get($colors,x-gray-light);
+    }
+
+}

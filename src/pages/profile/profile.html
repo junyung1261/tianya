@@ -1,0 +1,59 @@
+<ion-header no-border>
+  <ion-navbar color="slate">
+    <!-- LEFT BUTTON -->
+    <ion-buttons left></ion-buttons>
+    <!-- TITLE -->
+    <ion-title>프로필 수정</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()"><ion-icon name="flaticon-down-arrow" color="whitewash"></ion-icon></button>
+    </ion-buttons>
+    
+    <!-- RIGHT BUTTON -->
+  </ion-navbar>
+  
+  <shrink-segment-header [scrollArea]="myContent" headerHeight="150" >
+    <div class="profile_user">   
+      <div class="avatar_user"><img src="assets/img/user_000.jpg" class="avatar_img_user"></div>
+      <div class="nickname_user">물뜨는미어캣</div>
+    </div>  
+  </shrink-segment-header>
+  
+  <ion-toolbar color="profile-user-tab" mode="md" no-padding class="profile_toolbar">
+    <ion-segment color="profile-user-indicator" mode="md" [(ngModel)]="section" no-padding>
+      <ion-segment-button value="one"><span class="profile-user-txt">프로필</span>
+      </ion-segment-button>
+      <ion-segment-button value="two"><span class="profile-user-txt">이상형</span>
+      </ion-segment-button>
+      <ion-segment-button value="three"><span class="profile-user-txt">사용자피드</span>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen #myContent >
+  <div [ngSwitch]="section">
+    <ion-list *ngSwitchCase="'one'">
+      <ion-item *ngFor="let something of somethings" class="profile-user-item">
+        <div class="profile-tag">인사말</div>
+        <div class="profile-value">안녕하세요? 저는 물뜨는 미어캣입니다.</div>       
+      </ion-item>
+    </ion-list>
+    
+    <ion-list *ngSwitchCase="'two'">
+      <ion-item *ngFor="let something of somethings">
+          <ion-icon name="xhb-alarm"></ion-icon>
+        <h2>Something2</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'three'">
+      <ion-item *ngFor="let something of somethings">
+        <ion-thumbnail item-left>
+          <img src="https://avatars.io/instagram/unknown">
+        </ion-thumbnail>
+        <h2>Something3</h2>
+      </ion-item>
+    </ion-list>
+
+  </div>
+</ion-content>

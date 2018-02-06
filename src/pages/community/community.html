@@ -1,0 +1,38 @@
+<ion-header no-border>
+  <ion-navbar color="x-mint" hideBackButton>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="flaticon-mark" color="x-white"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title color="top-text">{{ "COMMUNITY_TITLE" | translate }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="flaticon-search" color="x-white"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+  <!-- 기존 category.inner.icon 항목울 삭제하고 category에 icon을 추가해야함 -->
+  <!-- 정보 : flaticon-layers-1  생활 :flaticon-network  거래 : flaticon-money-2 -->
+<ion-content> 
+  <div class="c-menu" *ngFor="let category of categories;">
+    <div class="c-menu-label">
+      <ion-icon name="flaticon-layers-1" color="x-gray-middle"></ion-icon><br>
+      <span class="c-icon-label">{{category.name | translate}}</span>
+    </div>
+    <div class="c-menu-grid">
+      <ion-grid >
+        <ion-row>
+          <ion-col col-6 *ngFor="let category_inner of category.category_inner; let i=index">
+            <div class="c-contents" (click)="openPage(category.category_inner[i].name)">
+              <span class="c-title">{{category.category_inner[i].name | translate }}</span><br>
+              <span class="c-subtitle">게시글 15,430 개</span>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

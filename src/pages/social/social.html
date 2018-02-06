@@ -1,0 +1,92 @@
+<ion-header no-border  class="feed-header" >
+  <ion-navbar color="x-mint">
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="flaticon-mark" color="x-white"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Social Feed</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="flaticon-search" color="x-white"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen="" no-paddding shrink-header [headerToHide]="'feed-header'" hide-fab>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-card *ngFor="let feed of feeds" no-shadow>
+    <!-- 소셜 카드 시작 -->  
+    <ion-grid no-padding>
+      <!-- 카드 상단 프로필 시작-->
+      <ion-row class="sc-row-profile">
+        <ion-col col-2><img src="assets/img/user_000.jpg" class="sc-avatar" (click)="presentProfileModal()"></ion-col>
+        <ion-col col-9>
+          <span class="sc-nickname">NICKNAME{{feed.name}}</span><br>
+          <span class="sc-like-cnt"><ion-icon name="flaticon-like"></ion-icon>&nbsp;{{feed.like}}122</span>
+          <span class="sc-comment-cnt"><ion-icon name="flaticon-chat"></ion-icon>&nbsp;{{feed.comment}}15</span>
+          <span class="sc-subtitle"><ion-icon name="flaticon-edit"></ion-icon>&nbsp;{{feed.date | DateFormat}}</span>
+        </ion-col>
+        <ion-col col-1>
+          <span class="sc-like"><ion-icon name="flaticon-note-1" color="x-pink" (click)="presentAlert(0)"></ion-icon></span>
+        </ion-col>        
+      </ion-row>
+      <!-- 카드 상단 프로필 끝-->
+      <!-- 카드 사용자 업로드 이미지 슬라이드 시작-->
+      <ion-row>
+        <ion-col col-12>
+          <ion-slides pager *ngIf="(feed.images|async)?.length > 0" no-padding> 
+            <ion-slide *ngFor="let images of  feed.images | async  " >
+              <img src ="{{images.url}}"   imageViewer="{{feed.images}}">
+            </ion-slide>
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+      <!-- 카드 사용자 업로드 이미지 슬라이드 끝-->
+      <!-- 카드 사용자 작성 내용 시작-->
+      <ion-row class="sc-row-text" (click)="presentDetailModal()" >
+        <ion-col col-12>
+          <span class="sc-text">{{feed.description}}</span><br>
+          <span class="sc-text-translated" *ngIf="feed.translate" >{{feed.translated}}</span>
+        </ion-col>
+      </ion-row>
+      <!-- 카드 사용자 작성 내용 끝-->
+      <!-- 카드 버튼 시작-->
+      <ion-row class="sc-btns">
+        <ion-col center text-center col-4>
+          <button ion-button icon-left clear color="x-gray-middle">
+            <ion-icon name="flaticon-like"></ion-icon>좋아요
+          </button>
+        </ion-col>
+        <ion-col center text-center col-4>
+          <button ion-button icon-left clear color="x-gray-middle">
+            <ion-icon name="flaticon-chat"></ion-icon>댓글보기
+          </button>
+        </ion-col>
+        <ion-col center text-center col-4> 
+          <button ion-button icon-left clear color="x-pink"  (click)="translate(feed)">     
+            <ion-icon name="flaticon-repeat"></ion-icon>중한번역
+            <div></div>
+          </button>
+        </ion-col>
+      </ion-row>
+      <!-- 카드 버튼 끝-->
+    </ion-grid>
+  </ion-card>
+  <!-- 소셜 카드 끝 --> 
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <ion-fab right bottom>
+    <button ion-fab color="x-mint" (click)="presentSocialCreate()">
+      <ion-icon name="flaticon-edit" color="x-white"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

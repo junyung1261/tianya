@@ -1,0 +1,26 @@
+page-chat {
+    .chat_content {
+        width:100%;
+        height:100%;
+    }
+    .chat_bg {
+        width:100vw;
+        height:100vw;
+        padding:10vw;
+    }
+    .chat_btn {
+        position:absolute;
+        right:4vw;
+        top:80vw;
+    }
+    .chat_req {
+        width:100vw;
+        background-color: map-get($colors,x-white);
+        overflow:hidden;
+    }
+    .chat_label {
+        font-size:5vw !important;
+    }
+  
+
+}

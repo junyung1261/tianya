@@ -1,0 +1,48 @@
+<ion-content>  
+  <div class="row_logo">
+    <img src="assets/img/logo.png"/>
+  </div>
+  <div class="row_menu">
+    <ion-grid>
+      <ion-row class="row_btn">
+        <ion-col>
+          <button ion-button icon-left tappable (click)="clearForms(); mode = 'register'">
+            <img src="assets/img/login_kakao.png">SNS로 로그인하기 1
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row_btn">
+        <ion-col>
+          <button ion-button icon-left tappable (click)="clearForms(); mode = 'register'">
+            <img src="assets/img/login_wechat.png" >SNS로 로그인하기 2
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row_btn">
+        <ion-col>
+          <button ion-button icon-left tappable (click)="clearForms(); mode = 'register'">
+            <img src="assets/img/login_qq.png" >SNS로 로그인하기 3
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row_btn">
+        <ion-col>
+          <button ion-button icon-left tappable (click)="login();">
+            <img src="assets/img/login_email.png" >SNS로 로그인하기 4
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row_join">
+        <ion-col>
+          <p tappable (click)="register()">회원가입</p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="row_space"></ion-row>
+    </ion-grid>
+  </div>
+  <ion-slides>
+    <ion-slide></ion-slide>
+    <ion-slide></ion-slide>
+    <ion-slide></ion-slide>
+  </ion-slides>
+</ion-content>

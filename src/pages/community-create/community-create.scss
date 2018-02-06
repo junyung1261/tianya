@@ -1,0 +1,40 @@
+page-community-create {
+    ion-content {
+        background-color: map-get($colors,x-gray-light) !important;
+    }
+    ion-row {
+        align-items:center;
+        width:100vw;
+        background-color: map-get($colors,x-white);
+        padding : 2vw 2vw 0 2vw;
+    }
+    .checkbox-md, .checkbox-ios {
+        margin:2vw 4vw 2vw 4vw !important;
+    }
+    .item-inner {
+        border-bottom:none !important;
+    }
+    .cc-textarea {
+        width:96vw;
+        text-align:left;
+        resize: both;
+        border:1px solid map-get($colors,x-gray-light);
+    }
+    .cc-title {
+        width:96vw;
+        text-align:left;
+        border:1px solid map-get($colors,x-gray-light);
+        margin-bottom:2vw;
+    }
+    .cc-photo {
+        border-bottom:1px solid map-get($colors,x-gray-light);
+        padding-bottom:2vw;
+    }
+    .cc-submit {
+        border-bottom:1px solid map-get($colors,x-gray-light);
+        background-color:map-get($colors,x-navy);
+    }
+    .cc-submit-text {
+        color:map-get($colors,x-white) !important;
+    }
+}

@@ -1,0 +1,152 @@
+{
+  "BACK_BUTTON_TEXT": "Back",
+
+  "NAME": "Name",
+  "EMAIL": "Email",
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "LOGIN": "Sign in",
+  "SIGNUP": "Sign up",
+
+  "TAB1_TITLE": "Home",
+  "TAB2_TITLE": "Matching",
+  "TAB3_TITLE": "Chat",
+  "TAB4_TITLE": "Social",
+  "TAB5_TITLE": "Community",
+
+  "MAP_TITLE": "Map",
+
+  "TUTORIAL_SKIP_BUTTON": "Skip",
+  "TUTORIAL_CONTINUE_BUTTON": "Continue",
+
+  "TUTORIAL_SLIDE1_TITLE": "Welcome to the Ionic Super Starter",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "The <b>Ionic Super Starter</b> is a fully-featured Ionic starter with many pre-built pages and best practices.",
+
+  "TUTORIAL_SLIDE2_TITLE": "How to use the Super Starter",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "Assemble the various page types you want and remove the ones you don't. We've provided many common mobile app page layouts, like login and signup pages, tabs, and this tutorial page.",
+
+  "TUTORIAL_SLIDE3_TITLE": "Getting Started",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "Need help? Check out the Super Starter README for a full tutorial",
+
+  "TUTORIAL_SLIDE4_TITLE": "Ready to Play?",
+
+  "WELCOME_INTRO": "The starting point for your next great Ionic app",
+
+  "SETTINGS_TITLE": "Settings",
+  "SETTINGS_OPTION1": "Option 1",
+  "SETTINGS_OPTION2": "Option 2",
+  "SETTINGS_OPTION3": "Option 3",
+  "SETTINGS_OPTION4": "Option 4",
+
+  "SETTINGS_PROFILE_BUTTON": "Edit Profile",
+
+  "SETTINGS_PAGE_PROFILE": "Edit Profile",
+
+  "WELCOME_TITLE": "Welcome",
+
+  "LOGIN_TITLE": "Sign in",
+  "LOGIN_ERROR": "Unable to sign in. Please check your account information and try again.",
+  "LOGIN_BUTTON": "Sign in",
+  "SIGNUP_TITLE": "Sign up",
+  "SIGNUP_ERROR": "Unable to create account. Please check your account information and try again.",
+  "SIGNUP_BUTTON": "Sign up",
+
+  "LIST_MASTER_TITLE": "Items",
+
+  "ITEM_CREATE_TITLE": "New Item",
+  "ITEM_CREATE_CHOOSE_IMAGE": "Add Image",
+
+  "ITEM_NAME_PLACEHOLDER": "Name",
+  "ITEM_ABOUT_PLACEHOLDER": "About",
+
+  "DONE_BUTTON": "Done",
+  "CANCEL_BUTTON": "Cancel",
+  "DELETE_BUTTON": "Delete",
+
+  "CARDS_TITLE": "Social",
+
+  "SEARCH_TITLE": "Search",
+  "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\"",
+
+  "COMMUNITY_TITLE": "Communtiy",
+
+
+    "CATEGORY_INFO": "Info",
+    "CATEGORY_LIFE": "Life",
+    "CATEGORY_TRADE": "Trade",
+  
+    "INFO_STUDY": "Study",
+    "INFO_KOREAN": "Korean",
+    "INFO_FOOD": "Food",
+    "INFO_BEUATY": "Beauty",
+
+    "LIFE_JOB": "Job",
+    "LIFE_PROBLEM": "Problem",
+    "LIFE_TRAVEL": "Travel",
+    "LIFE_CLUB": "Club",
+    "LIFE_BOARD": "Board",
+
+    "TRADE_USED": "Used",
+    "TRADE_OVERSEAS": "Overseas",
+    "TRADE_HOUSE": "Home",
+
+    "STUDY_ADMISSION" : "Admission",
+    "STUDY_TEXTBOOKTRADE" : "Textbooktrade",
+    "STUDY_LECTUREREVIEW" : "Lecturereview",
+    "STUDY_PRIDE" : "Schoolpride",
+
+    "KOREAN_DAILYCONVERSATION" : "Dailyconversation QnA",
+    "KOREAN_RELATIONSHIPCONVERSATION" : "Realationshipconversation QnA",
+    "KOREAN_OTHERCONVERSATION" : "Otherconversation QnA",
+
+    "FOOD_KOREAN" : "Korean",
+    "FOOD_CHINESE" : "Chinese",
+    "FOOD_WESTERN" : "Western",
+    "FOOD_CAFE" : "Cafe",
+    "FOOD_REGION" : "Region",
+
+    "BEAUTY_TREATMENT" : "Treatment",
+    "BEAUTY_PLASTIC" : "Plastic",
+    "BEAUTY_SKIN" : "Skin",
+    "BEAUTY_COSMETIC" : "Cosmetic",
+    "BEAUTY_HAIRSHOP" : "Hairshop",
+    "BEAUTY_DENTAL" : "Dental",
+
+    "JOB_EMPLOYEE" : "Employee",
+    "JOB_EMPLOYER" : "Employer",
+
+    "CLUB_CULTURE" : "Culutre",
+    "CLUB_ART" : "Art",
+    "CLUB_SPORTS" : "Sports",
+    "CLUB_ESPORTS" : "E-Sports",
+
+    "TRAVEL_REVIEW" : "Review",
+    "TRAVEL_FREINDS" : "Freinds",
+
+    "PROBLEM_LAW" : "Law",
+    "PROBLEM_VISA" : "Visa",
+    "PROBLEM_HOME" : "Home",
+    "PROBLEM_TIPS" : "Tips",
+
+    "BOARD_FREETOPIC" : "Freetopic",
+    "BOARD_COUNSEL" : "Counsel",
+    "BOARD_FREINDS" : "Freinds",
+    "BOARD_HELP" : "Help",
+
+    "USED_COSMETIC" : "Cosmetic",
+    "USED_COLTH" : "Cloth",
+    "USED_ELECTRONIC" : "Electronic",
+    "USED_FURNITURE" : "Furniture",
+    "USED_TICKET" : "Ticket",
+    "USED_OTEHR" : "Other",
+
+    "OVERSEAS_COSMETIC" : "Cosmetic",
+    "OVERSEAS_CLOTH" : "Cloth",
+    "OVERSEAS_ELECTRONIC" : "Electronic",
+
+    "HOME_SINGLEROOM" : "Singleroom",
+    "HOME_DOUBLEROOM" : "Doubleroom",
+    "HOME_MONTHLYROOM" : "Montlyroom",
+    "HOME_YEARLYROOM" : "Yearlyroom"
+
+}

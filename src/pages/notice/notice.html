@@ -1,0 +1,42 @@
+<!--
+  Generated template for the ChatSettingPage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <ion-navbar color="x-mint">
+    <!-- LEFT BUTTON -->
+    <ion-buttons left></ion-buttons>
+    <!-- TITLE -->
+    <ion-title>공지사항</ion-title>  
+    <ion-buttons end>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()"><ion-icon name="flaticon-down-arrow" color="x-white"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar> 
+</ion-header>
+
+
+<ion-content>
+  <ion-list class="accordion-list">
+    <!-- First Level -->
+    <ion-list-header *ngFor="let item of information; let i = index" no-lines no-padding>
+      <!-- Toggle Button -->
+      <button ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}">
+        <ion-icon item-right name="flaticon-exclamation" *ngIf="!item.open"></ion-icon>
+        <ion-icon item-right name="flaticon-up-arrow" *ngIf="item.open"></ion-icon>
+        {{ item.TITLE }}
+      </button>
+  
+      <ion-list *ngIf="item.open" no-lines>
+        <!-- Second Level -->
+          <!-- Direct Add Button as Fallback -->
+          <ion-item *ngIf="item.open" ion-item detail-none class="child-item" text-wrap>
+            <p text-lowercase>{{ item.CONTENT }}</p>
+            <p>{{ item.DATE }}</p>
+          </ion-item>
+
+      </ion-list>
+
+    </ion-list-header>
+  </ion-list>
+</ion-content>

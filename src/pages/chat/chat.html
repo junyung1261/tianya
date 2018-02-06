@@ -1,0 +1,53 @@
+<ion-header no-border>
+  <ion-navbar color="x-mint">
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="flaticon-mark" color="x-white"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title color="top-text">대화방</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="viewMessageList()">
+        <ion-icon name="flaticon-envelope" color="x-white"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+  
+<ion-content no-padding>
+  <div class="chat_content">
+    <div class="chat_bg">
+      <video src="assets/videos/chat.mp4" autobuffer height="100%" width="100%" autoplay loop></video>
+      <div class="chat_btn">
+        <button ion-button round outline color="x-mint" (click)="viewChatRoomList()">참여하기</button>
+      </div>
+    </div>
+    <div class="chat_req">
+      <ion-item>
+        <ion-label color="x-gray-middle">
+          <span class="chat_label">
+            <ion-icon name="flaticon-map"></ion-icon>&nbsp;지역</span>
+        </ion-label>
+        <ion-select okText="확인" cancelText="취소" Icon="flaticon-like">
+          <ion-option value="all">전체</ion-option>
+          <ion-option value="so">서울</ion-option>
+          <ion-option value="kk">경기</ion-option>
+          <ion-option value="ic">인천</ion-option>
+          <ion-option value="dj">대전</ion-option>
+          <ion-option value="cb">충북</ion-option>
+          <ion-option value="cn">충남</ion-option>
+          <ion-option value="kw">강원</ion-option>
+          <ion-option value="bs">부산</ion-option>
+          <ion-option value="kb">경북</ion-option>
+          <ion-option value="kn">경남</ion-option>
+          <ion-option value="dg">대구</ion-option>
+          <ion-option value="ws">울산</ion-option>
+          <ion-option value="gj">광주</ion-option>
+          <ion-option value="jb">전북</ion-option>
+          <ion-option value="jn">전남</ion-option>
+          <ion-option value="jj">제주</ion-option>
+        </ion-select>
+      </ion-item>
+    </div>
+  </div> 
+</ion-content>

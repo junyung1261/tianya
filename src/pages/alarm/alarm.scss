@@ -1,0 +1,25 @@
+page-alarm {
+    .accordion-list {
+        background: color($colors, light);
+        height: 100%;
+        padding-top : 2vh;
+    }
+    .section {
+        background: map-get($colors,x-white);
+        color: map-get($colors,x-navy);
+    }
+    .section-active {
+        background: map-get($colors,x-pink);
+        color: map-get($colors,x-white);
+    }
+
+    .child-item {
+        background: map-get($colors,x-gray-light);
+        padding: 10px;
+    }
+    .label {
+        margin: 0px;
+    }
+    .list {
+    }
+}

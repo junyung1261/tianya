@@ -1,0 +1,45 @@
+page-community-board {
+    
+    .cb-text {
+        padding-left:4vw !important;
+    }
+    .cb-title {
+        font-size:4vw;
+        color:map-get($colors,x-gray-dark);
+    }
+    .cb-nickname {
+        font-size:3vw;
+        color:map-get($colors,x-gray-middle);
+    }
+    .cb-time {
+        font-size:3vw;
+        color:map-get($colors,x-gray-middle);
+        padding-right:2vw !important;
+    }
+    .cb-view {
+        font-size:3vw;
+        color:map-get($colors,x-pink);
+    }
+    .cb-comment {
+        font-size:3vh;
+    }
+    .cb-paging {
+        font-size:4vw;
+        color:map-get($colors,x-gray-middle);
+    }
+    ion-col{
+        text-align:left;
+    }
+    ion-row{
+        align-items:center;
+        width:100vw;
+        height:6.5vh;
+        background-color: map-get($colors,x-white);
+        border-bottom:1px solid map-get($colors,x-gray-light);
+    }
+    ion-content{
+        background-color: map-get($colors,x-gray-light) !important;
+    }
+    
+    
+}

@@ -1,0 +1,10 @@
+page-settings {
+    .content {
+        background-color: map-get($colors,graybg);
+    }
+    .items{
+        background-color:map-get($colors,whitewash);
+        margin:4vw 0;
+    }
+    
+}

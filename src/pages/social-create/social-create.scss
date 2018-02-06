@@ -1,0 +1,46 @@
+page-social-create {
+    ion-content {
+        background-color: map-get($colors,x-white) !important;
+    }
+    ion-row {
+        align-items:center;
+        width:100vw;
+        background-color: map-get($colors,x-white);
+        padding : 0vw 4vw 0vw 4vw;
+    }
+    .input-ios {
+        padding:0vw 2vw 0vw 2vw !important;
+    }
+    .sc-row-title {
+        margin-top:4vw;
+    }
+    .sc-row-content {
+        margin-top:2vw;
+    }
+    .sc-label {
+        color:map-get($colors,x-mint);
+        font-size:4vw;
+    }
+    .sc-textarea {
+        width:92vw;
+        text-align:left;
+        background-color: map-get($colors,x-gray-light);
+        border:1px solid map-get($colors,x-gray-middle);
+        color:map-get($colors,x-gray-dark);
+        font-size:4vw;
+    }
+    .sc-tag {
+        width:92vw;
+        text-align:left;
+        font-size:4vw;
+        background-color: map-get($colors,x-gray-light);
+        border:1px solid map-get($colors,x-gray-middle);
+    }
+    .image {
+        border:1px solid map-get($colors,x-gray-middle);
+    }
+    .sc-row-photo {
+        margin-top:2vw;
+    }
+    
+}

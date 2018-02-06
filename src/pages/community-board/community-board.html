@@ -1,0 +1,32 @@
+<ion-content no-padding no-scroll>
+  <ion-grid no-padding>
+    <ion-row class="row" *ngFor="let bullet of bullets">
+      <ion-col col-7 class="cb-text" (click)="presentBoardModal(bullet)" text-left>
+        <span class="cb-title">{{ bullet.title }}</span>&nbsp;
+        <span class="cb-view">({{bullet.view}})</span>
+      </ion-col>
+      <ion-col col-3 text-center><span class="cb-nickname">{{bullet.writer}}</span></ion-col>
+      <ion-col col-2 text-center><span class="cb-time">{{bullet.date}}</span></ion-col>
+      <!--dateformat 넣어주셈! -->
+      </ion-row>
+  </ion-grid>
+
+  <ion-grid no-padding class="cb-paging">
+    <ion-row class="cb-paging-row">
+      <ion-col col-1 text-center><ion-icon name="flaticon-left-arrow"></ion-icon></ion-col>  
+      <ion-col col-2 text-center>1</ion-col>
+      <ion-col col-2 text-center>2</ion-col>
+      <ion-col col-2 text-center>3</ion-col>
+      <ion-col col-2 text-center>4</ion-col>
+      <ion-col col-2 text-center>5</ion-col>
+      <ion-col col-1 text-center><ion-icon name="flaticon-right-arrow"></ion-icon></ion-col>  
+    </ion-row>
+  </ion-grid>
+      
+  <ion-fab right bottom>
+    <button ion-fab color="x-mint" (click)="presentCreateBoard(categoryName)">
+      <ion-icon name="flaticon-edit"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

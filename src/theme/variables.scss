@@ -1,0 +1,347 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+$font-path: "../assets/fonts";
+
+@import "ionic.globals";
+@import "Flaticon";
+
+@include makeIcon(flaticon-home, '\f1c0');
+@include makeIcon(flaticon-chat, '\f1be');
+@include makeIcon(flaticon-like, '\f1bf');
+@include makeIcon(flaticon-share, '\f1bd');
+@include makeIcon(flaticon-internet, '\f1bc');
+
+@include makeIcon(flaticon-mark, '\f196');    //HAMBURGER
+@include makeIcon(flaticon-music, '\f199');   //ALARM
+@include makeIcon(flaticon-left-arrow, '\f132');  //LEFT
+@include makeIcon(flaticon-right-arrow, '\f133');  //RIGHT
+@include makeIcon(flaticon-down-arrow, '\f131');  //DOWN
+@include makeIcon(flaticon-up-arrow, '\f130');  //UP
+
+@include makeIcon(flaticon-search, '\f1ba');  //SEARCH
+
+@include makeIcon(flaticon-photo-camera, '\f1ae');   //카메라
+
+@include makeIcon(flaticon-profile-4, '\f159');  //USER-MAN-MAGN
+@include makeIcon(flaticon-profile-1, '\f15e');   //USER-MAN-HEART
+@include makeIcon(flaticon-file-1, '\f168');   //USER-FEED
+@include makeIcon(flaticon-notepad, '\f167');   //하트충전내역
+@include makeIcon(flaticon-exclamation, '\f197');   //공지사항
+@include makeIcon(flaticon-round, '\f1ab');   //고객센터
+@include makeIcon(flaticon-settings, '\f1b9');   //환경설정
+
+@include makeIcon(flaticon-map, '\f10c');   //대화방참여-지역설정
+@include makeIcon(flaticon-placeholder, '\f1b4');   //대화방-신고
+@include makeIcon(flaticon-interface-2, '\f185');   //대화방리스트-필터
+
+
+@include makeIcon(flaticon-note-1, '\f152');   //대화방리스트-쪽지전송
+@include makeIcon(flaticon-chat, '\f1be');     //대화방리스트-대화요청, 쪽지함-상대수락
+
+@include makeIcon(flaticon-arrow, '\f195');   //대화방-나가기, 사용자 로그아웃
+@include makeIcon(flaticon-signs-1, '\f17c');   //대화방-신고
+@include makeIcon(flaticon-envelope, '\f140');   //대화방-쪽지확인
+
+@include makeIcon(flaticon-interface, '\f1a5');   //쪽지함-삭제
+
+@include makeIcon(flaticon-clock, '\f1a6');   //쪽지함-응답대기
+@include makeIcon(flaticon-favorite, '\f15f');   //쪽지함-내가 수락
+@include makeIcon(flaticon-note, '\f153');   //쪽지함-상대가거절
+
+@include makeIcon(flaticon-smartphone, '\f1b0');   //스페셜매칭 - 스마트폰흔들기
+
+@include makeIcon(flaticon-repeat, '\f12d');   //FEED - 번역
+@include makeIcon(flaticon-edit, '\f1b8');   //FEED - 작성
+
+@include makeIcon(flaticon-mortarboard, '\f13f');   //COMMUNITY - 한국어
+@include makeIcon(flaticon-cup, '\f13c');   //COMMUNITY - 인기글순위
+
+@include makeIcon(flaticon-layers-1, '\f198');   //COMMUNITY - 정보
+@include makeIcon(flaticon-network, '\f1af');   //COMMUNITY - 생활
+@include makeIcon(flaticon-money-2, '\f169');   //COMMUNITY - 거래
+
+
+
+$text-color:        #000;
+$text-input-md-show-focus-highlight: false;
+$background-color:  #fff;
+
+$label-md-text-color-focused:#35babc;
+$label-ios-text-color-focused:#35babc;
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+
+$colors: (
+  x-mint:#35babc,
+  x-mint-light:#00ffe1,
+  x-white:#ffffff,
+  x-black:#000000,
+  x-gray-light:#e3e6e8,
+  x-gray-middle:#a0a0a0,
+  x-gray-dark:#454445,
+  x-navy-light:#39464c,
+  x-navy:#303a50,
+  x-pink:#ff8791,
+
+  x-green:#8ec595,
+  x-red-light:#e8b1b7,
+  x-red-middle:#d85366,
+  x-yellow-light:#f3e24b,
+  x-skyblue:#94dce5,
+  x-skyblue-dark:#6395a0,
+  x-purple-light:#9994b4,
+  x-mint-dark:#4daebd,
+
+  x-gold:#ffd700,
+  x-silver:#c0c0c0,
+  x-bronze:#cd7f32,
+
+  saltwater:#257985,
+  raspberry:#FF4447,
+  lagoon:#5EA8A7,
+  
+
+  slate:#262F34,
+  brownish:#615049,
+  crepe:#F1D3BC,
+  
+  graybg:#f3f2f1,
+  whitewash:#FFFFFF,
+
+
+  nav-text:#0c0b34,
+  nav-background:#000,
+  nav-content:#ffffff,
+
+  top-text: #ffffff,
+  tab-text: #acacac,
+  top-background: #0c0b34,
+  tab-background: #ffffff,
+
+  chat-tab-background: #0c0b34,
+  chat-tab-indicator:#ffffff,
+  chat-tab-badge:#ff6457,
+  chat-tab-text:#ffffff,
+
+  matching-star:#ffb90c,
+  matching-star-u:#acacac,
+  
+  profile-user-tab:#0c0b34,
+  profile-user-indicator:#fff,
+ 
+  social-like:#ff6457,
+  social-comment:#488aff,
+
+  primary:    #488aff,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  light_alpha: rgba(244,244,244,0.75),
+  backbutton: #ffce57,
+  
+  special-blue:(
+    base: #0059B2,
+    contrast: #ffffff
+  ),
+  twitter:(
+    base: #55acee,
+    contrast: #ffffff
+  ),
+  white:(
+    base: #ffffff,
+    contrast: #222
+  ),
+  ios:(
+    base: #ffffff,
+    contrast: #84BF41
+  ),
+  red:(
+    base: #f44336,
+    contrast: #ffffff
+  ),
+  pink:(
+    base: #EA1E63,
+    contrast: #ffffff
+  ),
+  purple:(
+    base: #9c27b0,
+    contrast: #ffffff
+  ),
+    deeppurple:(
+    base: #673ab7,
+    contrast: #ffffff
+  ),
+    indigo:(
+    base: #3f51b5,
+    contrast: #ffffff
+  ),
+    blue :(
+    base: #2196f3,
+    contrast: #ffffff
+  ),
+    blue2:(
+      base: #0034a7,
+      contrast: #ffffff
+    ),
+    lightblue:(
+    base: #03a9f4,
+    contrast: #ffffff
+  ),
+    cyan:(
+    base: #00bcd4,
+    contrast: #ffffff
+  ),
+    teal:(
+    base: #009688,
+    contrast: #ffffff
+  ),
+    green:(
+    base: #4caf50,
+    contrast: #ffffff
+  ),
+    lightgreen:(
+    base: #8dc34b,
+    contrast: #ffffff
+  ),
+      lime:(
+    base: #cddc39,
+    contrast: #333
+  ),
+      yellow:(
+    base: #ffeb3b,
+    contrast: #333
+  ),
+      amber:(
+    base: #ffc107,
+    contrast: #fff
+  ),
+      orange:(
+    base: #ff9800,
+    contrast: #ffffff
+  ),
+      deeporange:(
+    base: #ff5722,
+    contrast: #ffffff
+  ),
+      brown:(
+    base: #795548,
+    contrast: #ffffff
+  ),
+      gray:(
+    base: #9e9e9e,
+    contrast: #ffffff
+  ),
+      bluegray:(
+    base: #607d8b,
+    contrast: #ffffff
+  ),
+      black:(
+    base: #000000,
+    contrast: #ffffff
+  ),
+      ios-gray:(
+    base: #8e8e93,
+    contrast: #ffffff
+  ),
+      ios-lightblue:(
+    base: #5ac8fa,
+    contrast: #ffffff
+  ),
+      ios-blue :(
+    base: #007aff,
+    contrast: #ffffff
+  ),
+      ios-yellow:(
+    base: #ffcc00,
+    contrast: #ffffff
+  ),
+      ios-orange:(
+    base: #ff9500,
+    contrast: #ffffff
+  ),
+      ios-pink:(
+    base: #ff2d55,
+    contrast: #ffffff
+  ),
+      ios-green:(
+    base: #4cd964,
+    contrast: #ffffff
+  ),
+      ios-red:(
+    base: #ff3b30,
+    contrast: #ffffff
+  )
+);
+
+$primary: #ffca28;
+$primary-active: #ffd75b;
+$secondary: #55acee;
+$secondary-active: #6acdff;
+$dark: #333;
+$dark-active: #4c4c4c;
+$gray: #c3c3c3;
+$facebook: #3052a8;
+$facebook-active: #345cc0;
+$google: #dd4b39;
+$google-active: #ff563f;
+
+
+
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+
+
+
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+
+
+
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+
+
+
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+@import "ionic.ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Oxygen|Monoton);
+$font-family-base: "Oxygen"  !default;

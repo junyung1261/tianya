@@ -1,0 +1,153 @@
+{
+    "BACK_BUTTON_TEXT": "Back",
+  
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "LOGIN": "Sign in",
+    "SIGNUP": "Sign up",
+  
+    "TAB1_TITLE": "Home",
+    "TAB2_TITLE": "Matching",
+    "TAB3_TITLE": "Chat",
+    "TAB4_TITLE": "Social",
+    "TAB5_TITLE": "Community",
+  
+    "MAP_TITLE": "Map",
+  
+    "TUTORIAL_SKIP_BUTTON": "Skip",
+    "TUTORIAL_CONTINUE_BUTTON": "Continue",
+  
+    "TUTORIAL_SLIDE1_TITLE": "Welcome to the Ionic Super Starter",
+    "TUTORIAL_SLIDE1_DESCRIPTION": "The <b>Ionic Super Starter</b> is a fully-featured Ionic starter with many pre-built pages and best practices.",
+  
+    "TUTORIAL_SLIDE2_TITLE": "How to use the Super Starter",
+    "TUTORIAL_SLIDE2_DESCRIPTION": "Assemble the various page types you want and remove the ones you don't. We've provided many common mobile app page layouts, like login and signup pages, tabs, and this tutorial page.",
+  
+    "TUTORIAL_SLIDE3_TITLE": "Getting Started",
+    "TUTORIAL_SLIDE3_DESCRIPTION": "Need help? Check out the Super Starter README for a full tutorial",
+  
+    "TUTORIAL_SLIDE4_TITLE": "Ready to Play?",
+  
+    "WELCOME_INTRO": "The starting point for your next great Ionic app",
+  
+    "SETTINGS_TITLE": "Settings",
+    "SETTINGS_OPTION1": "Option 1",
+    "SETTINGS_OPTION2": "Option 2",
+    "SETTINGS_OPTION3": "Option 3",
+    "SETTINGS_OPTION4": "Option 4",
+  
+    "SETTINGS_PROFILE_BUTTON": "Edit Profile",
+  
+    "SETTINGS_PAGE_PROFILE": "Edit Profile",
+  
+    "WELCOME_TITLE": "Welcome",
+  
+    "LOGIN_TITLE": "Sign in",
+    "LOGIN_ERROR": "Unable to sign in. Please check your account information and try again.",
+    "LOGIN_BUTTON": "Sign in",
+    "SIGNUP_TITLE": "Sign up",
+    "SIGNUP_ERROR": "Unable to create account. Please check your account information and try again.",
+    "SIGNUP_BUTTON": "Sign up",
+  
+    "LIST_MASTER_TITLE": "Items",
+  
+    "ITEM_CREATE_TITLE": "New Item",
+    "ITEM_CREATE_CHOOSE_IMAGE": "Add Image",
+  
+    "ITEM_NAME_PLACEHOLDER": "Name",
+    "ITEM_ABOUT_PLACEHOLDER": "About",
+  
+    "DONE_BUTTON": "Done",
+    "CANCEL_BUTTON": "Cancel",
+    "DELETE_BUTTON": "Delete",
+  
+    "CARDS_TITLE": "Social",
+  
+    "SEARCH_TITLE": "Search",
+    "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\"",
+  
+    "COMMUNITY_TITLE": "커뮤니티",
+  
+  
+    "CATEGORY_INFO": "정보",
+    "CATEGORY_LIFE": "생활",
+    "CATEGORY_TRADE": "거래",
+  
+    "INFO_STUDY": "유학",
+    "INFO_KOREAN": "한국어",
+    "INFO_FOOD": "맛집",
+    "INFO_BEUATY": "미용/화장품",
+    "LIFE_JOB": "취업정보",
+    "LIFE_PROBLEM": "생활문제",
+    "LIFE_TRAVEL": "여행",
+    "LIFE_CLUB": "동아리",
+    "LIFE_BOARD": "자유게시판",
+    "TRADE_USED": "중고거래",
+    "TRADE_OVERSEAS": "해외직구",
+    "TRADE_HOUSE": "주거매매",
+
+    "STUDY_ADMISSION" : "입학정보",
+    "STUDY_TEXTBOOKTRADE" : "교재교환",
+    "STUDY_LECTUREREVIEW" : "강의후기",
+    "STUDY_PRIDE" : "학교자랑",
+
+    "KOREAN_DAILYCONVERSATION" : "일상회화 QnA",
+    "KOREAN_RELATIONSHIPCONVERSATION" : "이성대화 QnA",
+    "KOREAN_OTHERCONVERSATION" : "기타대화 QnA",
+
+    "FOOD_KOREAN" : "한식",
+    "FOOD_CHINESE" : "중식",
+    "FOOD_WESTERN" : "양식",
+    "FOOD_CAFE" : "카페",
+    "FOOD_REGION" : "지역별 맛집",
+
+    "BEAUTY_TREATMENT" : "미용",
+    "BEAUTY_PLASTIC" : "성형",
+    "BEAUTY_SKIN" : "피부과",
+    "BEAUTY_COSMETIC" : "화장품",
+    "BEAUTY_HAIRSHOP" : "헤어샵",
+    "BEAUTY_DENTAL" : "치과",
+
+    "JOB_EMPLOYEE" : "구인",
+    "JOB_EMPLOYER" : "구직",
+
+    "CLUB_CULTURE" : "문화 BBS",
+    "CLUB_ART" : "예술 BBS",
+    "CLUB_SPORTS" : "스포츠 BBS",
+    "CLUB_ESPORTS" : "E-스포츠 BBS",
+
+    "TRAVEL_REVIEW" : "여행후기 BBS",
+    "TRAVEL_FREINDS" : "여행친구 구인 BBS",
+
+    "PROBLEM_LAW" : "법률 BBS",
+    "PROBLEM_VISA" : "비자 BBS",
+    "PROBLEM_HOME" : "주거 BBS",
+    "PROBLEM_TIPS" : "꿀팁 BBS",
+
+    "BOARD_FREETOPIC" : "자유주제 BBS",
+    "BOARD_COUNSEL" : "고민상담 BBS",
+    "BOARD_FREINDS" : "친구찾아요 BBS",
+    "BOARD_HELP" : "도와주세요 BBS",
+
+    "USED_COSMETIC" : "화장품 매매",
+    "USED_COLTH" : "의류 매매",
+    "USED_ELECTRONIC" : "가전 매매",
+    "USED_FURNITURE" : "가구 매매",
+    "USED_TICKET" : "티켓 매매",
+    "USED_OTEHR" : "기타 매매",
+
+    "OVERSEAS_COSMETIC" : "화장품 직구",
+    "OVERSEAS_CLOTH" : "의류 직구",
+    "OVERSEAS_ELECTRONIC" : "가전 직구",
+
+    "HOME_SINGLEROOM" : "원룸 매매",
+    "HOME_DOUBLEROOM" : "투룸 매매",
+    "HOME_MONTHLYROOM" : "월세 매매",
+    "HOME_YEARLYROOM" : "전세 매매"
+    
+  
+    
+  
+  }

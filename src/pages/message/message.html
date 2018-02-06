@@ -1,0 +1,29 @@
+<ion-header no-border>
+  <ion-navbar color="x-mint"  hideBackButton>
+    <ion-buttons left>
+      <button ion-button (click)="closeMessageList()">
+        <ion-icon name="flaticon-left-arrow" color="x-gray-light"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title color="top-text">쪽지함</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+  
+
+<ion-content no-padding>
+  <ion-grid no-padding>
+  <ion-row class="row">
+    <ion-col col-2><img src="assets/img/user_000.jpg" class="round"></ion-col>
+    <ion-col col-9>
+      <span class="nickname">NICKNAME2</span><br>
+      <span class="message-text">안녕 나랑 쪽지하장 나는 뗵뜨마스떠야</span>
+    </ion-col>
+    <ion-col col-1>
+      <span class="memo"><ion-icon name="flaticon-interface" color="x-gray-light"></ion-icon></span>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

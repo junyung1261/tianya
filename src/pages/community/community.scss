@@ -1,0 +1,41 @@
+page-community {
+    .c-menu {
+        width:100vw;
+        background-color: map-get($colors,x-white);
+        display:table;
+        border-top:1px solid map-get($colors,x-gray-light);
+        border-bottom:1px solid map-get($colors,x-gray-light);
+        padding:2vw 0 2vw 0;
+        margin-top:4vw;
+    }
+    .c-menu-label {
+        width:30vw;
+        font-size:10vw;
+        display:table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    .c-icon-label {
+        font-size:5vw;
+        color:map-get($colors,x-gray-middle);
+    }
+    .c-menu-grid {
+        width:70vw;
+        display:table-cell;
+    }
+    .c-contents {
+        height:8vh;
+        display:table-cell;
+        vertical-align:middle;
+    }
+    .c-title {
+        color:map-get($colors,x-mint);
+        font-size:5vw;
+    }
+    .c-subtitle {
+        color:map-get($colors,x-gray-middle);
+        font-size:3vw;
+    }
+}
+
+

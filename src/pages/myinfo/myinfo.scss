@@ -1,0 +1,107 @@
+page-myinfo {
+ 
+  
+  
+    .content{
+        background-color: #eee;
+   }
+
+   
+  
+
+
+.background-image {
+  background-image: url(https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950);
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  
+}
+
+.main-content {
+  width: 100%;
+  background-color: white;
+  position: absolute;
+}
+
+
+   .scroll-content{
+    margin-top:0px !important;
+    padding-top: 0px;
+  }
+ion-navbar{
+ height: 0;
+ 
+ 
+}
+ion-toolbar{
+  
+ height:0px;
+}
+scroll-content {
+   padding-top: $toolbar-ios-height + 20px; // extra padding for the ios statusbar
+   padding-bottom: $toolbar-ios-height; // Padding for the Tabbbar (only needed if tabbar is used)
+ }
+
+ 
+
+
+ 
+
+   
+   .padding-title{
+   padding-left: 10px;
+   }
+   .info{
+
+       padding: 10px 20px 20px 10px;
+   }
+
+   .follow-button {
+    background: #fff; 
+    border: 1px solid color($colors, blue2); 
+    color:  color($colors, blue2);
+    font-size: 13px; 
+    border-radius: 3px;
+    padding: 5px;
+    font-weight: bold;
+    width: 90%;
+    margin-right: 30px;
+  }
+    .follow-button-active {
+    background:color($colors, blue2); 
+    border: 1px solid color($colors, blue2); 
+    color:  color($colors, white);
+    font-size: 13px; 
+    border-radius: 3px;
+    padding: 5px;
+    font-weight: bold;
+    width: 90%;
+    margin-right: 30px;
+  }
+
+  .avatar {
+    border-radius: 100%;
+    position: absolute;
+  }
+  ion-avatar {      
+    color:#fff;
+  }
+  ion-avatar img {
+    max-width: 80px;
+    max-height: 80px;
+    border-radius: 50%;
+    // border: 1px solid #ccc;
+  }   
+
+
+    /*
+    ion-segment-button.segment-button {
+        display: inline-block!important;
+        min-width: 100px!important;
+        width: auto!important;
+        }*/
+    
+  
+
+}

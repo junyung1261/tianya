@@ -1,0 +1,98 @@
+<ion-menu [content]="content" side="left">
+  <ion-header no-border>
+    <ion-navbar color="x-mint">
+      <!-- LEFT BUTTON -->
+      <ion-buttons left></ion-buttons>
+      <!-- TITLE -->
+      <ion-title><span class="title">나의 메뉴</span></ion-title>
+      <!-- RIGHT BUTTON -->
+      <ion-buttons end>
+        <button ion-button icon-only menuClose>
+          <ion-icon name="flaticon-left-arrow" color="x-gray-light"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content no-padding class="um-content">
+    <ion-grid no-padding class="um-grid-profile">
+      <ion-row class="um-row-profile">
+        <ion-col col-12 text-center>
+          <div class="um-photo"><img src="assets/img/user_000.jpg" class="circle"/></div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 class="um-nickname" text-center>물뜨는미어캣</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12 class="um-email" text-center>stilllove64@naver.com</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid no-padding class="um-grid-btn">
+      <ion-row>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" (click)="presentModal('ProfileModifyPage')" color="x-white">
+            <div><ion-icon name="flaticon-profile-4" color="x-mint"></ion-icon><br>
+              <label class="um-btn-label">프로필</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" color="x-white">
+            <div><ion-icon name="flaticon-file-1" color="x-mint"></ion-icon><br>
+              <label class="um-btn-label">나의피드</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" (click)="presentModal('AlarmPage')" color="x-white">
+            <div><ion-icon name="flaticon-music" color="x-mint"></ion-icon><br>
+              <label class="um-btn-label">중요알림</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" (click)="presentModal('HeartChargePage')"color="x-white">
+            <div><ion-icon name="flaticon-like" color="x-mint"></ion-icon><br>
+              <label class="um-btn-label">하트충전</label>
+            </div>
+          </button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" (click)="presentModal('NoticePage')" color="x-white">
+            <div><ion-icon name="flaticon-exclamation" color="x-mint"></ion-icon><br>
+              <label class="um-btn-label">공지사항</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" (click)="locateCustomerServiceEmail()"color="x-white" >
+            <div><ion-icon name="flaticon-round" color="x-mint"></ion-icon><br>
+              <label class="um-btn-label">고객센터</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" (click)="presentModal('SettingsPage')" color="x-white">
+            <div><ion-icon name="flaticon-settings" color="x-mint"></ion-icon><br>
+              <label class="um-btn-label">환경설정</label>
+            </div>
+          </button>
+        </ion-col>
+        <ion-col col-3 no-padding class="um-col-btn" text-left>
+          <button ion-button class="um-btn" color="x-white" (click)="logout()">
+            <div><ion-icon name="flaticon-arrow" color="x-mint"></ion-icon><br>
+              <label class="um-btn-label">로그아웃</label>
+            </div>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-content>
+</ion-menu>
+<ion-nav #content [root]="rootPage"></ion-nav>

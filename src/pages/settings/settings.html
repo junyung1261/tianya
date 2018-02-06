@@ -1,0 +1,41 @@
+<ion-header no-border>
+    <ion-navbar color="x-mint">
+      <!-- LEFT BUTTON -->
+      <ion-buttons left></ion-buttons>
+      <!-- TITLE -->
+      <ion-title><span>환경설정</span></ion-title>
+      <!-- RIGHT BUTTON -->
+      <ion-buttons end>
+        <button ion-button icon-only (click)="viewCtrl.dismiss()">
+          <ion-icon name="flaticon-down-arrow" color="x-white"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content no-padding>
+
+  <form>
+    <ion-list no-lines no-padding>
+      <ion-item class="items">
+         
+        <ion-label>공지사항 알림 수신</ion-label>
+        <ion-toggle color="x-pink"></ion-toggle>
+      </ion-item>
+      <ion-item class="items">
+        <ion-label>이벤트 알림 수신</ion-label>
+        <ion-toggle color="x-pink"></ion-toggle>
+      </ion-item>
+      <ion-item class="items">
+        <ion-label>쪽지 신청 알림 수신</ion-label>
+        <ion-toggle color="x-pink"></ion-toggle>
+      </ion-item>
+      <ion-item class="items">
+        <ion-label>쪽지 수락 알림 수신</ion-label>
+        <ion-toggle color="x-pink"></ion-toggle>
+      </ion-item>
+    
+    </ion-list>
+  </form>
+
+</ion-content>

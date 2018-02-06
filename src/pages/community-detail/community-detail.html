@@ -1,0 +1,110 @@
+<ion-header no-border class="feed-header">
+  <ion-navbar color="x-mint">
+    <ion-buttons left>
+
+      <button ion-button icon-only (click)="closeCommunityDetail()">
+        <ion-icon name="flaticon-left-arrow" color="x-gray-light"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>내용보기</ion-title>
+    <ion-buttons end></ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-paddding>
+  <!-- 커뮤니티 게시글 내용 시작 -->
+  <ion-grid no-padding *ngIf="bullet">
+    <!-- 게시글 상단 프로필 시작-->
+    <!-- 공사중 -->
+    <ion-row class="cd-row-profile">
+      <ion-col col-10>
+        <span class="cd-title">{{bullet.title}}</span>
+        <br>
+        <span class="cd-nickname">{{bullet.writer}}</span> |
+        <span class="cd-like-cnt">{{bullet.like}}</span> |
+        <span class="cd-comment-cnt">{{bullet.title}}</span> |
+        <span class="cd-time">{{bullet.date}}</span>
+      </ion-col>
+    </ion-row>
+    <!-- 게시글 상단 프로필 끝-->
+    <!-- 게시글 사용자 업로드 이미지 슬라이드 시작-->
+    <ion-row>
+      <ion-col col-12>
+        <ion-slides pager no-padding *ngIf="bullet.images">
+          <ion-slide *ngFor = "let image of bullet.images ">
+            <img src="{{image.url}}" imageViewer="{{bullet.images}}">
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <!-- 게시글 사용자 업로드 이미지 슬라이드 끝-->
+    <!-- 게시글 사용자 작성 내용 시작-->
+    <ion-row class="cd-row-text" (click)="presentDetailModal()">
+      <ion-col col-12>
+        <span class="cd-text"></span>
+        <br>
+        {{bullet.description}}
+        <span class="cd-text-translated"></span>
+      </ion-col>
+    </ion-row>
+    <!-- 게시글 사용자 작성 내용 끝-->
+    <!-- 게시글 버튼 시작-->
+    <ion-row class="cd-btns">
+      <ion-col center text-center col-4>
+        <button ion-button icon-left clear color="x-gray-middle" (click)="updateLike()">
+          <span class="cd-btn">
+            <ion-icon name="flaticon-like"></ion-icon>추천하기</span>
+        </button>
+      </ion-col>
+      <ion-col center text-center col-4>
+        <button ion-button icon-left clear color="x-gray-middle" (click)="createComment()">
+          <span class="cd-btn">
+            <ion-icon name="flaticon-chat"></ion-icon>댓글작성</span>
+        </button>
+      </ion-col>
+      <ion-col center text-center col-4>
+        <button ion-button icon-left clear color="x-pink" (click)="translate(bullet)">
+          <span class="cd-btn">
+            <ion-icon name="flaticon-repeat"></ion-icon>중한번역</span>
+        </button>
+      </ion-col>
+    </ion-row>
+    <!-- 게시글 버튼 끝-->
+  </ion-grid>
+  <!-- 커뮤니티 게시글 내용 끝 -->
+  
+  <!-- 커뮤니티 댓글 작성 시작 -->
+  <ion-grid no-padding class="cd-cmt" *ngIf="commentFlag == 1">
+    
+    <ion-row class="cd-row-cmt-profile">
+      <ion-col col-12>
+        <ion-textarea elastic class="cc-textarea" placeholder="내용 입력" [(ngModel)]="text"></ion-textarea>
+      </ion-col>
+      <ion-col col-12>
+        <button ion-button icon-left clear (click)="createComment()">
+          <ion-icon name="flaticon-file-1" color="x-white"></ion-icon>
+          <span class="cc-submit-text">작성완료</span>
+        </button>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+  <!-- 커뮤니티 댓글 작성 끝 -->
+  <!-- 커뮤니티 게시글 댓글보기 시작 -->
+  <ion-grid no-padding class="cd-cmt" *ngIf="bullet">
+    <!-- 게시글 댓글 내용 시작-->
+    <div *ngIf="bullet.comments">
+    <ion-row class="cd-row-cmt-profile" *ngFor="let comment of bullet.comments">
+      <ion-col col-12>
+        <span class="cd-nickname">{{bullet.writer}} | </span>
+        <span class="cd-time">{{bullet.date}}</span>
+        <br>
+        <span class="cd-title">{{bullet.comment}}</span>
+      </ion-col>
+    </ion-row>
+  </div>
+    <!-- 게시글 댓글 내용 끝-->
+  </ion-grid>
+
+</ion-content>

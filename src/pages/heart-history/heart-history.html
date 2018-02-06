@@ -1,0 +1,33 @@
+<ion-header no-border>
+  <ion-navbar color="x-mint">
+    <ion-buttons left>
+      <button ion-button icon-only class="leftbtn"><ion-icon name="flaticon-notepad" color="x-white"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>하트 사용 내역</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="viewCtrl.dismiss()"><ion-icon name="flaticon-down-arrow" color="x-white"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-grid no-padding>
+    <ion-row class="hh-havings">
+      <ion-col col-12 text-center>
+        <ion-icon name="flaticon-like" color="x-pink"></ion-icon>&nbsp;현재 보유한 하트 <span class="hh-havings-count">9999</span>개<br>
+      </ion-col>
+    </ion-row>
+    <ion-row class="hh-label">
+      <ion-col col-4 text-center>시간</ion-col>
+      <ion-col col-4 text-center>내용</ion-col>
+      <ion-col col-2 text-center>증감</ion-col>
+      <ion-col col-2 text-center>개수</ion-col>
+    </ion-row>
+    <ion-row class="hh-list">
+      <ion-col col-4 text-center>02.06 01:11</ion-col>
+      <ion-col col-4 text-center>사용자 쪽지 전송</ion-col>
+      <ion-col col-2 text-center>-5</ion-col>
+      <ion-col col-2 text-center>10</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

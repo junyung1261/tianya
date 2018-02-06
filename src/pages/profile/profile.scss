@@ -1,0 +1,51 @@
+page-profile {
+    .profile_user { 
+        background-color :#FFF;
+        margin-bottom : 2vh;
+        width:100vw;
+      }
+      .avatar_user {
+        margin-bottom:1vh;
+        text-align: center;
+      }
+      
+      .avatar_img_user {
+        width:14vh;
+        border-radius:50%;
+      }
+      .nickname_user {
+        text-align: center;
+        font-weight: bold;
+        font-size:16px;
+        border:none;
+        background-color:#fff;
+      }
+      .profile-user-txt {
+          font-size:14px;
+      }
+      .profile-user-item {
+        height:12vw;
+        width:100vw;
+        border-bottom:1px solid #ececec !important;
+      }
+      .profile-tag {
+        width:100vw;
+        color: #fd7673;
+        font-size:3vw;
+      }
+      .profile-value {
+        width:100vw;
+        color: #000;
+        font-size:4vw;
+        margin-top:1vw;
+      }
+    shrink-segment-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    ion-item{
+        z-index: 2;
+    }
+}

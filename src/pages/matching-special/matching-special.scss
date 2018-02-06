@@ -1,0 +1,37 @@
+page-matching-special {
+    .ms-btn {
+        border-radius:50% !important;
+        box-shadow:none !important;
+        width:8vh !important;
+        height:8vh !important;
+        margin:0 !important;
+        font-size:3.5vh !important;
+    }
+    .ms-col {
+        padding-left:2vw !important;
+    }
+    .ms-title {
+        font-size:4vw;
+        color:map-get($colors,x-gray-dark);
+    }
+    .ms-subtitle {
+        font-size:3vw;
+        color:map-get($colors,x-gray-middle);
+    }
+    .ms-search {
+        font-size:3vh;
+    }
+    .conversation {
+        font-size:3vh;
+    }
+    ion-row{
+        align-items:center;
+        width:100vw;
+        height:10vh;
+        background-color: map-get($colors,x-white);
+        border-bottom:1px solid map-get($colors,x-gray-light);
+    }
+    ion-content{
+        background-color: map-get($colors,x-gray-light) !important;
+    }
+}

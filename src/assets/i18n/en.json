@@ -79,13 +79,74 @@
     "INFO_KOREAN": "Korean",
     "INFO_FOOD": "Food",
     "INFO_BEUATY": "Beauty",
+
     "LIFE_JOB": "Job",
     "LIFE_PROBLEM": "Problem",
     "LIFE_TRAVEL": "Travel",
     "LIFE_CLUB": "Club",
     "LIFE_BOARD": "Board",
+
     "TRADE_USED": "Used",
     "TRADE_OVERSEAS": "Overseas",
-    "TRADE_HOUSE": "Home"
+    "TRADE_HOUSE": "Home",
+
+    "STUDY_ADMISSION" : "Admission",
+    "STUDY_TEXTBOOKTRADE" : "Textbooktrade",
+    "STUDY_LECTUREREVIEW" : "Lecturereview",
+    "STUDY_PRIDE" : "Schoolpride",
+
+    "KOREAN_DAILYCONVERSATION" : "Dailyconversation QnA",
+    "KOREAN_RELATIONSHIPCONVERSATION" : "Realationshipconversation QnA",
+    "KOREAN_OTHERCONVERSATION" : "Otherconversation QnA",
+
+    "FOOD_KOREAN" : "Korean",
+    "FOOD_CHINESE" : "Chinese",
+    "FOOD_WESTERN" : "Western",
+    "FOOD_CAFE" : "Cafe",
+    "FOOD_REGION" : "Region",
+
+    "BEAUTY_TREATMENT" : "Treatment",
+    "BEAUTY_PLASTIC" : "Plastic",
+    "BEAUTY_SKIN" : "Skin",
+    "BEAUTY_COSMETIC" : "Cosmetic",
+    "BEAUTY_HAIRSHOP" : "Hairshop",
+    "BEAUTY_DENTAL" : "Dental",
+
+    "JOB_EMPLOYEE" : "Employee",
+    "JOB_EMPLOYER" : "Employer",
+
+    "CLUB_CULTURE" : "Culutre",
+    "CLUB_ART" : "Art",
+    "CLUB_SPORTS" : "Sports",
+    "CLUB_ESPORTS" : "E-Sports",
+
+    "TRAVEL_REVIEW" : "Review",
+    "TRAVEL_FREINDS" : "Freinds",
+
+    "PROBLEM_LAW" : "Law",
+    "PROBLEM_VISA" : "Visa",
+    "PROBLEM_HOME" : "Home",
+    "PROBLEM_TIPS" : "Tips",
+
+    "BOARD_FREETOPIC" : "Freetopic",
+    "BOARD_COUNSEL" : "Counsel",
+    "BOARD_FREINDS" : "Freinds",
+    "BOARD_HELP" : "Help",
+
+    "USED_COSMETIC" : "Cosmetic",
+    "USED_COLTH" : "Cloth",
+    "USED_ELECTRONIC" : "Electronic",
+    "USED_FURNITURE" : "Furniture",
+    "USED_TICKET" : "Ticket",
+    "USED_OTEHR" : "Other",
+
+    "OVERSEAS_COSMETIC" : "Cosmetic",
+    "OVERSEAS_CLOTH" : "Cloth",
+    "OVERSEAS_ELECTRONIC" : "Electronic",
+
+    "HOME_SINGLEROOM" : "Singleroom",
+    "HOME_DOUBLEROOM" : "Doubleroom",
+    "HOME_MONTHLYROOM" : "Montlyroom",
+    "HOME_YEARLYROOM" : "Yearlyroom"
 
 }

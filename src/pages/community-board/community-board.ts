@@ -23,9 +23,13 @@ export class CommunityBoardPage {
     public afDB: AngularFireDatabase,
     public dataProvider: DataProvider,
     public modalCtrl: ModalController) {
+
+
     this.categoryName = (this.navParams.get('categoryName'));
     this.categoryDBName = '/community/' + this.categoryName;
     this.categoryRef = afDB.list(this.categoryDBName);
+
+
   }
 
   ionViewDidLoad() {
@@ -38,6 +42,8 @@ export class CommunityBoardPage {
           image: snap.payload.val().image,
           description: snap.payload.val().description,
           imgProfile: snap.payload.val().imgProfile,
+          writer: snap.payload.val().writer,
+          view: snap.payload.val().view,
           like: snap.payload.val().like,
           date: snap.payload.val().date,
           startTime: snap.payload.val().startTime,
@@ -51,10 +57,14 @@ export class CommunityBoardPage {
   }
 
   presentBoardModal(bullet) {
+
+    console.log("bullet key : ", bullet.key)
+
     let createModal = this.modalCtrl.create('CommunityDetailPage',
       {
         categoryName: this.categoryName,
         bulletKey: bullet.key
+
 
         // give CommunityPromotionPage only key?  OR every data?
         // bulletTitle: bullet.title,

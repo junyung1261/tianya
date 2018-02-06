@@ -7,7 +7,7 @@ page-community-board {
         font-size:4vw;
         color:map-get($colors,x-gray-dark);
     }
-    .cb-nickname, .cb-label {
+    .cb-nickname {
         font-size:3vw;
         color:map-get($colors,x-gray-middle);
     }

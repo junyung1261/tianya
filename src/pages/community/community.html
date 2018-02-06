@@ -1,52 +1,38 @@
 <ion-header no-border>
-    <ion-navbar color="x-mint" hideBackButton>
-      <ion-buttons left>
-        <button ion-button menuToggle>
-          <ion-icon name="flaticon-mark" color="x-gray-light"></ion-icon>
-        </button>
-      </ion-buttons>
-      <ion-title color="top-text">{{ "COMMUNITY_TITLE" | translate }}</ion-title>
-      <ion-buttons end>
-        <button ion-button icon-only>
-          <ion-icon name="flaticon-search" color="x-gray-light"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar color="x-mint" hideBackButton>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="flaticon-mark" color="x-gray-light"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title color="top-text">{{ "COMMUNITY_TITLE" | translate }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="flaticon-search" color="x-gray-light"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
 
+  <!-- 기존 category.inner.icon 항목울 삭제하고 category에 icon을 추가해야함 -->
+  <!-- 정보 : flaticon-layers-1  생활 :flaticon-network  거래 : flaticon-money-2 -->
 <ion-content> 
-  <div class="content">
-
-    <div *ngFor="let category of categories;" > 
-      <div class="info" >
-        <table class="info_table" *ngIf="category.name != 'CATEGORY_TRADE'">
-          <tr>
-            <td colspan="4" class="info_title">{{category.name | translate}}</td>
-          </tr>
-            <tr class="info_row"  *ngFor = "let category_inner of category.category_inner; let i = index" [hidden]="i % 2 != 0">
-              <td class="info_img" (click)="openPage(category.category_inner[i].name)"><div class={{category.category_inner[i].color}}><ion-icon name={{category.category_inner[i].icon}}></ion-icon></div></td>
-              <td class="info_txt" (click)="openPage(category.category_inner[i].name)"><div class="title">{{category.category_inner[i].name | translate }}</div><div class="cnt">今日 : 145</div></td>
-              <td class="info_img" *ngIf="category.category_inner[i+1]" (click)="openPage(category.category_inner[i+1].name)"><div class={{category.category_inner[i+1].color}}><ion-icon name={{category.category_inner[i+1].icon}}></ion-icon></div></td>
-              <td class="info_txt" *ngIf="category.category_inner[i+1]" (click)="openPage(category.category_inner[i+1].name)"><div class="title">{{category.category_inner[i+1].name | translate }}</div><div class="cnt">今日 : 145</div></td>
-            </tr>
-        </table>
-      </div>
-
-          
-      <div class="trade" >
-        <table class="trade_table" *ngIf="category.name == 'CATEGORY_TRADE'">
-          <tr>
-            <td colspan="3" class="trade_title">{{category.name | translate }}</td>
-          </tr>
-          <tr class="trade_row">
-            <td class="trade_img" *ngFor="let category_inner of category.category_inner">
-              <div class={{category_inner.color}}><ion-icon name={{category_inner.icon}}></ion-icon></div>
-              <div class="title">{{category_inner.name | translate }}</div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    
-      </div>
+  <div class="c-menu" *ngFor="let category of categories;">
+    <div class="c-menu-label">
+      <ion-icon name="flaticon-layers-1" color="x-gray-middle"></ion-icon><br>
+      <span class="c-icon-label">{{category.name | translate}}</span>
+    </div>
+    <div class="c-menu-grid">
+      <ion-grid >
+        <ion-row>
+          <ion-col col-6 *ngFor="let category_inner of category.category_inner; let i=index">
+            <div class="c-contents" (click)="openPage(category.category_inner[i].name)">
+              <span class="c-title">{{category.category_inner[i].name | translate }}</span><br>
+              <span class="c-subtitle">게시글 15,430 개</span>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
   </div>
 </ion-content>

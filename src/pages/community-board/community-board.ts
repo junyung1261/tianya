@@ -24,9 +24,11 @@ export class CommunityBoardPage {
     public dataProvider: DataProvider,
     public modalCtrl: ModalController) {
 
+
     this.categoryName = (this.navParams.get('categoryName'));
     this.categoryDBName = '/community/' + this.categoryName;
     this.categoryRef = afDB.list(this.categoryDBName);
+
 
   }
 
@@ -55,12 +57,14 @@ export class CommunityBoardPage {
   }
 
   presentBoardModal(bullet) {
+
     console.log("bullet key : ", bullet.key)
+
     let createModal = this.modalCtrl.create('CommunityDetailPage',
       {
         categoryName: this.categoryName,
         bulletKey: bullet.key
-        
+
 
         // give CommunityPromotionPage only key?  OR every data?
         // bulletTitle: bullet.title,

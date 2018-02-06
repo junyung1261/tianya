@@ -17,4 +17,3 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
 })
 export class CommunityCreatePageModule {}
-

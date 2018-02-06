@@ -3,6 +3,15 @@ page-community-detail {
     ion-content{
         background-color: map-get($colors,x-gray-light) !important;
     }
+    .cc-textarea {
+        width:96vw;
+        text-align:left;
+        resize: both;
+        border:1px solid map-get($colors,x-gray-light);
+    }
+    .cc-submit-text {
+        color:map-get($colors,x-white) !important;
+    }
 
     .cd-title {
         font-size:4vw;

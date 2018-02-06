@@ -6,6 +6,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 
 
 
+
 @NgModule({
   declarations: [
     CommunityDetailPage

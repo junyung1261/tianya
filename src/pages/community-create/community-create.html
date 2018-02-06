@@ -17,7 +17,7 @@
       <ion-col col-6 *ngFor="let specifics of specificDB; let i = index;">
         <ion-item>
           <ion-label>{{specifics.name | translate}}</ion-label>
-          <ion-checkbox [(ngModel)]="specifics.type" (ionChange)="determineSpecificRef(specifics.name)" disabled = {{checkList[i]}}></ion-checkbox>
+          <ion-checkbox [(ngModel)]="specifics.type" (ionChange)="determineSpecificRef(specifics.name, i)" disabled = {{checkList[i]}}></ion-checkbox>
         </ion-item>
       </ion-col>
     </ion-row>

@@ -42,6 +42,8 @@ export class CommunityBoardPage {
           image: snap.payload.val().image,
           description: snap.payload.val().description,
           imgProfile: snap.payload.val().imgProfile,
+          writer: snap.payload.val().writer,
+          view: snap.payload.val().view,
           like: snap.payload.val().like,
           date: snap.payload.val().date,
           startTime: snap.payload.val().startTime,

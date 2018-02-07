@@ -39,16 +39,16 @@ export class CommunityBoardPage {
         bullets.unshift({
           key: snap.payload.key,
           name: snap.payload.val().name,
-          image: snap.payload.val().image,
-          description: snap.payload.val().description,
-          imgProfile: snap.payload.val().imgProfile,
           writer: snap.payload.val().writer,
           view: snap.payload.val().view,
-          like: snap.payload.val().like,
           date: snap.payload.val().date,
-          startTime: snap.payload.val().startTime,
           title: snap.payload.val().title,
-          images: this.afDB.list(this.categoryDBName + '/' + snap.key + '/images').valueChanges().take(1),
+          // like: snap.payload.val().like,
+          // startTime: snap.payload.val().startTime,
+          // image: snap.payload.val().image,
+          // description: snap.payload.val().description,
+          // imgProfile: snap.payload.val().imgProfile,
+          // images: this.afDB.list(this.categoryDBName + '/' + snap.key + '/images').valueChanges().take(1),
         })
       })
       this.bullets = bullets;

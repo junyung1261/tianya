@@ -24,7 +24,6 @@ export class CommunityPage {
 
     this.afDB.list('/category', ref => ref).valueChanges().take(1).subscribe(categoryItems => {
       this.categories = categoryItems;
-     
     });
     
    

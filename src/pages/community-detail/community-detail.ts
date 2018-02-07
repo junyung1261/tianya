@@ -7,6 +7,7 @@ import { DataProvider } from '../../providers/data/data'
 import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 import { LoadingProvider } from '../../providers/loading/loading'
 import { Http } from '@angular/http';
+import * as firebase from 'firebase';
 
 
 @IonicPage()
@@ -30,7 +31,7 @@ export class CommunityDetailPage {
 
   likeCount: any;
   commentFlag: number = 0;
-
+  // testbullet : any;
   text = '';
 
   constructor(
@@ -49,15 +50,22 @@ export class CommunityDetailPage {
 
     this.afDB.object(this.bulletDBName).valueChanges().subscribe(item => {
       this.bullet = item;
-      console.log(this.bullet);
+      console.log("bullet : ", this.bullet);
     });
-
-
+    // this.afDB.list(this.bulletDBName).valueChanges().subscribe(item => {
+    //   this.testbullet = item;
+    //   console.log("comments : ",this.testbullet);
+    // });
   }
+
+  
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CommunityDetailPage');
-    //this.afDB.list("community/" + this.communityName).update(this.bulletKey, {view : 10});
+    // 트랜잭션으로 변경 필요
+    firebase.database().ref(this.bulletDBName).child('view').transaction(function(currentView){
+      return currentView+1;
+    });
   }
 
   closeCommunityDetail() {
@@ -65,29 +73,43 @@ export class CommunityDetailPage {
   }
 
   translate(bullet) {
+    
 
   }
 
   
 
   updateLike() {
-    // this.afDB.list("community/" + this.communityName).update(this.bulletKey, { like: 50 });
+    firebase.database().ref(this.bulletDBName).child('like').transaction(function(currentLike){
+      return currentLike+1;
+    });
   }
+  
 
   createComment() {
     // commentFlag == 1 : opened, ==0 : closed
     if (this.commentFlag == 1) {
-      if ((this.text.trim() != "") || (this.text.trim() != null)) {
-        // 아래 comment가 유저 아이디로 넘어가야하고, textarea가 refresh 되야 하며, 여러개의 커맨트 작성이 가능해야한다.
-        // 폴더형식은 comments => 안에 순서대로 들어가며 속성으로 userID와 내용 및 날짜가 들어간다.
-        // push로 만들어야 하며, transaction이 들어가도록 한다. 또한 comment 등록시 comment 갯수도 증가하도록 진행한다.
-        this.afDB.list(this.bulletDBName).update("comments", { comment: this.text });
+      if ((this.text.trim() != "")) {
+        firebase.database().ref(this.bulletDBName+"/comments").push({
+          description: this.text,
+          writer: firebase.auth().currentUser.uid,
+          date: firebase.database['ServerValue'].TIMESTAMP
+        }).then((success) => {
+          firebase.database().ref(this.bulletDBName).child('commentCount').transaction(function(currentCount){
+            return currentCount+1;
+          });
+          this.text=null;
+        })
+      }
+      else{
+        alert("내용이 없습니다! : 댓글 불가")
       }
 
       this.commentFlag = 0;
     }
     else if (this.commentFlag == 0) {
       this.commentFlag = 1;
+      
     }
 
   }

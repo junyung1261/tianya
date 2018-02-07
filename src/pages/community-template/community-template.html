@@ -5,9 +5,10 @@
         <ion-icon name="flaticon-left-arrow" color="x-white"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title color="top-text">{{categoryName | translate}}</ion-title>
+    <ion-title color="top-text" *ngIf="searchBarFlag == 0">{{categoryName | translate}}</ion-title>
+    <ion-input class="top-search" *ngIf="searchBarFlag == 1" placeholder="검색하십쇼." [(ngModel)]="searchText"></ion-input>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="openSearchBar()">
         <ion-icon name="flaticon-search" color="x-white"></ion-icon>
       </button>
     </ion-buttons>

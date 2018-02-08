@@ -25,9 +25,9 @@
     <div class="c-menu-grid">
       <ion-grid >
         <ion-row>
-          <ion-col col-6 *ngFor="let category_inner of category.category_inner; let i=index">
-            <div class="c-contents" (click)="openPage(category.category_inner[i].name)">
-              <span class="c-title">{{category.category_inner[i].name | translate }}</span><br>
+          <ion-col col-6 *ngFor="let category_inner of category.category_inner">
+            <div class="c-contents" (click)="openPage(category_inner)">
+              <span class="c-title">{{category_inner.name | translate }}</span><br>
               <span class="c-subtitle">게시글 15,430 개</span>
             </div>
           </ion-col>

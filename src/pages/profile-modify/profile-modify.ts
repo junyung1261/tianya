@@ -17,6 +17,7 @@ export class ProfileModifyPage {
   firstRun;
   actionSheet;
   user;
+  account;
   gender = 'none';
  
   constructor(public navCtrl: NavController , public viewCtrl: ViewController, public actionSheetCtrl: ActionSheetController,
@@ -40,8 +41,9 @@ export class ProfileModifyPage {
         
       } else{
         this.firstRun = false;
-        this.user = account.val();
-        this.user.userId = account.key;
+        this.user = firebase.auth().currentUser;
+        this.account = account.val();
+        
       }
     });
   
@@ -82,31 +84,65 @@ export class ProfileModifyPage {
   updateProfile(){
     
     var username, img, userId, email;
-    userId = this.user.userId;
+    userId = this.user.uid;
     // Get email from Firebase user.
     email = this.user.email;
 
     // Set default description.
     if(this.firstRun){
-      this.afDB.object('/accounts/' + userId).update({
-        username: this.user.username,
-        gender: this.user.gender,
-        email: email,
-        description: this.user.description,
-        birth: this.user.birth,
-        dateCreated: new Date().toString()
-      }).then(() => {
-        this.viewCtrl.dismiss();
-        //this.loadingProvider.hide();
+
+      let profile = {
+        displayName: this.account.username,
+        photoURL: this.account.profileImg
+      };
+      
+      firebase.auth().currentUser.updateProfile(profile).then((success) => {
+        this.afDB.object('/accounts/' + userId).update({
+          username: this.account.username,
+          gender: this.account.gender,
+          email: email,
+          description: this.account.description,
+          birth: this.account.birth,
+          dateCreated: new Date().toString()
+        }).then(() => {
+          this.viewCtrl.dismiss();
+          //this.loadingProvider.hide();
+        });
+      }).catch((error) => {
+        // Show error
+        this.loadingProvider.hide();
+        let code = error["code"];
+        // this.alertProvider.showErrorMessage(code);
+        // if (code == 'auth/requires-recent-login') {
+        //   this.logoutProvider.logout();
+        // }
       });
+      
     }
     else{
-      this.afDB.object('/accounts/' + userId).update({
-        username: this.user.username,
-        description: this.user.description
-      }).then(() => {
-        //this.loadingProvider.hide();
+      let profile = {
+        displayName: this.account.username,
+        photoURL: this.account.profileImg
+      };
+
+      firebase.auth().currentUser.updateProfile(profile).then((success) => {
+        this.afDB.object('/accounts/' + userId).update({
+          username: this.account.username,
+          description: this.account.description
+        }).then(() => {
+          //this.loadingProvider.hide();
+        });
+
+      }).catch((error) => {
+        // Show error
+        this.loadingProvider.hide();
+        let code = error["code"];
+        // this.alertProvider.showErrorMessage(code);
+        // if (code == 'auth/requires-recent-login') {
+        //   this.logoutProvider.logout();
+        // }
       });
+      
     }
   }
 

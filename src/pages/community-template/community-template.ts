@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SuperTabsController } from 'ionic2-super-tabs';
-import * as firebase from 'firebase';
-import { AngularFireDatabase} from 'angularfire2/database';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
+import * as firebase from 'firebase';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { DataProvider } from '../../providers/data/data';
+import { Observable } from 'rxjs/Observable';
 /**
  * Generated class for the CommunityTemplatePage page.
  *
@@ -18,6 +19,8 @@ import { AngularFireDatabase} from 'angularfire2/database';
 })
 export class CommunityTemplatePage {
 
+  bullets : Observable<any[]>
+  bullets_tag : Observable<any[]>
   pageIndex: any = 0;
   communityBoard: any = 'CommunityBoardPage';
   categoryName: any;
@@ -25,12 +28,28 @@ export class CommunityTemplatePage {
   searchBarFlag: number = 0;
   searchText = "";
   test: any[];
-
-  constructor(public navCtrl: NavController, public navParams: NavParams, public superTabsCtrl: SuperTabsController, public afDB: AngularFireDatabase) {
-    this.categoryName = (this.navParams.get('categoryName'));
-    this.tabParams = { categoryName: (this.navParams.get('categoryName')) };
+  specific_inner = [];
+  specific = 'total';
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+              public modalCtrl: ModalController,
+              public afDB: AngularFireDatabase, public dataProvider: DataProvider) {
+    
+    
+    
   }
 
+  ngOnInit(){
+    
+    this.specific_inner = this.navParams.get('specific_inner');
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad CommunityTemplatePage');
+    this.categoryName = this.navParams.get('categoryName');
+    this.bullets = this.afDB.list('/community/' + this.categoryName, ref => ref.orderByKey().limitToLast(5)).snapshotChanges().take(1).map((array)=>array.reverse());
+    
+  }
 
   closeCommunityTemplate() {
     this.navCtrl.pop();
@@ -85,17 +104,50 @@ export class CommunityTemplatePage {
     }
   }
 
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CommunityTemplatePage');
+  segmentChanged(event){
+    
+    this.bullets_tag = this.afDB.list('/community/' + this.categoryName, ref => ref.orderByChild('type').equalTo(event).limitToLast(5)).snapshotChanges().take(1).map((array)=>array.reverse());
+    
   }
 
-  ngAfterViewInit() {
-    this.superTabsCtrl.enableTabsSwipe(false);
+  presentBoardCreate(categoryName) {
+    let createModal = this.modalCtrl.create('CommunityCreatePage', { categoryName: categoryName, specific_inner: this.specific_inner }, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out'
+    });
+    createModal.onDidDismiss(data => {
+      if(data){
+        this.ionViewDidLoad();
+        if(this.specific !='total')this.segmentChanged(this.specific);
+      }
+    });
+    createModal.present();
   }
 
-  onTabSelect(tab: { index: number; id: string; }) {
-    this.pageIndex = tab.index;
+  presentBoardModal(bullet) {
+
+    console.log("bullet key : ", bullet.key)
+
+    let createModal = this.modalCtrl.create('CommunityDetailPage',
+      {
+        categoryName: this.categoryName,
+        bulletKey: bullet.key
+
+
+        // give CommunityPromotionPage only key?  OR every data?
+        // bulletTitle: bullet.title,
+        // bulletDescription: bullet.description,
+        // bulletDate = bullet.date,
+        // bulletLike = bullet.like,
+        // bulletComment = bullet.comment
+      }, {
+        enterAnimation: 'modal-slide-in',
+        leaveAnimation: 'modal-slide-out'
+      });
+    createModal.onDidDismiss(data => {
+      console.log('asdasd');
+    });
+    createModal.present();
   }
 
 }

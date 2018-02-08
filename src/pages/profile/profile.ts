@@ -18,11 +18,13 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 export class ProfilePage {
   somethings: any = new Array(20);
   section: string = 'two';
+  user;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
+    this.user = firebase.auth().currentUser;
   }
 
  

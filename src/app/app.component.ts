@@ -10,7 +10,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import { FCM } from '@ionic-native/fcm';
-
+import * as firebase from 'firebase';
 import { LogoutProvider } from '../providers/auth/logout'
 
 
@@ -26,7 +26,7 @@ export class MyApp {
 
   pages: any[];
   category: any[];
-
+  user;
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private alertCtrl: AlertController,
     private config: Config, private statusBar: StatusBar, private headerColor: HeaderColor, private splashScreen: SplashScreen, private modalCtrl: ModalController,
     private afDB: AngularFireDatabase, private afAuth: AngularFireAuth, private network: Network, private app: App, private fcm: FCM, private logoutProvider: LogoutProvider) {
@@ -40,7 +40,7 @@ export class MyApp {
           headerColor.tint('#35babc');
       }
       this.splashScreen.hide();
-
+     
       // FCM push notification start--------------------
 
       // this.fcm.subscribeToTopic('all');
@@ -69,6 +69,7 @@ export class MyApp {
         // you can modify here the page for non. auth users
         // this.nav.setRoot('LoginPage');
         this.nav.setRoot('LoginPage');
+        
       }
       // page for auth. users
       else {
@@ -77,7 +78,8 @@ export class MyApp {
             //Goto Home Page.
 
             this.nav.setRoot('TabsPage', { animate: false });
-
+            this.user = firebase.auth().currentUser;
+            
             //Since we're using a TabsPage an NgZone is required.
           } else {
             //Goto Verification Page.

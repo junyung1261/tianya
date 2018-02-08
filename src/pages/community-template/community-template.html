@@ -27,7 +27,7 @@
         <ion-icon name="flaticon-cup" color="x-gold"></ion-icon>
       </ion-col>
       <ion-col col-7 class="ct-text" text-left>
-        <span class="ct-title">유학 인기글 첫번째 항목</span>&nbsp;
+        <span class="ct-title">{{categoryName | translate}} 인기글 첫번째 항목</span>&nbsp;
         <span class="ct-comment">(73)</span>
       </ion-col>
       <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
@@ -37,7 +37,7 @@
         <ion-icon name="flaticon-cup" color="x-silver"></ion-icon>
       </ion-col>
       <ion-col col-7 class="ct-text" text-left>
-        <span class="ct-title">유학 인기글 두번째 항목</span>&nbsp;
+        <span class="ct-title">{{categoryName | translate}} 인기글 두번째 항목</span>&nbsp;
         <span class="ct-comment">(73)</span>
       </ion-col>
       <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
@@ -47,7 +47,7 @@
         <ion-icon name="flaticon-cup" color="x-bronze"></ion-icon>
       </ion-col>
       <ion-col col-7 class="ct-text" text-left>
-        <span class="ct-title">유학 인기글 세번째 항목</span>&nbsp;
+        <span class="ct-title">{{categoryName | translate}} 인기글 세번째 항목</span>&nbsp;
         <span class="ct-comment">(73)</span>
       </ion-col>
       <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
@@ -57,7 +57,7 @@
         <ion-icon name="flaticon-cup" color="x-gold"></ion-icon>
       </ion-col>
       <ion-col col-7 class="ct-text" text-left>
-        <span class="ct-title">유학 인기글 네번째 항목</span>&nbsp;
+        <span class="ct-title">{{categoryName | translate}} 인기글 네번째 항목</span>&nbsp;
         <span class="ct-comment">(73)</span>
       </ion-col>
       <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
@@ -67,7 +67,7 @@
         <ion-icon name="flaticon-cup" color="x-gold"></ion-icon>
       </ion-col>
       <ion-col col-7 class="ct-text" text-left>
-        <span class="ct-title">유학 인기글 다섯번째 항목</span>&nbsp;
+        <span class="ct-title">{{categoryName | translate}} 인기글 다섯번째 항목</span>&nbsp;
         <span class="ct-comment">(73)</span>
       </ion-col>
       <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
@@ -77,15 +77,60 @@
 
   <ion-grid no-padding>
     <ion-row>
-      <ion-col col-12 class="ct-best-title" text-left>{{categoryName | translate}} 관련글</ion-col>
+      <ion-col col-12 class="ct-best-title" text-left> {{categoryName | translate}} 게시판</ion-col>
     </ion-row>
   </ion-grid>
+  
+  <ion-toolbar>
+    <ion-segment *ngIf="specific_inner" [(ngModel)]="specific" mode="ios" color="x-mint" (ionChange)="segmentChanged($event.value)">
+      <ion-segment-button value="total">
+        전체
+      </ion-segment-button>
+      <ion-segment-button *ngFor="let specific of specific_inner" value="{{specific.name}}">
+        {{specific.name | translate}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 
-  <super-tabs id="mainTabs" toolbarBackground="x-white"  selectedTabIndex="0" indicatorColor="x-mint" badgeColor="x-pink" (tabSelect)="onTabSelect($event)" no-shadow>
-    <super-tab [root]="communityBoard" title="전체" [rootParams]="tabParams"></super-tab>
-    <super-tab [root]="communityBoard" title="입학정보" [rootParams]="tabParams"></super-tab>
-    <super-tab [root]="communityBoard" title="교재교환" [rootParams]="tabParams"></super-tab>
-    <super-tab [root]="communityBoard" title="강의후기" [rootParams]="tabParams"></super-tab>
-    <super-tab [root]="communityBoard" title="학교자랑" [rootParams]="tabParams"></super-tab>
-  </super-tabs>
+
+  <div [ngSwitch]="specific">
+     <ion-list   *ngSwitchCase="'total'" ngSelected="selected">
+        <ion-grid no-padding>
+            <ion-row class="row" *ngFor="let bullet of bullets | async">
+              <ion-col col-7 class="cb-text" (click)="presentBoardModal(bullet)" text-left>
+                <span class="cb-title">[{{bullet.payload.val().type | translate}}] {{ bullet.payload.val().title }}</span>&nbsp;
+                <span class="cb-view">({{bullet.payload.val().view}})</span>
+              </ion-col>
+              <ion-col col-3 text-center><span class="cb-nickname">{{bullet.payload.val().writer}}</span></ion-col>
+              <ion-col col-2 text-center><span class="cb-time">{{bullet.payload.val().date | DateFormat}}</span></ion-col>
+              <!--dateformat 넣어주셈! -->
+              </ion-row>
+          </ion-grid>
+     </ion-list>
+      <div *ngFor="let specific of specific_inner">
+     
+     <ion-list   *ngSwitchCase="specific.name">
+        <ion-grid no-padding>
+            <ion-row class="row" *ngFor="let bullet of bullets_tag | async" >
+              <ion-col col-7 class="cb-text" (click)="presentBoardModal(bullet)" text-left>
+                <span class="cb-title">[{{bullet.payload.val().type | translate}}] {{ bullet.payload.val().title }}</span>&nbsp;
+                <span class="cb-view">({{bullet.payload.val().view}})</span>
+              </ion-col>
+              <ion-col col-3 text-center><span class="cb-nickname">{{bullet.payload.val().writer}}</span></ion-col>
+              <ion-col col-2 text-center><span class="cb-time">{{bullet.payload.val().date | DateFormat}}</span></ion-col>
+              <!--dateformat 넣어주셈! -->
+              </ion-row>
+          </ion-grid>
+     </ion-list>
+     </div>
+  </div>
+
+  
+  <ion-fab right bottom>
+      <button ion-fab color="x-mint" (click)="presentBoardCreate(categoryName)">
+        <ion-icon name="flaticon-edit" color="x-white"></ion-icon>
+      </button>
+    </ion-fab>
+
+  
 </ion-content>

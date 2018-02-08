@@ -11,20 +11,26 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content no-padding>
+<ion-content no-padding hide-fab>
   <ion-grid no-padding>
-    <ion-row>
-      <ion-col col-6 *ngFor="let specifics of specificDB; let i = index;">
-        <ion-item>
-          <ion-label>{{specifics.name | translate}}</ion-label>
-          <ion-checkbox [(ngModel)]="specifics.type" (ionChange)="determineSpecificRef(specifics.name, i)" disabled = {{checkList[i]}}></ion-checkbox>
+    
+    <ion-list radio-group  [(ngModel)]="selectedSpecific" (ionChange)="test()">
+        <ion-list-header>
+            태그선택
+        </ion-list-header>
+        
+      <ion-row>
+        <ion-item col-6  *ngFor="let specific of specific_inner; let i = index;">
+          <ion-label>{{specific.name | translate}}</ion-label>
+          <ion-radio mode="md" [value]="specific.name" ></ion-radio>
         </ion-item>
-      </ion-col>
-    </ion-row>
+      </ion-row>
+    </ion-list>
+    
 
     <ion-row>
       <ion-col col-12>
-        <ion-input elastic class="cc-title" placeholder="제목 입력" [(ngModel)]="title"></ion-input>
+        <ion-input class="cc-title" placeholder="제목 입력" [(ngModel)]="title"></ion-input>
       </ion-col>
       <ion-col col-12>
         <ion-textarea elastic class="cc-textarea" placeholder="내용 입력" [(ngModel)]="text"></ion-textarea>
@@ -35,14 +41,15 @@
         <image-upload></image-upload>
       </ion-col>
     </ion-row>
-    <ion-row class="cc-submit">
-      <ion-col col-12>
-        <button ion-button icon-left clear [disabled]="checkTrim(text, title, checkList)" (click)="addCommunity(title, text)">
-          <ion-icon name="flaticon-file-1" color="x-white"></ion-icon>
-          <span class="cc-submit-text">작성완료</span>
-        </button>
-      </ion-col>
-    </ion-row>
   </ion-grid>
+
+  <ion-footer no-shadow>
+      <ion-toolbar position="bottom" no-padding color="x-navy">
+          <button ion-button icon-left clear [disabled]="checkTrim(text, title, checkList)" (click)="addCommunity(title, text)">
+              <ion-icon name="flaticon-file-1" color="x-white"></ion-icon>
+              <span class="cc-submit-text">작성완료</span>
+            </button>
+      </ion-toolbar>
+  </ion-footer>
 </ion-content>
 

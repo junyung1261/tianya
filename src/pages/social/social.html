@@ -25,12 +25,15 @@
     <ion-grid no-padding>
       <!-- 카드 상단 프로필 시작-->
       <ion-row class="sc-row-profile">
-        <ion-col col-2><img src="assets/img/user_000.jpg" class="sc-avatar" (click)="presentProfileModal()"></ion-col>
+        <ion-col col-2>
+          <img src="assets/img/noavatar.png" class="sc-avatar" *ngIf="!feed.profileImg"/>
+          <img src="{{feed.profileImg}}" class="sc-avatar" *ngIf="feed.profileImg"/>
+        </ion-col>
         <ion-col col-9>
-          <span class="sc-nickname">NICKNAME{{feed.name}}</span><br>
-          <span class="sc-like-cnt"><ion-icon name="flaticon-like"></ion-icon>&nbsp;{{feed.like}}122</span>
-          <span class="sc-comment-cnt"><ion-icon name="flaticon-chat"></ion-icon>&nbsp;{{feed.comment}}15</span>
-          <span class="sc-subtitle"><ion-icon name="flaticon-edit"></ion-icon>&nbsp;{{feed.date | DateFormat}}</span>
+          <span class="sc-nickname">{{feed.payload.val().name}}</span><br>
+          <span class="sc-like-cnt"><ion-icon name="flaticon-like"></ion-icon>&nbsp;{{feed.payload.val().like}}122</span>
+          <span class="sc-comment-cnt"><ion-icon name="flaticon-chat"></ion-icon>&nbsp;{{feed.payload.val().comment}}15</span>
+          <span class="sc-subtitle"><ion-icon name="flaticon-edit"></ion-icon>&nbsp;{{feed.payload.val().date | DateFormat}}</span>
         </ion-col>
         <ion-col col-1>
           <span class="sc-like"><ion-icon name="flaticon-note-1" color="x-pink" (click)="presentAlert(0)"></ion-icon></span>
@@ -40,8 +43,8 @@
       <!-- 카드 사용자 업로드 이미지 슬라이드 시작-->
       <ion-row>
         <ion-col col-12>
-          <ion-slides pager *ngIf="(feed.images|async)?.length > 0" no-padding> 
-            <ion-slide *ngFor="let images of  feed.images | async  " >
+          <ion-slides pager *ngIf="feed.payload.val().images?.length > 0" no-padding> 
+            <ion-slide *ngFor="let images of  feed.payload.val().images  " >
               <img src ="{{images.url}}"   imageViewer="{{feed.images}}">
             </ion-slide>
           </ion-slides>
@@ -51,7 +54,7 @@
       <!-- 카드 사용자 작성 내용 시작-->
       <ion-row class="sc-row-text" (click)="presentDetailModal()" >
         <ion-col col-12>
-          <span class="sc-text">{{feed.description}}</span><br>
+          <span class="sc-text">{{feed.payload.val().description}}</span><br>
           <span class="sc-text-translated" *ngIf="feed.translate" >{{feed.translated}}</span>
         </ion-col>
       </ion-row>

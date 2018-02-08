@@ -12,9 +12,12 @@
   </ion-navbar>
   
   <shrink-segment-header [scrollArea]="myContent" headerHeight="150" >
-    <div class="profile_user">   
-      <div class="avatar_user"><img src="assets/img/user_000.jpg" class="avatar_img_user"></div>
-      <div class="nickname_user">물뜨는미어캣</div>
+    <div class="profile_user">
+      <div class="avatar_user">
+        <img src="assets/img/noavatar.png" class="avatar_img_user" *ngIf="!user.profileImg"/>
+        <img src="{{user.profileImg}}" class="avatar_img_user" *ngIf="user.profileImg"/>
+      </div>
+      <div class="nickname_user">{{user.displayName}}</div>
     </div>  
   </shrink-segment-header>
   

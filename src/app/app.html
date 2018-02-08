@@ -15,17 +15,20 @@
   </ion-header>
 
   <ion-content no-padding class="um-content">
-    <ion-grid no-padding class="um-grid-profile">
+    <ion-grid no-padding class="um-grid-profile" *ngIf="user">
       <ion-row class="um-row-profile">
         <ion-col col-12 text-center>
-          <div class="um-photo"><img src="assets/img/user_000.jpg" class="circle"/></div>
+          <div class="um-photo">
+              <img src="assets/img/noavatar.png" class="circle" *ngIf="!user.profileImg"/>
+              <img src="{{user.profileImg}}" class="circle" *ngIf="user.profileImg"/>
+          </div>
         </ion-col>
       </ion-row>
       <ion-row>
-        <ion-col col-12 class="um-nickname" text-center>물뜨는미어캣</ion-col>
+        <ion-col col-12 class="um-nickname" text-center>{{user.displayName}}</ion-col>
       </ion-row>
       <ion-row>
-        <ion-col col-12 class="um-email" text-center>stilllove64@naver.com</ion-col>
+        <ion-col col-12 class="um-email" text-center>{{user.email}}</ion-col>
       </ion-row>
     </ion-grid>
 

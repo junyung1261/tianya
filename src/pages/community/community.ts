@@ -53,19 +53,14 @@ export class CommunityPage {
   //   createModal.present();
   // }
 
-  openPage(categoryName) {
-
-    this.nav.getActiveChildNavs()[0].getActiveChildNavs()[0].push('CommunityTemplatePage', {categoryName: categoryName});
+  openPage(category_inner) {
+    
+    this.navCtrl.push('CommunityTemplatePage', {categoryName: category_inner.name, specific_inner: category_inner.specific_inner });
   }
 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CommunityPage');
-  }
-
-  openPromotion(categoryName){
-    console.log(categoryName);
-    this.navCtrl.push('CommunityPromotionPage',{categoryName: categoryName}); 
   }
 
   presentNoticeModal() {

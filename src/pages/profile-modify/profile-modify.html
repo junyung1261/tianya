@@ -27,21 +27,21 @@
     <ion-row>
       <ion-col col-12>
         <div class="input-12-readonly">
-          <ion-item no-lines class="input-item"><ion-label class="input-label">닉네임</ion-label><ion-input class="input-text" [(ngModel)]="user.username"></ion-input></ion-item>
+          <ion-item no-lines class="input-item"><ion-label class="input-label">닉네임</ion-label><ion-input class="input-text" [(ngModel)]="account.username"></ion-input></ion-item>
         </div>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <div class="input-12-readonly">
-          <ion-item no-lines class="input-item"><ion-label class="input-label">이메일</ion-label><ion-input readonly  class="input-text"  [(ngModel)]="user.email"></ion-input></ion-item>
+          <ion-item no-lines class="input-item"><ion-label class="input-label">이메일</ion-label><ion-input readonly  class="input-text"  [(ngModel)]="account.email"></ion-input></ion-item>
         </div>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <div class="input-12">
-          <ion-item no-lines class="input-item"><ion-label class="input-label">성별</ion-label><ion-select [(ngModel)]="user.gender" [disabled]="!firstRun">
+          <ion-item no-lines class="input-item"><ion-label class="input-label">성별</ion-label><ion-select [(ngModel)]="account.gender" [disabled]="!firstRun">
             <ion-option value="female">여성</ion-option>
             <ion-option value="male">남성</ion-option>
             <ion-option value="none">비공개</ion-option>
@@ -52,14 +52,14 @@
     <ion-row>
       <ion-col col-12>
         <div class="input-12">
-          <ion-item no-lines class="input-item"><ion-label class="input-label">출생년도</ion-label><ion-datetime displayFormat="YYYY" [(ngModel)]="user.birth" [disabled]="!firstRun"></ion-datetime></ion-item>
+          <ion-item no-lines class="input-item"><ion-label class="input-label">출생년도</ion-label><ion-datetime displayFormat="YYYY" [(ngModel)]="account.birth" [disabled]="!firstRun"></ion-datetime></ion-item>
         </div>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-12>
         <div class="input-12-readonly">
-          <ion-item no-lines class="input-item"><ion-label class="input-label">자기소개</ion-label><ion-input class="input-text" [(ngModel)]="user.description"></ion-input></ion-item>
+          <ion-item no-lines class="input-item"><ion-label class="input-label">자기소개</ion-label><ion-input class="input-text" [(ngModel)]="account.description"></ion-input></ion-item>
         </div>
       </ion-col>
     </ion-row>

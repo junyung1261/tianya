@@ -39,7 +39,8 @@ export class SocialCreatePage {
   addFeed(text: string) {
     this.feedsRef.push({
       description: text,
-      writer: firebase.auth().currentUser.uid,
+      name: firebase.auth().currentUser.displayName,
+      profileImg: firebase.auth().currentUser.photoURL,
       date: firebase.database['ServerValue'].TIMESTAMP
     }).then((success) => {
       if(this.imageUpload.images.length > 0){

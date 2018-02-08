@@ -3,7 +3,6 @@ import {DomSanitizer} from "@angular/platform-browser";
 import {ActionSheetController, AlertController, Platform, ToastController} from "ionic-angular";
 import {Camera, CameraOptions} from "@ionic-native/camera";
 import { ImageProvider } from "../../providers/data/image"
-import { DataProvider } from "../../providers/data/data"
 
 @Component({
     selector: 'image-upload',
@@ -24,7 +23,7 @@ export class ImageUpload {
     public key;
 
     constructor(private sanitization: DomSanitizer, private actionSheetCtrl: ActionSheetController, private camera: Camera, private alertCtrl: AlertController, private toastCtrl: ToastController,
-                private imageProvider: ImageProvider, private dataProvider: DataProvider) {
+                private imageProvider: ImageProvider) {
 
                          
     }

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, Nav } from 'ionic-angular';
 import { AngularFireDatabase} from 'angularfire2/database';
 

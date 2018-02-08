@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, ModalController, AlertController, App } from 'ionic-angular';
-import { AngularFireDatabase, AngularFireList, AngularFireObject} from 'angularfire2/database';
+import { IonicPage, NavController, NavParams, ToastController, ModalController, AlertController} from 'ionic-angular';
+import { AngularFireDatabase} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 /**
  * Generated class for the MyinfoPage page.

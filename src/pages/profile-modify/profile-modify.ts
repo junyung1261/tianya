@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, ActionSheetController } from 'ionic-angular';
 import * as firebase from 'firebase';
 import { LoadingProvider } from '../../providers/loading/loading'
 import { AngularFireDatabase } from 'angularfire2/database';

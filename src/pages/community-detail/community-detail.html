@@ -32,7 +32,7 @@
     <ion-row>
       <ion-col col-12>
         <ion-slides pager no-padding *ngIf="bullet.images">
-          <ion-slide *ngFor = "let image of bullet.images ">
+          <ion-slide *ngFor="let image of bullet.images ">
             <img src="{{image.url}}" imageViewer="{{bullet.images}}">
           </ion-slide>
         </ion-slides>
@@ -43,8 +43,7 @@
     <ion-row class="cd-row-text" (click)="presentDetailModal()">
       <ion-col col-12>
         <span class="cd-text"></span>
-        <br>
-        {{bullet.description}}
+        <br> {{bullet.description}}
         <span class="cd-text-translated"></span>
       </ion-col>
     </ion-row>
@@ -73,10 +72,10 @@
     <!-- 게시글 버튼 끝-->
   </ion-grid>
   <!-- 커뮤니티 게시글 내용 끝 -->
-  
+
   <!-- 커뮤니티 댓글 작성 시작 -->
   <ion-grid no-padding class="cd-cmt" *ngIf="commentFlag == 1">
-    
+
     <ion-row class="cd-row-cmt-profile">
       <ion-col col-12>
         <ion-textarea elastic class="cc-textarea" placeholder="내용 입력" [(ngModel)]="text"></ion-textarea>
@@ -88,22 +87,27 @@
         </button>
       </ion-col>
     </ion-row>
-    
+
   </ion-grid>
   <!-- 커뮤니티 댓글 작성 끝 -->
   <!-- 커뮤니티 게시글 댓글보기 시작 -->
   <ion-grid no-padding class="cd-cmt" *ngIf="bullet">
     <!-- 게시글 댓글 내용 시작-->
-    <div *ngIf="bullet.comments">
-    <ion-row class="cd-row-cmt-profile" *ngFor="let comment of bullet.comments">
-      <ion-col col-12>
-        <span class="cd-nickname">{{bullet.writer}} | </span>
-        <span class="cd-time">{{bullet.date}}</span>
-        <br>
-        <span class="cd-title">{{bullet.comment}}</span>
-      </ion-col>
-    </ion-row>
-  </div>
+    <div *ngIf="bullet.comments ">
+      <ion-row class="cd-row-cmt-profile" *ngFor="let comment of bullet.comments">
+        <ion-row class="cd-row-cmt-profile">
+          <ion-col col-12>
+            <span class="cd-nickname">{{comment.writer}} | </span>
+            <span class="cd-time">{{comment.date}}</span>
+            <br>
+            <span class="cd-title">{{comment.description}}</span>
+          </ion-col>
+        </ion-row>
+      </ion-row>
+    </div>
+    <div *ngIf="!bullet.comments">
+      첫 댓글을 남겨주세요!
+    </div>
     <!-- 게시글 댓글 내용 끝-->
   </ion-grid>
 

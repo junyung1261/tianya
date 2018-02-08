@@ -1,4 +1,11 @@
 page-community-template {
+    .top-search {
+        // 임시
+        width:250px;
+        text-align:left;
+        border:1px solid map-get($colors,x-gray-light);
+        margin:2vw;
+    }
     .text-md {
         color:map-get($colors,x-gray-middle) !important;
     }

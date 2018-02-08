@@ -100,7 +100,6 @@ export class CommunityCreatePage {
     // })
 
     // 경로만 불러와서 푸시하는 방식------------------------------
-    // var PostKey = firebase.database().ref().child(this.communityDBName).push().key;
     firebase.database().ref(this.communityDBName).push({
       title: title,
       description: text,
@@ -108,7 +107,9 @@ export class CommunityCreatePage {
       writer: firebase.auth().currentUser.uid,
       date: firebase.database['ServerValue'].TIMESTAMP,
       like: 0,
+      commentCount: 0,
       view: 0,
+      
     }).then((success) => {
       if (this.imageUpload.images.length > 0) {
 
@@ -116,21 +117,21 @@ export class CommunityCreatePage {
         this.imageUpload.uploadImages("community/" + this.communityName);
       }
       this.viewCtrl.dismiss({ data: true });
-      this.addAddtions(success.key);
+      // this.addAddtions(success.key);
     })
 
   }
 
-  addAddtions(PostKey: any) {
-    // 공사중 : 경로 문제 상의를 해야해
+  // addAddtions(PostKey: any) {
+  //   // 공사중 : 경로 문제 상의를 해야해
 
-    firebase.database().ref("/additions/".concat(this.communityName)).push({
-      like: 0,
-      view: 0,
-      commentsCount: 0,
-      bulletKey: PostKey
-    });
-  }
+  //   firebase.database().ref("/additions/".concat(this.communityName)).push({
+  //     like: 0,
+  //     view: 0,
+  //     commentsCount: 0,
+  //     bulletKey: PostKey
+  //   });
+  // }
 
   // 아래 세개 함수 무쓸모. 그러나 다른곳에서 공부용으로 참조하고 있기 때문에 아직은 냅둡니다.
   updateItem(key: string, newText: string) {

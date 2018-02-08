@@ -8,7 +8,6 @@ import { Settings } from '../providers/providers';
 import { HeaderColor } from '@ionic-native/header-color';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Observable } from 'rxjs/Observable';
 import { FCM } from '@ionic-native/fcm';
 import * as firebase from 'firebase';
 import { LogoutProvider } from '../providers/auth/logout'

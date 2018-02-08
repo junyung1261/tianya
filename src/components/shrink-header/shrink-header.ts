@@ -1,5 +1,5 @@
-import { Directive,ElementRef,Renderer,Input,ViewChild} from '@angular/core';
-import { NavController,ViewController } from 'ionic-angular';
+import { Directive,ElementRef,Renderer,Input} from '@angular/core';
+import { NavController } from 'ionic-angular';
 
 @Directive({
     selector: '[shrink-header]',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import 'rxjs/add/operator/map'
 import { LocalNotifications } from '@ionic-native/local-notifications';

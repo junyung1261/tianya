@@ -12,7 +12,7 @@ page-community-template {
     .text-ios {
         color:map-get($colors,x-gray-middle) !important;
     }
-
+    
     .ct-grid-best {
         margin-bottom:4vw;
     }
@@ -38,6 +38,10 @@ page-community-template {
     .ct-comment {
         font-size:3vw;
         color:map-get($colors,x-pink);
+    }
+    .cb-paging {
+        font-size:4vw;
+        color:map-get($colors,x-gray-middle);
     }
 
     ion-row{

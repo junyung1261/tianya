@@ -60,7 +60,6 @@ export class CommunityDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CommunityDetailPage');
-    // 트랜잭션으로 변경 필요
     firebase.database().ref(this.bulletDBName).child('view').transaction(function(currentView){
       return currentView+1;
     });

@@ -28,27 +28,6 @@ export class CommunityCreatePage {
     public afDB: AngularFireDatabase, public dataProvider: DataProvider) {
     
     this.user = firebase.auth().currentUser;
-   
-    // 기존 리스트를 불러와서 푸시하는 방식
-    
-
-
-    // if (this.communityName.substring(0, 4) == "INFO") {
-    //   this.afDB.list('/category/0/category_inner', ref => ref).valueChanges().subscribe(Items => {
-    //     this.specificDB = Items;
-    //     console.log(this.specificDB)
-    //   });
-    // }
-    // else if (this.communityName.substring(0, 4) == "LIFE") {
-    //   this.afDB.list('/category/1/category_inner', ref => ref).valueChanges().subscribe(Items => {
-    //     this.specificDB = Items;
-    //   });
-    // }
-    // else if (this.communityName.substring(0, 4) == "TRAV") {
-    //   this.afDB.list('/category/2/category_inner', ref => ref).valueChanges().subscribe(Items => {
-    //     this.specificDB = Items;
-    //   });
-    // }
   }
 
   ionViewDidLoad() {
@@ -62,24 +41,7 @@ export class CommunityCreatePage {
 
   
   addCommunity(title: string, text: string) {
-    // 기존 리스트를 불러와서 푸시하는 방식
-    // this.communityRef.push({
-    //   title: title,
-    //   description: text,
-    //   type: this.specificName,
-    //   writer: firebase.auth().currentUser.uid,
-    //   date: firebase.database['ServerValue'].TIMESTAMP,
-    //   like: 0,
-    //   view : 0,
-    // }).then((success) => {
-    //   if (this.imageUpload.images.length > 0) {
-
-    //     this.imageUpload.key = success.key;
-    //     this.imageUpload.uploadImages("community/" + this.communityName);
-    //   }
-    //   this.viewCtrl.dismiss({ data: true });
-    //   this.addAddtions();
-    // })
+    text = text.replace(/\n/g, '<br>');
 
     // 경로만 불러와서 푸시하는 방식------------------------------
     this.communityRef.push({
@@ -133,7 +95,8 @@ export class CommunityCreatePage {
     console.log(this.selectedSpecific);
   }
   checkTrim() {
-    if ((this.text.trim() == "") || (this.text.trim() == null) || (this.title.trim() == null) || (this.title.trim() == "") || this.selectedSpecific == null) return true;
+    if ((this.title.trim() == null) || (this.title.trim() == "") || this.selectedSpecific == null ||
+    ((this.imageUpload.images.length == 0) && (this.text.trim() == "") || (this.text.trim() == null))) return true;
 
     else return false;
 

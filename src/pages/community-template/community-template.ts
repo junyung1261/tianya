@@ -55,6 +55,14 @@ export class CommunityTemplatePage {
     this.navCtrl.pop();
   }
 
+  pageTest() {
+    // firebase 쿼리 페이지화
+  }
+
+  // getItems(searchbar) {
+
+  // }
+
   openSearchBar() {
     if (this.searchBarFlag == 0) {
       // 서치바 닫혀있는 상태면 서치바 열기

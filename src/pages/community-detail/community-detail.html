@@ -23,8 +23,8 @@
         <br>
         <span class="cd-nickname">{{bullet.writer}}</span> |
         <span class="cd-like-cnt">{{bullet.like}}</span> |
-        <span class="cd-comment-cnt">{{bullet.title}}</span> |
-        <span class="cd-time">{{bullet.date}}</span>
+        <span class="cd-comment-cnt">{{bullet.commentCount}}</span> |
+        <span class="cd-time">{{bullet.date | DateFormat}}</span>
       </ion-col>
     </ion-row>
     <!-- 게시글 상단 프로필 끝-->
@@ -42,8 +42,8 @@
     <!-- 게시글 사용자 작성 내용 시작-->
     <ion-row class="cd-row-text" (click)="presentDetailModal()">
       <ion-col col-12>
-        <span class="cd-text"></span>
-        <br> {{bullet.description}}
+        <!-- <span class="cd-text"></span> -->
+        <div class="cd-text" [innerHTML]="bullet.description"></div>
         <span class="cd-text-translated"></span>
       </ion-col>
     </ion-row>
@@ -98,7 +98,7 @@
         <ion-row class="cd-row-cmt-profile">
           <ion-col col-12>
             <span class="cd-nickname">{{comment.writer}} | </span>
-            <span class="cd-time">{{comment.date}}</span>
+            <span class="cd-time">{{comment.date | DateFormat}}</span>
             <br>
             <span class="cd-title">{{comment.description}}</span>
           </ion-col>

@@ -30,10 +30,14 @@
 
     <ion-row>
       <ion-col col-12>
-        <ion-input class="cc-title" placeholder="제목 입력" [(ngModel)]="title"></ion-input>
+        <ion-item class="item-left">
+          <ion-input class="cc-title" placeholder="제목 입력" [(ngModel)]="title"></ion-input>
+        </ion-item>
       </ion-col>
       <ion-col col-12>
-        <ion-textarea elastic class="cc-textarea" placeholder="내용 입력" [(ngModel)]="text"></ion-textarea>
+        <ion-item class="item-left">
+          <ion-textarea elastic class="cc-textarea" placeholder="내용 입력" [(ngModel)]="text"></ion-textarea>
+        </ion-item>
       </ion-col>
     </ion-row>
     <ion-row class="cc-photo">

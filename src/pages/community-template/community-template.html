@@ -7,6 +7,7 @@
     </ion-buttons>
     <ion-title color="top-text" *ngIf="searchBarFlag == 0">{{categoryName | translate}}</ion-title>
     <ion-input class="top-search" *ngIf="searchBarFlag == 1" placeholder="검색하십쇼." [(ngModel)]="searchText"></ion-input>
+    <!-- <ion-searchbar (ionInput)="getItems($event)" *ngIf="searchBarFlag == 1" placeholder="검색하십쇼."></ion-searchbar> -->
     <ion-buttons end>
       <button ion-button icon-only (click)="openSearchBar()">
         <ion-icon name="flaticon-search" color="x-white"></ion-icon>
@@ -103,7 +104,6 @@
               </ion-col>
               <ion-col col-3 text-center><span class="cb-nickname">{{bullet.payload.val().writer}}</span></ion-col>
               <ion-col col-2 text-center><span class="cb-time">{{bullet.payload.val().date | DateFormat}}</span></ion-col>
-              <!--dateformat 넣어주셈! -->
               </ion-row>
           </ion-grid>
      </ion-list>
@@ -118,12 +118,24 @@
               </ion-col>
               <ion-col col-3 text-center><span class="cb-nickname">{{bullet.payload.val().writer}}</span></ion-col>
               <ion-col col-2 text-center><span class="cb-time">{{bullet.payload.val().date | DateFormat}}</span></ion-col>
-              <!--dateformat 넣어주셈! -->
               </ion-row>
           </ion-grid>
      </ion-list>
      </div>
   </div>
+
+  <!-- css 작업 필요 및 기능부 구현 아직 안됨 -->
+  <ion-grid no-padding class="cb-paging">
+      <ion-row class="cb-paging-row">
+        <ion-col col-1 text-center><ion-icon name="flaticon-left-arrow"></ion-icon></ion-col>  
+        <ion-col col-2 text-center (click)="pageTest()">1</ion-col>
+        <ion-col col-2 text-center (click)="pageTest()">2</ion-col>
+        <ion-col col-2 text-center (click)="pageTest()">3</ion-col>
+        <ion-col col-2 text-center (click)="pageTest()">4</ion-col>
+        <ion-col col-2 text-center (click)="pageTest()">5</ion-col>
+        <ion-col col-1 text-center><ion-icon name="flaticon-right-arrow"></ion-icon></ion-col>  
+      </ion-row>
+    </ion-grid>
 
   
   <ion-fab right bottom>

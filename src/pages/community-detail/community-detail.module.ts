@@ -3,6 +3,7 @@ import { IonicPageModule } from 'ionic-angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommunityDetailPage } from './community-detail';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
+import { PipeModule } from '../../pipes/pipe.module';
 
 
 
@@ -15,7 +16,8 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
   imports: [
     IonicPageModule.forChild(CommunityDetailPage),
     TranslateModule.forChild(),
-    IonicImageViewerModule
+    IonicImageViewerModule,
+    PipeModule
   ],
   exports: [
     CommunityDetailPage

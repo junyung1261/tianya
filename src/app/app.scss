@@ -36,11 +36,16 @@ ion-title { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-in
   margin-bottom:2vh;
 }
 .um-photo {
-  margin-top:3vh;
-  margin:0 auto;
-  width:18vh;
-  height:18vh;
-  img { border-radius:100%; }
+  
+  img { 
+    border-radius: 100%;
+    margin:2vw;
+    width: 30vw;
+    height: 30vw;
+    margin: auto;
+    object-fit: cover; 
+  }
+
 }
 .um-nickname {
   color:map-get($colors,x-gray-dark);

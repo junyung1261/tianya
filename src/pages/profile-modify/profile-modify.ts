@@ -5,6 +5,7 @@ import { LoadingProvider } from '../../providers/loading/loading'
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ImageProvider } from '../../providers/data/image';
 import { Camera } from '@ionic-native/camera';
+import { DataProvider } from '../../providers/data/data';
 
 
 @IonicPage()
@@ -18,41 +19,33 @@ export class ProfileModifyPage {
   actionSheet;
   user;
   account;
-  gender = 'none';
+  
  
   constructor(public navCtrl: NavController , public viewCtrl: ViewController, public actionSheetCtrl: ActionSheetController,
-              public imageProvider: ImageProvider, public loadingProvider: LoadingProvider, public afDB: AngularFireDatabase,
+              public imageProvider: ImageProvider, public loadingProvider: LoadingProvider, public dataProvider: DataProvider,
+              public afDB: AngularFireDatabase,
               public camera: Camera) {
     
   }
 
-  ngOnInit(){
-   
-
-  }
+ 
   ionViewDidLoad() {
-    firebase.database().ref('accounts/' + firebase.auth().currentUser.uid).once('value')
-    .then((account) => {
-      // No database data yet, create user data on database
-      if (!account.val()) {
-        this.firstRun = true;
-        this.user = firebase.auth().currentUser;
-        
-        
-      } else{
-        this.firstRun = false;
-        this.user = firebase.auth().currentUser;
-        this.account = account.val();
-        
-      }
+
+
+    this.loadingProvider.show();
+    this.dataProvider.getCurrentUser().valueChanges().subscribe((user) => {
+      this.loadingProvider.hide();
+      this.user = user;
+      this.user.userId = firebase.auth().currentUser.uid;
     });
-  
+
   //this.loadingProvider.show();
     
   }
 
 
   setPhoto() {
+    
     // Ask if the user wants to take a photo or choose from photo gallery.
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Set Profile Photo',
@@ -83,27 +76,24 @@ export class ProfileModifyPage {
   
   updateProfile(){
     
-    var username, img, userId, email;
-    userId = this.user.uid;
+    var username, img, userId;
+    userId = this.user.userId;
     // Get email from Firebase user.
-    email = this.user.email;
+    
 
     // Set default description.
-    if(this.firstRun){
-
+   
       let profile = {
-        displayName: this.account.username,
-        photoURL: this.account.profileImg
+        displayName: this.user.username,
+        photoURL: this.user.profileImg
       };
       
       firebase.auth().currentUser.updateProfile(profile).then((success) => {
         this.afDB.object('/accounts/' + userId).update({
-          username: this.account.username,
-          gender: this.account.gender,
-          email: email,
-          description: this.account.description,
-          birth: this.account.birth,
-          dateCreated: new Date().toString()
+          username: this.user.username,
+          gender: this.user.gender,
+          description: this.user.description,
+          birth: this.user.birth
         }).then(() => {
           this.viewCtrl.dismiss();
           //this.loadingProvider.hide();
@@ -118,32 +108,7 @@ export class ProfileModifyPage {
         // }
       });
       
-    }
-    else{
-      let profile = {
-        displayName: this.account.username,
-        photoURL: this.account.profileImg
-      };
-
-      firebase.auth().currentUser.updateProfile(profile).then((success) => {
-        this.afDB.object('/accounts/' + userId).update({
-          username: this.account.username,
-          description: this.account.description
-        }).then(() => {
-          //this.loadingProvider.hide();
-        });
-
-      }).catch((error) => {
-        // Show error
-        this.loadingProvider.hide();
-        let code = error["code"];
-        // this.alertProvider.showErrorMessage(code);
-        // if (code == 'auth/requires-recent-login') {
-        //   this.logoutProvider.logout();
-        // }
-      });
-      
-    }
+   
   }
 
 

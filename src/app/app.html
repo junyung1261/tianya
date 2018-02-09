@@ -19,8 +19,8 @@
       <ion-row class="um-row-profile">
         <ion-col col-12 text-center>
           <div class="um-photo">
-              <img src="assets/img/noavatar.png" class="circle" *ngIf="!user.profileImg"/>
-              <img src="{{user.profileImg}}" class="circle" *ngIf="user.profileImg"/>
+              <img src="assets/img/noavatar.png" *ngIf="!user.photoURL"/>
+              <img src="{{user.photoURL}}"  *ngIf="user.photoURL"/>
           </div>
         </ion-col>
       </ion-row>

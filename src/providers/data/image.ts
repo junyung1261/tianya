@@ -77,6 +77,7 @@ export class ImageProvider {
   // This function processes the imageURI returned and uploads the file on Firebase,
   // Finally the user data on the database is updated.
   setProfilePhoto(user, sourceType) {
+    console.log(user);
     this.profilePhotoOptions.sourceType = sourceType;
     this.loadingProvider.show();
     // Get picture from camera or gallery.
@@ -87,22 +88,32 @@ export class ImageProvider {
         'contentType': imgBlob.type
       };
       // Generate filename and upload to Firebase Storage.
-      firebase.storage().ref().child('images/' + user.uid + '/' + this.generateFilename()).put(imgBlob, metadata).then((snapshot) => {
+      firebase.storage().ref().child('images/' + user.userId + '/' + this.generateFilename()).put(imgBlob, metadata).then((snapshot) => {
         // Delete previous profile photo on Storage if it exists.
-        this.deleteImageFile(user.photoURL);
+        if(user.profileImg)this.deleteImageFile(user.profileImg);
+        
         // URL of the uploaded image!
         let url = snapshot.metadata.downloadURLs[0];
+        
         let profile = {
-          displayName: user.displayName,
+          displayName: user.username,
           photoURL: url
         };
+        
         // Update Firebase User.
         firebase.auth().currentUser.updateProfile(profile)
           .then((success) => {
             // Update User Data on Database.
-            this.angularfireDatabase.object('/accounts/' + user.uid).update({
+            this.angularfireDatabase.object('/accounts/' + user.userId).update({
               profileImg: url
             }).then((success) => {
+              this.angularfireDatabase.list('/accounts/' + user.userId + '/feeds').snapshotChanges().subscribe(feeds=> {
+                feeds.forEach(feed => {
+                  this.angularfireDatabase.object('/feed/' + feed.key).update({
+                    profileImg: url
+                  })
+                })
+              })
               this.loadingProvider.hide();
               this.alertProvider.showProfileUpdatedMessage();
             }).catch((error) => {

@@ -14,8 +14,8 @@
   <shrink-segment-header [scrollArea]="myContent" headerHeight="150" >
     <div class="profile_user">
       <div class="avatar_user">
-        <img src="assets/img/noavatar.png" class="avatar_img_user" *ngIf="!user.profileImg"/>
-        <img src="{{user.profileImg}}" class="avatar_img_user" *ngIf="user.profileImg"/>
+        <img src="assets/img/noavatar.png" class="avatar_img_user" *ngIf="!user.photoURL"/>
+        <img src="{{user.photoURL}}" class="avatar_img_user" *ngIf="user.photoURL"/>
       </div>
       <div class="nickname_user">{{user.displayName}}</div>
     </div>  

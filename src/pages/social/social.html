@@ -25,10 +25,14 @@
     <ion-grid no-padding>
       <!-- 카드 상단 프로필 시작-->
       <ion-row class="sc-row-profile">
+        
         <ion-col col-2>
-          <img src="assets/img/noavatar.png" class="sc-avatar" *ngIf="!feed.profileImg"/>
-          <img src="{{feed.profileImg}}" class="sc-avatar" *ngIf="feed.profileImg"/>
+            <ion-avatar>
+          <img src="assets/img/noavatar.png" class="sc-avatar" *ngIf="!feed.payload.val().profileImg"/>
+          <img src="{{feed.payload.val().profileImg}}" class="sc-avatar" *ngIf="feed.payload.val().profileImg"/>
+        </ion-avatar>
         </ion-col>
+      
         <ion-col col-9>
           <span class="sc-nickname">{{feed.payload.val().name}}</span><br>
           <span class="sc-like-cnt"><ion-icon name="flaticon-like"></ion-icon>&nbsp;{{feed.payload.val().like}}122</span>

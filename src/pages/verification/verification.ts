@@ -53,6 +53,7 @@ export class VerificationPage {
         clearInterval(that.checkVerified);
         that.emailVerified = true;
         that.alertProvider.showEmailVerifiedMessageAndRedirect(that.navCtrl);
+        this.createUserData();
       }
     }, 1000);
   }
@@ -208,5 +209,64 @@ export class VerificationPage {
         }
       ]
     }).present();
+  }
+
+  createUserData() {
+    firebase.database().ref('accounts/' + firebase.auth().currentUser.uid).once('value')
+      .then((account) => {
+        // No database data yet, create user data on database
+        if (!account.val()) {
+          this.loadingProvider.show();
+          let user = firebase.auth().currentUser;
+          var userId, name, provider, img, email;
+          let providerData = user.providerData[0];
+
+          userId = user.uid;
+
+          // Get name from Firebase user.
+          if (user.displayName || providerData.displayName) {
+            name = user.displayName;
+            name = providerData.displayName;
+          } else {
+            name = "User";
+          }
+
+          // Set default username based on name and userId.
+          let username = name.replace(/ /g, '') + userId.substring(0, 6);
+
+         
+          // Get email from Firebase user.
+          email = user.email;
+
+          let profile = {
+            displayName: username,
+            photoURL: ''
+          };
+
+          firebase.auth().currentUser.updateProfile(profile)
+          .then((success) => {
+            this.angularfireDatabase.object('/accounts/' + userId).set({
+              username: username,
+              email: email,
+              dateCreated: new Date().toString()
+            }).then(() => {
+              
+            }).catch((error) => {
+              this.alertProvider.showErrorMessage('profile/error-update-profile');
+            });
+
+          }).catch((error) => {
+            // Show error
+            
+            let code = error["code"];
+            this.alertProvider.showErrorMessage(code);
+            if (code == 'auth/requires-recent-login') {
+              this.logoutProvider.logout();
+            }
+          });
+          // Insert data on our database using AngularFire.
+          
+        }
+      });
   }
 }

@@ -3,87 +3,82 @@ page-community-detail {
     ion-content{
         background-color: map-get($colors,x-gray-light) !important;
     }
-    .cc-textarea {
-        width:96vw;
-        text-align:left;
-        resize: both;
-        border:1px solid map-get($colors,x-gray-light);
+    .cdn-post {
+        margin-bottom:2vw;
+        height:fit-content;
+        background-color: map-get($colors,x-white);
     }
-    .cc-submit-text {
-        color:map-get($colors,x-white) !important;
-    }
-
-    .cd-title {
+    .cdn-title{
         font-size:4vw;
         color:map-get($colors,x-gray-dark);
-    }
-    .cd-time, .cd-nickname {
-        font-size:3vw;
-        color:map-get($colors,x-gray-middle);
-    }
-    .cd-like-cnt {
-        font-size:3vw;
-        color:map-get($colors,x-pink);
-    }
-
-    .cd-comment-cnt {
-        font-size:3vw;
-        color:map-get($colors,x-mint);
-    }
-    .cd-like, .cd-comment {
-        font-size:3vh;
-    }
-
-    ion-grid {
-        background-color: map-get($colors,x-white);
-    }
-    ion-col{
-        text-align:left; 
-    }
-    ion-row {
-        align-items:center;
         width:100vw;
-        background-color: map-get($colors,x-white);
+        padding:2vw;
+        border-bottom:1px solid map-get($colors,x-gray-light2);
+        height:fit-content;
     }
-    .cd-row-profile {
-        height:10vh;
-        padding-left:2vw;
-    }
-
-    .cd-row-text {
-        margin-top:2vw;
-        margin-bottom:4vw;
-    }
-
-    .cd-text, .cd-text-translated {
-        font-size:4vw;
-        padding-left:2vw;
+    .cdn-user {
         padding-right:2vw;
     }
-    .cd-text {
+    .cdn-photo{
+        border:1px solid map-get($colors,x-white);
+        border-radius: 100%;
+        padding:2vw;
+    }
+    .cdn-nickname {
+        align-items:center;
+        font-size:4vw;
+        height:6vw;
+        color:map-get($colors,x-gray-dark);
+        margin:2vw 0 0 0;
+    }
+    .cdn-info {
+        align-items:center;
+        font-size:3vw;
+        color:map-get($colors,x-gray-middle);
+        height:6vw;
+        margin:0 0 2vw 0;
+    }
+    .cdn-tags {
+        color:map-get($colors,x-navy);
+    }
+    .cdn-text {
+        padding:2vw;
+        font-size:4vw;
+        color:map-get($colors,x-gray-dark);
+        height:fit-content;
+        border-bottom:1px solid map-get($colors,x-gray-light2);
+    }
+    .cdn-btns {
+        padding:2vw;
+        font-size:3vw;
+        color:map-get($colors,x-gray-middle);
+        border-bottom:1px solid map-get($colors,x-gray-light2);
+    }
+
+    .cdn-comment {
+        background-color: map-get($colors,x-white);
+        height:fit-content;
+        border-bottom:1px solid map-get($colors,x-gray-light2);
+        margin-bottom:2vw;
+        padding-bottom:2vw;
+    }
+    .cdn-comment-title {
+        padding:2vw;
+        border-top:1px solid map-get($colors,x-gray-light2);
+        border-bottom:1px solid map-get($colors,x-gray-light2);
+        font-size:4vw;
+        height:fit-content;
         color:map-get($colors,x-gray-dark);
     }
-    .cd-text-translated {
-        color:map-get($colors,x-pink);
+    .cdn-comment-user {
+        padding-right:2vw;
     }
-
-    .cd-btns {
-        border-top : 1px solid map-get($colors,x-gray-light);
-        margin-left:2vw;
-        margin-right:2vw;
-        width:96vw;
-    }
-
-    .cd-btn {
-        font-size:4vw;
-    }
-    .cd-cmt {
-        margin-top:4vw;
-    }
-    .cd-row-cmt-profile {
-        height:10vh;
-        padding-left:2vw;
-        border-top:1px solid map-get($colors,x-gray-light);
+    .cdn-comment-text {
+        padding:2vw;
+        border-left:2px solid map-get($colors,x-gray-middle);
+        background-color:map-get($colors,x-gray-light);
+        margin-bottom:4vw;
+        height:fit-content;
     }
 
     ion-slides, .swiper-container {
@@ -91,7 +86,7 @@ page-community-detail {
         width: 96vw;
     }
     .swiper-container {
-        margin: 4vw 2vw 2vw 2vw;
+        margin: 4vw 0 4vw 0;
     }
     .swiper-slide {
         background-size: cover !important;
@@ -110,5 +105,21 @@ page-community-detail {
         background-color: map-get($colors,x-mint) !important;
     }
 
+    .cdn-comment-write {
+        border-top:1px solid map-get($colors,x-gray-light2);
+        height:12vw !important;
+    }
+    .cdn-comment-input {
+        border-radius:4vw;
+        border:1px solid map-get($colors,x-gray-light2);
+        width:80vw;
+        height:8vw;
+        color:map-get($colors,x-gray-dark);
+        font-weight:normal;
+        font-size:4vw;
+        padding-top:2vw;
+        padding-left:4vw;
+        margin-left:4vw;
+    }
 }
   

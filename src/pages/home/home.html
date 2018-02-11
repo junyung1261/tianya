@@ -10,12 +10,93 @@
     <ion-title><span class="title">Xiǎng Hánguó</span></ion-title>
     <!-- RIGHT BUTTON -->
     <ion-buttons end>
-      <button ion-button icon-only (click)="presentNoticeModal()"><ion-icon name="flaticon-music" color="x-white"></ion-icon></button>
+      <button ion-button icon-only (click)="presentNoticeModal()"><ion-icon name="flaticon-search" color="x-white"></ion-icon></button>
     </ion-buttons>
   </ion-navbar> 
 </ion-header>
 
 
-<ion-content >
-  
+<ion-content no-padding>
+  <ion-grid no-padding class="h-content">
+    <ion-row class="h-search-row">
+      <ion-col col-12>
+        <div class="h-search-box">
+          <div class="h-search-filter">필터&nbsp;&nbsp;<ion-icon name="flaticon-down-arrow" color="x-gray-light"></ion-icon></div>
+          <div class="h-search-input"><ion-input class="h-search-input-txt"></ion-input></div>
+          <div class="h-search-go"><ion-icon name="flaticon-search" color="x-white"></ion-icon></div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid no-padding class="h-content">
+    <ion-row class="h-list">
+      <ion-col col-11><span class="h-category-label h-category1">공지사항</span>씨앙한구오 임시점검 안내</ion-col>
+      <ion-col col-1 text-right><ion-icon name="flaticon-mark" color="x-gray-middle"></ion-icon></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid no-padding class="h-content">
+    <ion-row class="h-title">
+      <ion-col col-11>유학 인기글</ion-col>
+      <ion-col col-1 text-right><ion-icon name="flaticon-mark" color="x-gray-middle"></ion-icon></ion-col>
+    </ion-row>
+    <ion-row class="h-list">
+      <ion-col col-9><span class="h-category-label h-category1">입학정보</span>유학 인기글1111111</ion-col>
+      <ion-col col-3 text-right><span class="h-date">2018-02-10</span></ion-col>
+    </ion-row>
+    <ion-row class="h-list">
+      <ion-col col-9><span class="h-category-label h-category2">교재교환</span>유학 인기글22222</ion-col>
+      <ion-col col-3 text-right><span class="h-date">2018-02-10</span></ion-col>
+    </ion-row>
+    <ion-row class="h-list">
+      <ion-col col-9><span class="h-category-label h-category3">강의후기</span>유학 인기글33333</ion-col>
+      <ion-col col-3 text-right><span class="h-date">2018-02-10</span></ion-col>
+    </ion-row>
+    <ion-row class="h-list">
+      <ion-col col-9><span class="h-category-label h-category4">학교자랑</span>유학 인기글44444</ion-col>
+      <ion-col col-3 text-right><span class="h-date">2018-02-10</span></ion-col>
+    </ion-row>
+    <ion-row class="h-list">
+      <ion-col col-9><span class="h-category-label h-category5">학교자랑</span>유학 인기글55555</ion-col>
+      <ion-col col-3 text-right><span class="h-date">2018-02-10</span></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid no-padding class="h-content">
+    <ion-row class="h-title">
+      <ion-col col-11>한국어 인기글</ion-col>
+      <ion-col col-1 text-right><ion-icon name="flaticon-mark" color="x-gray-middle"></ion-icon></ion-col>
+    </ion-row>
+    <ion-row class="h-list">
+      <ion-col col-9><span class="h-category-label h-category1">일상회화</span>한국어 인기글1111111</ion-col>
+      <ion-col col-3 text-right><span class="h-date">2018-02-10</span></ion-col>
+    </ion-row>
+    <ion-row class="h-list">
+      <ion-col col-9><span class="h-category-label h-category2">이성대화</span>한국어 인기글22222</ion-col>
+      <ion-col col-3 text-right><span class="h-date">2018-02-10</span></ion-col>
+    </ion-row>
+    <ion-row class="h-list">
+      <ion-col col-9><span class="h-category-label h-category3">기타대화</span>한국어 인기글33333</ion-col>
+      <ion-col col-3 text-right><span class="h-date">2018-02-10</span></ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid no-padding class="h-content">
+    <ion-row class="h-title">
+      <ion-col col-11>맛집 최신글</ion-col>
+      <ion-col col-1 text-right><ion-icon name="flaticon-mark" color="x-gray-middle"></ion-icon></ion-col>
+    </ion-row>
+    <ion-row class="h-list-photo">
+      <ion-col col-3><img src="assets/img/food_001.jpg" class="h-photo"></ion-col>
+      <ion-col col-9>어제 맛집에 다녀왔어요 자랑좀 ㅎㅎ<br><span class="h-date">2018-02-10</span></ion-col>
+    </ion-row>
+    <ion-row class="h-list-photo">
+      <ion-col col-3><img src="assets/img/food_002.jpg" class="h-photo"></ion-col>
+      <ion-col col-9>어제 맛집에 다녀왔어요 자랑좀 ㅎㅎ<br><span class="h-date">2018-02-10</span></ion-col>
+    </ion-row>
+    <ion-row class="h-list-photo">
+      <ion-col col-3><img src="assets/img/food_003.jpg" class="h-photo"></ion-col>
+      <ion-col col-9>어제 맛집에 다녀왔어요 자랑좀 ㅎㅎ<br><span class="h-date">2018-02-10</span></ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

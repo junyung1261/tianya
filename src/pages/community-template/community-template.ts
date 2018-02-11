@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-
 import * as firebase from 'firebase';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { DataProvider } from '../../providers/data/data';
@@ -31,10 +30,11 @@ export class CommunityTemplatePage {
   specific_inner = [];
   specific = 'total';
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-              public modalCtrl: ModalController,
-              public afDB: AngularFireDatabase, public dataProvider: DataProvider) {
-    
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public modalCtrl: ModalController,  
+    public afDB: AngularFireDatabase, 
+    public dataProvider: DataProvider) {
     
     
   }

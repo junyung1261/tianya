@@ -5,144 +5,99 @@
         <ion-icon name="flaticon-left-arrow" color="x-white"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title color="top-text" *ngIf="searchBarFlag == 0">{{categoryName | translate}}</ion-title>
-    <ion-input class="top-search" *ngIf="searchBarFlag == 1" placeholder="검색하십쇼." [(ngModel)]="searchText"></ion-input>
-    <!-- <ion-searchbar (ionInput)="getItems($event)" *ngIf="searchBarFlag == 1" placeholder="검색하십쇼."></ion-searchbar> -->
+    <ion-title color="x-white">{{categoryName | translate}} 게시판</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="openSearchBar()">
-        <ion-icon name="flaticon-search" color="x-white"></ion-icon>
+      <button ion-button icon-only (click)="presentBoardCreate(categoryName)">
+        <ion-icon name="flaticon-draw" color="x-white"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
     
-<ion-content no-padding>
-  <ion-grid no-padding class="ct-grid-best">
-    <ion-row>
-
-      <ion-col col-12 class="ct-best-title" text-left>{{categoryName | translate}} 인기글</ion-col>
-
+<ion-content no-padding overflow-scroll=true>
+  <ion-grid no-padding class="ct-content-title">
+    <ion-row class="ct-title">
+      <ion-col col-11>
+        <ion-input class="ct-input-txt" placeholder="{{categoryName | translate}} 게시판 내 검색" [(ngModel)]="searchText"></ion-input>
+      </ion-col>
+      <ion-col col-1 text-right>
+        <ion-icon name="flaticon-search" color="x-gray-middle"></ion-icon>
+      </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col col-2 class="ct-rank" text-center>
-        <ion-icon name="flaticon-cup" color="x-gold"></ion-icon>
+    <ion-row class="ct-category-title">
+      <ion-col col-12 center>
+        <ion-segment class="ct-category-btns" *ngIf="specific_inner" [(ngModel)]="specific" mode="ios" color="x-mint" (ionChange)="segmentChanged($event.value)">
+          <ion-segment-button value="total">전체</ion-segment-button>
+          <ion-segment-button *ngFor="let specific of specific_inner" value="{{specific.name}}">
+            {{specific.name | translate}}
+          </ion-segment-button>
+        </ion-segment>
       </ion-col>
-      <ion-col col-7 class="ct-text" text-left>
-        <span class="ct-title">{{categoryName | translate}} 인기글 첫번째 항목</span>&nbsp;
-        <span class="ct-comment">(73)</span>
-      </ion-col>
-      <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-2 class="ct-rank" text-center>
-        <ion-icon name="flaticon-cup" color="x-silver"></ion-icon>
-      </ion-col>
-      <ion-col col-7 class="ct-text" text-left>
-        <span class="ct-title">{{categoryName | translate}} 인기글 두번째 항목</span>&nbsp;
-        <span class="ct-comment">(73)</span>
-      </ion-col>
-      <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-2 class="ct-rank" text-center>
-        <ion-icon name="flaticon-cup" color="x-bronze"></ion-icon>
-      </ion-col>
-      <ion-col col-7 class="ct-text" text-left>
-        <span class="ct-title">{{categoryName | translate}} 인기글 세번째 항목</span>&nbsp;
-        <span class="ct-comment">(73)</span>
-      </ion-col>
-      <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-2 class="ct-rank" text-center>
-        <ion-icon name="flaticon-cup" color="x-gold"></ion-icon>
-      </ion-col>
-      <ion-col col-7 class="ct-text" text-left>
-        <span class="ct-title">{{categoryName | translate}} 인기글 네번째 항목</span>&nbsp;
-        <span class="ct-comment">(73)</span>
-      </ion-col>
-      <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-2 class="ct-rank" text-center>
-        <ion-icon name="flaticon-cup" color="x-gold"></ion-icon>
-      </ion-col>
-      <ion-col col-7 class="ct-text" text-left>
-        <span class="ct-title">{{categoryName | translate}} 인기글 다섯번째 항목</span>&nbsp;
-        <span class="ct-comment">(73)</span>
-      </ion-col>
-      <ion-col col-3 text-center><span class="ct-nickname">물뜨는미어캣</span></ion-col>
-    </ion-row>
-
-  </ion-grid>
-
-  <ion-grid no-padding>
-    <ion-row>
-      <ion-col col-12 class="ct-best-title" text-left> {{categoryName | translate}} 게시판</ion-col>
     </ion-row>
   </ion-grid>
-  
-  <ion-toolbar>
-    <ion-segment *ngIf="specific_inner" [(ngModel)]="specific" mode="ios" color="x-mint" (ionChange)="segmentChanged($event.value)">
-      <ion-segment-button value="total">
-        전체
-      </ion-segment-button>
-      <ion-segment-button *ngFor="let specific of specific_inner" value="{{specific.name}}">
-        {{specific.name | translate}}
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
-
 
   <div [ngSwitch]="specific">
-     <ion-list   *ngSwitchCase="'total'" ngSelected="selected">
-        <ion-grid no-padding>
-            <ion-row class="row" *ngFor="let bullet of bullets | async">
-              <ion-col col-7 class="cb-text" (click)="presentBoardModal(bullet)" text-left>
-                <span class="cb-title">[{{bullet.payload.val().type | translate}}] {{ bullet.payload.val().title }}</span>&nbsp;
-                <span class="cb-view">({{bullet.payload.val().view}})</span>
-              </ion-col>
-              <ion-col col-3 text-center><span class="cb-nickname">{{bullet.payload.val().writer}}</span></ion-col>
-              <ion-col col-2 text-center><span class="cb-time">{{bullet.payload.val().date | DateFormat}}</span></ion-col>
+    <ion-list *ngSwitchCase="'total'" ngSelected="selected">
+      <ion-grid no-padding *ngFor="let bullet of bullets | async" (click)="presentBoardModal(bullet)">
+        <ion-row class="ctn-post">
+          <ion-col col-2><img src="assets/img/user_001.jpg" class="ctn-photo"></ion-col>
+          <ion-col col-10>
+            <ion-grid no-padding class="ctn-content">
+              <ion-row class="ctn-nickname"><ion-col col-12>물뜨는미어캣</ion-col></ion-row>
+              <ion-row class="ctn-info">
+                <ion-col col-6><span class="ctn-time">{{bullet.payload.val().date | DateFormat}}</span></ion-col>
+                <ion-col col-6 text-right><span class="ctn-tags">#태그1, #태그2</span></ion-col>
               </ion-row>
-          </ion-grid>
-     </ion-list>
-      <div *ngFor="let specific of specific_inner">
-     
-     <ion-list   *ngSwitchCase="specific.name">
-        <ion-grid no-padding>
-            <ion-row class="row" *ngFor="let bullet of bullets_tag | async" >
-              <ion-col col-7 class="cb-text" (click)="presentBoardModal(bullet)" text-left>
-                <span class="cb-title">[{{bullet.payload.val().type | translate}}] {{ bullet.payload.val().title }}</span>&nbsp;
-                <span class="cb-view">({{bullet.payload.val().view}})</span>
-              </ion-col>
-              <ion-col col-3 text-center><span class="cb-nickname">{{bullet.payload.val().writer}}</span></ion-col>
-              <ion-col col-2 text-center><span class="cb-time">{{bullet.payload.val().date | DateFormat}}</span></ion-col>
+              <ion-row class="ctn-text">
+                <ion-col col-12>
+                  <span class="ctn-category">[{{bullet.payload.val().type | translate}}]</span>
+                  <span class="ctn-title">{{ bullet.payload.val().title }}</span></ion-col>
               </ion-row>
-          </ion-grid>
-     </ion-list>
-     </div>
+              <ion-row class="ctn-summary"><ion-col col-12>글내용 요약</ion-col>
+              </ion-row>
+              <ion-row class="ctn-btns">
+                <ion-col col-8 text-left><span class="ctn-view">조회수</span></ion-col>
+                <ion-col col-4 text-right>
+                  <span class="ctn-like">추천</span>
+                  <span class="ctn-comment">댓글</span>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+    <div *ngFor="let specific of specific_inner">
+      <ion-list *ngSwitchCase="specific.name">
+        <ion-grid no-padding *ngFor="let bullet of bullets_tag | async" (click)="presentBoardModal(bullet)">
+          <ion-row class="ctn-post">
+            <ion-col col-2><img src="assets/img/user_001.jpg" class="ctn-photo"></ion-col>
+            <ion-col col-10>
+              <ion-grid no-padding class="ctn-content">
+                <ion-row class="ctn-nickname"><ion-col col-12>물뜨는미어캣</ion-col></ion-row>
+                <ion-row class="ctn-info">
+                  <ion-col col-6><span class="ctn-time">{{bullet.payload.val().date | DateFormat}}</span></ion-col>
+                  <ion-col col-6 text-right><span class="ctn-tags">#태그1, #태그2</span></ion-col>
+                </ion-row>
+                <ion-row class="ctn-text">
+                  <ion-col col-12>
+                    <span class="ctn-category">[{{bullet.payload.val().type | translate}}]</span>
+                    <span class="ctn-title">{{ bullet.payload.val().title }}</span></ion-col>
+                </ion-row>
+                <ion-row class="ctn-summary"><ion-col col-12>글내용 요약</ion-col>
+                </ion-row>
+                <ion-row class="ctn-btns">
+                  <ion-col col-8 text-left><span class="ctn-view">조회수</span></ion-col>
+                  <ion-col col-4 text-right>
+                    <span class="ctn-like">추천</span>
+                    <span class="ctn-comment">댓글</span>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+    </div>
   </div>
-
-  <!-- css 작업 필요 및 기능부 구현 아직 안됨 -->
-  <ion-grid no-padding class="cb-paging">
-      <ion-row class="cb-paging-row">
-        <ion-col col-1 text-center><ion-icon name="flaticon-left-arrow"></ion-icon></ion-col>  
-        <ion-col col-2 text-center (click)="pageTest()">1</ion-col>
-        <ion-col col-2 text-center (click)="pageTest()">2</ion-col>
-        <ion-col col-2 text-center (click)="pageTest()">3</ion-col>
-        <ion-col col-2 text-center (click)="pageTest()">4</ion-col>
-        <ion-col col-2 text-center (click)="pageTest()">5</ion-col>
-        <ion-col col-1 text-center><ion-icon name="flaticon-right-arrow"></ion-icon></ion-col>  
-      </ion-row>
-    </ion-grid>
-
-  
-  <ion-fab right bottom>
-      <button ion-fab color="x-mint" (click)="presentBoardCreate(categoryName)">
-        <ion-icon name="flaticon-edit" color="x-white"></ion-icon>
-      </button>
-    </ion-fab>
-
-  
 </ion-content>

@@ -10,4 +10,4 @@ export const Tab1Root = 'HomePage';
 export const Tab2Root = 'ChatPage';
 export const Tab3Root = 'MatchingSpecialPage';
 export const Tab4Root = 'SocialPage';
-export const Tab5Root = 'CommunityPage';
+export const Tab5Root = 'ProfilePage';

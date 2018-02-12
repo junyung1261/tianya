@@ -37,31 +37,6 @@
   </ion-grid>
 
   <div [ngSwitch]="specific">
-<<<<<<< HEAD
-     <ion-list   *ngSwitchCase="'total'" ngSelected="selected">
-        <ion-grid no-padding>
-            <ion-row class="row" *ngFor="let bullet of bullets | async">
-              <ion-col col-10 class="cb-text" (click)="presentBoardModal(bullet)" text-left>
-                <span class="cb-title">[{{bullet.payload.val().type | translate}}] {{ bullet.payload.val().title }}</span>&nbsp;
-                <span class="cb-view">({{bullet.payload.val().view}})</span>
-              </ion-col>
-              <!-- <ion-col col-3 text-center><span class="cb-nickname">{{bullet.payload.val().writer}}</span></ion-col> -->
-              <ion-col col-2 text-center><span class="cb-time">{{bullet.payload.val().date | DateFormat}}</span></ion-col>
-              </ion-row>
-          </ion-grid>
-     </ion-list>
-      <div *ngFor="let specific of specific_inner">
-     
-     <ion-list   *ngSwitchCase="specific.name">
-        <ion-grid no-padding>
-            <ion-row class="row" *ngFor="let bullet of bullets_tag | async" >
-              <ion-col col-10 class="cb-text" (click)="presentBoardModal(bullet)" text-left>
-                <span class="cb-title">[{{bullet.payload.val().type | translate}}] {{ bullet.payload.val().title }}</span>&nbsp;
-                <span class="cb-view">({{bullet.payload.val().view}})</span>
-              </ion-col>
-              <!-- <ion-col col-3 text-center><span class="cb-nickname">{{bullet.payload.val().writer}}</span></ion-col> -->
-              <ion-col col-2 text-center><span class="cb-time">{{bullet.payload.val().date | DateFormat}}</span></ion-col>
-=======
     <ion-list *ngSwitchCase="'total'" ngSelected="selected">
       <ion-grid no-padding *ngFor="let bullet of bullets | async" (click)="presentBoardModal(bullet)">
         <ion-row class="ctn-post">
@@ -77,7 +52,6 @@
                 <ion-col col-12>
                   <span class="ctn-category">[{{bullet.payload.val().type | translate}}]</span>
                   <span class="ctn-title">{{ bullet.payload.val().title }}</span></ion-col>
->>>>>>> 6ff1605814e317b8fda118a0f44d9f5917568024
               </ion-row>
               <ion-row class="ctn-summary"><ion-col col-12>글내용 요약</ion-col>
               </ion-row>

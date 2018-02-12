@@ -1,5 +1,68 @@
 page-home {
-    .title{
-        color:map-get($colors,x-white);
+    
+    ion-col{
+        text-align:left;
+    }
+    .h-search-row {
+        background-color: map-get($colors,x-white);
+        height:16vw;
+        padding:4vw;
+    }
+    .h-search-box {
+        display:table;
+        width:96vw;
+        height:8vw;
+    }
+    .h-search-filter { 
+        width:20vw; height:8vw; 
+        float:left; 
+        padding-top:2vw; 
+        text-align: center;
+        border-left:1px solid map-get($colors,x-gray-light);
+        border-top:1px solid map-get($colors,x-gray-light);
+        border-bottom:1px solid map-get($colors,x-gray-light);
+    }
+    
+    .h-search-input { 
+        width:62vw; height:8vw; 
+        float:left; 
+        padding-top:2vw; 
+        padding-left:2vw;
+        border-top:1px solid map-get($colors,x-gray-light);
+        border-bottom:1px solid map-get($colors,x-gray-light);
+    }
+    .h-search-input-txt { margin:0 !important; padding:0 !important;}
+    .h-search-go { width:10vw; height:8vw; float:left; background-color:map-get($colors,x-pink); display:table-cell; text-align: center; padding-top:2vw;}
+
+    .h-content {
+        border-bottom:1px solid map-get($colors,x-gray-light);
+        margin-bottom:2vw;
+    }
+    .h-title, .h-list, .h-list-photo {
+        align-items:center;
+        width:100vw;
+        height:9vw;
+        background-color: map-get($colors,x-white);
+        padding-left:4vw;
+        padding-right:4vw;
+        font-size:4vw;
+        color:map-get($colors,x-gray-dark);
+    }
+    .h-title { margin-bottom:2vw;border-bottom:1px solid map-get($colors,x-gray-light); }
+    .h-list, .h-list-photo { border-top:1px solid map-get($colors,x-gray-light); }
+    .h-list { height:9vw; }
+    .h-list-photo { height:25vw; }
+    .h-photo { height:22vw; width:23vw; padding-top:1vw; padding-right:1vw; border-radius:2vw; }
+    .h-category-label { color:map-get($colors,x-white); font-size:3vw; padding:1vw; margin-right:2vw;}
+    
+    .h-category1 { background-color:map-get($colors,x-label1); }
+    .h-category2 { background-color:map-get($colors,x-label2); }
+    .h-category3 { background-color:map-get($colors,x-label3); }
+    .h-category4 { background-color:map-get($colors,x-label4); }
+    .h-category5 { background-color:map-get($colors,x-label5); }
+
+    .h-date { color:map-get($colors,x-gray-middle); font-size:4vw; }
+    ion-content{
+        background-color: map-get($colors,x-gray-light) !important;
     }
 }

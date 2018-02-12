@@ -23,7 +23,6 @@ import { HeaderColor } from '@ionic-native/header-color';
 //***********  Angularfire2 v4 **************/
 
 import { AngularFireModule } from 'angularfire2';
-// New imports to update based on AngularFire2 version 4
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { IonicImageViewerModule } from 'ionic-img-viewer';
@@ -43,23 +42,12 @@ import { ImageProvider } from '../providers/data/image';
 import { RequestProvider } from '../providers/data/request';
 
 
-
-
-
-
-// The translate loader needs to know where to load i18n files
-// in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 export function provideSettings(storage: Storage) {
-  /**
-   * The Settings provider takes a set of default settings for your app.
-   *
-   * You can add new settings options at any time. Once the settings are saved,
-   * these values will not overwrite the saved values (this can be done manually if desired).
-   */
+
   return new Settings(storage, {
     option1: true,
     option2: 'Ionitron J. Framework',
@@ -67,8 +55,6 @@ export function provideSettings(storage: Storage) {
     option4: 'Hello'
   });
 }
-
-
 
 //********** firebase configuration  ************ */
 export const config = { 
@@ -95,10 +81,10 @@ export const config = {
       }
     }),
     IonicModule.forRoot(MyApp, {
-      //modalEnter: 'modal-slide-in',
-      //modalLeave: 'modal-slide-out',
       tabsPlacement: 'bottom',
-      //pageTransition: 'ios-transition'
+        
+      scrollAssist: true, 
+      autoFocusAssist: false
     }),
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(config),
@@ -125,7 +111,6 @@ export const config = {
     Network,
     Geolocation,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
-    // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AngularFireDatabase,
    
@@ -138,8 +123,6 @@ export const config = {
     ImageProvider,
     RequestProvider,
     HeaderColor
-
- 
   ]
 })
 export class AppModule { }

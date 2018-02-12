@@ -5,65 +5,70 @@ $font-path: "../assets/fonts";
 @import "ionic.globals";
 @import "Flaticon";
 
-@include makeIcon(flaticon-home, '\f1c0');
-@include makeIcon(flaticon-chat, '\f1be');
-@include makeIcon(flaticon-like, '\f1bf');
-@include makeIcon(flaticon-share, '\f1bd');
-@include makeIcon(flaticon-internet, '\f1bc');
+@include makeIcon(flaticon-key, '\f19d'); //로그인열쇠
+@include makeIcon(flaticon-aeroplane, '\f155'); //로그인열쇠
 
-@include makeIcon(flaticon-mark, '\f196');    //HAMBURGER
-@include makeIcon(flaticon-music, '\f199');   //ALARM
-@include makeIcon(flaticon-left-arrow, '\f132');  //LEFT
-@include makeIcon(flaticon-right-arrow, '\f133');  //RIGHT
-@include makeIcon(flaticon-down-arrow, '\f131');  //DOWN
-@include makeIcon(flaticon-up-arrow, '\f130');  //UP
+@include makeIcon(flaticon-home, '\f1c9');
+@include makeIcon(flaticon-chat, '\f1c7');
+@include makeIcon(flaticon-like, '\f1c8');
+@include makeIcon(flaticon-share, '\f1c6');
+@include makeIcon(flaticon-settings, '\f1c2'); //환경설정
 
-@include makeIcon(flaticon-search, '\f1ba');  //SEARCH
+@include makeIcon(flaticon-mark, '\f19f');    //HAMBURGER
+@include makeIcon(flaticon-music, '\f1a2');   //ALARM
+@include makeIcon(flaticon-left-arrow, '\f13b');  //LEFT
+@include makeIcon(flaticon-right-arrow, '\f13c');  //RIGHT
+@include makeIcon(flaticon-down-arrow, '\f13a');  //DOWN
+@include makeIcon(flaticon-up-arrow, '\f139');  //UP
 
-@include makeIcon(flaticon-photo-camera, '\f1ae');   //카메라
+@include makeIcon(flaticon-search, '\f1c3');  //SEARCH
 
-@include makeIcon(flaticon-profile-4, '\f159');  //USER-MAN-MAGN
-@include makeIcon(flaticon-profile-1, '\f15e');   //USER-MAN-HEART
-@include makeIcon(flaticon-file-1, '\f168');   //USER-FEED
-@include makeIcon(flaticon-notepad, '\f167');   //하트충전내역
-@include makeIcon(flaticon-exclamation, '\f197');   //공지사항
-@include makeIcon(flaticon-round, '\f1ab');   //고객센터
-@include makeIcon(flaticon-settings, '\f1b9');   //환경설정
+@include makeIcon(flaticon-photo-camera, '\f1b7');   //카메라
 
-@include makeIcon(flaticon-map, '\f10c');   //대화방참여-지역설정
-@include makeIcon(flaticon-placeholder, '\f1b4');   //대화방-신고
-@include makeIcon(flaticon-interface-2, '\f185');   //대화방리스트-필터
+@include makeIcon(flaticon-profile-4, '\f162');  //USER-MAN-MAGN
+@include makeIcon(flaticon-profile-1, '\f167');   //USER-MAN-HEART
+@include makeIcon(flaticon-file-1, '\f171');   //USER-FEED
+@include makeIcon(flaticon-notepad, '\f170');   //하트충전내역
+@include makeIcon(flaticon-exclamation, '\f1a0');   //공지사항
+@include makeIcon(flaticon-round, '\f1b4');   //고객센터
 
-
-@include makeIcon(flaticon-note-1, '\f152');   //대화방리스트-쪽지전송
-@include makeIcon(flaticon-chat, '\f1be');     //대화방리스트-대화요청, 쪽지함-상대수락
-
-@include makeIcon(flaticon-arrow, '\f195');   //대화방-나가기, 사용자 로그아웃
-@include makeIcon(flaticon-signs-1, '\f17c');   //대화방-신고
-@include makeIcon(flaticon-envelope, '\f140');   //대화방-쪽지확인
-
-@include makeIcon(flaticon-interface, '\f1a5');   //쪽지함-삭제
-
-@include makeIcon(flaticon-clock, '\f1a6');   //쪽지함-응답대기
-@include makeIcon(flaticon-favorite, '\f15f');   //쪽지함-내가 수락
-@include makeIcon(flaticon-note, '\f153');   //쪽지함-상대가거절
-
-@include makeIcon(flaticon-smartphone, '\f1b0');   //스페셜매칭 - 스마트폰흔들기
-
-@include makeIcon(flaticon-repeat, '\f12d');   //FEED - 번역
-@include makeIcon(flaticon-edit, '\f1b8');   //FEED - 작성
-
-@include makeIcon(flaticon-mortarboard, '\f13f');   //COMMUNITY - 한국어
-@include makeIcon(flaticon-cup, '\f13c');   //COMMUNITY - 인기글순위
-
-@include makeIcon(flaticon-layers-1, '\f198');   //COMMUNITY - 정보
-@include makeIcon(flaticon-cross, '\f17f');   //COMMUNITY - 닫기
-@include makeIcon(flaticon-draw, '\f1a4');   //COMMUNITY - 닫기
-
-@include makeIcon(flaticon-network, '\f1af');   //COMMUNITY - 생활
-@include makeIcon(flaticon-money-2, '\f169');   //COMMUNITY - 거래
+@include makeIcon(flaticon-map, '\f115');   //대화방참여-지역설정
+@include makeIcon(flaticon-placeholder, '\f1bd');   //대화방-신고
+@include makeIcon(flaticon-interface-2, '\f18e');   //대화방리스트-필터
 
 
+@include makeIcon(flaticon-note-1, '\f15b');   //대화방리스트-쪽지전송
+@include makeIcon(flaticon-chat, '\f1c7');     //대화방리스트-대화요청, 쪽지함-상대수락
+
+@include makeIcon(flaticon-arrow, '\f19e');   //대화방-나가기, 사용자 로그아웃
+@include makeIcon(flaticon-signs-1, '\f185');   //대화방-신고
+@include makeIcon(flaticon-envelope, '\f149');   //대화방-쪽지확인
+
+@include makeIcon(flaticon-interface, '\f1ae');   //쪽지함-삭제
+
+@include makeIcon(flaticon-clock, '\f1af');   //쪽지함-응답대기
+@include makeIcon(flaticon-favorite, '\f168');   //쪽지함-내가 수락
+@include makeIcon(flaticon-note, '\f15c');   //쪽지함-상대가거절
+
+@include makeIcon(flaticon-smartphone, '\f1b9');   //스페셜매칭 - 스마트폰흔들기
+
+@include makeIcon(flaticon-repeat, '\f136');   //FEED - 번역
+@include makeIcon(flaticon-edit, '\f1c1');   //FEED - 작성
+
+@include makeIcon(flaticon-mortarboard, '\f148');   //COMMUNITY - 한국어
+@include makeIcon(flaticon-cup, '\f145');   //COMMUNITY - 인기글순위
+
+@include makeIcon(flaticon-layers-1, '\f1a1');   //COMMUNITY - 정보
+@include makeIcon(flaticon-cross, '\f188');   //COMMUNITY - 닫기
+@include makeIcon(flaticon-draw, '\f1ad');   //COMMUNITY - 닫기
+
+@include makeIcon(flaticon-network, '\f1b8');   //COMMUNITY - 생활
+@include makeIcon(flaticon-money-2, '\f172');   //COMMUNITY - 거래
+
+@include makeIcon(flaticon-clock-1, '\f106');   //COMMUNITY - 작성시간
+@include makeIcon(flaticon-medical, '\f105');   //COMMUNITY - 조회
+@include makeIcon(flaticon-hands, '\f107');   //COMMUNITY - 추천
+@include makeIcon(flaticon-interface-7, '\f100');   //COMMUNITY - 댓글
 
 $text-color:        #000;
 $text-input-md-show-focus-highlight: false;

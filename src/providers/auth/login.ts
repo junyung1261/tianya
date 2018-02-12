@@ -41,9 +41,7 @@ export class LoginProvider {
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((success) => {
         this.loadingProvider.hide();
-        this.navCtrl.first().dismiss();
        
-
       })
       .catch((error) => {
         this.loadingProvider.hide();

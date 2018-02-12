@@ -5,14 +5,6 @@ import { LoginProvider } from '../../providers/auth/login';
 import { Validator } from '../../validator';
 
 
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -22,21 +14,41 @@ export class LoginPage {
 
   private mode: string;
   private emailPasswordForm: FormGroup;
+  private emailPasswordNicknameForm: FormGroup;
   private emailForm: FormGroup;
   public text: any;
+  private status: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loginProvider: LoginProvider, 
-              public formBuilder: FormBuilder, public modalCtrl: ModalController) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public loginProvider: LoginProvider, 
+    public formBuilder: FormBuilder,
+    public modalCtrl: ModalController) {
 
+    this.status = 0;
+    this.mode = this.navParams.get('mode');
     
+    this.loginProvider.setNavController(this.navCtrl);
     // Create our forms and their validators based on validators set on validator.ts.
     this.emailPasswordForm = formBuilder.group({
       email: Validator.emailValidator,
       password: Validator.passwordValidator
     });
-    this.emailForm = formBuilder.group({
-      email: Validator.emailValidator
+    this.emailPasswordNicknameForm = formBuilder.group({
+      email: Validator.emailValidator,
+      password: Validator.passwordValidator,
+      nickname: Validator.nicknameValidator
     });
+  }
+
+
+  viewLogin(){
+    this.status = 1;
+  }
+  viewRegister(){
+    this.status = 2;
+    console.log(this.status + "asdf");
   }
 
   ionViewDidLoad() {
@@ -45,34 +57,11 @@ export class LoginPage {
   }
 
   login() {
-    
-    let createModal = this.modalCtrl.create('RegisterPage', { mode: 'login' }, {
-      enterAnimation: 'modal-slide-in',
-      leaveAnimation: 'modal-slide-out',
-      cssClass: "login"
-    });
-    createModal.onDidDismiss(data => {
-      console.log('dddd');
-    });
-    createModal.present();
-    
-  
+    this.loginProvider.emailLogin(this.emailPasswordForm.value["email"], this.emailPasswordForm.value["password"]);
   }
 
-  
-
-  // Call loginProvider and register the user with email and password.
   register() {
-    let createModal = this.modalCtrl.create('RegisterPage', { mode: 'register' }, {
-      enterAnimation: 'modal-slide-in',
-      leaveAnimation: 'modal-slide-out',
-      cssClass: "register"
-    });
-    createModal.onDidDismiss(data => {
-      console.log(data);
-    });
-    createModal.present();
-    
+    this.loginProvider.register(this.emailPasswordNicknameForm.value["email"], this.emailPasswordNicknameForm.value["password"]);
   }
 
   // Call loginProvider and send a password reset email.

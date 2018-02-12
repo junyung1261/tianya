@@ -9,6 +9,28 @@ page-community-create {
         background-color: map-get($colors,x-white);
         padding : 2vw 2vw 0 2vw;
     }
+
+    .ct-content-title { 
+        padding-top:4vw; 
+        margin-bottom:1px;
+        height:fit-content;
+    }
+    .ct-title,.ct-category-title { 
+        font-size:4vw !important; 
+        background-color: map-get($colors,x-white) !important;
+        padding:0 2vw 0 2vw;
+    }
+    .ct-title {
+        align-items:center;
+        height:12vw !important;
+    }
+    .ct-category-title {
+        height:10vw !important;
+        border-bottom:1px solid map-get($colors,x-gray-light2);
+        margin-bottom:2vw !important;
+    }
+    .ct-category-btns { width:96vw; background-color:map-get($colors,x-white) !important; }
+    
     .checkbox-md, .checkbox-ios {
         margin:2vw 4vw 2vw 4vw !important;
     }

@@ -45,11 +45,10 @@ page-home {
         background-color: map-get($colors,x-white);
         padding-left:4vw;
         padding-right:4vw;
-        font-size:4vw;
         color:map-get($colors,x-gray-dark);
     }
-    .h-title { margin-bottom:2vw;border-bottom:1px solid map-get($colors,x-gray-light); }
-    .h-list, .h-list-photo { border-top:1px solid map-get($colors,x-gray-light); }
+    .h-title { font-size:4vw; margin-bottom:2vw;border-bottom:1px solid map-get($colors,x-gray-light); }
+    .h-list, .h-list-photo { font-size:3.5vw; border-top:1px solid map-get($colors,x-gray-light); }
     .h-list { height:9vw; }
     .h-list-photo { height:25vw; }
     .h-photo { height:22vw; width:23vw; padding-top:1vw; padding-right:1vw; border-radius:2vw; }
@@ -61,7 +60,7 @@ page-home {
     .h-category4 { background-color:map-get($colors,x-label4); }
     .h-category5 { background-color:map-get($colors,x-label5); }
 
-    .h-date { color:map-get($colors,x-gray-middle); font-size:4vw; }
+    .h-date { color:map-get($colors,x-gray-middle); font-size:3.5vw; }
     ion-content{
         background-color: map-get($colors,x-gray-light) !important;
     }

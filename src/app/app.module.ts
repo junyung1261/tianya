@@ -19,7 +19,6 @@ import { Network } from '@ionic-native/network';
 import { AppPreferences } from '@ionic-native/app-preferences';
 import { HeaderColor } from '@ionic-native/header-color';
 
-
 //***********  Angularfire2 v4 **************/
 
 import { AngularFireModule } from 'angularfire2';

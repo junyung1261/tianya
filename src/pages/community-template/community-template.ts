@@ -126,7 +126,7 @@ export class CommunityTemplatePage {
     createModal.onDidDismiss(data => {
       if(data){
         this.ionViewDidLoad();
-        if(this.specific !='total')this.segmentChanged(this.specific);
+        if(this.specific !='total')this.segmentChanged(this.specific); 
       }
     });
     createModal.present();

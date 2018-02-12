@@ -1,0 +1,41 @@
+page-splash {
+  .splash-bg {
+    width:100vw;
+    height:100vh;
+    background-color:map-get($colors,x-mint);
+  }
+  .splash-title {
+      align-items:center;
+      height:fit-content;
+      padding:30vw 30vw 6vw 30vw;
+      width:100vw;
+      color: map-get($colors,x-white);
+      font-size:12vw;
+  }
+  .splash-subtitle {
+      align-items:center;
+      height:fit-content;
+      width:100vw;
+      color:map-get($colors,x-white);
+      font-size:4vw;
+      margin-bottom:10vw;
+  }
+  .splash-btn {
+      align-items:center;
+      height:fit-content;
+      width:100vw;
+      color:map-get($colors,x-white);
+      font-size:30vw;
+      padding:5vw ;
+  }
+  .splash-warning {
+      align-items:center;
+      height:fit-content;
+      margin:10vw;
+      height:14vw;
+      border-radius:7vw;
+      background-color:rgba(255,255,255,0.4);
+      color:map-get($colors,x-white);
+      font-size:3vw;
+  }
+}

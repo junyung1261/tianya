@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
-import { Config, Nav, Platform, ModalController, AlertController, App } from 'ionic-angular';
+import { Config, Nav, Platform, ModalController, MenuController,AlertController, App } from 'ionic-angular';
 import { Network } from '@ionic-native/network';
 import { Settings } from '../providers/providers';
 import { HeaderColor } from '@ionic-native/header-color';
@@ -10,8 +10,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FCM } from '@ionic-native/fcm';
 import * as firebase from 'firebase';
-import { LogoutProvider } from '../providers/auth/logout'
-
+import { LogoutProvider } from '../providers/auth/logout';
 
 @Component({
   templateUrl: 'app.html'
@@ -24,14 +23,14 @@ export class MyApp {
 
 
   pages: any[];
-  category: any[];
+  categories: any[];
   user;
-  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private alertCtrl: AlertController,
+  constructor(
+    private translate: TranslateService, platform: Platform, settings: Settings, private alertCtrl: AlertController,
     private config: Config, private statusBar: StatusBar, private headerColor: HeaderColor, private splashScreen: SplashScreen, private modalCtrl: ModalController,
+    private menuCtrl:MenuController,
     private afDB: AngularFireDatabase, private afAuth: AngularFireAuth, private network: Network, private app: App, private fcm: FCM, private logoutProvider: LogoutProvider) {
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
         if (platform.is('android')) {
           statusBar.overlaysWebView(false);
@@ -65,12 +64,8 @@ export class MyApp {
     
     this.afAuth.authState.subscribe(user => {
       if (!user) {
-        // you can modify here the page for non. auth users
-        // this.nav.setRoot('LoginPage');
         this.nav.setRoot('LoginPage');
-        
       }
-      // page for auth. users
       else {
         if (true) {
           if (user["emailVerified"]) {
@@ -79,7 +74,6 @@ export class MyApp {
             this.nav.setRoot('TabsPage', { animate: false });
             this.user = firebase.auth().currentUser;
             
-            //Since we're using a TabsPage an NgZone is required.
           } else {
             //Goto Verification Page.
             this.nav.setRoot('VerificationPage', { animate: false });
@@ -89,7 +83,11 @@ export class MyApp {
 
     });
 
+    this.afDB.list('/category', ref => ref).valueChanges().take(1).subscribe(categoryItems => {
+      this.categories = categoryItems;
+    });
     
+
     let disconnectSubscription = this.network.onDisconnect().subscribe(() => {
       console.log('network was disconnected :-(');
     });
@@ -112,7 +110,17 @@ export class MyApp {
     this.config.set('ios', 'backButtonText', '');
 
   }
-
+  presentMenuModal(category_inner){
+    this.menuCtrl.close();
+    let menuModal = this.modalCtrl.create('CommunityTemplatePage', {categoryName: category_inner.name, specific_inner: category_inner.specific_inner }, {
+      enterAnimation: 'modal-slide-in',
+      leaveAnimation: 'modal-slide-out'
+    });
+    menuModal.onDidDismiss(data => {
+      //console.log(data);
+    });
+    menuModal.present();
+  }
 
   presentModal(modalName) {
     let createModal = this.modalCtrl.create(modalName, { userId: 8675309 }, {

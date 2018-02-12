@@ -1,56 +1,100 @@
 page-community-template {
-    .top-search {
-        // 임시
-        width:250px;
-        text-align:left;
-        border:1px solid map-get($colors,x-gray-light);
-        margin:2vw;
-    }
-    .text-md {
+    .ct-input-txt {
+        margin:0 !important;
+        width:75vw !important;
+        height:8vw !important;
+        border:1px solid map-get($colors,x-gray-light) !important;
+        font-size:4vw !important;
+        font-weight:normal !important;
         color:map-get($colors,x-gray-middle) !important;
+        padding-left:1vw !important;
+        padding-top:1vw !important;
     }
-    .text-ios {
-        color:map-get($colors,x-gray-middle) !important;
+    .ct-content-title { 
+        padding-top:4vw; 
+        margin-bottom:1px;
+        height:fit-content;
     }
-    
-    .ct-grid-best {
-        margin-bottom:4vw;
-    }
-    .ct-best-title {
-
-        font-weight:bold;
-
-        font-size:4vw;
-        padding-left:4vw !important;
-    }
-    .ct-rank {
-        font-size:5vw;
+    .ct-title,.ct-category-title { 
+        font-size:4vw !important; 
+        background-color: map-get($colors,x-white) !important;
+        padding:0 2vw 0 2vw;
     }
     .ct-title {
-        font-size:4vw;
-        color:map-get($colors,x-gray-dark);
+        align-items:center;
+        height:12vw !important;
     }
-    .ct-nickname, .ct-label {
-        font-size:3vw;
-        color:map-get($colors,x-gray-middle);
+    .ct-category-title {
+        height:10vw !important;
+        border-bottom:1px solid map-get($colors,x-gray-light2);
+        margin-bottom:2vw !important;
+    }
+    .ct-category-btns { width:96vw; background-color:map-get($colors,x-white) !important; }
+    
+    .ctn-post {
+        background-color:map-get($colors,x-white);
+        padding:0 2vw 2vw 0;
+        
+        height:fit-content !important;
+        border-top:1px solid map-get($colors,x-gray-light2) !important;;
+        border-bottom:1px solid map-get($colors,x-gray-light2) !important;
+        margin-bottom:2vw!important;
+    }
+    .ctn-photo {
+        border:1px solid map-get($colors,x-white)!important;
+        border-radius:100% !important;
+        padding:2vw;
     }
     
-    .ct-comment {
+    .ctn-content {
+        padding-right:2vw !important;
+        padding-top:2vw !important;
+    }
+    .ctn-nickname {
+        align-items:center;
+        height:6vw;
+        color:map-get($colors,x-gray-dark);
+        font-size:4vw;
+    }
+    .ctn-info {
+        align-items:center;
+        height:6vw;
+        padding-bottom:2vw;
+    }
+    .ctn-time {
+        color:map-get($colors,x-gray-middle);
         font-size:3vw;
+    }
+    .ctn-tags {
+        color:map-get($colors,x-navy);
+        font-size:3vw;
+    }
+    .ctn-text {
+        align-items:center;
+        border-top:1px solid map-get($colors,x-gray-light);
+        padding-top:2vw;
+        font-size:4vw;
+        height:fit-content;
+        color:map-get($colors,x-gray-dark);
+    }
+    .ctn-category {
         color:map-get($colors,x-pink);
     }
-    .cb-paging {
-        font-size:4vw;
-        color:map-get($colors,x-gray-middle);
+    .ctn-summary {
+        color:map-get($colors,x-gray-dark);
+        font-size:3.5vw;
+        height:12vw;
+        padding:2vw 0 2vw 0;
     }
-
-    ion-row{
+    .ctn-btns {
         align-items:center;
-        width:100vw;
-        height:6.5vh;
-        background-color: map-get($colors,x-white);
-        border-bottom:1px solid map-get($colors,x-gray-light);
+        height:6vw;
     }
+    .ctn-view, .ctn-like, .ctn-comment {
+        color:map-get($colors,x-gray-middle);
+        font-size:3vw;
+    }
+    
     ion-content{
         background-color: map-get($colors,x-gray-light) !important;
     }

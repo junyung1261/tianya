@@ -29,7 +29,7 @@ export class MyApp {
     private translate: TranslateService, platform: Platform, settings: Settings, private alertCtrl: AlertController,
     private config: Config, private statusBar: StatusBar, private headerColor: HeaderColor, private splashScreen: SplashScreen, private modalCtrl: ModalController,
     private menuCtrl:MenuController,
-    private afDB: AngularFireDatabase, private afAuth: AngularFireAuth, private network: Network, private app: App, private fcm: FCM, private logoutProvider: LogoutProvider) {
+    private afDB: AngularFireDatabase, private afAuth: AngularFireAuth, private network: Network, private app: App, private fcm: FCM) {
     platform.ready().then(() => {
       this.statusBar.styleDefault();
         if (platform.is('android')) {
@@ -37,7 +37,8 @@ export class MyApp {
           statusBar.backgroundColorByHexString('#35babc');
           headerColor.tint('#35babc');
       }
-      this.splashScreen.hide();
+      let splash = modalCtrl.create('SplashPage');
+            splash.present();
      
       // FCM push notification start--------------------
 
@@ -144,38 +145,5 @@ export class MyApp {
     createModal.present();
   }
  
-
-  locateCustomerServiceEmail(){ 
-    //this email(wangting5@naver.com) is for test.
-    //And test is done. So, Don't send any mail.
-    window.location.href = "mailto:wangting5@naver.com";
-  }
-
-  
-
-  logout(){
-    let alert = this.alertCtrl.create({
-      title: '로그아웃',
-      message: '정말로 로그아웃 하시겠습니까?',
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            //console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Logout',
-          handler: () => {
-            this.logoutProvider.logout();
-           
-          }
-        }
-      ]
-    });
-    alert.present();
-    
-  }
 
 }

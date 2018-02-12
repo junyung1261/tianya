@@ -27,27 +27,26 @@ page-community-detail {
     .cdn-nickname {
         align-items:center;
         font-size:4vw;
-        height:6vw;
+        height:5vw;
         color:map-get($colors,x-gray-dark);
-        margin:2vw 0 0 0;
+        margin:3vw 0 0 0;
     }
     .cdn-info {
         align-items:center;
         font-size:3vw;
         color:map-get($colors,x-gray-middle);
         height:6vw;
-        margin:0 0 2vw 0;
     }
     .cdn-tags {
         color:map-get($colors,x-navy);
     }
     .cdn-text {
-        padding:2vw;
+        padding:0 2vw 4vw 2vw;
         font-size:4vw;
         color:map-get($colors,x-gray-dark);
         height:fit-content;
         border-bottom:1px solid map-get($colors,x-gray-light2);
-    }
+    } 
     .cdn-btns {
         padding:2vw;
         font-size:3vw;
@@ -73,6 +72,21 @@ page-community-detail {
     .cdn-comment-user {
         padding-right:2vw;
     }
+    .cdn-comment-no {
+        height:fit-content;
+        padding-top:2vw;
+        align-items:center;
+        font-size:16vw;
+        color:map-get($colors,x-gray-light2);
+    }
+    .cdn-comment-no-explanation {
+        height:fit-content;
+        padding-bottom:2vw;
+        align-items:center;
+        font-size:4vw;
+        color:map-get($colors,x-gray-light2);
+    }
+
     .cdn-comment-text {
         padding:2vw;
         border-left:2px solid map-get($colors,x-gray-middle);
@@ -111,6 +125,7 @@ page-community-detail {
     }
     .cdn-comment-input {
         border-radius:4vw;
+        background-color: map-get($colors,x-white);
         border:1px solid map-get($colors,x-gray-light2);
         width:80vw;
         height:8vw;

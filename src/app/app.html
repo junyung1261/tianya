@@ -16,7 +16,7 @@
   <ion-content> 
     <div class="c-menu" *ngFor="let category of categories;">
       <div class="c-menu-label">
-        <ion-icon name="flaticon-layers-1" color="x-gray-middle"></ion-icon><br>
+        <ion-icon name="{{category.menuIcon}}" color="x-gray-middle"></ion-icon><br>
         <span class="c-icon-label">{{category.name | translate}}</span>
       </div>
       <div class="c-menu-grid">

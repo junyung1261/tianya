@@ -2,6 +2,13 @@
 
 
 //hide scrollbar
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
 ::-webkit-scrollbar{ display:none; }
 
 .tabs-ios .tab-button[aria-selected=true] .tab-button-icon { 

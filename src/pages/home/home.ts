@@ -2,13 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { MapOptions } from 'angular2-baidu-map';
 import { Geolocation } from '@ionic-native/geolocation';
+
+import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 declare var KakaoTalk: any;
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -19,8 +15,16 @@ export class HomePage {
   options: MapOptions;
   markers: Array<{ point: any; options?: any }>
   test: any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public geolocation: Geolocation) {
-
+  categories: any;
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public modalCtrl: ModalController, 
+    public afDB: AngularFireDatabase,
+    public geolocation: Geolocation) {
+      this.afDB.list('/category', ref => ref).valueChanges().take(1).subscribe(categoryItems => {
+        this.categories = categoryItems;
+      });
 
     
     this.options = {

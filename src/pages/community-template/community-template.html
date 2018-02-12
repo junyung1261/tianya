@@ -56,10 +56,10 @@
               <ion-row class="ctn-summary"><ion-col col-12>글내용 요약</ion-col>
               </ion-row>
               <ion-row class="ctn-btns">
-                <ion-col col-8 text-left><span class="ctn-view">조회수</span></ion-col>
+                <ion-col col-8 text-left><span class="ctn-view"><ion-icon name="flaticon-medical"></ion-icon>&nbsp;{{ bullet.payload.val().view }}</span></ion-col>
                 <ion-col col-4 text-right>
-                  <span class="ctn-like">추천</span>
-                  <span class="ctn-comment">댓글</span>
+                  <span class="ctn-like"><ion-icon name="flaticon-hands"></ion-icon>&nbsp;{{ bullet.payload.val().like }}</span>
+                  <span class="ctn-comment"><ion-icon name="flaticon-interface-7"></ion-icon>&nbsp;{{ bullet.payload.val().commentCount }}</span>
                 </ion-col>
               </ion-row>
             </ion-grid>
@@ -87,10 +87,10 @@
                 <ion-row class="ctn-summary"><ion-col col-12>글내용 요약</ion-col>
                 </ion-row>
                 <ion-row class="ctn-btns">
-                  <ion-col col-8 text-left><span class="ctn-view">조회수</span></ion-col>
+                  <ion-col col-8 text-left><span class="ctn-view"><ion-icon name="flaticon-medical"></ion-icon>&nbsp;{{ bullet.payload.val().view }}</span></ion-col>
                   <ion-col col-4 text-right>
-                    <span class="ctn-like">추천</span>
-                    <span class="ctn-comment">댓글</span>
+                    <span class="ctn-like"><ion-icon name="flaticon-hands"></ion-icon>&nbsp;{{ bullet.payload.val().like }}</span>
+                    <span class="ctn-comment"><ion-icon name="flaticon-interface-7"></ion-icon>&nbsp;{{ bullet.payload.val().commentCount }}</span>
                   </ion-col>
                 </ion-row>
               </ion-grid>

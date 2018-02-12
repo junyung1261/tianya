@@ -14,7 +14,7 @@
 <ion-content no-paddding>
   <ion-grid no-padding class="cdn-post" *ngIf="bullet">
     <ion-row class="cdn-title">
-      <ion-col col-12>{{bullet.title}}</ion-col>
+      <ion-col col-12>[{{bullet.type | translate}}] {{bullet.title}}</ion-col>
     </ion-row>
     <ion-row class="cdn-user">
       <ion-col col-2><img src="assets/img/user_001.jpg" class="cdn-photo"></ion-col>
@@ -24,7 +24,9 @@
             <ion-col col-12>닉네임 {{bullet.writer}}</ion-col>           
           </ion-row>
           <ion-row class="cdn-info">
-            <ion-col col-7>{{bullet.date | DateFormat}} 조회 추천 {{bullet.like}} 댓글 {{bullet.commentCount}}</ion-col>
+            <ion-col col-7>
+              <ion-icon name="flaticon-clock-1"></ion-icon>&nbsp;{{bullet.date | DateFormat}} 
+            </ion-col>
             <ion-col col-5 text-right><span class="cdn-tags">#태그, #태그2</span></ion-col>
           </ion-row>
         </ion-grid>
@@ -44,15 +46,19 @@
       </ion-col>
     </ion-row>
     <ion-row class="cdn-btns">
-      <ion-col col-12 text-right>
-        <span (click)="updateLike()">추천</span><span (click)="translate(bullet)">번역</span>
+      <ion-col col-7>
+        <ion-icon name="flaticon-medical"></ion-icon>&nbsp;{{bullet.view}}
+      </ion-col>
+      <ion-col col-5 text-right>
+        <span (click)="updateLike()"><ion-icon name="flaticon-hands"></ion-icon>&nbsp;{{bullet.like}} 추천하기</span>
+        <span (click)="translate(bullet)">번역</span>
       </ion-col>
     </ion-row>
   </ion-grid>
 
   <ion-grid no-padding class="cdn-comment"  *ngIf="bullet">
     <ion-row class="cdn-comment-title">
-      <ion-col col-12>이 글의 댓글 33 </ion-col>
+      <ion-col col-12><ion-icon name="flaticon-interface-7"></ion-icon>&nbsp;&nbsp;이 글의 댓글 {{bullet.commentCount}} </ion-col>
     </ion-row>
     <div *ngIf="bullet.comments ">
       <ion-row class="cdn-comment-user">
@@ -74,8 +80,11 @@
       </ion-row>
     </div>
     <div *ngIf="!bullet.comments">
-      <ion-row class="cdn-comment-user">
-        <ion-col col-12>첫 댓글을 남겨주세요!</ion-col>
+      <ion-row class="cdn-comment-no">
+        <ion-col col-12 text-center><ion-icon name="flaticon-interface-7"></ion-icon></ion-col>
+      </ion-row>
+      <ion-row class="cdn-comment-no-explanation">
+        <ion-col col-12 text-center>첫 댓글을 남겨주세요!</ion-col>
       </ion-row>
     </div>
   </ion-grid>

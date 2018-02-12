@@ -4,7 +4,6 @@ import { HomePage } from './home';
 import { BaiduMapModule } from 'angular2-baidu-map';
 
 
-
 @NgModule({
   declarations: [
     HomePage,

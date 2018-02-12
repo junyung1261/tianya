@@ -52,7 +52,7 @@
     <ion-row>
       <ion-col col-12>
         <div class="input-12">
-          <ion-item no-lines class="input-item"><ion-label class="input-label">출생년도</ion-label><ion-datetime displayFormat="YYYY" [(ngModel)]="user.birth" [disabled]="!firstRun"></ion-datetime></ion-item>
+          <ion-item no-lines class="input-item"><ion-label class="input-label">출생년도</ion-label><ion-datetime displayFormat="YYYY" [(ngModel)]="user.birth" [disabled]="user.birth"></ion-datetime></ion-item>
         </div>
       </ion-col>
     </ion-row>

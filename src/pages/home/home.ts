@@ -82,11 +82,11 @@ export class HomePage {
   }
   initializeMap() {
  
-    let locationOptions = {timeout: 10000, enableHighAccuracy: true};
+    let locationOptions = {timeout: 10000, maximumage:60000, enableHighAccuracy: true};
  
     this.geolocation.getCurrentPosition(locationOptions).then((position) => {
  
-      console.log( position.coords.latitude + '' +position.coords.longitude,);
+      //console.log( position.coords.latitude + '' +position.coords.longitude,);
         this.options.centerAndZoom.lat = position.coords.latitude;
         this.options.centerAndZoom.lng = position.coords.longitude;
 

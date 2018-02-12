@@ -28,7 +28,7 @@ import { IonicImageViewerModule } from 'ionic-img-viewer';
 import { FCM } from '@ionic-native/fcm';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 
-
+import { Device } from '@ionic-native/device';
 import { Geolocation } from '@ionic-native/geolocation';
 
 
@@ -109,6 +109,7 @@ export const config = {
     StatusBar,
     Network,
     Geolocation,
+    Device,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AngularFireDatabase,

@@ -23,6 +23,7 @@
     "@ionic-native/app-preferences": "^4.5.3",
     "@ionic-native/camera": "4.3.3",
     "@ionic-native/core": "4.4.0",
+    "@ionic-native/device": "^4.5.3",
     "@ionic-native/fcm": "^4.5.3",
     "@ionic-native/geolocation": "^4.5.3",
     "@ionic-native/header-color": "^4.5.3",
@@ -38,6 +39,7 @@
     "angular2-baidu-map": "^4.1.0",
     "angular2-moment": "^1.8.0",
     "angularfire2": "^5.0.0-rc.5-next",
+    "com.synconset.imagepicker": "~2.1.8",
     "cordova-android": "6.3.0",
     "cordova-plugin-app-preferences": "^0.99.3",
     "cordova-plugin-badge": "^0.8.7",
@@ -66,8 +68,7 @@
     "rxjs": "5.5.2",
     "save": "^2.3.2",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.18",
-    "com.synconset.imagepicker": "~2.1.8"
+    "zone.js": "0.8.18"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.5",

@@ -98,11 +98,11 @@
      <ion-list   *ngSwitchCase="'total'" ngSelected="selected">
         <ion-grid no-padding>
             <ion-row class="row" *ngFor="let bullet of bullets | async">
-              <ion-col col-7 class="cb-text" (click)="presentBoardModal(bullet)" text-left>
+              <ion-col col-10 class="cb-text" (click)="presentBoardModal(bullet)" text-left>
                 <span class="cb-title">[{{bullet.payload.val().type | translate}}] {{ bullet.payload.val().title }}</span>&nbsp;
                 <span class="cb-view">({{bullet.payload.val().view}})</span>
               </ion-col>
-              <ion-col col-3 text-center><span class="cb-nickname">{{bullet.payload.val().writer}}</span></ion-col>
+              <!-- <ion-col col-3 text-center><span class="cb-nickname">{{bullet.payload.val().writer}}</span></ion-col> -->
               <ion-col col-2 text-center><span class="cb-time">{{bullet.payload.val().date | DateFormat}}</span></ion-col>
               </ion-row>
           </ion-grid>
@@ -112,11 +112,11 @@
      <ion-list   *ngSwitchCase="specific.name">
         <ion-grid no-padding>
             <ion-row class="row" *ngFor="let bullet of bullets_tag | async" >
-              <ion-col col-7 class="cb-text" (click)="presentBoardModal(bullet)" text-left>
+              <ion-col col-10 class="cb-text" (click)="presentBoardModal(bullet)" text-left>
                 <span class="cb-title">[{{bullet.payload.val().type | translate}}] {{ bullet.payload.val().title }}</span>&nbsp;
                 <span class="cb-view">({{bullet.payload.val().view}})</span>
               </ion-col>
-              <ion-col col-3 text-center><span class="cb-nickname">{{bullet.payload.val().writer}}</span></ion-col>
+              <!-- <ion-col col-3 text-center><span class="cb-nickname">{{bullet.payload.val().writer}}</span></ion-col> -->
               <ion-col col-2 text-center><span class="cb-time">{{bullet.payload.val().date | DateFormat}}</span></ion-col>
               </ion-row>
           </ion-grid>

@@ -12,23 +12,22 @@ import { FCM } from '@ionic-native/fcm';
 import * as firebase from 'firebase';
 import { LogoutProvider } from '../providers/auth/logout';
 
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any;
-  loadedCommunityList: any = [];
+  
 
   @ViewChild(Nav) nav: Nav;
 
-
-  pages: any[];
+  markers = [];
   categories: any[];
   user;
   constructor(
     private translate: TranslateService, platform: Platform, settings: Settings, private alertCtrl: AlertController,
     private config: Config, private statusBar: StatusBar, private headerColor: HeaderColor, private splashScreen: SplashScreen, private modalCtrl: ModalController,
-    private menuCtrl:MenuController,
+    private menuCtrl:MenuController,   
     private afDB: AngularFireDatabase, private afAuth: AngularFireAuth, private network: Network, private app: App, private fcm: FCM, private logoutProvider: LogoutProvider) {
     platform.ready().then(() => {
       this.statusBar.styleDefault();
@@ -95,6 +94,7 @@ export class MyApp {
 
 
   }
+
 
   initTranslate() {
     // Set the default language for translation strings, and the current language.

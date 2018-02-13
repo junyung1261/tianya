@@ -44,6 +44,7 @@ export class VerificationPage {
     this.isLoggingOut = false;
     // Get user data and send an email verification automatically.
     this.getUserData();
+    
     this.sendEmailVerification();
     // Create the emailVerification checker.
     var that = this;
@@ -53,7 +54,7 @@ export class VerificationPage {
         clearInterval(that.checkVerified);
         that.emailVerified = true;
         that.alertProvider.showEmailVerifiedMessageAndRedirect(that.navCtrl);
-        this.createUserData();
+        that.createUserData();
       }
     }, 1000);
   }
@@ -230,40 +231,23 @@ export class VerificationPage {
           } else {
             name = "User";
           }
-
-          // Set default username based on name and userId.
-          let username = name.replace(/ /g, '') + userId.substring(0, 6);
-
          
           // Get email from Firebase user.
           email = user.email;
 
-          let profile = {
-            displayName: username,
-            photoURL: ''
-          };
-
-          firebase.auth().currentUser.updateProfile(profile)
-          .then((success) => {
-            this.angularfireDatabase.object('/accounts/' + userId).set({
-              username: username,
-              email: email,
-              dateCreated: new Date().toString()
-            }).then(() => {
-              
-            }).catch((error) => {
-              this.alertProvider.showErrorMessage('profile/error-update-profile');
-            });
-
+          
+         
+          this.angularfireDatabase.object('/accounts/' + userId).set({
+            username: name,
+            email: email,
+            dateCreated: new Date().toString()
+          }).then(() => {
+            this.loadingProvider.hide();
           }).catch((error) => {
-            // Show error
-            
-            let code = error["code"];
-            this.alertProvider.showErrorMessage(code);
-            if (code == 'auth/requires-recent-login') {
-              this.logoutProvider.logout();
-            }
+            this.alertProvider.showErrorMessage('profile/error-update-profile');
           });
+
+          
           // Insert data on our database using AngularFire.
           
         }

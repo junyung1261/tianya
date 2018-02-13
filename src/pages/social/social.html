@@ -49,7 +49,7 @@
         <ion-col col-12>
           <ion-slides pager *ngIf="feed.payload.val().images?.length > 0" no-padding> 
             <ion-slide *ngFor="let images of  feed.payload.val().images  " >
-              <img src ="{{images.url}}"   imageViewer="{{feed.images}}">
+              <img src ="{{images.url}}"   imageViewer="{{feed.payload.val().images}}">
             </ion-slide>
           </ion-slides>
         </ion-col>

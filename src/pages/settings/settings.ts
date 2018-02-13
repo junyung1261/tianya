@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-
+import { AppPreferences } from '@ionic-native/app-preferences';
 import { Settings } from '../../providers/providers';
 
 /**
@@ -17,12 +17,18 @@ import { Settings } from '../../providers/providers';
 })
 export class SettingsPage {
 
+  noticeRecept : boolean = false;
+  eventRecept : boolean = false;
+  messageReqt : boolean = false;
+  messageAcpt : boolean = false;
+
   constructor(public navCtrl: NavController,
     public settings: Settings,
     public formBuilder: FormBuilder,
     public navParams: NavParams,
     public translate: TranslateService,
-    public viewCtrl: ViewController) {
+    public viewCtrl: ViewController, 
+    private appPreferences: AppPreferences) {
   }
 
   
@@ -36,7 +42,12 @@ export class SettingsPage {
     
   }
 
-  ngOnChanges() {
-    
+  onSettingChange(valueName : string) {
+    // 공사중
+    console.log("look :", valueName)
+    console.log("noticeRecept :", this.noticeRecept)
+    console.log("eventRecept :", this.eventRecept)
+    console.log("messageReqt :", this.messageReqt)
+    console.log("messageAcpt :", this.messageAcpt)
   }
 }

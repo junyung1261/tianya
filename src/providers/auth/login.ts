@@ -51,12 +51,17 @@ export class LoginProvider {
   }
 
   // Register user on Firebase given the email and password.
-  register(email, password) {
+  register(email, password, nickname) {
     this.loadingProvider.show();
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((success) => {
-        this.loadingProvider.hide();
-        this.navCtrl.setRoot('VerificationPage');
+        success.updateProfile({
+          displayName: nickname
+        }).then((success) => {
+          this.loadingProvider.hide();
+          this.navCtrl.setRoot('VerificationPage');
+        });
+        
       })
       .catch((error) => {
         this.loadingProvider.hide();

@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { DataProvider } from '../../providers/data/data'
 import { LoadingProvider } from '../../providers/loading/loading'
 import { Http } from '@angular/http';
 import * as firebase from 'firebase';
+import 'rxjs/add/operator/map';
 
 
 @IonicPage()
@@ -14,24 +15,22 @@ import * as firebase from 'firebase';
   templateUrl: 'community-detail.html',
 })
 export class CommunityDetailPage {
-
-  feedsRef: AngularFireList<any>;
+  
+  bulletRef: AngularFireObject<any>;
+  accountRef: AngularFireObject<any>;
   feeds = [];
-
+  user;
   count = 1;
   lastKey = '';
   bulletKey: any;
-  bulletDBName: any;
   communityName: any;
   bullet: any;
-  bulletImage: Observable<any>;
-  bulletRef: AngularFireList<any>;
-
+  reply = '';
   likeCount: any;
   commentFlag: number = 0;
   // testbullet : any;
   text = '';
-
+  test;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -41,15 +40,10 @@ export class CommunityDetailPage {
     public dataProvider: DataProvider,
     public loadingProvider: LoadingProvider) {
 
-    this.communityName = this.navParams.get('categoryName');
-    this.bulletKey = this.navParams.get('bulletKey');
-
-    this.bulletDBName = "community/" + this.communityName + "/" + this.bulletKey;
-
-    this.afDB.object(this.bulletDBName).valueChanges().subscribe(item => {
-      this.bullet = item;
-      console.log("bullet : ", this.bullet);
-    });
+   
+    // Use snapshotChanges().map() to store the key
+   
+   
     // this.afDB.list(this.bulletDBName).valueChanges().subscribe(item => {
     //   this.testbullet = item;
     //   console.log("comments : ",this.testbullet);
@@ -60,9 +54,24 @@ export class CommunityDetailPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CommunityDetailPage');
-    firebase.database().ref(this.bulletDBName).child('view').transaction(function(currentView){
-      return currentView+1;
-    });
+    this.communityName = this.navParams.get('categoryName');
+    this.bulletKey = this.navParams.get('bulletKey');
+    this.user = firebase.auth().currentUser;
+      
+    this.bulletRef = this.afDB.object('/community/' + this.communityName + '/' + this.bulletKey);
+    this.accountRef = this.afDB.object('/accounts/' +this.user.uid + '/comments');
+  
+    
+
+    this.bulletRef.valueChanges().take(1).subscribe(item => {
+      this.bullet = item;
+      if(this.bullet.commentCount > 0)
+      this.afDB.list('/comments/' + this.bulletKey).valueChanges().subscribe(comments => {
+        this.bullet.comments = comments;
+        this.bullet.commentCount = comments.length;
+      });
+    })
+    
   }
 
   closeCommunityDetail() {
@@ -77,25 +86,24 @@ export class CommunityDetailPage {
   
 
   updateLike() {
-    firebase.database().ref(this.bulletDBName).child('like').transaction(function(currentLike){
+    firebase.database().ref("community/" + this.communityName + "/" + this.bulletKey).child('like').transaction(function(currentLike){
       return currentLike+1;
     });
   }
   
-
+  
   createComment() {
     // commentFlag == 1 : opened, ==0 : closed
-    if (this.commentFlag == 1) {
-      if ((this.text.trim() != "")) {
-        firebase.database().ref(this.bulletDBName+"/comments").push({
-          description: this.text,
-          writer: firebase.auth().currentUser.uid,
+    
+      if ((this.reply.trim() != "")) {
+        this.afDB.list("/comments/"+this.bulletKey).push({
+          description: this.reply,
+          writer: firebase.auth().currentUser.displayName,
           date: firebase.database['ServerValue'].TIMESTAMP
         }).then((success) => {
-          firebase.database().ref(this.bulletDBName).child('commentCount').transaction(function(currentCount){
-            return currentCount+1;
-          });
-          this.text=null;
+          this.accountRef.update({[success.key]: 'c' + this.bulletKey });
+          this.bulletRef.update({commentCount: this.bullet.comments.length});
+          this.reply='';
         })
       }
       else{
@@ -103,11 +111,7 @@ export class CommunityDetailPage {
       }
 
       this.commentFlag = 0;
-    }
-    else if (this.commentFlag == 0) {
-      this.commentFlag = 1;
-      
-    }
+    
 
   }
 }

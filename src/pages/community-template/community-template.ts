@@ -152,10 +152,15 @@ export class CommunityTemplatePage {
         enterAnimation: 'modal-slide-in',
         leaveAnimation: 'modal-slide-out'
       });
+      
     createModal.onDidDismiss(data => {
       console.log('asdasd');
     });
+    firebase.database().ref("community/" + this.categoryName + "/" + bullet.key).child('view').transaction(function(currentView){
+      return currentView+1;
+    });
     createModal.present();
+    
   }
 
 }

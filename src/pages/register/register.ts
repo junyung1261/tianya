@@ -51,7 +51,7 @@ export class RegisterPage {
   }
 
   register() {
-    this.loginProvider.register(this.emailPasswordNicknameForm.value["email"], this.emailPasswordNicknameForm.value["password"]);
+    this.loginProvider.register(this.emailPasswordNicknameForm.value["email"], this.emailPasswordNicknameForm.value["password"], this.emailPasswordNicknameForm.value["nickname"]);
   }
 
 }

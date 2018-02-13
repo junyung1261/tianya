@@ -19,8 +19,9 @@ export namespace Validator {
   ];
   export const nicknameValidator = ['', [
     Validators.minLength(5),
+    Validators.maxLength(12),
     Validators.required,
-    Validators.pattern('^[a-zA-Z0-9]')]
+    Validators.pattern('^([a-zA-Z0-9\u4E00-\u9FA5\uF900-\uFA2D\u3131-\uD79D])*$')]
   ];
   // Set your prompt input validators here, don't forget to import and use them on the AlertController prompt.
   // In this example they are used by home.ts where the user are allowed to change their profile.

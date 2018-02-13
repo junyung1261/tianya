@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AngularFireDatabase } from 'angularfire2/database';
+import * as firebase from 'firebase';
 
 @IonicPage()
 @Component({
@@ -51,7 +52,7 @@ export class ChatPage {
       console.log(position);
       if(position.coords !== undefined){
         
-        this.afDB.object('/account/' + firebase.auth().currentUser.uid + '/location').update({
+        this.afDB.object('/accounts/' + firebase.auth().currentUser.uid + '/location').update({
           lat: position.coords.latitude,
           lng: position.coords.longitude
         })

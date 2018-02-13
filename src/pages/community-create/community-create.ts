@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, AngularFireObject } from 'angularfire2/database';
 import * as firebase from 'firebase';
 import { DataProvider } from "../../providers/data/data"
 import { ImageUpload } from "../../components/image-upload/image-upload";
@@ -14,29 +14,29 @@ export class CommunityCreatePage {
 
   @ViewChild(ImageUpload) imageUpload: ImageUpload;
   communityRef: AngularFireList<any>;
+  accountRef: AngularFireObject<any>;
   communityName: any;
-  specificName: string;
-  communityDBName: any;
   specific_inner = [];
   selectedSpecific;
   title = '';
   text = '';
-  images = [];
+  
   user;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
     public afDB: AngularFireDatabase, public dataProvider: DataProvider) {
     
-    this.user = firebase.auth().currentUser;
+    
   }
 
   ionViewDidLoad() {
+    this.user = firebase.auth().currentUser;
     console.log('ionViewDidLoad CommunityCreatePage');
     this.communityName = this.navParams.get('categoryName');
     this.specific_inner = this.navParams.get('specific_inner');
     
     this.communityRef = this.afDB.list('/community/' + this.communityName);
-
+    this.accountRef = this.afDB.object('/accounts/' +this.user.uid + '/community');
   }
 
   
@@ -60,6 +60,7 @@ export class CommunityCreatePage {
         this.imageUpload.key = success.key;
         this.imageUpload.uploadImages("community/" + this.communityName);
       }
+      this.accountRef.update({[success.key]: this.communityName });
       this.viewCtrl.dismiss({ data: true });
       // this.addAddtions(success.key);
     })

@@ -21,7 +21,7 @@
       <ion-col col-10>
         <ion-grid no-padding>
           <ion-row class="cdn-nickname">
-            <ion-col col-12>닉네임 {{bullet.writer}}</ion-col>           
+            <ion-col col-12>{{bullet.writer}}</ion-col>           
           </ion-row>
           <ion-row class="cdn-info">
             <ion-col col-7>
@@ -60,20 +60,20 @@
     <ion-row class="cdn-comment-title">
       <ion-col col-12><ion-icon name="flaticon-interface-7"></ion-icon>&nbsp;&nbsp;이 글의 댓글 {{bullet.commentCount}} </ion-col>
     </ion-row>
-    <div *ngIf="bullet.comments ">
-      <ion-row class="cdn-comment-user">
+    <div *ngIf="bullet.comments && bullet.comments.length > 0 ">
+      <ion-row class="cdn-comment-user" *ngFor="let comment of bullet.comments">
         <ion-col col-2><img src="assets/img/user_001.jpg" class="cdn-photo"></ion-col>
         <ion-col col-10>
           <ion-grid no-padding>
             <ion-row class="cdn-nickname">
-              <ion-col col-12>닉네임 {{comment.writer}</ion-col>           
+              <ion-col col-12> {{comment.writer}}</ion-col>           
             </ion-row>
             <ion-row class="cdn-info">
-              <ion-col col-8>작성시간 {{comment.date | DateFormat}}</ion-col>
+              <ion-col col-8> {{comment.date | DateFormat}}</ion-col>
               <ion-col col-4 text-right>추천</ion-col>
             </ion-row>
             <ion-row class="cdn-comment-text">
-              <ion-col col-12>댓글내용 {{comment.description}}</ion-col>
+              <ion-col col-12> {{comment.description}}</ion-col>
             </ion-row>
           </ion-grid>
         </ion-col>
@@ -91,6 +91,7 @@
 </ion-content>
 <ion-footer no-border>
   <ion-toolbar class="cdn-comment-write">
-    <ion-input class="cdn-comment-input"></ion-input>
+    <ion-input col-10 class="cdn-comment-input"  [(ngModel)]="reply"></ion-input>
+    <button ion-button icon-only col-2 (click)="createComment()"><ion-icon name="flaticon-clock-1"></ion-icon></button>
   </ion-toolbar>
 </ion-footer>
